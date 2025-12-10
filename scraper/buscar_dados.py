@@ -23,7 +23,29 @@ def parse_exp_value(exp_str):
     except:
         return 0
 
-def buscar_vocacao_tibiadata(nome):
+def buscar_vocacoes_guild_tibiadata():
+    """Busca TODAS as vocações da guild de uma vez só - muito mais rápido e confiável."""
+    print("Buscando vocações da guild via TibiaData API...")
+    vocacoes = {}
+    try:
+        url = f"https://api.tibiadata.com/v4/guild/{GUILD_NAME}"
+        resp = requests.get(url, timeout=30)
+        if resp.status_code == 200:
+            data = resp.json()
+            if 'guild' in data and 'members' in data['guild']:
+                for member in data['guild']['members']:
+                    nome_lower = member.get('name', '').lower()
+                    vocacoes[nome_lower] = {
+                        'vocation': member.get('vocation', ''),
+                        'level': member.get('level', 0)
+                    }
+                print(f"  ✓ {len(vocacoes)} vocações carregadas da guild")
+    except Exception as e:
+        print(f"  ERRO ao buscar vocações da guild: {e}")
+    return vocacoes
+
+def buscar_vocacao_individual(nome):
+    """Busca vocação de um jogador específico (para extras)."""
     try:
         url = f"https://api.tibiadata.com/v4/character/{requests.utils.quote(nome)}"
         resp = requests.get(url, timeout=15)
@@ -39,7 +61,6 @@ def buscar_vocacao_tibiadata(nome):
 def buscar_exp_extra_guildstats(nome):
     """Busca XP na aba Experience do GuildStats (tab=9)."""
     try:
-        # A aba de Experience é tab=9
         url = f"https://guildstats.eu/character?nick={requests.utils.quote(nome)}&tab=9"
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
         resp = requests.get(url, headers=headers, timeout=15)
@@ -57,15 +78,11 @@ def buscar_exp_extra_guildstats(nome):
         exp_7days = 0
         exp_30days = 0
         
-        # Procura valores de XP em todas as tabelas
         for table in soup.find_all('table'):
-            rows = table.find_all('tr')
-            for row in rows:
+            for row in table.find_all('tr'):
                 cells = row.find_all(['td', 'th'])
-                cell_texts = [c.text.strip() for c in cells]
-                
-                for text in cell_texts:
-                    # XP tem formato +XXX,XXX,XXX ou -XXX,XXX,XXX
+                for cell in cells:
+                    text = cell.text.strip()
                     if (text.startswith('+') or text.startswith('-')) and ',' in text:
                         val = parse_exp_value(text)
                         if val != 0:
@@ -76,24 +93,7 @@ def buscar_exp_extra_guildstats(nome):
                             elif exp_30days == 0:
                                 exp_30days = val
         
-        # Se não encontrou na tabela, procura no texto geral
-        if exp_yesterday == 0 and exp_7days == 0:
-            text = soup.get_text()
-            import re
-            # Procura padrões de XP
-            matches = re.findall(r'[+-][\d,]+', text)
-            for match in matches:
-                if ',' in match and len(match) > 5:
-                    val = parse_exp_value(match)
-                    if val != 0:
-                        if exp_yesterday == 0:
-                            exp_yesterday = val
-                        elif exp_7days == 0:
-                            exp_7days = val
-                        elif exp_30days == 0:
-                            exp_30days = val
-        
-        print(f"    XP encontrada: ontem={exp_yesterday:,}, 7d={exp_7days:,}, 30d={exp_30days:,}")
+        print(f"    XP: ontem={exp_yesterday:,}, 7d={exp_7days:,}, 30d={exp_30days:,}")
         return {'exp_yesterday': exp_yesterday, 'exp_7days': exp_7days, 'exp_30days': exp_30days}
         
     except Exception as e:
@@ -101,7 +101,7 @@ def buscar_exp_extra_guildstats(nome):
     return None
 
 def buscar_dados_guild():
-    print("Buscando dados do GuildStats...")
+    print("Buscando dados de XP do GuildStats...")
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     resp = requests.get(GUILDSTATS_URL, headers=headers, timeout=30)
     resp.raise_for_status()
@@ -150,7 +150,7 @@ def buscar_dados_guild():
             'is_extra': False
         })
     
-    print(f"  Encontrados {len(jogadores)} jogadores")
+    print(f"  ✓ {len(jogadores)} jogadores encontrados")
     return jogadores
 
 def carregar_extras():
@@ -171,35 +171,40 @@ def main():
     print(f"Hora: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
     
-    # 1. Busca dados da guild
+    # 1. Busca TODAS as vocações da guild de uma vez (rápido e confiável)
+    vocacoes_guild = buscar_vocacoes_guild_tibiadata()
+    
+    # 2. Busca dados de XP da guild no GuildStats
     jogadores = buscar_dados_guild()
     
-    # 2. Busca vocações para jogadores da guild
-    print("\nBuscando vocações da guild...")
-    for i, jogador in enumerate(jogadores):
-        dados = buscar_vocacao_tibiadata(jogador['name'])
-        if dados:
-            jogador['vocation'] = dados['vocation']
+    # 3. Aplica vocações aos jogadores (usando o dicionário que já temos)
+    print("\nAplicando vocações aos jogadores...")
+    sem_vocacao = 0
+    for jogador in jogadores:
+        nome_lower = jogador['name'].lower()
+        if nome_lower in vocacoes_guild:
+            jogador['vocation'] = vocacoes_guild[nome_lower]['vocation']
             if jogador['level'] == 0:
-                jogador['level'] = dados['level']
-        if (i + 1) % 25 == 0:
-            print(f"  {i + 1}/{len(jogadores)} vocações...")
-        time.sleep(0.1)
+                jogador['level'] = vocacoes_guild[nome_lower]['level']
+        else:
+            sem_vocacao += 1
     
-    # 3. Processa extras
+    print(f"  ✓ Vocações aplicadas ({sem_vocacao} jogadores sem vocação encontrada)")
+    
+    # 4. Processa extras (jogadores de fora da guild)
     extras = carregar_extras()
     print(f"\nExtras para buscar: {extras}")
     
     for nome in extras:
-        print(f"\n  Buscando extra: {nome}")
+        print(f"\n  Buscando: {nome}")
         
-        # Busca vocação
-        dados = buscar_vocacao_tibiadata(nome)
+        # Busca vocação individual (não está na guild)
+        dados = buscar_vocacao_individual(nome)
         if not dados:
-            print(f"    ERRO: {nome} não encontrado no TibiaData")
+            print(f"    ERRO: não encontrado no TibiaData")
             continue
         
-        print(f"    TibiaData: Lvl {dados['level']}, {dados['vocation']}")
+        print(f"    TibiaData OK: Lvl {dados['level']}, {dados['vocation']}")
         
         # Busca XP na aba Experience (tab=9)
         exp = buscar_exp_extra_guildstats(nome)
@@ -215,7 +220,7 @@ def main():
             'is_extra': True
         })
     
-    # 4. Cria rankings
+    # 5. Cria rankings
     def criar_ranking(jogadores, campo, top_n):
         filtrados = [j for j in jogadores if j.get(campo, 0) > 0]
         filtrados.sort(key=lambda x: x.get(campo, 0), reverse=True)
@@ -244,11 +249,11 @@ def main():
     
     print(f"\n{'='*60}")
     print(f"✅ Concluído!")
-    print(f"   Ontem: {len(dados_finais['rankings']['yesterday'])}")
-    print(f"   7 dias: {len(dados_finais['rankings']['7days'])}")  
-    print(f"   30 dias: {len(dados_finais['rankings']['30days'])}")
+    print(f"   Ontem: {len(dados_finais['rankings']['yesterday'])} jogadores")
+    print(f"   7 dias: {len(dados_finais['rankings']['7days'])} jogadores")  
+    print(f"   30 dias: {len(dados_finais['rankings']['30days'])} jogadores")
     
-    # Mostra extras no ranking
+    # Mostra extras que entraram no ranking
     for periodo in ['yesterday', '7days', '30days']:
         extras_rank = [j for j in dados_finais['rankings'][periodo] if j['is_extra']]
         if extras_rank:
