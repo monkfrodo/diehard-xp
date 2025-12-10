@@ -24,7 +24,7 @@ def parse_exp_value(exp_str):
         return 0
 
 def buscar_vocacoes_guild_tibiadata():
-    """Busca TODAS as vocações da guild de uma vez só - muito mais rápido e confiável."""
+    """Busca TODAS as vocações da guild de uma vez só."""
     print("Buscando vocações da guild via TibiaData API...")
     vocacoes = {}
     try:
@@ -154,30 +154,42 @@ def buscar_dados_guild():
     return jogadores
 
 def carregar_extras():
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    extras_path = os.path.join(script_dir, '..', 'dados', 'extras.json')
-    if os.path.exists(extras_path):
-        try:
-            with open(extras_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                return [e.get('nome', '') for e in data.get('extras', []) if e.get('nome')]
-        except:
-            pass
+    """Carrega extras tentando múltiplos caminhos."""
+    possiveis_caminhos = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'dados', 'extras.json'),
+        os.path.join(os.getcwd(), 'dados', 'extras.json'),
+        'dados/extras.json'
+    ]
+    
+    for caminho in possiveis_caminhos:
+        print(f"  Tentando: {caminho}")
+        if os.path.exists(caminho):
+            try:
+                with open(caminho, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    extras = [e.get('nome', '') for e in data.get('extras', []) if e.get('nome')]
+                    print(f"  ✓ Carregados {len(extras)} extras de {caminho}")
+                    return extras
+            except Exception as e:
+                print(f"  Erro ao ler {caminho}: {e}")
+    
+    print("  ✗ Nenhum arquivo extras.json encontrado!")
     return []
 
 def main():
     print("=" * 60)
     print(f"Atualizando ranking: {GUILD_NAME}")
     print(f"Hora: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Diretório atual: {os.getcwd()}")
     print("=" * 60)
     
-    # 1. Busca TODAS as vocações da guild de uma vez (rápido e confiável)
+    # 1. Busca TODAS as vocações da guild de uma vez
     vocacoes_guild = buscar_vocacoes_guild_tibiadata()
     
     # 2. Busca dados de XP da guild no GuildStats
     jogadores = buscar_dados_guild()
     
-    # 3. Aplica vocações aos jogadores (usando o dicionário que já temos)
+    # 3. Aplica vocações aos jogadores
     print("\nAplicando vocações aos jogadores...")
     sem_vocacao = 0
     for jogador in jogadores:
@@ -191,14 +203,14 @@ def main():
     
     print(f"  ✓ Vocações aplicadas ({sem_vocacao} jogadores sem vocação encontrada)")
     
-    # 4. Processa extras (jogadores de fora da guild)
+    # 4. Processa extras
+    print("\nCarregando extras...")
     extras = carregar_extras()
-    print(f"\nExtras para buscar: {extras}")
+    print(f"\nExtras para buscar ({len(extras)} total): {extras}")
     
     for nome in extras:
         print(f"\n  Buscando: {nome}")
         
-        # Busca vocação individual (não está na guild)
         dados = buscar_vocacao_individual(nome)
         if not dados:
             print(f"    ERRO: não encontrado no TibiaData")
@@ -206,7 +218,6 @@ def main():
         
         print(f"    TibiaData OK: Lvl {dados['level']}, {dados['vocation']}")
         
-        # Busca XP na aba Experience (tab=9)
         exp = buscar_exp_extra_guildstats(nome)
         time.sleep(0.5)
         
@@ -241,8 +252,9 @@ def main():
         }
     }
     
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_path = os.path.join(script_dir, '..', 'dados', 'ranking.json')
+    # Salva o arquivo
+    output_path = os.path.join(os.getcwd(), 'dados', 'ranking.json')
+    print(f"\nSalvando em: {output_path}")
     
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(dados_finais, f, ensure_ascii=False, indent=2)
