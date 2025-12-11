@@ -2,9 +2,10 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import time
+import re
 
 GUILD_NAME = "Diehard"
 WORLD = "Luminera"
@@ -59,7 +60,7 @@ def buscar_vocacao_individual(nome):
     return None
 
 def buscar_exp_extra_guildstats(nome):
-    """Busca XP na aba Experience do GuildStats (tab=9)."""
+    """Busca XP na aba Experience do GuildStats (tab=9) - versão corrigida."""
     try:
         url = f"https://guildstats.eu/character?nick={requests.utils.quote(nome)}&tab=9"
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
@@ -74,24 +75,43 @@ def buscar_exp_extra_guildstats(nome):
         
         soup = BeautifulSoup(resp.text, 'html.parser')
         
-        exp_yesterday = 0
-        exp_7days = 0
-        exp_30days = 0
+        # Procura a tabela com datas (formato YYYY-MM-DD)
+        exp_por_data = {}
         
         for table in soup.find_all('table'):
-            for row in table.find_all('tr'):
-                cells = row.find_all(['td', 'th'])
-                for cell in cells:
-                    text = cell.text.strip()
-                    if (text.startswith('+') or text.startswith('-')) and ',' in text:
-                        val = parse_exp_value(text)
-                        if val != 0:
-                            if exp_yesterday == 0:
-                                exp_yesterday = val
-                            elif exp_7days == 0:
-                                exp_7days = val
-                            elif exp_30days == 0:
-                                exp_30days = val
+            rows = table.find_all('tr')
+            for row in rows:
+                cells = row.find_all('td')
+                if len(cells) >= 2:
+                    # Primeira célula deve ser uma data
+                    first_cell = cells[0].text.strip()
+                    # Verifica se é uma data no formato YYYY-MM-DD
+                    if re.match(r'\d{4}-\d{2}-\d{2}', first_cell):
+                        # Segunda célula é o Exp change
+                        exp_text = cells[1].text.strip()
+                        exp_value = parse_exp_value(exp_text)
+                        if exp_value != 0:
+                            exp_por_data[first_cell] = exp_value
+        
+        if not exp_por_data:
+            print(f"    {nome}: nenhum dado de XP encontrado")
+            return None
+        
+        # Ordena as datas
+        datas_ordenadas = sorted(exp_por_data.keys(), reverse=True)
+        
+        # Pega ontem (data mais recente)
+        exp_yesterday = exp_por_data.get(datas_ordenadas[0], 0) if len(datas_ordenadas) > 0 else 0
+        
+        # Soma últimos 7 dias
+        exp_7days = 0
+        for data in datas_ordenadas[:7]:
+            exp_7days += exp_por_data.get(data, 0)
+        
+        # Soma últimos 30 dias
+        exp_30days = 0
+        for data in datas_ordenadas[:30]:
+            exp_30days += exp_por_data.get(data, 0)
         
         print(f"    XP: ontem={exp_yesterday:,}, 7d={exp_7days:,}, 30d={exp_30days:,}")
         return {'exp_yesterday': exp_yesterday, 'exp_7days': exp_7days, 'exp_30days': exp_30days}
