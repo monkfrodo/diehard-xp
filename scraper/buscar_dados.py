@@ -12,7 +12,6 @@ WORLD = "Luminera"
 TOP_N = 50
 
 GUILDSTATS_URL = f"https://guildstats.eu/guild={GUILD_NAME}&op=3"
-DEATHS_URL = f"https://guildstats.eu/deaths?world={WORLD}"
 
 def parse_exp_value(exp_str):
     if not exp_str or exp_str.strip() in ['*-*', '-', '', '0']:
@@ -76,7 +75,6 @@ def buscar_exp_extra_guildstats(nome):
         
         soup = BeautifulSoup(resp.text, 'html.parser')
         
-        # Procura a tabela com datas (formato YYYY-MM-DD)
         exp_por_data = {}
         
         for table in soup.find_all('table'):
@@ -98,7 +96,6 @@ def buscar_exp_extra_guildstats(nome):
         datas_ordenadas = sorted(exp_por_data.keys(), reverse=True)
         
         exp_yesterday = exp_por_data.get(datas_ordenadas[0], 0) if len(datas_ordenadas) > 0 else 0
-        
         exp_7days = sum(exp_por_data.get(d, 0) for d in datas_ordenadas[:7])
         exp_30days = sum(exp_por_data.get(d, 0) for d in datas_ordenadas[:30])
         
@@ -108,6 +105,50 @@ def buscar_exp_extra_guildstats(nome):
     except Exception as e:
         print(f"    Erro buscando XP de {nome}: {e}")
     return None
+
+def buscar_mortes_jogador(nome):
+    """Busca mortes recentes de um jogador no GuildStats (tab=5)."""
+    try:
+        url = f"https://guildstats.eu/character?nick={requests.utils.quote(nome)}&tab=5"
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        resp = requests.get(url, headers=headers, timeout=10)
+        
+        if resp.status_code != 200:
+            return []
+        
+        if "does not exsists" in resp.text or "don't have in our datebase" in resp.text:
+            return []
+        
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        mortes = []
+        
+        page_text = soup.get_text()
+        
+        # Procura padrões de morte: "DD-MM-YYYY HH:MM Killed at level XXX by ..."
+        death_pattern = re.findall(
+            r'(\d{2}-\d{2}-\d{4})\s+\d{2}:\d{2}\s+Killed at level\s+(\d+)\s+by\s+([^.]+)',
+            page_text,
+            re.IGNORECASE
+        )
+        
+        for match in death_pattern:
+            data = match[0]
+            level = int(match[1]) if match[1] else 0
+            reason = match[2].strip()[:60] if match[2] else ''
+            
+            mortes.append({
+                'date': data,
+                'level': level,
+                'reason': reason
+            })
+            
+            if len(mortes) >= 5:
+                break
+        
+        return mortes
+        
+    except Exception as e:
+        return []
 
 def buscar_dados_guild():
     print("Buscando dados de XP do GuildStats...")
@@ -162,81 +203,48 @@ def buscar_dados_guild():
     print(f"  ✓ {len(jogadores)} jogadores encontrados")
     return jogadores
 
-def buscar_mortes_guild(membros_guild, vocacoes_guild):
-    """Busca mortes recentes de membros da guild."""
-    print("\nBuscando mortes recentes...")
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+def buscar_todas_mortes(jogadores, vocacoes_guild):
+    """Busca mortes de todos os jogadores."""
+    print(f"\nBuscando mortes de {len(jogadores)} jogadores...")
+    todas_mortes = []
     
-    mortes = []
-    nomes_guild = set(m.lower() for m in membros_guild)
-    
-    try:
-        resp = requests.get(DEATHS_URL, headers=headers, timeout=30)
-        if resp.status_code != 200:
-            print(f"  Erro ao buscar página de mortes: {resp.status_code}")
-            return mortes
+    for i, jogador in enumerate(jogadores):
+        nome = jogador['name']
+        mortes = buscar_mortes_jogador(nome)
         
-        soup = BeautifulSoup(resp.text, 'html.parser')
-        
-        for row in soup.find_all('tr'):
-            cols = row.find_all('td')
-            if len(cols) < 4:
-                continue
-            
-            # Procura link do personagem
-            char_link = None
-            for col in cols:
-                link = col.find('a')
-                if link and 'character?nick=' in str(link.get('href', '')):
-                    char_link = link
-                    break
-            
-            if not char_link:
-                continue
-            
-            nome = char_link.text.strip()
-            
-            # Verifica se é membro da guild
-            if nome.lower() not in nomes_guild:
-                continue
-            
-            col_texts = [col.text.strip() for col in cols]
-            
-            # Extrai level
-            level = 0
-            for text in col_texts:
-                if text.isdigit():
-                    num = int(text)
-                    if 1 < num < 5000:
-                        level = num
-                        break
-            
-            # Extrai XP perdida (valor negativo)
-            exp_lost = 0
-            for text in col_texts:
-                if text.startswith('-') and ',' in text:
-                    exp_lost = abs(parse_exp_value(text))
-                    break
-            
-            # Busca vocação
-            vocation = ''
-            if nome.lower() in vocacoes_guild:
+        if mortes:
+            vocation = jogador.get('vocation', '')
+            if not vocation and nome.lower() in vocacoes_guild:
                 vocation = vocacoes_guild[nome.lower()].get('vocation', '')
             
-            mortes.append({
-                'name': nome,
-                'level': level,
-                'vocation': vocation,
-                'exp_lost': exp_lost,
-                'reason': ''  # GuildStats não mostra a causa na lista geral
-            })
+            for morte in mortes:
+                todas_mortes.append({
+                    'name': nome,
+                    'level': morte['level'] if morte['level'] > 0 else jogador.get('level', 0),
+                    'vocation': vocation,
+                    'date': morte['date'],
+                    'reason': morte['reason']
+                })
         
-        print(f"  ✓ {len(mortes)} mortes de membros da guild encontradas")
+        if (i + 1) % 25 == 0:
+            print(f"  Progresso: {i + 1}/{len(jogadores)} jogadores, {len(todas_mortes)} mortes...")
         
-    except Exception as e:
-        print(f"  Erro ao buscar mortes: {e}")
+        time.sleep(0.3)
     
-    return mortes
+    # Ordena por data (mais recente primeiro) - converte DD-MM-YYYY para YYYYMMDD
+    def parse_date(d):
+        try:
+            parts = d.split('-')
+            if len(parts) == 3:
+                return f"{parts[2]}{parts[1]}{parts[0]}"
+        except:
+            pass
+        return d
+    
+    todas_mortes.sort(key=lambda x: parse_date(x.get('date', '')), reverse=True)
+    
+    print(f"  ✓ {len(todas_mortes)} mortes encontradas no total")
+    return todas_mortes[:100]
 
 def carregar_extras():
     """Carrega extras tentando múltiplos caminhos."""
@@ -268,19 +276,13 @@ def main():
     print(f"Diretório atual: {os.getcwd()}")
     print("=" * 60)
     
-    # 1. Busca TODAS as vocações da guild de uma vez
     vocacoes_guild = buscar_vocacoes_guild_tibiadata()
-    
-    # 2. Busca dados de XP da guild no GuildStats
     jogadores = buscar_dados_guild()
     
-    # 3. Aplica vocações aos jogadores
     print("\nAplicando vocações aos jogadores...")
     sem_vocacao = 0
-    nomes_membros = []
     for jogador in jogadores:
         nome_lower = jogador['name'].lower()
-        nomes_membros.append(jogador['name'])
         if nome_lower in vocacoes_guild:
             jogador['vocation'] = vocacoes_guild[nome_lower]['vocation']
             if jogador['level'] == 0:
@@ -288,22 +290,21 @@ def main():
         else:
             sem_vocacao += 1
     
-    print(f"  ✓ Vocações aplicadas ({sem_vocacao} jogadores sem vocação encontrada)")
+    print(f"  ✓ Vocações aplicadas ({sem_vocacao} sem vocação)")
     
-    # 4. Processa extras
     print("\nCarregando extras...")
     extras = carregar_extras()
-    print(f"\nExtras para buscar ({len(extras)} total): {extras}")
+    print(f"\nExtras ({len(extras)}): {extras}")
     
     for nome in extras:
         print(f"\n  Buscando: {nome}")
         
         dados = buscar_vocacao_individual(nome)
         if not dados:
-            print(f"    ERRO: não encontrado no TibiaData")
+            print(f"    ERRO: não encontrado")
             continue
         
-        print(f"    TibiaData OK: Lvl {dados['level']}, {dados['vocation']}")
+        print(f"    OK: Lvl {dados['level']}, {dados['vocation']}")
         
         exp = buscar_exp_extra_guildstats(nome)
         time.sleep(0.5)
@@ -317,14 +318,9 @@ def main():
             'exp_30days': exp['exp_30days'] if exp else 0,
             'is_extra': True
         })
-        
-        # Adiciona extras na lista de membros para buscar mortes
-        nomes_membros.append(nome)
     
-    # 5. Busca mortes
-    mortes = buscar_mortes_guild(nomes_membros, vocacoes_guild)
+    mortes = buscar_todas_mortes(jogadores, vocacoes_guild)
     
-    # 6. Cria rankings
     def criar_ranking(jogadores, campo, top_n):
         filtrados = [j for j in jogadores if j.get(campo, 0) > 0]
         filtrados.sort(key=lambda x: x.get(campo, 0), reverse=True)
@@ -343,10 +339,9 @@ def main():
             '7days': criar_ranking(jogadores, 'exp_7days', TOP_N),
             '30days': criar_ranking(jogadores, 'exp_30days', TOP_N)
         },
-        'deaths': mortes[:50]  # Limita a 50 mortes
+        'deaths': mortes
     }
     
-    # Salva o arquivo
     output_path = os.path.join(os.getcwd(), 'dados', 'ranking.json')
     print(f"\nSalvando em: {output_path}")
     
@@ -359,14 +354,6 @@ def main():
     print(f"   7 dias: {len(dados_finais['rankings']['7days'])} jogadores")  
     print(f"   30 dias: {len(dados_finais['rankings']['30days'])} jogadores")
     print(f"   Mortes: {len(dados_finais['deaths'])} registros")
-    
-    # Mostra extras que entraram no ranking
-    for periodo in ['yesterday', '7days', '30days']:
-        extras_rank = [j for j in dados_finais['rankings'][periodo] if j['is_extra']]
-        if extras_rank:
-            print(f"\n   EXTRAS em {periodo}:")
-            for e in extras_rank[:5]:
-                print(f"      #{e['rank']} {e['name']}: {e['points']:,}")
 
 if __name__ == "__main__":
     main()
