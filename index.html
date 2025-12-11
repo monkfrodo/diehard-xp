@@ -23,14 +23,12 @@
             --border-color: #3d352b;
             --border-light: #4a4137;
             
-            /* Vocation colors */
             --voc-knight: #c9a227;
             --voc-paladin: #4a9c5d;
             --voc-druid: #5b8dd9;
             --voc-sorcerer: #9b59b6;
             --voc-monk: #e07b39;
             
-            /* Medals */
             --gold: linear-gradient(135deg, #f5d742 0%, #c9a227 50%, #a67c00 100%);
             --silver: linear-gradient(135deg, #e8e8e8 0%, #a8a8a8 50%, #787878 100%);
             --bronze: linear-gradient(135deg, #e6a86e 0%, #cd7f32 50%, #8b4513 100%);
@@ -50,7 +48,6 @@
             line-height: 1.6;
         }
 
-        /* Subtle background texture */
         body::before {
             content: '';
             position: fixed;
@@ -72,7 +69,6 @@
             z-index: 1;
         }
 
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 50px;
@@ -135,7 +131,6 @@
             color: var(--accent-gold);
         }
 
-        /* Tabs */
         .tabs-container {
             display: flex;
             justify-content: center;
@@ -170,7 +165,6 @@
             color: var(--bg-primary);
         }
 
-        /* Info bar */
         .info-bar {
             display: flex;
             justify-content: space-between;
@@ -201,7 +195,6 @@
             color: var(--text-muted);
         }
 
-        /* Table */
         .ranking-table {
             width: 100%;
             border-collapse: separate;
@@ -248,7 +241,6 @@
             border-bottom: none;
         }
 
-        /* Rank cell */
         .rank-cell {
             font-family: 'Cinzel', serif;
             font-weight: 700;
@@ -257,7 +249,6 @@
             width: 60px;
         }
 
-        /* Top 3 medals */
         .rank-medal {
             display: inline-flex;
             align-items: center;
@@ -285,12 +276,10 @@
             box-shadow: 0 4px 12px rgba(205, 127, 50, 0.3);
         }
 
-        /* Top rows highlight */
         .rank-1 td { background: rgba(201, 162, 39, 0.08); }
         .rank-2 td { background: rgba(168, 168, 168, 0.05); }
         .rank-3 td { background: rgba(205, 127, 50, 0.05); }
 
-        /* Name cell */
         .name-cell {
             font-weight: 500;
             color: var(--text-primary);
@@ -306,7 +295,6 @@
             color: var(--accent-gold);
         }
 
-        /* Vocation */
         .vocation-cell {
             font-size: 0.85rem;
         }
@@ -318,13 +306,11 @@
         .vocation-monk { color: var(--voc-monk); }
         .vocation-unknown { color: var(--text-muted); }
 
-        /* Level */
         .level-cell {
             font-weight: 600;
             color: var(--text-secondary);
         }
 
-        /* Points */
         .points-cell {
             font-family: 'Lato', sans-serif;
             font-weight: 600;
@@ -337,7 +323,6 @@
             color: #e74c3c;
         }
 
-        /* Load more button */
         .load-more-container {
             text-align: center;
             margin-top: 30px;
@@ -367,7 +352,6 @@
             cursor: not-allowed;
         }
 
-        /* Deaths tab specific */
         .death-reason {
             font-size: 0.8rem;
             color: var(--text-muted);
@@ -379,7 +363,6 @@
             color: var(--text-muted);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 60px;
@@ -406,7 +389,6 @@
             margin: 0 auto;
         }
 
-        /* Loading state */
         .loading {
             text-align: center;
             padding: 60px 20px;
@@ -427,14 +409,12 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Empty state */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
             color: var(--text-muted);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 24px 16px;
@@ -547,9 +527,8 @@
     <script>
         let rankingData = null;
         let currentPeriod = 'yesterday';
-        let displayedCount = 0;
-        const INITIAL_DISPLAY = 20;
-        const LOAD_MORE_COUNT = 10;
+        let displayCount = 20;
+        const INCREMENT = 10;
 
         const periodLabels = {
             'yesterday': 'XP de Ontem',
@@ -558,114 +537,60 @@
             'deaths': 'Mortes Recentes'
         };
 
-        async function loadRankingData() {
-            try {
-                const response = await fetch('dados/ranking.json?v=' + Date.now());
-                rankingData = await response.json();
-                
-                document.getElementById('last-update').textContent = 
-                    'Atualizado: ' + (rankingData.last_update_display || rankingData.last_update);
-                
-                renderRanking();
-            } catch (error) {
-                console.error('Erro ao carregar dados:', error);
-                document.getElementById('ranking-content').innerHTML = 
-                    '<div class="empty-state">Erro ao carregar dados. Tente novamente.</div>';
-            }
-        }
-
         function getVocationClass(vocation) {
             if (!vocation) return 'vocation-unknown';
-            const voc = vocation.toLowerCase();
-            if (voc.includes('knight')) return 'vocation-knight';
-            if (voc.includes('paladin')) return 'vocation-paladin';
-            if (voc.includes('druid')) return 'vocation-druid';
-            if (voc.includes('sorcerer')) return 'vocation-sorcerer';
-            if (voc.includes('monk')) return 'vocation-monk';
+            const v = vocation.toLowerCase();
+            if (v.includes('knight')) return 'vocation-knight';
+            if (v.includes('paladin')) return 'vocation-paladin';
+            if (v.includes('druid')) return 'vocation-druid';
+            if (v.includes('sorcerer')) return 'vocation-sorcerer';
+            if (v.includes('monk')) return 'vocation-monk';
             return 'vocation-unknown';
         }
 
         function formatNumber(num) {
-            return num.toLocaleString('pt-BR');
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function shortenVocation(vocation) {
+            if (!vocation) return '-';
+            const map = {
+                'Elite Knight': 'EK',
+                'Royal Paladin': 'RP',
+                'Elder Druid': 'ED',
+                'Master Sorcerer': 'MS',
+                'Knight': 'K',
+                'Paladin': 'P',
+                'Druid': 'D',
+                'Sorcerer': 'S',
+                'Grove Keeper': 'GK',
+                'Archon': 'AR'
+            };
+            return map[vocation] || vocation.substring(0, 2).toUpperCase();
         }
 
         function renderRanking() {
-            if (!rankingData) return;
-
-            const isDeaths = currentPeriod === 'deaths';
-            const data = isDeaths 
-                ? (rankingData.deaths || []) 
-                : (rankingData.rankings[currentPeriod] || []);
+            const content = document.getElementById('ranking-content');
+            const loadMoreBtn = document.getElementById('load-more-btn');
             
-            displayedCount = Math.min(INITIAL_DISPLAY, data.length);
-
-            document.getElementById('current-period').textContent = periodLabels[currentPeriod];
-            updateShowingCount(data.length);
-
-            if (data.length === 0) {
-                document.getElementById('ranking-content').innerHTML = 
-                    '<div class="empty-state">Nenhum dado disponível para este período.</div>';
-                document.getElementById('load-more-btn').style.display = 'none';
+            if (!rankingData) {
+                content.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Carregando dados...</p></div>';
                 return;
             }
 
-            const tableHTML = isDeaths ? renderDeathsTable(data) : renderXPTable(data);
-            document.getElementById('ranking-content').innerHTML = tableHTML;
+            if (currentPeriod === 'deaths') {
+                renderDeaths();
+                return;
+            }
 
-            const loadMoreBtn = document.getElementById('load-more-btn');
-            loadMoreBtn.style.display = displayedCount < data.length ? 'inline-block' : 'none';
-        }
-
-        function renderXPTable(data) {
-            const displayData = data.slice(0, displayedCount);
+            const data = rankingData.rankings[currentPeriod] || [];
+            const toShow = data.slice(0, displayCount);
             
-            let html = `
-                <table class="ranking-table">
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Nome</th>
-                            <th>Vocação</th>
-                            <th>Level</th>
-                            <th>Pontos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            displayData.forEach((player, index) => {
-                const rank = index + 1;
-                const rankClass = rank <= 3 ? `rank-${rank}` : '';
-                const vocationClass = getVocationClass(player.vocation);
-                
-                const rankContent = rank <= 3 
-                    ? `<span class="rank-medal">${rank}</span>` 
-                    : rank;
-
-                html += `
-                    <tr class="${rankClass}">
-                        <td class="rank-cell">${rankContent}</td>
-                        <td class="name-cell">
-                            <a href="https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}" target="_blank">
-                                ${player.name}
-                            </a>
-                        </td>
-                        <td class="vocation-cell ${vocationClass}">${player.vocation || '-'}</td>
-                        <td class="level-cell">${player.level || '-'}</td>
-                        <td class="points-cell">${formatNumber(player.points)}</td>
-                    </tr>
-                `;
-            });
-
-            html += '</tbody></table>';
-            return html;
-        }
-
-        function renderDeathsTable(data) {
-            const displayData = data.slice(0, displayedCount);
-            
-            if (displayData.length === 0) {
-                return '<div class="empty-state">Nenhuma morte registrada recentemente.</div>';
+            if (toShow.length === 0) {
+                content.innerHTML = '<div class="empty-state">Nenhum dado disponível para este período.</div>';
+                loadMoreBtn.style.display = 'none';
+                updateShowingCount(0, 0);
+                return;
             }
 
             let html = `
@@ -674,71 +599,142 @@
                         <tr>
                             <th>#</th>
                             <th>Jogador</th>
+                            <th>Voc</th>
                             <th>Level</th>
-                            <th>XP Perdida</th>
+                            <th>Exp</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
 
-            displayData.forEach((death, index) => {
-                const vocationClass = getVocationClass(death.vocation);
+            toShow.forEach((player, index) => {
+                const rank = index + 1;
+                const rankClass = rank <= 3 ? `rank-${rank}` : '';
+                const rankDisplay = rank <= 3 
+                    ? `<span class="rank-medal">${rank}</span>` 
+                    : rank;
+                const vocClass = getVocationClass(player.vocation);
+                const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}`;
                 
                 html += `
-                    <tr>
-                        <td class="rank-cell">${index + 1}</td>
+                    <tr class="${rankClass}">
+                        <td class="rank-cell">${rankDisplay}</td>
                         <td class="name-cell">
-                            <a href="https://guildstats.eu/character?nick=${encodeURIComponent(death.name)}&tab=5" target="_blank">
-                                ${death.name}
-                            </a>
-                            <div class="death-reason">${death.reason || ''}</div>
+                            <a href="${charUrl}" target="_blank">${player.name}</a>
                         </td>
-                        <td class="level-cell ${vocationClass}">${death.level || '-'}</td>
-                        <td class="points-cell points-negative">${formatNumber(death.exp_lost || 0)}</td>
+                        <td class="vocation-cell ${vocClass}">${shortenVocation(player.vocation)}</td>
+                        <td class="level-cell">${player.level || '-'}</td>
+                        <td class="points-cell">+${formatNumber(player.points)}</td>
                     </tr>
                 `;
             });
 
             html += '</tbody></table>';
-            return html;
+            content.innerHTML = html;
+
+            loadMoreBtn.style.display = displayCount < data.length ? 'inline-block' : 'none';
+            updateShowingCount(toShow.length, data.length);
         }
 
-        function updateShowingCount(total) {
-            document.getElementById('showing-count').textContent = 
-                `Mostrando: ${displayedCount} de ${total}`;
-        }
-
-        function loadMore() {
-            const isDeaths = currentPeriod === 'deaths';
-            const data = isDeaths 
-                ? (rankingData.deaths || []) 
-                : (rankingData.rankings[currentPeriod] || []);
-            
-            displayedCount = Math.min(displayedCount + LOAD_MORE_COUNT, data.length);
-            
-            const tableHTML = isDeaths ? renderDeathsTable(data) : renderXPTable(data);
-            document.getElementById('ranking-content').innerHTML = tableHTML;
-            
-            updateShowingCount(data.length);
-
+        function renderDeaths() {
+            const content = document.getElementById('ranking-content');
             const loadMoreBtn = document.getElementById('load-more-btn');
-            loadMoreBtn.style.display = displayedCount < data.length ? 'inline-block' : 'none';
+            
+            const deaths = rankingData.deaths || [];
+            const toShow = deaths.slice(0, displayCount);
+            
+            if (toShow.length === 0) {
+                content.innerHTML = '<div class="empty-state">Nenhuma morte registrada recentemente.</div>';
+                loadMoreBtn.style.display = 'none';
+                updateShowingCount(0, 0);
+                return;
+            }
+
+            let html = `
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Jogador</th>
+                            <th>Voc</th>
+                            <th>Level</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            toShow.forEach((death, index) => {
+                const rank = index + 1;
+                const vocClass = getVocationClass(death.vocation);
+                const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(death.name)}&tab=5`;
+                const reason = death.reason ? `<div class="death-reason">by ${death.reason}</div>` : '';
+                
+                html += `
+                    <tr>
+                        <td class="rank-cell">${rank}</td>
+                        <td class="name-cell">
+                            <a href="${charUrl}" target="_blank">${death.name}</a>
+                            ${reason}
+                        </td>
+                        <td class="vocation-cell ${vocClass}">${shortenVocation(death.vocation)}</td>
+                        <td class="level-cell">${death.level || '-'}</td>
+                        <td class="death-date">${death.date || '-'}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            content.innerHTML = html;
+
+            loadMoreBtn.style.display = displayCount < deaths.length ? 'inline-block' : 'none';
+            updateShowingCount(toShow.length, deaths.length);
         }
 
-        // Event listeners
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                currentPeriod = this.dataset.period;
-                renderRanking();
+        function updateShowingCount(showing, total) {
+            document.getElementById('showing-count').textContent = `Mostrando: ${showing} de ${total}`;
+        }
+
+        function switchPeriod(period) {
+            currentPeriod = period;
+            displayCount = 20;
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.period === period);
             });
+            
+            document.getElementById('current-period').textContent = periodLabels[period];
+            renderRanking();
+        }
+
+        async function loadData() {
+            try {
+                const response = await fetch('dados/ranking.json?v=' + Date.now());
+                rankingData = await response.json();
+                
+                document.getElementById('last-update').textContent = 
+                    `Atualizado: ${rankingData.last_update_display || 'N/A'}`;
+                
+                renderRanking();
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                document.getElementById('ranking-content').innerHTML = 
+                    '<div class="empty-state">Erro ao carregar dados. Tente novamente mais tarde.</div>';
+            }
+        }
+
+        // Event Listeners
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => switchPeriod(tab.dataset.period));
         });
 
-        document.getElementById('load-more-btn').addEventListener('click', loadMore);
+        document.getElementById('load-more-btn').addEventListener('click', () => {
+            displayCount += INCREMENT;
+            renderRanking();
+        });
 
-        // Load data on page load
-        loadRankingData();
+        // Init
+        loadData();
     </script>
 </body>
 </html>
