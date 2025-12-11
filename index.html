@@ -4,440 +4,741 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diehard - Ranking XP | Luminera</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #1a1612;
+            --bg-secondary: #241e19;
+            --bg-card: #2a231c;
+            --bg-hover: #352d24;
+            --accent-gold: #c9a227;
+            --accent-gold-light: #e6c44a;
+            --accent-bronze: #cd7f32;
+            --accent-silver: #a8a8a8;
+            --text-primary: #f5efe6;
+            --text-secondary: #b8a88a;
+            --text-muted: #7a6f5f;
+            --border-color: #3d352b;
+            --border-light: #4a4137;
+            
+            /* Vocation colors */
+            --voc-knight: #c9a227;
+            --voc-paladin: #4a9c5d;
+            --voc-druid: #5b8dd9;
+            --voc-sorcerer: #9b59b6;
+            --voc-monk: #e07b39;
+            
+            /* Medals */
+            --gold: linear-gradient(135deg, #f5d742 0%, #c9a227 50%, #a67c00 100%);
+            --silver: linear-gradient(135deg, #e8e8e8 0%, #a8a8a8 50%, #787878 100%);
+            --bronze: linear-gradient(135deg, #e6a86e 0%, #cd7f32 50%, #8b4513 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-size: 11px;
-            background-color: #2B2016;
-            color: #5A3E27;
+            font-family: 'Lato', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             min-height: 100vh;
+            line-height: 1.6;
         }
 
-        .main-container {
+        /* Subtle background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
             max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 10px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
         }
-
-        /* Guild info */
-        .guild-info {
-            background: #F5E6C8;
-            border: 2px solid #1A1209;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .guild-logo {
-            width: 64px;
-            height: 64px;
-            background: #3D2E22;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-        }
-
-        .guild-details h1 { color: #5A3E27; font-size: 18px; margin-bottom: 5px; }
-        .guild-details p { color: #8B7355; font-size: 11px; margin: 2px 0; }
-        .guild-details a { color: #996633; text-decoration: none; }
-        .guild-details a:hover { text-decoration: underline; }
-
-        /* Tabs */
-        .tabs { display: flex; gap: 4px; }
-
-        .tab-btn {
-            padding: 10px 20px;
-            background: linear-gradient(to bottom, #4A3728 0%, #3D2E22 100%);
-            border: 2px solid #1A1209;
-            border-bottom: none;
-            border-radius: 8px 8px 0 0;
-            color: #A89880;
-            font-family: Verdana, Arial, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .tab-btn:hover { background: linear-gradient(to bottom, #5A4738 0%, #4D3E32 100%); color: #C4B498; }
-        .tab-btn.active { background: linear-gradient(to bottom, #5A4738 0%, #4D3E32 50%, #3D2E22 100%); color: #D4C4A8; }
 
         /* Header */
-        .header-bar {
-            background: linear-gradient(to bottom, #4A3728 0%, #3D2E22 50%, #2B2016 100%);
-            border: 2px solid #1A1209;
-            border-radius: 0 8px 0 0;
-            padding: 8px 15px;
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .guild-icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 4px 8px rgba(201, 162, 39, 0.3));
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 20px rgba(201, 162, 39, 0.2);
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .subtitle a:hover {
+            color: var(--accent-gold-light);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .external-link {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 6px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .external-link:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Tabs */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .tab:hover {
+            background: var(--bg-secondary);
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }
+
+        .tab.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        /* Info bar */
+        .info-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #D4C4A8;
-            font-weight: bold;
-            font-size: 13px;
-            margin-top: -2px;
+            padding: 16px 20px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
         }
 
-        .header-bar .last-update { font-size: 11px; color: #C4B498; }
-
-        /* Table container */
-        .table-container {
-            background: #F5E6C8;
-            border: 2px solid #1A1209;
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            padding: 10px;
+        .period-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
 
-        .pagination-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 10px;
-            margin-bottom: 10px;
-            color: #5A3E27;
-            font-size: 11px;
+        .period-label strong {
+            color: var(--accent-gold);
         }
 
-        .period-label { font-weight: bold; color: #996633; }
+        .last-update {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .showing-count {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
         /* Table */
         .ranking-table {
             width: 100%;
-            border-collapse: collapse;
-            background: #FFF8E7;
-            border: 1px solid #8B7355;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
-        .ranking-table thead { background: linear-gradient(to bottom, #E8D5B5 0%, #D4C4A8 100%); }
+        .ranking-table thead {
+            background: var(--bg-secondary);
+        }
 
         .ranking-table th {
-            padding: 8px 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 16px 20px;
             text-align: left;
-            font-weight: bold;
-            color: #5A3E27;
-            border: 1px solid #8B7355;
-            font-size: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .ranking-table th.rank-col { width: 50px; text-align: center; }
-        .ranking-table th.level-col { width: 60px; text-align: center; }
-        .ranking-table th.points-col { width: 140px; text-align: right; }
-
-        .ranking-table tbody tr { background: #FFF8E7; }
-        .ranking-table tbody tr:nth-child(even) { background: #F5EED8; }
-        .ranking-table tbody tr:hover { background: #EDE5CF; }
+        .ranking-table th:last-child,
+        .ranking-table td:last-child {
+            text-align: right;
+        }
 
         .ranking-table td {
-            padding: 6px 12px;
-            border: 1px solid #D4C4A8;
-            color: #5A3E27;
-            font-size: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+            transition: background 0.2s ease;
         }
 
-        .ranking-table td.rank-col { text-align: center; }
-        .ranking-table td.level-col { text-align: center; }
-        .ranking-table td.points-col { text-align: right; font-family: "Courier New", monospace; }
-
-        /* TOP 5 DESTACADO */
-        .ranking-table tbody tr.top-1 {
-            background: linear-gradient(to right, #FFD700 0%, #FFF8DC 30%, #FFF8E7 100%);
-            font-weight: bold;
-        }
-        .ranking-table tbody tr.top-1 td { border-color: #DAA520; }
-        .ranking-table tbody tr.top-1 .rank-col { 
-            color: #B8860B; 
-            font-size: 16px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        .ranking-table tbody tr:hover td {
+            background: var(--bg-hover);
         }
 
-        .ranking-table tbody tr.top-2 {
-            background: linear-gradient(to right, #C0C0C0 0%, #F5F5F5 30%, #FFF8E7 100%);
-            font-weight: bold;
-        }
-        .ranking-table tbody tr.top-2 td { border-color: #A9A9A9; }
-        .ranking-table tbody tr.top-2 .rank-col { color: #696969; font-size: 15px; }
-
-        .ranking-table tbody tr.top-3 {
-            background: linear-gradient(to right, #CD7F32 0%, #FAEBD7 30%, #FFF8E7 100%);
-            font-weight: bold;
-        }
-        .ranking-table tbody tr.top-3 td { border-color: #8B4513; }
-        .ranking-table tbody tr.top-3 .rank-col { color: #8B4513; font-size: 14px; }
-
-        .ranking-table tbody tr.top-4,
-        .ranking-table tbody tr.top-5 {
-            background: linear-gradient(to right, #E8D5B5 0%, #FFF8E7 20%);
+        .ranking-table tbody tr:last-child td {
+            border-bottom: none;
         }
 
-        /* Medalhas */
-        .medal { margin-right: 4px; }
-        .medal-gold { color: #FFD700; text-shadow: 0 0 3px #B8860B; }
-        .medal-silver { color: #C0C0C0; text-shadow: 0 0 3px #808080; }
-        .medal-bronze { color: #CD7F32; text-shadow: 0 0 3px #8B4513; }
+        /* Rank cell */
+        .rank-cell {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-muted);
+            width: 60px;
+        }
 
+        /* Top 3 medals */
+        .rank-medal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            color: var(--bg-primary);
+            font-weight: 700;
+        }
 
-        /* Links */
-        .player-link { color: #996633; text-decoration: none; font-weight: bold; }
-        .player-link:hover { color: #CC8844; text-decoration: underline; }
+        .rank-1 .rank-medal {
+            background: var(--gold);
+            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
+        }
 
-        /* Vocações */
-        .vocation { font-size: 11px; }
-        .vocation-ek { color: #8B4513; }
-        .vocation-rp { color: #2E8B57; }
-        .vocation-ed { color: #4169E1; }
-        .vocation-ms { color: #9932CC; }
+        .rank-2 .rank-medal {
+            background: var(--silver);
+            box-shadow: 0 4px 12px rgba(168, 168, 168, 0.3);
+        }
 
-        .world-name { color: #996633; }
+        .rank-3 .rank-medal {
+            background: var(--bronze);
+            box-shadow: 0 4px 12px rgba(205, 127, 50, 0.3);
+        }
 
-        /* Botão Carregar Mais */
+        /* Top rows highlight */
+        .rank-1 td { background: rgba(201, 162, 39, 0.08); }
+        .rank-2 td { background: rgba(168, 168, 168, 0.05); }
+        .rank-3 td { background: rgba(205, 127, 50, 0.05); }
+
+        /* Name cell */
+        .name-cell {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .name-cell a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .name-cell a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Vocation */
+        .vocation-cell {
+            font-size: 0.85rem;
+        }
+
+        .vocation-knight { color: var(--voc-knight); }
+        .vocation-paladin { color: var(--voc-paladin); }
+        .vocation-druid { color: var(--voc-druid); }
+        .vocation-sorcerer { color: var(--voc-sorcerer); }
+        .vocation-monk { color: var(--voc-monk); }
+        .vocation-unknown { color: var(--text-muted); }
+
+        /* Level */
+        .level-cell {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* Points */
+        .points-cell {
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--accent-gold-light);
+            letter-spacing: 0.5px;
+        }
+
+        .points-negative {
+            color: #e74c3c;
+        }
+
+        /* Load more button */
         .load-more-container {
             text-align: center;
-            padding: 15px;
+            margin-top: 30px;
         }
 
         .load-more-btn {
-            background: linear-gradient(to bottom, #5A4738 0%, #3D2E22 100%);
-            border: 2px solid #1A1209;
-            border-radius: 6px;
-            color: #D4C4A8;
-            font-family: Verdana, Arial, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 10px 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 14px 40px;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            color: var(--accent-gold);
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
         }
 
         .load-more-btn:hover {
-            background: linear-gradient(to bottom, #6A5748 0%, #4D3E32 100%);
-            color: #F4E4C8;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
         }
 
         .load-more-btn:disabled {
-            opacity: 0.5;
+            opacity: 0.3;
             cursor: not-allowed;
         }
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #8B7355;
-            font-size: 10px;
+        /* Deaths tab specific */
+        .death-reason {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
         }
-        .footer a { color: #996633; text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
 
-        /* Loading */
-        .loading { text-align: center; padding: 40px; color: #8B7355; font-size: 14px; }
+        .death-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-text a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .footer-note {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            opacity: 0.6;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .ranking-table { font-size: 10px; }
-            .ranking-table th, .ranking-table td { padding: 4px 6px; }
-            .ranking-table th.vocation-col, .ranking-table td.vocation-col,
-            .ranking-table th.world-col, .ranking-table td.world-col { display: none; }
-            .guild-info { flex-direction: column; text-align: center; }
-            .tabs { flex-wrap: wrap; }
-            .tab-btn { padding: 8px 12px; font-size: 11px; flex: 1; text-align: center; }
+            .container {
+                padding: 24px 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .tabs-container {
+                gap: 6px;
+            }
+
+            .tab {
+                padding: 10px 16px;
+                font-size: 0.75rem;
+            }
+
+            .info-bar {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .ranking-table th,
+            .ranking-table td {
+                padding: 12px 10px;
+                font-size: 0.85rem;
+            }
+
+            .ranking-table th:nth-child(4),
+            .ranking-table td:nth-child(4) {
+                display: none;
+            }
+
+            .rank-medal {
+                width: 28px;
+                height: 28px;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .ranking-table th:nth-child(3),
+            .ranking-table td:nth-child(3) {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="guild-info">
-            <div class="guild-logo">⚔️</div>
-            <div class="guild-details">
-                <h1>Diehard</h1>
-                <p>Servidor: <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> (Optional PvP - North America)</p>
-                <p>Ranking de Experiência • Top Jogadores</p>
-                <p><a href="https://guildstats.eu/guild=Diehard&op=3" target="_blank">Ver guild completa no GuildStats.eu →</a></p>
+    <div class="container">
+        <header>
+            <div class="guild-icon">⚔️</div>
+            <h1>Diehard</h1>
+            <p class="subtitle">
+                <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> 
+                · Optional PvP · North America
+            </p>
+            <p class="tagline">Ranking de Experiência</p>
+            <a href="https://guildstats.eu/guild=Diehard&op=3" target="_blank" class="external-link">
+                Ver guild completa no GuildStats.eu →
+            </a>
+        </header>
+
+        <div class="tabs-container">
+            <button class="tab active" data-period="yesterday">XP Ontem</button>
+            <button class="tab" data-period="7days">XP 7 Dias</button>
+            <button class="tab" data-period="30days">XP 30 Dias</button>
+            <button class="tab" data-period="deaths">💀 Mortes</button>
+        </div>
+
+        <div class="info-bar">
+            <span class="period-label">Período: <strong id="current-period">XP de Ontem</strong></span>
+            <span class="last-update" id="last-update">Carregando...</span>
+            <span class="showing-count" id="showing-count">Mostrando: 0 de 0</span>
+        </div>
+
+        <div id="ranking-content">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Carregando dados...</p>
             </div>
         </div>
 
-        <div class="tabs">
-            <button class="tab-btn active" data-period="yesterday">XP Ontem</button>
-            <button class="tab-btn" data-period="7days">XP 7 Dias</button>
-            <button class="tab-btn" data-period="30days">XP 30 Dias</button>
+        <div class="load-more-container">
+            <button class="load-more-btn" id="load-more-btn" style="display: none;">
+                Carregar Mais (+10)
+            </button>
         </div>
 
-        <div class="header-bar">
-            <span class="title">Highscores</span>
-            <span class="last-update" id="lastUpdate">Carregando...</span>
-        </div>
-
-        <div class="table-container">
-            <div class="pagination-info">
-                <div>» Período: <span class="period-label" id="periodLabel">XP de Ontem</span></div>
-                <div>» Mostrando: <span id="showingCount">0</span> de <span id="totalResults">0</span></div>
-            </div>
-
-            <table class="ranking-table">
-                <thead>
-                    <tr>
-                        <th class="rank-col">Rank</th>
-                        <th class="name-col">Name</th>
-                        <th class="vocation-col">Vocation</th>
-                        <th class="world-col">World</th>
-                        <th class="level-col">Level</th>
-                        <th class="points-col">Points</th>
-                    </tr>
-                </thead>
-                <tbody id="rankingBody">
-                    <tr><td colspan="6" class="loading">Carregando dados...</td></tr>
-                </tbody>
-            </table>
-
-            <div class="load-more-container">
-                <button class="load-more-btn" id="loadMoreBtn" style="display: none;">
-                    Carregar Mais (+10)
-                </button>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>Dados obtidos de <a href="https://guildstats.eu" target="_blank">GuildStats.eu</a></p>
-            <p>Atualizado automaticamente todos os dias às 6:30 (horário de Brasília)</p>
-            <p style="margin-top: 5px;"><strong>Para forçar atualização:</strong> GitHub → Actions → Atualizar Ranking → Run workflow</p>
-            <p style="margin-top: 10px;">Diehard Guild © 2025 | Luminera</p>
-        </div>
+        <footer>
+            <p class="footer-text">
+                Dados obtidos de <a href="https://guildstats.eu" target="_blank">GuildStats.eu</a>
+            </p>
+            <p class="footer-text">
+                Atualizado automaticamente às 6:30 (horário de Brasília)
+            </p>
+            <p class="footer-note">
+                Diehard Guild © 2025 · Luminera
+            </p>
+        </footer>
     </div>
 
     <script>
         let rankingData = null;
         let currentPeriod = 'yesterday';
-        let displayCount = 20;
-        const INCREMENT = 10;
+        let displayedCount = 0;
+        const INITIAL_DISPLAY = 20;
+        const LOAD_MORE_COUNT = 10;
 
         const periodLabels = {
             'yesterday': 'XP de Ontem',
             '7days': 'XP dos Últimos 7 Dias',
-            '30days': 'XP dos Últimos 30 Dias'
+            '30days': 'XP dos Últimos 30 Dias',
+            'deaths': 'Mortes Recentes'
         };
 
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        async function loadRankingData() {
+            try {
+                const response = await fetch('dados/ranking.json?v=' + Date.now());
+                rankingData = await response.json();
+                
+                document.getElementById('last-update').textContent = 
+                    'Atualizado: ' + (rankingData.last_update_display || rankingData.last_update);
+                
+                renderRanking();
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                document.getElementById('ranking-content').innerHTML = 
+                    '<div class="empty-state">Erro ao carregar dados. Tente novamente.</div>';
+            }
         }
 
         function getVocationClass(vocation) {
-            const voc = (vocation || '').toLowerCase();
-            if (voc.includes('knight')) return 'vocation-ek';
-            if (voc.includes('paladin')) return 'vocation-rp';
-            if (voc.includes('druid')) return 'vocation-ed';
-            if (voc.includes('sorcerer')) return 'vocation-ms';
-            return '';
+            if (!vocation) return 'vocation-unknown';
+            const voc = vocation.toLowerCase();
+            if (voc.includes('knight')) return 'vocation-knight';
+            if (voc.includes('paladin')) return 'vocation-paladin';
+            if (voc.includes('druid')) return 'vocation-druid';
+            if (voc.includes('sorcerer')) return 'vocation-sorcerer';
+            if (voc.includes('monk')) return 'vocation-monk';
+            return 'vocation-unknown';
         }
 
-        function getMedal(rank) {
-            if (rank === 1) return '<span class="medal medal-gold">🥇</span>';
-            if (rank === 2) return '<span class="medal medal-silver">🥈</span>';
-            if (rank === 3) return '<span class="medal medal-bronze">🥉</span>';
-            return '';
+        function formatNumber(num) {
+            return num.toLocaleString('pt-BR');
         }
 
-        function getTopClass(rank) {
-            if (rank <= 5) return `top-${rank}`;
-            return '';
-        }
+        function renderRanking() {
+            if (!rankingData) return;
 
-        function renderRanking(period, count) {
-            const tbody = document.getElementById('rankingBody');
-            const periodLabel = document.getElementById('periodLabel');
-            const totalResults = document.getElementById('totalResults');
-            const showingCount = document.getElementById('showingCount');
-            const loadMoreBtn = document.getElementById('loadMoreBtn');
-
-            if (!rankingData || !rankingData.rankings || !rankingData.rankings[period]) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">Sem dados</td></tr>';
-                loadMoreBtn.style.display = 'none';
-                return;
-            }
-
-            const allPlayers = rankingData.rankings[period];
-            const players = allPlayers.slice(0, count);
+            const isDeaths = currentPeriod === 'deaths';
+            const data = isDeaths 
+                ? (rankingData.deaths || []) 
+                : (rankingData.rankings[currentPeriod] || []);
             
-            periodLabel.textContent = periodLabels[period];
-            totalResults.textContent = allPlayers.length;
-            showingCount.textContent = players.length;
+            displayedCount = Math.min(INITIAL_DISPLAY, data.length);
 
-            // Mostra/esconde botão
-            loadMoreBtn.style.display = count < allPlayers.length ? 'inline-block' : 'none';
+            document.getElementById('current-period').textContent = periodLabels[currentPeriod];
+            updateShowingCount(data.length);
 
-            if (players.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; color: #996633;">Nenhum jogador com XP positiva</td></tr>';
+            if (data.length === 0) {
+                document.getElementById('ranking-content').innerHTML = 
+                    '<div class="empty-state">Nenhum dado disponível para este período.</div>';
+                document.getElementById('load-more-btn').style.display = 'none';
                 return;
             }
 
-            tbody.innerHTML = '';
+            const tableHTML = isDeaths ? renderDeathsTable(data) : renderXPTable(data);
+            document.getElementById('ranking-content').innerHTML = tableHTML;
 
-            players.forEach(player => {
-                const row = document.createElement('tr');
-                row.className = getTopClass(player.rank);
-                
-            const extraBadge = '';
-                
-                row.innerHTML = `
-                    <td class="rank-col">${getMedal(player.rank)}${player.rank}</td>
-                    <td class="name-col">
-                        <a href="https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}" 
-                           target="_blank" class="player-link">${player.name}</a>${extraBadge}
-                    </td>
-                    <td class="vocation-col">
-                        <span class="vocation ${getVocationClass(player.vocation)}">${player.vocation || '-'}</span>
-                    </td>
-                    <td class="world-col"><span class="world-name">Luminera</span></td>
-                    <td class="level-col">${player.level || '-'}</td>
-                    <td class="points-col">${formatNumber(player.points)}</td>
-                `;
-                tbody.appendChild(row);
-            });
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            loadMoreBtn.style.display = displayedCount < data.length ? 'inline-block' : 'none';
         }
 
-        function setActiveTab(period) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.period === period);
+        function renderXPTable(data) {
+            const displayData = data.slice(0, displayedCount);
+            
+            let html = `
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Nome</th>
+                            <th>Vocação</th>
+                            <th>Level</th>
+                            <th>Pontos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            displayData.forEach((player, index) => {
+                const rank = index + 1;
+                const rankClass = rank <= 3 ? `rank-${rank}` : '';
+                const vocationClass = getVocationClass(player.vocation);
+                
+                const rankContent = rank <= 3 
+                    ? `<span class="rank-medal">${rank}</span>` 
+                    : rank;
+
+                html += `
+                    <tr class="${rankClass}">
+                        <td class="rank-cell">${rankContent}</td>
+                        <td class="name-cell">
+                            <a href="https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}" target="_blank">
+                                ${player.name}
+                            </a>
+                        </td>
+                        <td class="vocation-cell ${vocationClass}">${player.vocation || '-'}</td>
+                        <td class="level-cell">${player.level || '-'}</td>
+                        <td class="points-cell">${formatNumber(player.points)}</td>
+                    </tr>
+                `;
             });
-            currentPeriod = period;
-            displayCount = 20;
-            renderRanking(period, displayCount);
+
+            html += '</tbody></table>';
+            return html;
+        }
+
+        function renderDeathsTable(data) {
+            const displayData = data.slice(0, displayedCount);
+            
+            if (displayData.length === 0) {
+                return '<div class="empty-state">Nenhuma morte registrada recentemente.</div>';
+            }
+
+            let html = `
+                <table class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Jogador</th>
+                            <th>Level</th>
+                            <th>XP Perdida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            displayData.forEach((death, index) => {
+                const vocationClass = getVocationClass(death.vocation);
+                
+                html += `
+                    <tr>
+                        <td class="rank-cell">${index + 1}</td>
+                        <td class="name-cell">
+                            <a href="https://guildstats.eu/character?nick=${encodeURIComponent(death.name)}&tab=5" target="_blank">
+                                ${death.name}
+                            </a>
+                            <div class="death-reason">${death.reason || ''}</div>
+                        </td>
+                        <td class="level-cell ${vocationClass}">${death.level || '-'}</td>
+                        <td class="points-cell points-negative">${formatNumber(death.exp_lost || 0)}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            return html;
+        }
+
+        function updateShowingCount(total) {
+            document.getElementById('showing-count').textContent = 
+                `Mostrando: ${displayedCount} de ${total}`;
         }
 
         function loadMore() {
-            displayCount += INCREMENT;
-            renderRanking(currentPeriod, displayCount);
-        }
+            const isDeaths = currentPeriod === 'deaths';
+            const data = isDeaths 
+                ? (rankingData.deaths || []) 
+                : (rankingData.rankings[currentPeriod] || []);
+            
+            displayedCount = Math.min(displayedCount + LOAD_MORE_COUNT, data.length);
+            
+            const tableHTML = isDeaths ? renderDeathsTable(data) : renderXPTable(data);
+            document.getElementById('ranking-content').innerHTML = tableHTML;
+            
+            updateShowingCount(data.length);
 
-        async function loadRanking() {
-            try {
-                const response = await fetch('dados/ranking.json?v=' + Date.now());
-                if (!response.ok) throw new Error('Erro ao carregar');
-                
-                rankingData = await response.json();
-                document.getElementById('lastUpdate').textContent = `Last Update: ${rankingData.last_update_display}`;
-                renderRanking(currentPeriod, displayCount);
-            } catch (error) {
-                console.error('Erro:', error);
-                document.getElementById('rankingBody').innerHTML = 
-                    '<tr><td colspan="6" style="text-align: center; padding: 20px; color: #996633;">⚠️ Erro ao carregar dados</td></tr>';
-            }
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            loadMoreBtn.style.display = displayedCount < data.length ? 'inline-block' : 'none';
         }
 
         // Event listeners
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => setActiveTab(btn.dataset.period));
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentPeriod = this.dataset.period;
+                renderRanking();
+            });
         });
 
-        document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
+        document.getElementById('load-more-btn').addEventListener('click', loadMore);
 
-        document.addEventListener('DOMContentLoaded', loadRanking);
+        // Load data on page load
+        loadRankingData();
     </script>
 </body>
 </html>
