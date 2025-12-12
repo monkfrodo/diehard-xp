@@ -321,7 +321,7 @@
             color: var(--text-muted);
         }
 
-        /* Responsive - Esconde Level no mobile */
+        /* Responsive */
         @media (max-width: 640px) {
             .container { padding: 20px 16px; }
             
@@ -370,7 +370,6 @@
         </header>
 
         <nav class="nav-tabs">
-            <button class="nav-tab" data-period="today">Hoje</button>
             <button class="nav-tab active" data-period="yesterday">Ontem</button>
             <button class="nav-tab" data-period="7days">7 Dias</button>
             <button class="nav-tab" data-period="30days">30 Dias</button>
@@ -410,7 +409,6 @@
         const INCREMENT = 10;
 
         const periodLabels = {
-            'today': 'Experiência de Hoje',
             'yesterday': 'Experiência de Ontem',
             '7days': 'Experiência dos Últimos 7 Dias',
             '30days': 'Experiência dos Últimos 30 Dias',
@@ -516,7 +514,7 @@
             const toShow = deaths.slice(0, displayCount);
             
             if (toShow.length === 0) {
-                content.innerHTML = '<div class="empty-state">Nenhuma morte registrada.</div>';
+                content.innerHTML = '<div class="empty-state">Nenhuma morte registrada hoje. 🎉</div>';
                 loadMoreContainer.style.display = 'none';
                 document.getElementById('showing-count').textContent = '';
                 return;
