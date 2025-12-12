@@ -698,20 +698,11 @@
             return new Intl.NumberFormat('pt-BR').format(num);
         }
 
-        function getRankStyle(rank) {
-            if (rank === 1) return { bg: '#ffd700', color: '#1a1a1a', weight: '700' }; // Ouro
-            if (rank === 2) return { bg: '#c0c0c0', color: '#1a1a1a', weight: '700' }; // Prata
-            if (rank === 3) return { bg: '#cd7f32', color: '#ffffff', weight: '700' }; // Bronze
-            if (rank <= 5) return { bg: '#e8f5e9', color: '#2e7d32', weight: '600' }; // Top 5 verde claro
+        function getRankBgColor(rank) {
+            if (rank === 1) return '#ffd700'; // Ouro
+            if (rank === 2) return '#e0e0e0'; // Prata
+            if (rank === 3) return '#e6c9a8'; // Bronze
             return null;
-        }
-
-        function getRankBadgeHtml(rank, small = false) {
-            const style = getRankStyle(rank);
-            if (!style) return null;
-            const size = small ? '20px' : '24px';
-            const fontSize = small ? '0.65rem' : '0.75rem';
-            return `<span style="display:inline-flex;align-items:center;justify-content:center;width:${size};height:${size};background:${style.bg};border-radius:4px;color:${style.color};font-weight:${style.weight};font-size:${fontSize};">${rank}</span>`;
         }
 
         function shortenVocation(vocation) {
@@ -783,16 +774,14 @@
                 const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}`;
                 
                 if (isConsolidated) {
-                    // Badges para 30d e 7d
-                    const badge30 = getRankBadgeHtml(player.rank_30days, true);
-                    const badge7 = getRankBadgeHtml(player.rank_7days, true);
+                    // Cores de fundo para top 3 de cada período
+                    const bg30 = getRankBgColor(player.rank_30days);
+                    const bg7 = getRankBgColor(player.rank_7days);
+                    const bgYesterday = getRankBgColor(player.rank_yesterday);
                     
-                    const exp30Display = badge30 
-                        ? `${badge30} +${formatNumber(player.exp_30days)}`
-                        : `+${formatNumber(player.exp_30days)}`;
-                    const exp7Display = badge7 
-                        ? `${badge7} +${formatNumber(player.exp_7days)}`
-                        : `+${formatNumber(player.exp_7days)}`;
+                    const style30 = bg30 ? `background:${bg30};color:#1a1a1a;font-weight:600;` : 'color: var(--text-secondary);';
+                    const style7 = bg7 ? `background:${bg7};color:#1a1a1a;font-weight:600;` : 'color: var(--text-secondary);';
+                    const styleYesterday = bgYesterday ? `background:${bgYesterday};color:#1a1a1a;font-weight:600;` : '';
                     
                     html += `
                         <tr class="${rankClass}">
@@ -800,9 +789,9 @@
                             <td class="col-player"><a href="${charUrl}" target="_blank">${player.name}</a></td>
                             <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(player.vocation)}</span></td>
                             <td class="col-level align-center hide-mobile">${player.level || '—'}</td>
-                            <td class="col-exp align-right hide-mobile" style="color: var(--text-secondary); font-weight: 500;">${exp30Display}</td>
-                            <td class="col-exp align-right hide-mobile" style="color: var(--text-secondary); font-weight: 500;">${exp7Display}</td>
-                            <td class="col-exp align-right">+${formatNumber(player.exp_yesterday)}</td>
+                            <td class="col-exp align-right hide-mobile" style="${style30}">+${formatNumber(player.exp_30days)}</td>
+                            <td class="col-exp align-right hide-mobile" style="${style7}">+${formatNumber(player.exp_7days)}</td>
+                            <td class="col-exp align-right" style="${styleYesterday}">+${formatNumber(player.exp_yesterday)}</td>
                         </tr>
                     `;
                 } else {
@@ -899,12 +888,14 @@
                     const vocColor = getVocationColor(player.vocation);
                     
                     if (isConsolidated) {
-                        // Badges para 30d e 7d no screenshot
-                        const badge30 = player.rank_30days <= 5 ? getRankBadgeHtml(player.rank_30days, true) : '';
-                        const badge7 = player.rank_7days <= 5 ? getRankBadgeHtml(player.rank_7days, true) : '';
+                        // Cores de fundo para top 3 de cada período
+                        const bg30 = getRankBgColor(player.rank_30days);
+                        const bg7 = getRankBgColor(player.rank_7days);
+                        const bgYesterday = getRankBgColor(player.rank_yesterday);
                         
-                        const exp30Style = player.rank_30days <= 5 ? 'font-weight:600;' : '';
-                        const exp7Style = player.rank_7days <= 5 ? 'font-weight:600;' : '';
+                        const style30 = bg30 ? `background:${bg30};color:#1a1a1a;font-weight:600;` : 'color:#666;';
+                        const style7 = bg7 ? `background:${bg7};color:#1a1a1a;font-weight:600;` : 'color:#666;';
+                        const styleYesterday = bgYesterday ? `background:${bgYesterday};color:#1a1a1a;font-weight:600;` : 'font-weight:600;color:#16a34a;';
                         
                         tableRows += `
                             <tr>
@@ -916,9 +907,9 @@
                                     </span>
                                 </td>
                                 <td style="text-align:center;color:#666;">${player.level || '—'}</td>
-                                <td style="text-align:right;color:#666;font-variant-numeric:tabular-nums;${exp30Style}">${badge30} +${formatNumber(player.exp_30days)}</td>
-                                <td style="text-align:right;color:#666;font-variant-numeric:tabular-nums;${exp7Style}">${badge7} +${formatNumber(player.exp_7days)}</td>
-                                <td style="text-align:right;font-weight:600;color:#16a34a;font-variant-numeric:tabular-nums;">+${formatNumber(player.exp_yesterday)}</td>
+                                <td style="text-align:right;font-variant-numeric:tabular-nums;${style30}">+${formatNumber(player.exp_30days)}</td>
+                                <td style="text-align:right;font-variant-numeric:tabular-nums;${style7}">+${formatNumber(player.exp_7days)}</td>
+                                <td style="text-align:right;font-variant-numeric:tabular-nums;${styleYesterday}">+${formatNumber(player.exp_yesterday)}</td>
                             </tr>
                         `;
                     } else {
