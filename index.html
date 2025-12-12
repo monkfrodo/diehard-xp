@@ -3,392 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diehard - Ranking XP | Luminera</title>
+    <title>Diehard Guild - Ranking XP | Luminera</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #1a1612;
-            --bg-secondary: #241e19;
-            --bg-card: #2a231c;
-            --bg-hover: #352d24;
-            --accent-gold: #c9a227;
-            --accent-gold-light: #e6c44a;
-            --accent-bronze: #cd7f32;
-            --accent-silver: #a8a8a8;
-            --text-primary: #f5efe6;
-            --text-secondary: #b8a88a;
-            --text-muted: #7a6f5f;
-            --border-color: #3d352b;
-            --border-light: #4a4137;
+            --bg-primary: #f5f0e8;
+            --bg-secondary: #ebe5db;
+            --bg-white: #ffffff;
+            --bg-hover: #f9f6f1;
+            --accent: #1a1a1a;
+            --accent-blue: #0066cc;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border: #e0dbd3;
+            --border-dark: #d0cbc3;
             
-            --voc-knight: #c9a227;
-            --voc-paladin: #4a9c5d;
-            --voc-druid: #5b8dd9;
-            --voc-sorcerer: #9b59b6;
-            --voc-monk: #e07b39;
+            --voc-knight: #b8860b;
+            --voc-paladin: #228b22;
+            --voc-druid: #4169e1;
+            --voc-sorcerer: #8b008b;
+            --voc-monk: #d2691e;
             
-            --gold: linear-gradient(135deg, #f5d742 0%, #c9a227 50%, #a67c00 100%);
-            --silver: linear-gradient(135deg, #e8e8e8 0%, #a8a8a8 50%, #787878 100%);
-            --bronze: linear-gradient(135deg, #e6a86e 0%, #cd7f32 50%, #8b4513 100%);
+            --positive: #16a34a;
+            --negative: #dc2626;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 1;
+            padding: 32px 24px;
         }
 
+        /* Header */
         header {
-            text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 32px;
         }
 
-        .guild-icon {
-            font-size: 42px;
-            margin-bottom: 12px;
-            filter: drop-shadow(0 4px 8px rgba(201, 162, 39, 0.3));
-        }
-
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 20px rgba(201, 162, 39, 0.2);
-        }
-
-        .subtitle {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            letter-spacing: 2px;
-            margin-bottom: 6px;
-        }
-
-        .subtitle a {
-            color: var(--accent-gold);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .subtitle a:hover {
-            color: var(--accent-gold-light);
-        }
-
-        .tagline {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-
-        .external-link {
-            display: inline-block;
-            margin-top: 16px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            padding: 6px 14px;
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            transition: all 0.2s ease;
-        }
-
-        .external-link:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
-
-        .tabs-container {
+        .header-top {
             display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 8px;
         }
 
-        .tab {
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 12px 24px;
-            background: transparent;
-            border: 1px solid var(--border-color);
+        .guild-logo {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
             border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .header-info h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .header-info .subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .header-info .subtitle a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .header-info .subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 12px;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0;
+        }
+
+        .nav-tab {
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 12px 20px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
+            transition: all 0.15s ease;
+            margin-bottom: -1px;
         }
 
-        .tab:hover {
-            background: var(--bg-secondary);
-            border-color: var(--border-light);
+        .nav-tab:hover {
             color: var(--text-primary);
         }
 
-        .tab.active {
-            background: var(--accent-gold);
-            border-color: var(--accent-gold);
-            color: var(--bg-primary);
+        .nav-tab.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent);
         }
 
-        .info-bar {
+        /* Stats Bar */
+        .stats-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 20px;
-            background: var(--bg-secondary);
+            margin-bottom: 16px;
+            padding: 0 4px;
+        }
+
+        .stats-bar .period {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stats-bar .meta {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Table */
+        .table-container {
+            background: var(--bg-white);
             border-radius: 12px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        .period-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .period-label strong {
-            color: var(--accent-gold);
-        }
-
-        .last-update {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .showing-count {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+            border: 1px solid var(--border);
+            overflow: hidden;
         }
 
         .ranking-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: var(--bg-card);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-
-        .ranking-table thead {
-            background: var(--bg-secondary);
+            border-collapse: collapse;
         }
 
         .ranking-table th {
-            font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
             font-weight: 600;
-            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 16px 20px;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            padding: 14px 16px;
             text-align: left;
-            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
         }
 
-        .ranking-table th:last-child,
-        .ranking-table td:last-child {
+        .ranking-table th.align-right,
+        .ranking-table td.align-right {
             text-align: right;
         }
 
-        .ranking-table td {
-            padding: 14px 20px;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: middle;
-            transition: background 0.2s ease;
+        .ranking-table th.align-center,
+        .ranking-table td.align-center {
+            text-align: center;
         }
 
-        .ranking-table tbody tr:hover td {
+        .ranking-table tbody tr {
+            transition: background 0.1s ease;
+        }
+
+        .ranking-table tbody tr:hover {
             background: var(--bg-hover);
+        }
+
+        .ranking-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
         }
 
         .ranking-table tbody tr:last-child td {
             border-bottom: none;
         }
 
-        .rank-cell {
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            font-size: 1rem;
+        /* Rank Column */
+        .col-rank {
+            width: 50px;
+            font-weight: 600;
             color: var(--text-muted);
-            width: 60px;
         }
 
-        .rank-medal {
+        .rank-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            font-size: 0.85rem;
-            color: var(--bg-primary);
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            font-size: 0.75rem;
             font-weight: 700;
         }
 
-        .rank-1 .rank-medal {
-            background: var(--gold);
-            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
-        }
+        .rank-1 .rank-badge { background: #ffd700; color: #1a1a1a; }
+        .rank-2 .rank-badge { background: #c0c0c0; color: #1a1a1a; }
+        .rank-3 .rank-badge { background: #cd7f32; color: #fff; }
 
-        .rank-2 .rank-medal {
-            background: var(--silver);
-            box-shadow: 0 4px 12px rgba(168, 168, 168, 0.3);
-        }
-
-        .rank-3 .rank-medal {
-            background: var(--bronze);
-            box-shadow: 0 4px 12px rgba(205, 127, 50, 0.3);
-        }
-
-        .rank-1 td { background: rgba(201, 162, 39, 0.08); }
-        .rank-2 td { background: rgba(168, 168, 168, 0.05); }
-        .rank-3 td { background: rgba(205, 127, 50, 0.05); }
-
-        .name-cell {
+        /* Player Column */
+        .col-player {
             font-weight: 500;
+        }
+
+        .col-player a {
             color: var(--text-primary);
-        }
-
-        .name-cell a {
-            color: inherit;
             text-decoration: none;
-            transition: color 0.2s ease;
         }
 
-        .name-cell a:hover {
-            color: var(--accent-gold);
+        .col-player a:hover {
+            color: var(--accent-blue);
         }
 
-        .vocation-cell {
-            font-size: 0.85rem;
+        /* Vocation Column */
+        .col-vocation {
+            width: 60px;
         }
 
-        .vocation-knight { color: var(--voc-knight); }
-        .vocation-paladin { color: var(--voc-paladin); }
-        .vocation-druid { color: var(--voc-druid); }
-        .vocation-sorcerer { color: var(--voc-sorcerer); }
-        .vocation-monk { color: var(--voc-monk); }
-        .vocation-unknown { color: var(--text-muted); }
-
-        .level-cell {
+        .vocation-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 600;
+            background: var(--bg-secondary);
+        }
+
+        .voc-knight { color: var(--voc-knight); }
+        .voc-paladin { color: var(--voc-paladin); }
+        .voc-druid { color: var(--voc-druid); }
+        .voc-sorcerer { color: var(--voc-sorcerer); }
+        .voc-monk { color: var(--voc-monk); }
+        .voc-unknown { color: var(--text-muted); }
+
+        /* Level Column */
+        .col-level {
+            width: 70px;
+            font-weight: 500;
             color: var(--text-secondary);
         }
 
-        .points-cell {
-            font-family: 'Lato', sans-serif;
+        /* Exp Column */
+        .col-exp {
+            width: 120px;
             font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--accent-gold-light);
-            letter-spacing: 0.5px;
+            font-variant-numeric: tabular-nums;
         }
 
-        .points-negative {
-            color: #e74c3c;
-        }
+        .exp-positive { color: var(--positive); }
+        .exp-negative { color: var(--negative); }
 
-        .load-more-container {
+        /* Load More */
+        .load-more {
             text-align: center;
-            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px solid var(--border);
         }
 
         .load-more-btn {
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 14px 40px;
-            background: transparent;
-            border: 1px solid var(--accent-gold);
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 10px 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-dark);
             border-radius: 8px;
-            color: var(--accent-gold);
+            color: var(--text-primary);
             cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
+            transition: all 0.15s ease;
         }
 
         .load-more-btn:hover {
-            background: var(--accent-gold);
-            color: var(--bg-primary);
+            background: var(--border);
         }
 
-        .load-more-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .death-reason {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .death-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
+        /* Footer */
         footer {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
             text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
         }
 
         .footer-text {
             font-size: 0.75rem;
             color: var(--text-muted);
-            margin-bottom: 8px;
         }
 
-        .footer-text a {
-            color: var(--accent-gold);
-            text-decoration: none;
-        }
-
-        .footer-note {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            opacity: 0.6;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
+        /* States */
         .loading {
             text-align: center;
             padding: 60px 20px;
@@ -396,18 +348,16 @@
         }
 
         .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent-gold);
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 16px;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 12px;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         .empty-state {
             text-align: center;
@@ -415,112 +365,75 @@
             color: var(--text-muted);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 24px 16px;
-            }
-
-            h1 {
-                font-size: 2rem;
-                letter-spacing: 2px;
-            }
-
-            .tabs-container {
-                gap: 6px;
-            }
-
-            .tab {
-                padding: 10px 16px;
-                font-size: 0.75rem;
-            }
-
-            .info-bar {
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
-            }
-
-            .ranking-table th,
-            .ranking-table td {
-                padding: 12px 10px;
-                font-size: 0.85rem;
-            }
-
-            .ranking-table th:nth-child(4),
-            .ranking-table td:nth-child(4) {
-                display: none;
-            }
-
-            .rank-medal {
-                width: 28px;
-                height: 28px;
-                font-size: 0.75rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            .ranking-table th:nth-child(3),
-            .ranking-table td:nth-child(3) {
-                display: none;
-            }
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container { padding: 20px 16px; }
+            
+            .header-top { gap: 12px; }
+            .guild-logo { width: 40px; height: 40px; font-size: 20px; }
+            .header-info h1 { font-size: 1.5rem; }
+            
+            .nav-tabs { overflow-x: auto; gap: 0; }
+            .nav-tab { padding: 12px 14px; font-size: 0.8125rem; white-space: nowrap; }
+            
+            .ranking-table th, .ranking-table td { padding: 10px 12px; }
+            
+            .col-level { display: none; }
+            
+            .stats-bar { flex-direction: column; align-items: flex-start; gap: 4px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="guild-icon">⚔️</div>
-            <h1>Diehard</h1>
-            <p class="subtitle">
-                <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> 
-                · Optional PvP · North America
-            </p>
-            <p class="tagline">Ranking de Experiência</p>
-            <a href="https://guildstats.eu/guild=Diehard&op=3" target="_blank" class="external-link">
-                Ver guild completa no GuildStats.eu →
-            </a>
+            <div class="header-top">
+                <div class="guild-logo">⚔️</div>
+                <div class="header-info">
+                    <h1>Diehard Guild</h1>
+                    <p class="subtitle">
+                        <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> · Optional PvP
+                    </p>
+                </div>
+            </div>
+            <div class="header-meta">
+                <span id="last-update">Carregando...</span>
+                <span>·</span>
+                <span id="member-count">-- membros</span>
+            </div>
         </header>
 
-        <div class="tabs-container">
-            <button class="tab active" data-period="yesterday">XP Ontem</button>
-            <button class="tab" data-period="7days">XP 7 Dias</button>
-            <button class="tab" data-period="30days">XP 30 Dias</button>
-            <button class="tab" data-period="deaths">💀 Mortes</button>
+        <nav class="nav-tabs">
+            <button class="nav-tab" data-period="today">Hoje</button>
+            <button class="nav-tab active" data-period="yesterday">Ontem</button>
+            <button class="nav-tab" data-period="7days">7 Dias</button>
+            <button class="nav-tab" data-period="30days">30 Dias</button>
+            <button class="nav-tab" data-period="deaths">Mortes</button>
+        </nav>
+
+        <div class="stats-bar">
+            <span class="period" id="current-period">Experiência de Ontem</span>
+            <span class="meta" id="showing-count"></span>
         </div>
 
-        <div class="info-bar">
-            <span class="period-label">Período: <strong id="current-period">XP de Ontem</strong></span>
-            <span class="last-update" id="last-update">Carregando...</span>
-            <span class="showing-count" id="showing-count">Mostrando: 0 de 0</span>
-        </div>
-
-        <div id="ranking-content">
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Carregando dados...</p>
+        <div class="table-container">
+            <div id="ranking-content">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Carregando ranking...</p>
+                </div>
+            </div>
+            <div class="load-more" id="load-more-container" style="display: none;">
+                <button class="load-more-btn" id="load-more-btn">Carregar mais</button>
             </div>
         </div>
 
-        <div class="load-more-container">
-            <button class="load-more-btn" id="load-more-btn" style="display: none;">
-                Carregar Mais (+10)
-            </button>
-        </div>
-
         <footer>
-            <p class="footer-text">
-                Dados obtidos de <a href="https://guildstats.eu" target="_blank">GuildStats.eu</a>
-            </p>
-            <p class="footer-text">
-                Atualizado automaticamente às 6:30 (horário de Brasília)
-            </p>
-            <p class="footer-note">
-                Diehard Guild © 2025 · Luminera
-            </p>
+            <div class="footer-links">
+                <a href="https://guildstats.eu/guild=Diehard" target="_blank">GuildStats</a>
+                <a href="https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Diehard" target="_blank">Tibia.com</a>
+            </div>
+            <p class="footer-text">Dados atualizados automaticamente via GuildStats.eu</p>
         </footer>
     </div>
 
@@ -531,50 +444,45 @@
         const INCREMENT = 10;
 
         const periodLabels = {
-            'yesterday': 'XP de Ontem',
-            '7days': 'XP dos Últimos 7 Dias',
-            '30days': 'XP dos Últimos 30 Dias',
+            'today': 'Experiência de Hoje',
+            'yesterday': 'Experiência de Ontem',
+            '7days': 'Experiência dos Últimos 7 Dias',
+            '30days': 'Experiência dos Últimos 30 Dias',
             'deaths': 'Mortes Recentes'
         };
 
         function getVocationClass(vocation) {
-            if (!vocation) return 'vocation-unknown';
+            if (!vocation) return 'voc-unknown';
             const v = vocation.toLowerCase();
-            if (v.includes('knight')) return 'vocation-knight';
-            if (v.includes('paladin')) return 'vocation-paladin';
-            if (v.includes('druid')) return 'vocation-druid';
-            if (v.includes('sorcerer')) return 'vocation-sorcerer';
-            if (v.includes('monk')) return 'vocation-monk';
-            return 'vocation-unknown';
+            if (v.includes('knight')) return 'voc-knight';
+            if (v.includes('paladin')) return 'voc-paladin';
+            if (v.includes('druid')) return 'voc-druid';
+            if (v.includes('sorcerer')) return 'voc-sorcerer';
+            if (v.includes('monk') || v.includes('grove') || v.includes('archon')) return 'voc-monk';
+            return 'voc-unknown';
         }
 
         function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return new Intl.NumberFormat('pt-BR').format(num);
         }
 
         function shortenVocation(vocation) {
-            if (!vocation) return '-';
+            if (!vocation) return '—';
             const map = {
-                'Elite Knight': 'EK',
-                'Royal Paladin': 'RP',
-                'Elder Druid': 'ED',
-                'Master Sorcerer': 'MS',
-                'Knight': 'K',
-                'Paladin': 'P',
-                'Druid': 'D',
-                'Sorcerer': 'S',
-                'Grove Keeper': 'GK',
-                'Archon': 'AR'
+                'Elite Knight': 'EK', 'Royal Paladin': 'RP',
+                'Elder Druid': 'ED', 'Master Sorcerer': 'MS',
+                'Knight': 'K', 'Paladin': 'P', 'Druid': 'D', 'Sorcerer': 'S',
+                'Grove Keeper': 'GK', 'Archon': 'AR'
             };
             return map[vocation] || vocation.substring(0, 2).toUpperCase();
         }
 
         function renderRanking() {
             const content = document.getElementById('ranking-content');
-            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreContainer = document.getElementById('load-more-container');
             
             if (!rankingData) {
-                content.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Carregando dados...</p></div>';
+                content.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Carregando ranking...</p></div>';
                 return;
             }
 
@@ -588,8 +496,8 @@
             
             if (toShow.length === 0) {
                 content.innerHTML = '<div class="empty-state">Nenhum dado disponível para este período.</div>';
-                loadMoreBtn.style.display = 'none';
-                updateShowingCount(0, 0);
+                loadMoreContainer.style.display = 'none';
+                document.getElementById('showing-count').textContent = '';
                 return;
             }
 
@@ -597,11 +505,11 @@
                 <table class="ranking-table">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th class="align-center">#</th>
                             <th>Jogador</th>
-                            <th>Voc</th>
-                            <th>Level</th>
-                            <th>Exp</th>
+                            <th class="align-center">Voc</th>
+                            <th class="align-center">Level</th>
+                            <th class="align-right">Exp</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -611,20 +519,18 @@
                 const rank = index + 1;
                 const rankClass = rank <= 3 ? `rank-${rank}` : '';
                 const rankDisplay = rank <= 3 
-                    ? `<span class="rank-medal">${rank}</span>` 
+                    ? `<span class="rank-badge">${rank}</span>` 
                     : rank;
                 const vocClass = getVocationClass(player.vocation);
                 const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}`;
                 
                 html += `
                     <tr class="${rankClass}">
-                        <td class="rank-cell">${rankDisplay}</td>
-                        <td class="name-cell">
-                            <a href="${charUrl}" target="_blank">${player.name}</a>
-                        </td>
-                        <td class="vocation-cell ${vocClass}">${shortenVocation(player.vocation)}</td>
-                        <td class="level-cell">${player.level || '-'}</td>
-                        <td class="points-cell">+${formatNumber(player.points)}</td>
+                        <td class="col-rank align-center">${rankDisplay}</td>
+                        <td class="col-player"><a href="${charUrl}" target="_blank">${player.name}</a></td>
+                        <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(player.vocation)}</span></td>
+                        <td class="col-level align-center">${player.level || '—'}</td>
+                        <td class="col-exp align-right exp-positive">+${formatNumber(player.points)}</td>
                     </tr>
                 `;
             });
@@ -632,21 +538,21 @@
             html += '</tbody></table>';
             content.innerHTML = html;
 
-            loadMoreBtn.style.display = displayCount < data.length ? 'inline-block' : 'none';
-            updateShowingCount(toShow.length, data.length);
+            loadMoreContainer.style.display = displayCount < data.length ? 'block' : 'none';
+            document.getElementById('showing-count').textContent = `${toShow.length} de ${data.length}`;
         }
 
         function renderDeaths() {
             const content = document.getElementById('ranking-content');
-            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreContainer = document.getElementById('load-more-container');
             
             const deaths = rankingData.deaths || [];
             const toShow = deaths.slice(0, displayCount);
             
             if (toShow.length === 0) {
-                content.innerHTML = '<div class="empty-state">Nenhuma morte registrada recentemente.</div>';
-                loadMoreBtn.style.display = 'none';
-                updateShowingCount(0, 0);
+                content.innerHTML = '<div class="empty-state">Nenhuma morte registrada.</div>';
+                loadMoreContainer.style.display = 'none';
+                document.getElementById('showing-count').textContent = '';
                 return;
             }
 
@@ -654,11 +560,11 @@
                 <table class="ranking-table">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th class="align-center">#</th>
                             <th>Jogador</th>
-                            <th>Voc</th>
-                            <th>Level</th>
-                            <th>Data</th>
+                            <th class="align-center">Voc</th>
+                            <th class="align-center">Level</th>
+                            <th class="align-right">XP Perdida</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -668,18 +574,14 @@
                 const rank = index + 1;
                 const vocClass = getVocationClass(death.vocation);
                 const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(death.name)}&tab=5`;
-                const reason = death.reason ? `<div class="death-reason">by ${death.reason}</div>` : '';
                 
                 html += `
                     <tr>
-                        <td class="rank-cell">${rank}</td>
-                        <td class="name-cell">
-                            <a href="${charUrl}" target="_blank">${death.name}</a>
-                            ${reason}
-                        </td>
-                        <td class="vocation-cell ${vocClass}">${shortenVocation(death.vocation)}</td>
-                        <td class="level-cell">${death.level || '-'}</td>
-                        <td class="death-date">${death.date || '-'}</td>
+                        <td class="col-rank align-center">${rank}</td>
+                        <td class="col-player"><a href="${charUrl}" target="_blank">${death.name}</a></td>
+                        <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(death.vocation)}</span></td>
+                        <td class="col-level align-center">${death.level || '—'}</td>
+                        <td class="col-exp align-right exp-negative">-${formatNumber(death.exp_lost)}</td>
                     </tr>
                 `;
             });
@@ -687,19 +589,15 @@
             html += '</tbody></table>';
             content.innerHTML = html;
 
-            loadMoreBtn.style.display = displayCount < deaths.length ? 'inline-block' : 'none';
-            updateShowingCount(toShow.length, deaths.length);
-        }
-
-        function updateShowingCount(showing, total) {
-            document.getElementById('showing-count').textContent = `Mostrando: ${showing} de ${total}`;
+            loadMoreContainer.style.display = displayCount < deaths.length ? 'block' : 'none';
+            document.getElementById('showing-count').textContent = `${toShow.length} de ${deaths.length}`;
         }
 
         function switchPeriod(period) {
             currentPeriod = period;
             displayCount = 20;
             
-            document.querySelectorAll('.tab').forEach(tab => {
+            document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.classList.toggle('active', tab.dataset.period === period);
             });
             
@@ -713,18 +611,19 @@
                 rankingData = await response.json();
                 
                 document.getElementById('last-update').textContent = 
-                    `Atualizado: ${rankingData.last_update_display || 'N/A'}`;
+                    `Atualizado ${rankingData.last_update_display || '—'}`;
+                document.getElementById('member-count').textContent = 
+                    `${rankingData.total_members || '—'} membros`;
                 
                 renderRanking();
             } catch (error) {
                 console.error('Erro ao carregar dados:', error);
                 document.getElementById('ranking-content').innerHTML = 
-                    '<div class="empty-state">Erro ao carregar dados. Tente novamente mais tarde.</div>';
+                    '<div class="empty-state">Erro ao carregar dados.</div>';
             }
         }
 
-        // Event Listeners
-        document.querySelectorAll('.tab').forEach(tab => {
+        document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', () => switchPeriod(tab.dataset.period));
         });
 
@@ -733,7 +632,6 @@
             renderRanking();
         });
 
-        // Init
         loadData();
     </script>
 </body>
