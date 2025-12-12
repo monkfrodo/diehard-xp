@@ -49,9 +49,7 @@
         }
 
         /* Header */
-        header {
-            margin-bottom: 32px;
-        }
+        header { margin-bottom: 32px; }
 
         .header-top {
             display: flex;
@@ -88,9 +86,7 @@
             text-decoration: none;
         }
 
-        .header-info .subtitle a:hover {
-            text-decoration: underline;
-        }
+        .header-info .subtitle a:hover { text-decoration: underline; }
 
         .header-meta {
             display: flex;
@@ -101,19 +97,12 @@
             color: var(--text-muted);
         }
 
-        .header-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
         /* Navigation Tabs */
         .nav-tabs {
             display: flex;
             gap: 4px;
             margin-bottom: 24px;
             border-bottom: 1px solid var(--border);
-            padding-bottom: 0;
         }
 
         .nav-tab {
@@ -130,10 +119,7 @@
             margin-bottom: -1px;
         }
 
-        .nav-tab:hover {
-            color: var(--text-primary);
-        }
-
+        .nav-tab:hover { color: var(--text-primary); }
         .nav-tab.active {
             color: var(--text-primary);
             border-bottom-color: var(--accent);
@@ -185,22 +171,13 @@
         }
 
         .ranking-table th.align-right,
-        .ranking-table td.align-right {
-            text-align: right;
-        }
+        .ranking-table td.align-right { text-align: right; }
 
         .ranking-table th.align-center,
-        .ranking-table td.align-center {
-            text-align: center;
-        }
+        .ranking-table td.align-center { text-align: center; }
 
-        .ranking-table tbody tr {
-            transition: background 0.1s ease;
-        }
-
-        .ranking-table tbody tr:hover {
-            background: var(--bg-hover);
-        }
+        .ranking-table tbody tr { transition: background 0.1s ease; }
+        .ranking-table tbody tr:hover { background: var(--bg-hover); }
 
         .ranking-table td {
             padding: 12px 16px;
@@ -208,11 +185,9 @@
             font-size: 0.875rem;
         }
 
-        .ranking-table tbody tr:last-child td {
-            border-bottom: none;
-        }
+        .ranking-table tbody tr:last-child td { border-bottom: none; }
 
-        /* Rank Column */
+        /* Columns */
         .col-rank {
             width: 50px;
             font-weight: 600;
@@ -234,24 +209,11 @@
         .rank-2 .rank-badge { background: #c0c0c0; color: #1a1a1a; }
         .rank-3 .rank-badge { background: #cd7f32; color: #fff; }
 
-        /* Player Column */
-        .col-player {
-            font-weight: 500;
-        }
+        .col-player { font-weight: 500; }
+        .col-player a { color: var(--text-primary); text-decoration: none; }
+        .col-player a:hover { color: var(--accent-blue); }
 
-        .col-player a {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .col-player a:hover {
-            color: var(--accent-blue);
-        }
-
-        /* Vocation Column */
-        .col-vocation {
-            width: 60px;
-        }
+        .col-vocation { width: 60px; }
 
         .vocation-badge {
             display: inline-block;
@@ -269,16 +231,14 @@
         .voc-monk { color: var(--voc-monk); }
         .voc-unknown { color: var(--text-muted); }
 
-        /* Level Column */
         .col-level {
             width: 70px;
             font-weight: 500;
             color: var(--text-secondary);
         }
 
-        /* Exp Column */
         .col-exp {
-            width: 120px;
+            width: 130px;
             font-weight: 600;
             font-variant-numeric: tabular-nums;
         }
@@ -306,9 +266,7 @@
             transition: all 0.15s ease;
         }
 
-        .load-more-btn:hover {
-            background: var(--border);
-        }
+        .load-more-btn:hover { background: var(--border); }
 
         /* Footer */
         footer {
@@ -331,9 +289,7 @@
             text-decoration: none;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-blue);
-        }
+        .footer-links a:hover { color: var(--accent-blue); }
 
         .footer-text {
             font-size: 0.75rem;
@@ -365,7 +321,7 @@
             color: var(--text-muted);
         }
 
-        /* Responsive */
+        /* Responsive - Esconde Level no mobile */
         @media (max-width: 640px) {
             .container { padding: 20px 16px; }
             
@@ -376,11 +332,21 @@
             .nav-tabs { overflow-x: auto; gap: 0; }
             .nav-tab { padding: 12px 14px; font-size: 0.8125rem; white-space: nowrap; }
             
-            .ranking-table th, .ranking-table td { padding: 10px 12px; }
+            .ranking-table th, .ranking-table td { padding: 10px 8px; }
             
-            .col-level { display: none; }
+            .hide-mobile { display: none !important; }
+            
+            .col-exp { width: auto; }
+            .col-rank { width: 40px; }
+            .col-vocation { width: 50px; }
             
             .stats-bar { flex-direction: column; align-items: flex-start; gap: 4px; }
+        }
+
+        @media (max-width: 400px) {
+            .ranking-table th, .ranking-table td { padding: 8px 6px; font-size: 0.8125rem; }
+            .vocation-badge { padding: 2px 6px; font-size: 0.7rem; }
+            .rank-badge { width: 22px; height: 22px; font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -508,7 +474,7 @@
                             <th class="align-center">#</th>
                             <th>Jogador</th>
                             <th class="align-center">Voc</th>
-                            <th class="align-center">Level</th>
+                            <th class="align-center hide-mobile">Level</th>
                             <th class="align-right">Exp</th>
                         </tr>
                     </thead>
@@ -529,7 +495,7 @@
                         <td class="col-rank align-center">${rankDisplay}</td>
                         <td class="col-player"><a href="${charUrl}" target="_blank">${player.name}</a></td>
                         <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(player.vocation)}</span></td>
-                        <td class="col-level align-center">${player.level || '—'}</td>
+                        <td class="col-level align-center hide-mobile">${player.level || '—'}</td>
                         <td class="col-exp align-right exp-positive">+${formatNumber(player.points)}</td>
                     </tr>
                 `;
@@ -563,7 +529,7 @@
                             <th class="align-center">#</th>
                             <th>Jogador</th>
                             <th class="align-center">Voc</th>
-                            <th class="align-center">Level</th>
+                            <th class="align-center hide-mobile">Level</th>
                             <th class="align-right">XP Perdida</th>
                         </tr>
                     </thead>
@@ -580,7 +546,7 @@
                         <td class="col-rank align-center">${rank}</td>
                         <td class="col-player"><a href="${charUrl}" target="_blank">${death.name}</a></td>
                         <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(death.vocation)}</span></td>
-                        <td class="col-level align-center">${death.level || '—'}</td>
+                        <td class="col-level align-center hide-mobile">${death.level || '—'}</td>
                         <td class="col-exp align-right exp-negative">-${formatNumber(death.exp_lost)}</td>
                     </tr>
                 `;
