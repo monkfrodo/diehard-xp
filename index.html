@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
             --bg-primary: #f5f0e8;
@@ -136,9 +137,43 @@
             color: var(--text-primary);
         }
 
+        .stats-bar .actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .stats-bar .meta {
             font-size: 0.8125rem;
             color: var(--text-muted);
+        }
+
+        .level-filter {
+            display: flex;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            padding: 2px;
+            gap: 2px;
+        }
+
+        .level-filter-btn {
+            font-family: inherit;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 5px 10px;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .level-filter-btn:hover { color: var(--text-primary); }
+        .level-filter-btn.active {
+            background: var(--bg-white);
+            color: var(--text-primary);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
         .table-container {
@@ -259,6 +294,30 @@
 
         .load-more-btn:hover { background: var(--border); }
 
+        .screenshot-btn {
+            font-family: inherit;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            background: var(--accent);
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .screenshot-btn:hover { background: #333; }
+        .screenshot-btn:disabled { opacity: 0.6; cursor: wait; }
+
+        .screenshot-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
         footer {
             margin-top: 40px;
             padding-top: 24px;
@@ -310,6 +369,110 @@
             color: var(--text-muted);
         }
 
+        /* Screenshot container - hidden, used for generating image */
+        .screenshot-container {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 1200px;
+            background: var(--bg-primary);
+            padding: 40px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .screenshot-container .screenshot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .screenshot-container .screenshot-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .screenshot-container .screenshot-logo {
+            width: 56px;
+            height: 56px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .screenshot-container .screenshot-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .screenshot-container .screenshot-info p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .screenshot-container .screenshot-period {
+            text-align: right;
+        }
+
+        .screenshot-container .screenshot-period h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .screenshot-container .screenshot-period p {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .screenshot-container .screenshot-table {
+            background: var(--bg-white);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .screenshot-container .screenshot-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .screenshot-container .screenshot-table th {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            padding: 16px 20px;
+            text-align: left;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .screenshot-container .screenshot-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9375rem;
+        }
+
+        .screenshot-container .screenshot-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .screenshot-container .screenshot-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
         @media (max-width: 640px) {
             .container { padding: 20px 16px; }
             .header-top { gap: 12px; }
@@ -322,7 +485,8 @@
             .col-exp { width: auto; }
             .col-rank { width: 40px; }
             .col-vocation { width: 50px; }
-            .stats-bar { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .stats-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .stats-bar .actions { width: 100%; justify-content: space-between; }
         }
 
         @media (max-width: 400px) {
@@ -359,7 +523,22 @@
 
         <div class="stats-bar">
             <span class="period" id="current-period">Experiência de Ontem</span>
-            <span class="meta" id="showing-count"></span>
+            <div class="actions">
+                <div class="level-filter">
+                    <button class="level-filter-btn active" data-filter="all">Todos</button>
+                    <button class="level-filter-btn" data-filter="500+">500+</button>
+                    <button class="level-filter-btn" data-filter="500-">Até 500</button>
+                </div>
+                <span class="meta" id="showing-count"></span>
+                <button class="screenshot-btn" id="screenshot-btn" title="Gerar imagem do Top 20">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    Top 20
+                </button>
+            </div>
         </div>
 
         <div class="table-container">
@@ -383,9 +562,13 @@
         </footer>
     </div>
 
+    <!-- Hidden container for screenshot generation -->
+    <div class="screenshot-container" id="screenshot-container"></div>
+
     <script>
         let rankingData = null;
         let currentPeriod = 'yesterday';
+        let currentLevelFilter = 'all';
         let displayCount = 20;
         const INCREMENT = 10;
 
@@ -394,6 +577,25 @@
             '7days': 'Experiência dos Últimos 7 Dias',
             '30days': 'Experiência dos Últimos 30 Dias'
         };
+
+        const periodLabelsShort = {
+            'yesterday': 'Ontem',
+            '7days': '7 Dias',
+            '30days': '30 Dias'
+        };
+
+        const filterLabels = {
+            'all': '',
+            '500+': ' (500+)',
+            '500-': ' (Até 500)'
+        };
+
+        function filterByLevel(data) {
+            if (currentLevelFilter === 'all') return data;
+            if (currentLevelFilter === '500+') return data.filter(p => (p.level || 0) >= 500);
+            if (currentLevelFilter === '500-') return data.filter(p => (p.level || 0) < 500);
+            return data;
+        }
 
         function getVocationClass(vocation) {
             if (!vocation) return 'voc-unknown';
@@ -404,6 +606,19 @@
             if (v.includes('sorcerer')) return 'voc-sorcerer';
             if (v.includes('monk') || v.includes('grove') || v.includes('archon')) return 'voc-monk';
             return 'voc-unknown';
+        }
+
+        function getVocationColor(vocation) {
+            const vocClass = getVocationClass(vocation);
+            const colors = {
+                'voc-knight': '#b8860b',
+                'voc-paladin': '#228b22',
+                'voc-druid': '#4169e1',
+                'voc-sorcerer': '#8b008b',
+                'voc-monk': '#d2691e',
+                'voc-unknown': '#999999'
+            };
+            return colors[vocClass] || '#999999';
         }
 
         function formatNumber(num) {
@@ -430,11 +645,12 @@
                 return;
             }
 
-            const data = rankingData.rankings[currentPeriod] || [];
+            const rawData = rankingData.rankings[currentPeriod] || [];
+            const data = filterByLevel(rawData);
             const toShow = data.slice(0, displayCount);
             
             if (toShow.length === 0) {
-                content.innerHTML = '<div class="empty-state">Nenhum dado disponível.</div>';
+                content.innerHTML = '<div class="empty-state">Nenhum dado disponível para este filtro.</div>';
                 loadMoreContainer.style.display = 'none';
                 document.getElementById('showing-count').textContent = '';
                 return;
@@ -489,8 +705,148 @@
                 tab.classList.toggle('active', tab.dataset.period === period);
             });
             
-            document.getElementById('current-period').textContent = periodLabels[period];
+            document.getElementById('current-period').textContent = periodLabels[period] + filterLabels[currentLevelFilter];
             renderRanking();
+        }
+
+        function switchLevelFilter(filter) {
+            currentLevelFilter = filter;
+            displayCount = 20;
+            
+            document.querySelectorAll('.level-filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+            
+            document.getElementById('current-period').textContent = periodLabels[currentPeriod] + filterLabels[filter];
+            renderRanking();
+        }
+
+        async function generateScreenshot() {
+            const btn = document.getElementById('screenshot-btn');
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                </svg>
+                Gerando...
+            `;
+
+            try {
+                const rawData = rankingData.rankings[currentPeriod] || [];
+                const data = filterByLevel(rawData);
+                const top20 = data.slice(0, 20);
+                
+                if (top20.length === 0) {
+                    alert('Nenhum dado disponível para gerar imagem.');
+                    return;
+                }
+
+                // Build screenshot HTML
+                const container = document.getElementById('screenshot-container');
+                
+                let tableRows = '';
+                top20.forEach((player, index) => {
+                    const rank = index + 1;
+                    let rankBadge = rank.toString();
+                    let rankStyle = 'color: #999;';
+                    
+                    if (rank === 1) {
+                        rankBadge = `<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#ffd700;border-radius:6px;color:#1a1a1a;font-weight:700;">${rank}</span>`;
+                        rankStyle = '';
+                    } else if (rank === 2) {
+                        rankBadge = `<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#c0c0c0;border-radius:6px;color:#1a1a1a;font-weight:700;">${rank}</span>`;
+                        rankStyle = '';
+                    } else if (rank === 3) {
+                        rankBadge = `<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#cd7f32;border-radius:6px;color:#fff;font-weight:700;">${rank}</span>`;
+                        rankStyle = '';
+                    }
+
+                    const vocColor = getVocationColor(player.vocation);
+                    
+                    tableRows += `
+                        <tr>
+                            <td style="text-align:center;font-weight:600;${rankStyle}">${rankBadge}</td>
+                            <td style="font-weight:500;">${player.name}</td>
+                            <td style="text-align:center;">
+                                <span style="display:inline-block;padding:3px 10px;background:#ebe5db;border-radius:4px;font-size:0.8125rem;font-weight:600;color:${vocColor};">
+                                    ${shortenVocation(player.vocation)}
+                                </span>
+                            </td>
+                            <td style="text-align:center;color:#666;">${player.level || '—'}</td>
+                            <td style="text-align:right;font-weight:600;color:#16a34a;font-variant-numeric:tabular-nums;">+${formatNumber(player.points)}</td>
+                        </tr>
+                    `;
+                });
+
+                container.innerHTML = `
+                    <div class="screenshot-header">
+                        <div class="screenshot-title">
+                            <div class="screenshot-logo">⚔️</div>
+                            <div class="screenshot-info">
+                                <h2>Diehard Guild</h2>
+                                <p>Luminera · Optional PvP</p>
+                            </div>
+                        </div>
+                        <div class="screenshot-period">
+                            <h3>${periodLabelsShort[currentPeriod]}${filterLabels[currentLevelFilter]}</h3>
+                            <p>${rankingData.last_update_display || ''}</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center;width:60px;">#</th>
+                                    <th>Jogador</th>
+                                    <th style="text-align:center;width:80px;">Voc</th>
+                                    <th style="text-align:center;width:80px;">Level</th>
+                                    <th style="text-align:right;width:150px;">Exp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableRows}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="screenshot-footer">
+                        guildstats.eu/guild=Diehard
+                    </div>
+                `;
+
+                // Wait a bit for rendering
+                await new Promise(resolve => setTimeout(resolve, 100));
+
+                // Generate canvas
+                const canvas = await html2canvas(container, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#f5f0e8',
+                    width: 1200,
+                    windowWidth: 1200
+                });
+
+                // Download image
+                const link = document.createElement('a');
+                const date = new Date().toISOString().split('T')[0];
+                const filterSuffix = currentLevelFilter !== 'all' ? `-${currentLevelFilter}` : '';
+                link.download = `diehard-top20-${currentPeriod}${filterSuffix}-${date}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+
+            } catch (error) {
+                console.error('Erro ao gerar screenshot:', error);
+                alert('Erro ao gerar imagem. Tente novamente.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    Top 20
+                `;
+            }
         }
 
         async function loadData() {
@@ -515,10 +871,16 @@
             tab.addEventListener('click', () => switchPeriod(tab.dataset.period));
         });
 
+        document.querySelectorAll('.level-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => switchLevelFilter(btn.dataset.filter));
+        });
+
         document.getElementById('load-more-btn').addEventListener('click', () => {
             displayCount += INCREMENT;
             renderRanking();
         });
+
+        document.getElementById('screenshot-btn').addEventListener('click', generateScreenshot);
 
         loadData();
     </script>
