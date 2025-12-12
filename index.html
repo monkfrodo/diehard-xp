@@ -28,7 +28,6 @@
             --voc-monk: #d2691e;
             
             --positive: #16a34a;
-            --negative: #dc2626;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,7 +47,6 @@
             padding: 32px 24px;
         }
 
-        /* Header */
         header { margin-bottom: 32px; }
 
         .header-top {
@@ -97,7 +95,6 @@
             color: var(--text-muted);
         }
 
-        /* Navigation Tabs */
         .nav-tabs {
             display: flex;
             gap: 4px;
@@ -125,7 +122,6 @@
             border-bottom-color: var(--accent);
         }
 
-        /* Stats Bar */
         .stats-bar {
             display: flex;
             justify-content: space-between;
@@ -145,7 +141,6 @@
             color: var(--text-muted);
         }
 
-        /* Table */
         .table-container {
             background: var(--bg-white);
             border-radius: 12px;
@@ -187,7 +182,6 @@
 
         .ranking-table tbody tr:last-child td { border-bottom: none; }
 
-        /* Columns */
         .col-rank {
             width: 50px;
             font-weight: 600;
@@ -241,12 +235,9 @@
             width: 130px;
             font-weight: 600;
             font-variant-numeric: tabular-nums;
+            color: var(--positive);
         }
 
-        .exp-positive { color: var(--positive); }
-        .exp-negative { color: var(--negative); }
-
-        /* Load More */
         .load-more {
             text-align: center;
             padding: 20px;
@@ -268,7 +259,6 @@
 
         .load-more-btn:hover { background: var(--border); }
 
-        /* Footer */
         footer {
             margin-top: 40px;
             padding-top: 24px;
@@ -296,7 +286,6 @@
             color: var(--text-muted);
         }
 
-        /* States */
         .loading {
             text-align: center;
             padding: 60px 20px;
@@ -321,25 +310,18 @@
             color: var(--text-muted);
         }
 
-        /* Responsive */
         @media (max-width: 640px) {
             .container { padding: 20px 16px; }
-            
             .header-top { gap: 12px; }
             .guild-logo { width: 40px; height: 40px; font-size: 20px; }
             .header-info h1 { font-size: 1.5rem; }
-            
             .nav-tabs { overflow-x: auto; gap: 0; }
             .nav-tab { padding: 12px 14px; font-size: 0.8125rem; white-space: nowrap; }
-            
             .ranking-table th, .ranking-table td { padding: 10px 8px; }
-            
             .hide-mobile { display: none !important; }
-            
             .col-exp { width: auto; }
             .col-rank { width: 40px; }
             .col-vocation { width: 50px; }
-            
             .stats-bar { flex-direction: column; align-items: flex-start; gap: 4px; }
         }
 
@@ -373,7 +355,6 @@
             <button class="nav-tab active" data-period="yesterday">Ontem</button>
             <button class="nav-tab" data-period="7days">7 Dias</button>
             <button class="nav-tab" data-period="30days">30 Dias</button>
-            <button class="nav-tab" data-period="deaths">Mortes</button>
         </nav>
 
         <div class="stats-bar">
@@ -411,8 +392,7 @@
         const periodLabels = {
             'yesterday': 'Experiência de Ontem',
             '7days': 'Experiência dos Últimos 7 Dias',
-            '30days': 'Experiência dos Últimos 30 Dias',
-            'deaths': 'Mortes Recentes'
+            '30days': 'Experiência dos Últimos 30 Dias'
         };
 
         function getVocationClass(vocation) {
@@ -450,16 +430,11 @@
                 return;
             }
 
-            if (currentPeriod === 'deaths') {
-                renderDeaths();
-                return;
-            }
-
             const data = rankingData.rankings[currentPeriod] || [];
             const toShow = data.slice(0, displayCount);
             
             if (toShow.length === 0) {
-                content.innerHTML = '<div class="empty-state">Nenhum dado disponível para este período.</div>';
+                content.innerHTML = '<div class="empty-state">Nenhum dado disponível.</div>';
                 loadMoreContainer.style.display = 'none';
                 document.getElementById('showing-count').textContent = '';
                 return;
@@ -494,7 +469,7 @@
                         <td class="col-player"><a href="${charUrl}" target="_blank">${player.name}</a></td>
                         <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(player.vocation)}</span></td>
                         <td class="col-level align-center hide-mobile">${player.level || '—'}</td>
-                        <td class="col-exp align-right exp-positive">+${formatNumber(player.points)}</td>
+                        <td class="col-exp align-right">+${formatNumber(player.points)}</td>
                     </tr>
                 `;
             });
@@ -504,57 +479,6 @@
 
             loadMoreContainer.style.display = displayCount < data.length ? 'block' : 'none';
             document.getElementById('showing-count').textContent = `${toShow.length} de ${data.length}`;
-        }
-
-        function renderDeaths() {
-            const content = document.getElementById('ranking-content');
-            const loadMoreContainer = document.getElementById('load-more-container');
-            
-            const deaths = rankingData.deaths || [];
-            const toShow = deaths.slice(0, displayCount);
-            
-            if (toShow.length === 0) {
-                content.innerHTML = '<div class="empty-state">Nenhuma morte registrada hoje. 🎉</div>';
-                loadMoreContainer.style.display = 'none';
-                document.getElementById('showing-count').textContent = '';
-                return;
-            }
-
-            let html = `
-                <table class="ranking-table">
-                    <thead>
-                        <tr>
-                            <th class="align-center">#</th>
-                            <th>Jogador</th>
-                            <th class="align-center">Voc</th>
-                            <th class="align-center hide-mobile">Level</th>
-                            <th class="align-right">XP Perdida</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            toShow.forEach((death, index) => {
-                const rank = index + 1;
-                const vocClass = getVocationClass(death.vocation);
-                const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(death.name)}&tab=5`;
-                
-                html += `
-                    <tr>
-                        <td class="col-rank align-center">${rank}</td>
-                        <td class="col-player"><a href="${charUrl}" target="_blank">${death.name}</a></td>
-                        <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(death.vocation)}</span></td>
-                        <td class="col-level align-center hide-mobile">${death.level || '—'}</td>
-                        <td class="col-exp align-right exp-negative">-${formatNumber(death.exp_lost)}</td>
-                    </tr>
-                `;
-            });
-
-            html += '</tbody></table>';
-            content.innerHTML = html;
-
-            loadMoreContainer.style.display = displayCount < deaths.length ? 'block' : 'none';
-            document.getElementById('showing-count').textContent = `${toShow.length} de ${deaths.length}`;
         }
 
         function switchPeriod(period) {
@@ -581,7 +505,7 @@
                 
                 renderRanking();
             } catch (error) {
-                console.error('Erro ao carregar dados:', error);
+                console.error('Erro:', error);
                 document.getElementById('ranking-content').innerHTML = 
                     '<div class="empty-state">Erro ao carregar dados.</div>';
             }
