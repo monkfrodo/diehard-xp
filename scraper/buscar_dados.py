@@ -124,7 +124,8 @@ def buscar_dados_guild():
     
     for row in soup.find_all('tr'):
         cols = row.find_all('td')
-        if len(cols) < 5:
+        # Página op=3 tem 16 colunas: # | Nick | Lvl | ... | Exp yesterday | Exp 7 days | Exp 30 days | ON
+        if len(cols) < 15:
             continue
         
         # Procura link do personagem
@@ -139,30 +140,27 @@ def buscar_dados_guild():
             continue
         
         nome = char_link.text.strip()
-        col_texts = [col.text.strip() for col in cols]
         
-        # Encontra level
+        # Level está na coluna 2 (índice 2)
         level = 0
-        for i, text in enumerate(col_texts):
-            if text.isdigit() and i > 0:
-                num = int(text)
-                if 1 < num < 5000:
-                    level = num
-                    break
+        level_text = cols[2].text.strip()
+        if level_text.isdigit():
+            level = int(level_text)
         
-        # Encontra valores de XP (formato +X,XXX,XXX ou -X,XXX,XXX)
-        exp_values = []
-        for text in col_texts:
-            if (text.startswith('+') or text.startswith('-')) and ',' in text:
-                exp_values.append(parse_exp_value(text))
+        # XP está nas últimas colunas (antes da coluna ON):
+        # Exp yesterday = índice -4 (ou 12)
+        # Exp 7 days = índice -3 (ou 13)  
+        # Exp 30 days = índice -2 (ou 14)
+        exp_yesterday = parse_exp_value(cols[-4].text.strip())
+        exp_7days = parse_exp_value(cols[-3].text.strip())
+        exp_30days = parse_exp_value(cols[-2].text.strip())
         
-        # Página op=3 mostra: Yesterday, 7 days, 30 days
         jogadores.append({
             'name': nome,
             'level': level,
-            'exp_yesterday': exp_values[0] if len(exp_values) >= 1 else 0,
-            'exp_7days': exp_values[1] if len(exp_values) >= 2 else 0,
-            'exp_30days': exp_values[2] if len(exp_values) >= 3 else 0,
+            'exp_yesterday': exp_yesterday,
+            'exp_7days': exp_7days,
+            'exp_30days': exp_30days,
             'vocation': '',
             'is_extra': False
         })
