@@ -2,35 +2,42 @@ name: Atualizar Ranking
 
 on:
   schedule:
+    # Executa várias vezes por dia (horários UTC)
+    # 9:30 UTC = 6:30 Brasília (principal - após server save)
+    # 15:00 UTC = 12:00 Brasília (meio-dia)
+    # 21:00 UTC = 18:00 Brasília (fim de tarde)
+    # 1:00 UTC = 22:00 Brasília (noite)
     - cron: '30 9 * * *'
+    - cron: '0 15 * * *'
+    - cron: '0 21 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  atualizar-ranking:
+  atualizar:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
+      - name: Checkout repositório
         uses: actions/checkout@v4
-
-      - name: Setup Python
+      
+      - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
+      
       - name: Instalar dependências
-        run: pip install requests beautifulsoup4
-
-      - name: Executar scraper
-        run: python scraper/buscar_dados.py
-
-      - name: Commit e Push
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          pip install requests beautifulsoup4
+      
+      - name: Executar scraper
+        run: |
+          python scraper/buscar_dados.py
+      
+      - name: Commit e push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add dados/ranking.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Atualização do ranking - $(date +'%Y-%m-%d %H:%M')"
+          git diff --staged --quiet || git commit -m "🔄 Atualização automática do ranking - $(date +'%d/%m/%Y %H:%M')"
           git push
