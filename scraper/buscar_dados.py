@@ -63,7 +63,7 @@ def buscar_vocacao_individual(nome):
     return None
 
 def buscar_exp_guildstats(nome):
-    """Busca XP de um jogador na página individual do GuildStats."""
+    """Busca XP de um jogador na página individual do GuildStats (tab=9)."""
     try:
         url = f"https://guildstats.eu/character?nick={requests.utils.quote(nome)}&tab=9"
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
@@ -79,27 +79,36 @@ def buscar_exp_guildstats(nome):
         soup = BeautifulSoup(resp.text, 'html.parser')
         
         # Procura tabela com dados de XP por data
+        # Estrutura: Date | Exp change | Vocation rank | Lvl | Experience | Time on-line | Avg exp per hour
         exp_values = []
+        
         for table in soup.find_all('table'):
             rows = table.find_all('tr')
             for row in rows:
                 cells = row.find_all('td')
                 if len(cells) >= 2:
-                    # Procura células com formato de data (YYYY-MM-DD)
-                    first_cell = cells[0].text.strip()
-                    if len(first_cell) == 10 and first_cell[4] == '-' and first_cell[7] == '-':
-                        exp_text = cells[1].text.strip()
-                        exp_value = parse_exp_value(exp_text)
-                        if exp_value != 0:
-                            exp_values.append(exp_value)
+                    # Primeira coluna é a data (YYYY-MM-DD)
+                    date_cell = cells[0].text.strip()
+                    # Segunda coluna é Exp change
+                    exp_cell = cells[1].text.strip()
+                    
+                    # Verifica se é uma linha de dados (data no formato correto)
+                    if len(date_cell) == 10 and date_cell[4] == '-' and date_cell[7] == '-':
+                        exp_value = parse_exp_value(exp_cell)
+                        exp_values.append(exp_value)
         
         if not exp_values:
+            print(f"    {nome}: nenhum dado de XP encontrado")
             return None
         
-        # Calcula XP dos períodos
-        exp_yesterday = exp_values[0] if len(exp_values) >= 1 else 0
-        exp_7days = sum(exp_values[:7])
-        exp_30days = sum(exp_values[:30])
+        # Dados vêm do mais antigo para o mais recente, então invertemos
+        # Na verdade, olhando a página, os dados já vêm cronologicamente
+        # O último é o mais recente (ontem)
+        
+        # Pega os valores mais recentes (final da lista = mais recente)
+        exp_yesterday = exp_values[-1] if len(exp_values) >= 1 else 0
+        exp_7days = sum(exp_values[-7:]) if len(exp_values) >= 1 else 0
+        exp_30days = sum(exp_values[-30:]) if len(exp_values) >= 1 else 0
         
         print(f"    ✓ XP: ontem={exp_yesterday:,}, 7d={exp_7days:,}, 30d={exp_30days:,}")
         return {
