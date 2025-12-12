@@ -603,31 +603,27 @@
         function buildConsolidatedData() {
             if (!rankingData) return [];
             
-            // Cria mapa com todos os jogadores e seus dados
+            // Primeiro, monta o mapa de todos os jogadores com seus dados brutos
             const playerMap = {};
             
-            // Pega dados de ontem (base do ranking)
+            // Pega dados de ontem
             const yesterday = rankingData.rankings.yesterday || [];
-            yesterday.forEach((p, idx) => {
+            yesterday.forEach(p => {
                 playerMap[p.name] = {
                     name: p.name,
                     vocation: p.vocation,
                     level: p.level,
                     exp_yesterday: p.points,
                     exp_7days: 0,
-                    exp_30days: 0,
-                    rank_yesterday: idx + 1,
-                    rank_7days: 999,
-                    rank_30days: 999
+                    exp_30days: 0
                 };
             });
             
             // Adiciona dados de 7 dias
             const days7 = rankingData.rankings['7days'] || [];
-            days7.forEach((p, idx) => {
+            days7.forEach(p => {
                 if (playerMap[p.name]) {
                     playerMap[p.name].exp_7days = p.points;
-                    playerMap[p.name].rank_7days = idx + 1;
                 } else {
                     playerMap[p.name] = {
                         name: p.name,
@@ -635,20 +631,16 @@
                         level: p.level,
                         exp_yesterday: 0,
                         exp_7days: p.points,
-                        exp_30days: 0,
-                        rank_yesterday: 999,
-                        rank_7days: idx + 1,
-                        rank_30days: 999
+                        exp_30days: 0
                     };
                 }
             });
             
             // Adiciona dados de 30 dias
             const days30 = rankingData.rankings['30days'] || [];
-            days30.forEach((p, idx) => {
+            days30.forEach(p => {
                 if (playerMap[p.name]) {
                     playerMap[p.name].exp_30days = p.points;
-                    playerMap[p.name].rank_30days = idx + 1;
                 } else {
                     playerMap[p.name] = {
                         name: p.name,
@@ -656,17 +648,42 @@
                         level: p.level,
                         exp_yesterday: 0,
                         exp_7days: 0,
-                        exp_30days: p.points,
-                        rank_yesterday: 999,
-                        rank_7days: 999,
-                        rank_30days: idx + 1
+                        exp_30days: p.points
                     };
                 }
             });
             
-            // Converte para array e ordena por XP de ontem
-            return Object.values(playerMap)
-                .filter(p => p.exp_yesterday > 0) // Só mostra quem fez XP ontem
+            // Converte para array
+            let allPlayers = Object.values(playerMap);
+            
+            // Aplica filtro de level
+            allPlayers = filterByLevel(allPlayers);
+            
+            // Agora calcula os ranks DENTRO do filtro aplicado
+            // Rank de 30 dias
+            const sorted30 = [...allPlayers].sort((a, b) => b.exp_30days - a.exp_30days);
+            sorted30.forEach((p, idx) => {
+                const player = allPlayers.find(x => x.name === p.name);
+                if (player) player.rank_30days = idx + 1;
+            });
+            
+            // Rank de 7 dias
+            const sorted7 = [...allPlayers].sort((a, b) => b.exp_7days - a.exp_7days);
+            sorted7.forEach((p, idx) => {
+                const player = allPlayers.find(x => x.name === p.name);
+                if (player) player.rank_7days = idx + 1;
+            });
+            
+            // Rank de ontem
+            const sortedYesterday = [...allPlayers].sort((a, b) => b.exp_yesterday - a.exp_yesterday);
+            sortedYesterday.forEach((p, idx) => {
+                const player = allPlayers.find(x => x.name === p.name);
+                if (player) player.rank_yesterday = idx + 1;
+            });
+            
+            // Retorna ordenado por XP de ontem, só quem fez XP ontem
+            return allPlayers
+                .filter(p => p.exp_yesterday > 0)
                 .sort((a, b) => b.exp_yesterday - a.exp_yesterday);
         }
 
@@ -699,9 +716,9 @@
         }
 
         function getRankBgColor(rank) {
-            if (rank === 1) return '#ffd700'; // Ouro
-            if (rank === 2) return '#e0e0e0'; // Prata
-            if (rank === 3) return '#e6c9a8'; // Bronze
+            if (rank === 1) return 'rgba(255, 215, 0, 0.25)'; // Ouro suave
+            if (rank === 2) return 'rgba(192, 192, 192, 0.3)'; // Prata suave
+            if (rank === 3) return 'rgba(205, 127, 50, 0.25)'; // Bronze suave
             return null;
         }
 
@@ -727,12 +744,13 @@
 
             let rawData;
             if (currentPeriod === 'consolidated') {
-                rawData = buildConsolidatedData();
+                rawData = buildConsolidatedData(); // Já aplica o filtro internamente
             } else {
                 rawData = rankingData.rankings[currentPeriod] || [];
+                rawData = filterByLevel(rawData); // Aplica filtro só para abas simples
             }
             
-            const data = filterByLevel(rawData);
+            const data = rawData;
             const toShow = data.slice(0, displayCount);
             
             if (toShow.length === 0) {
@@ -779,9 +797,9 @@
                     const bg7 = getRankBgColor(player.rank_7days);
                     const bgYesterday = getRankBgColor(player.rank_yesterday);
                     
-                    const style30 = bg30 ? `background:${bg30};color:#1a1a1a;font-weight:600;` : 'color: var(--text-secondary);';
-                    const style7 = bg7 ? `background:${bg7};color:#1a1a1a;font-weight:600;` : 'color: var(--text-secondary);';
-                    const styleYesterday = bgYesterday ? `background:${bgYesterday};color:#1a1a1a;font-weight:600;` : '';
+                    const style30 = bg30 ? `background:${bg30};` : '';
+                    const style7 = bg7 ? `background:${bg7};` : '';
+                    const styleYesterday = bgYesterday ? `background:${bgYesterday};` : '';
                     
                     html += `
                         <tr class="${rankClass}">
@@ -789,8 +807,8 @@
                             <td class="col-player"><a href="${charUrl}" target="_blank">${player.name}</a></td>
                             <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(player.vocation)}</span></td>
                             <td class="col-level align-center hide-mobile">${player.level || '—'}</td>
-                            <td class="col-exp align-right hide-mobile" style="${style30}">+${formatNumber(player.exp_30days)}</td>
-                            <td class="col-exp align-right hide-mobile" style="${style7}">+${formatNumber(player.exp_7days)}</td>
+                            <td class="col-exp align-right hide-mobile" style="color: var(--text-secondary);${style30}">+${formatNumber(player.exp_30days)}</td>
+                            <td class="col-exp align-right hide-mobile" style="color: var(--text-secondary);${style7}">+${formatNumber(player.exp_7days)}</td>
                             <td class="col-exp align-right" style="${styleYesterday}">+${formatNumber(player.exp_yesterday)}</td>
                         </tr>
                     `;
@@ -849,13 +867,13 @@
             `;
 
             try {
-                let rawData;
+                let data;
                 if (currentPeriod === 'consolidated') {
-                    rawData = buildConsolidatedData();
+                    data = buildConsolidatedData(); // Já aplica filtro
                 } else {
-                    rawData = rankingData.rankings[currentPeriod] || [];
+                    let rawData = rankingData.rankings[currentPeriod] || [];
+                    data = filterByLevel(rawData);
                 }
-                const data = filterByLevel(rawData);
                 const top20 = data.slice(0, 20);
                 
                 if (top20.length === 0) {
@@ -893,9 +911,9 @@
                         const bg7 = getRankBgColor(player.rank_7days);
                         const bgYesterday = getRankBgColor(player.rank_yesterday);
                         
-                        const style30 = bg30 ? `background:${bg30};color:#1a1a1a;font-weight:600;` : 'color:#666;';
-                        const style7 = bg7 ? `background:${bg7};color:#1a1a1a;font-weight:600;` : 'color:#666;';
-                        const styleYesterday = bgYesterday ? `background:${bgYesterday};color:#1a1a1a;font-weight:600;` : 'font-weight:600;color:#16a34a;';
+                        const style30 = bg30 ? `background:${bg30};` : '';
+                        const style7 = bg7 ? `background:${bg7};` : '';
+                        const styleYesterday = bgYesterday ? `background:${bgYesterday};` : '';
                         
                         tableRows += `
                             <tr>
@@ -907,9 +925,9 @@
                                     </span>
                                 </td>
                                 <td style="text-align:center;color:#666;">${player.level || '—'}</td>
-                                <td style="text-align:right;font-variant-numeric:tabular-nums;${style30}">+${formatNumber(player.exp_30days)}</td>
-                                <td style="text-align:right;font-variant-numeric:tabular-nums;${style7}">+${formatNumber(player.exp_7days)}</td>
-                                <td style="text-align:right;font-variant-numeric:tabular-nums;${styleYesterday}">+${formatNumber(player.exp_yesterday)}</td>
+                                <td style="text-align:right;color:#666;font-variant-numeric:tabular-nums;${style30}">+${formatNumber(player.exp_30days)}</td>
+                                <td style="text-align:right;color:#666;font-variant-numeric:tabular-nums;${style7}">+${formatNumber(player.exp_7days)}</td>
+                                <td style="text-align:right;font-weight:600;color:#16a34a;font-variant-numeric:tabular-nums;${styleYesterday}">+${formatNumber(player.exp_yesterday)}</td>
                             </tr>
                         `;
                     } else {
