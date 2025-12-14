@@ -5,11 +5,12 @@ import json
 from datetime import datetime
 import os
 import time
+import re
 
 GUILD_NAME = “Diehard”
 WORLD = “Luminera”
 
-GUILDSTATS_URL = f”https://guildstats.eu/guild={GUILD_NAME}&op=3”
+GUILDSTATS_URL = f”https://guildstats.eu/guild?guild={GUILD_NAME}&op=3”
 
 def parse_exp_value(exp_str):
 “”“Converte string de XP para inteiro.”””
@@ -18,6 +19,8 @@ return 0
 clean = exp_str.strip().replace(’,’, ‘’).replace(’.’, ‘’).replace(’+’, ‘’).replace(’ ‘, ‘’)
 is_negative = clean.startswith(’-’)
 clean = clean.replace(’-’, ‘’)
+# Remove qualquer caractere não numérico
+clean = re.sub(r’[^\d]’, ‘’, clean)
 try:
 return -int(clean) if is_negative else int(clean)
 except:
@@ -77,9 +80,6 @@ resp = requests.get(url, headers=headers, timeout=15)
         return None
     
     soup = BeautifulSoup(resp.text, 'html.parser')
-    
-    # Procura tabela com dados de XP por data
-    # Estrutura: Date | Exp change | Vocation rank | Lvl | Experience | Time on-line | Avg exp per hour
     exp_values = []
     
     for table in soup.find_all('table'):
@@ -87,12 +87,9 @@ resp = requests.get(url, headers=headers, timeout=15)
         for row in rows:
             cells = row.find_all('td')
             if len(cells) >= 2:
-                # Primeira coluna é a data (YYYY-MM-DD)
                 date_cell = cells[0].text.strip()
-                # Segunda coluna é Exp change
                 exp_cell = cells[1].text.strip()
                 
-                # Verifica se é uma linha de dados (data no formato correto)
                 if len(date_cell) == 10 and date_cell[4] == '-' and date_cell[7] == '-':
                     exp_value = parse_exp_value(exp_cell)
                     exp_values.append(exp_value)
@@ -101,11 +98,6 @@ resp = requests.get(url, headers=headers, timeout=15)
         print(f"    {nome}: nenhum dado de XP encontrado")
         return None
     
-    # Dados vêm do mais antigo para o mais recente, então invertemos
-    # Na verdade, olhando a página, os dados já vêm cronologicamente
-    # O último é o mais recente (ontem)
-    
-    # Pega os valores mais recentes (final da lista = mais recente)
     exp_yesterday = exp_values[-1] if len(exp_values) >= 1 else 0
     exp_7days = sum(exp_values[-7:]) if len(exp_values) >= 1 else 0
     exp_30days = sum(exp_values[-30:]) if len(exp_values) >= 1 else 0
@@ -124,47 +116,79 @@ return None
 
 def buscar_dados_guild():
 “”“Busca dados de XP da guild no GuildStats (página op=3).”””
-print(“Buscando dados de XP do GuildStats…”)
+print(f”Buscando dados de XP do GuildStats: {GUILDSTATS_URL}”)
 headers = {‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36’}
 resp = requests.get(GUILDSTATS_URL, headers=headers, timeout=30)
 resp.raise_for_status()
 
 ```
+print(f"  Status: {resp.status_code}, Tamanho: {len(resp.text)} bytes")
+
 soup = BeautifulSoup(resp.text, 'html.parser')
 jogadores = []
 
-for row in soup.find_all('tr'):
+# Debug: conta tabelas
+tables = soup.find_all('table')
+print(f"  Tabelas encontradas: {len(tables)}")
+
+# Procura todas as linhas com links de personagem
+all_rows = soup.find_all('tr')
+print(f"  Total de linhas <tr>: {len(all_rows)}")
+
+for row in all_rows:
     cols = row.find_all('td')
-    # Página op=3 tem 16 colunas: # | Nick | Lvl | ... | Exp yesterday | Exp 7 days | Exp 30 days | ON
-    if len(cols) < 15:
+    if len(cols) < 5:  # Reduzido para ser mais flexível
         continue
     
     # Procura link do personagem
     char_link = None
-    for col in cols:
+    char_col_idx = -1
+    for idx, col in enumerate(cols):
         link = col.find('a')
-        if link and 'character?nick=' in str(link.get('href', '')):
-            char_link = link
-            break
+        if link:
+            href = link.get('href', '')
+            if 'character' in href and 'nick=' in href:
+                char_link = link
+                char_col_idx = idx
+                break
     
     if not char_link:
         continue
     
     nome = char_link.text.strip()
+    if not nome:
+        continue
     
-    # Level está na coluna 2 (índice 2)
+    # Tenta extrair level (geralmente próxima coluna após o nome)
     level = 0
-    level_text = cols[2].text.strip()
-    if level_text.isdigit():
-        level = int(level_text)
+    for col in cols:
+        text = col.text.strip()
+        if text.isdigit() and 8 <= int(text) <= 3000:  # Level válido
+            level = int(text)
+            break
     
-    # XP está nas últimas colunas (antes da coluna ON):
-    # Exp yesterday = índice -4 (ou 12)
-    # Exp 7 days = índice -3 (ou 13)  
-    # Exp 30 days = índice -2 (ou 14)
-    exp_yesterday = parse_exp_value(cols[-4].text.strip())
-    exp_7days = parse_exp_value(cols[-3].text.strip())
-    exp_30days = parse_exp_value(cols[-2].text.strip())
+    # Procura valores de XP nas últimas colunas
+    # Tipicamente: ... | Exp yesterday | Exp 7 days | Exp 30 days | ON
+    exp_yesterday = 0
+    exp_7days = 0
+    exp_30days = 0
+    
+    # Pega as últimas 5 colunas e tenta extrair XP
+    last_cols = cols[-5:] if len(cols) >= 5 else cols
+    exp_values = []
+    
+    for col in last_cols:
+        text = col.text.strip()
+        if text and text not in ['*-*', '-', 'ON', 'OFF']:
+            val = parse_exp_value(text)
+            if val != 0 or text == '0':
+                exp_values.append(val)
+    
+    # Se encontrou pelo menos 3 valores, assume que são yesterday, 7d, 30d
+    if len(exp_values) >= 3:
+        exp_yesterday = exp_values[-3] if len(exp_values) >= 3 else 0
+        exp_7days = exp_values[-2] if len(exp_values) >= 2 else 0
+        exp_30days = exp_values[-1] if len(exp_values) >= 1 else 0
     
     jogadores.append({
         'name': nome,
@@ -176,7 +200,12 @@ for row in soup.find_all('tr'):
         'is_extra': False
     })
 
-print(f"  ✓ {len(jogadores)} jogadores encontrados")
+print(f"  ✓ {len(jogadores)} jogadores encontrados na guild")
+
+# Debug: mostra primeiros 3
+for j in jogadores[:3]:
+    print(f"    - {j['name']}: lvl={j['level']}, ontem={j['exp_yesterday']}")
+
 return jogadores
 ```
 
@@ -230,9 +259,17 @@ for jogador in jogadores:
 print("\nCarregando extras...")
 extras = carregar_extras()
 
+# Pega nomes já existentes
+nomes_existentes = {j['name'].lower() for j in jogadores}
+
 if extras:
     print(f"\nProcessando {len(extras)} extras:")
     for nome in extras:
+        # Pula se já existe na guild
+        if nome.lower() in nomes_existentes:
+            print(f"  → {nome}: já está na guild, pulando")
+            continue
+            
         print(f"  → {nome}")
         
         # Busca vocação
@@ -285,6 +322,8 @@ dados_finais = {
 
 # Salva o arquivo
 output_path = os.path.join(os.getcwd(), 'dados', 'ranking.json')
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
 print(f"\nSalvando em: {output_path}")
 
 with open(output_path, 'w', encoding='utf-8') as f:
@@ -292,6 +331,7 @@ with open(output_path, 'w', encoding='utf-8') as f:
 
 print(f"\n{'='*60}")
 print(f"✅ Concluído!")
+print(f"   Membros da guild: {dados_finais['total_members']}")
 print(f"   Ontem: {len(dados_finais['rankings']['yesterday'])} jogadores")
 print(f"   7 dias: {len(dados_finais['rankings']['7days'])} jogadores")
 print(f"   30 dias: {len(dados_finais['rankings']['30days'])} jogadores")
