@@ -5,11 +5,11 @@ import json
 from datetime import datetime
 import os
 import time
-import re
 
 GUILD_NAME = "Diehard"
 WORLD = "Luminera"
 
+# URL CORRIGIDA - era "guild=" mas deve ser "guild?guild="
 GUILDSTATS_URL = f"https://guildstats.eu/guild?guild={GUILD_NAME}&op=3"
 
 def parse_exp_value(exp_str):
@@ -19,8 +19,6 @@ def parse_exp_value(exp_str):
     clean = exp_str.strip().replace(',', '').replace('.', '').replace('+', '').replace(' ', '')
     is_negative = clean.startswith('-')
     clean = clean.replace('-', '')
-    # Remove qualquer caractere não numérico
-    clean = re.sub(r'[^\d]', '', clean)
     try:
         return -int(clean) if is_negative else int(clean)
     except:
@@ -114,78 +112,40 @@ def buscar_exp_guildstats(nome):
 
 def buscar_dados_guild():
     """Busca dados de XP da guild no GuildStats (página op=3)."""
-    print(f"Buscando dados de XP do GuildStats: {GUILDSTATS_URL}")
+    print(f"Buscando dados de XP do GuildStats...")
+    print(f"  URL: {GUILDSTATS_URL}")
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     resp = requests.get(GUILDSTATS_URL, headers=headers, timeout=30)
     resp.raise_for_status()
     
-    print(f"  Status: {resp.status_code}, Tamanho: {len(resp.text)} bytes")
-    
     soup = BeautifulSoup(resp.text, 'html.parser')
     jogadores = []
     
-    # Debug: conta tabelas
-    tables = soup.find_all('table')
-    print(f"  Tabelas encontradas: {len(tables)}")
-    
-    # Procura todas as linhas com links de personagem
-    all_rows = soup.find_all('tr')
-    print(f"  Total de linhas <tr>: {len(all_rows)}")
-    
-    for row in all_rows:
+    for row in soup.find_all('tr'):
         cols = row.find_all('td')
-        if len(cols) < 5:  # Reduzido para ser mais flexível
+        if len(cols) < 15:
             continue
         
-        # Procura link do personagem
         char_link = None
-        char_col_idx = -1
-        for idx, col in enumerate(cols):
+        for col in cols:
             link = col.find('a')
-            if link:
-                href = link.get('href', '')
-                if 'character' in href and 'nick=' in href:
-                    char_link = link
-                    char_col_idx = idx
-                    break
+            if link and 'character?nick=' in str(link.get('href', '')):
+                char_link = link
+                break
         
         if not char_link:
             continue
         
         nome = char_link.text.strip()
-        if not nome:
-            continue
         
-        # Tenta extrair level (geralmente próxima coluna após o nome)
         level = 0
-        for col in cols:
-            text = col.text.strip()
-            if text.isdigit() and 8 <= int(text) <= 3000:  # Level válido
-                level = int(text)
-                break
+        level_text = cols[2].text.strip()
+        if level_text.isdigit():
+            level = int(level_text)
         
-        # Procura valores de XP nas últimas colunas
-        # Tipicamente: ... | Exp yesterday | Exp 7 days | Exp 30 days | ON
-        exp_yesterday = 0
-        exp_7days = 0
-        exp_30days = 0
-        
-        # Pega as últimas 5 colunas e tenta extrair XP
-        last_cols = cols[-5:] if len(cols) >= 5 else cols
-        exp_values = []
-        
-        for col in last_cols:
-            text = col.text.strip()
-            if text and text not in ['*-*', '-', 'ON', 'OFF']:
-                val = parse_exp_value(text)
-                if val != 0 or text == '0':
-                    exp_values.append(val)
-        
-        # Se encontrou pelo menos 3 valores, assume que são yesterday, 7d, 30d
-        if len(exp_values) >= 3:
-            exp_yesterday = exp_values[-3] if len(exp_values) >= 3 else 0
-            exp_7days = exp_values[-2] if len(exp_values) >= 2 else 0
-            exp_30days = exp_values[-1] if len(exp_values) >= 1 else 0
+        exp_yesterday = parse_exp_value(cols[-4].text.strip())
+        exp_7days = parse_exp_value(cols[-3].text.strip())
+        exp_30days = parse_exp_value(cols[-2].text.strip())
         
         jogadores.append({
             'name': nome,
@@ -198,11 +158,6 @@ def buscar_dados_guild():
         })
     
     print(f"  ✓ {len(jogadores)} jogadores encontrados na guild")
-    
-    # Debug: mostra primeiros 3
-    for j in jogadores[:3]:
-        print(f"    - {j['name']}: lvl={j['level']}, ontem={j['exp_yesterday']}")
-    
     return jogadores
 
 def carregar_extras():
@@ -252,17 +207,9 @@ def main():
     print("\nCarregando extras...")
     extras = carregar_extras()
     
-    # Pega nomes já existentes
-    nomes_existentes = {j['name'].lower() for j in jogadores}
-    
     if extras:
         print(f"\nProcessando {len(extras)} extras:")
         for nome in extras:
-            # Pula se já existe na guild
-            if nome.lower() in nomes_existentes:
-                print(f"  → {nome}: já está na guild, pulando")
-                continue
-                
             print(f"  → {nome}")
             
             # Busca vocação
@@ -287,7 +234,7 @@ def main():
                 'is_extra': True
             })
     
-    # 5. Cria rankings
+    # 5. Cria rankings (sem limite)
     def criar_ranking(jogadores, campo):
         filtrados = [j for j in jogadores if j.get(campo, 0) > 0]
         filtrados.sort(key=lambda x: x.get(campo, 0), reverse=True)
