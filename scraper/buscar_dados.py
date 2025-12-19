@@ -141,68 +141,67 @@ def buscar_xp_guildstats():
         log(f"Encontradas {len(tables)} tabelas", "DEBUG")
         
         dados_xp = {}
-        tabela_encontrada = False
+        
+        # Estratégia: encontra a tabela com mais linhas que tenha links de personagem
+        melhor_tabela = None
+        max_rows = 0
         
         for table in tables:
             rows = table.find_all('tr')
-            if len(rows) < 10:
-                continue
-            
-            # Verifica se é a tabela de XP
-            header = rows[0].get_text().lower() if rows else ""
-            if 'exp' not in header and 'yesterday' not in header:
-                continue
-            
-            tabela_encontrada = True
-            log(f"Tabela de XP encontrada com {len(rows)} linhas", "OK")
-            
-            for i, row in enumerate(rows[1:], 1):  # Pula header
-                cells = row.find_all('td')
-                
-                if len(cells) < 14:  # Precisa de pelo menos 14 colunas
-                    continue
-                
-                # Extrai dados usando ÍNDICES FIXOS
-                # Coluna 1: Nome (com link)
-                nome = None
-                nome_cell = cells[1] if len(cells) > 1 else None
-                if nome_cell:
-                    link = nome_cell.find('a')
-                    nome = link.get_text().strip() if link else nome_cell.get_text().strip()
-                
-                if not nome:
-                    continue
-                
-                # Coluna 2: Level
-                level = 0
-                level_cell = cells[2] if len(cells) > 2 else None
-                if level_cell:
-                    level_text = level_cell.get_text().strip()
-                    if level_text.isdigit():
-                        level = int(level_text)
-                
-                # Colunas 13, 14, 15: XP (ÍNDICES FIXOS!)
-                exp_yesterday = parse_exp_value(cells[13].get_text()) if len(cells) > 13 else 0
-                exp_7days = parse_exp_value(cells[14].get_text()) if len(cells) > 14 else 0
-                exp_30days = parse_exp_value(cells[15].get_text()) if len(cells) > 15 else 0
-                
-                dados_xp[nome.lower()] = {
-                    'name': nome,
-                    'level': level,
-                    'exp_yesterday': exp_yesterday,
-                    'exp_7days': exp_7days,
-                    'exp_30days': exp_30days
-                }
-                
-                # Debug das primeiras linhas
-                if DEBUG and i <= 3:
-                    log(f"  {nome}: Lvl {level}, Y={exp_yesterday:,}, 7D={exp_7days:,}, 30D={exp_30days:,}", "DEBUG")
-            
-            break  # Encontrou a tabela certa
+            # Procura tabela que tenha links para character?nick=
+            has_char_links = any('character?nick=' in str(row) for row in rows[:5])
+            if has_char_links and len(rows) > max_rows:
+                max_rows = len(rows)
+                melhor_tabela = table
         
-        if not tabela_encontrada:
+        if not melhor_tabela:
             log("Tabela de XP não encontrada no HTML!", "ERROR")
             return {}
+        
+        rows = melhor_tabela.find_all('tr')
+        log(f"Tabela encontrada com {len(rows)} linhas", "OK")
+        
+        for i, row in enumerate(rows):
+            cells = row.find_all('td')
+            
+            if len(cells) < 14:  # Precisa de pelo menos 14 colunas
+                continue
+            
+            # Extrai nome (procura link com character?nick=)
+            nome = None
+            for cell in cells[:3]:  # Nome geralmente nas primeiras colunas
+                link = cell.find('a', href=lambda h: h and 'character?nick=' in h)
+                if link:
+                    nome = link.get_text().strip()
+                    break
+            
+            if not nome:
+                continue
+            
+            # Extrai level (coluna após o nome, deve ser número entre 8 e 9999)
+            level = 0
+            for cell in cells[2:5]:
+                text = cell.get_text().strip()
+                if text.isdigit() and 8 <= int(text) <= 9999:
+                    level = int(text)
+                    break
+            
+            # XP está nas colunas 13, 14, 15 (índices fixos)
+            exp_yesterday = parse_exp_value(cells[13].get_text()) if len(cells) > 13 else 0
+            exp_7days = parse_exp_value(cells[14].get_text()) if len(cells) > 14 else 0
+            exp_30days = parse_exp_value(cells[15].get_text()) if len(cells) > 15 else 0
+            
+            dados_xp[nome.lower()] = {
+                'name': nome,
+                'level': level,
+                'exp_yesterday': exp_yesterday,
+                'exp_7days': exp_7days,
+                'exp_30days': exp_30days
+            }
+            
+            # Debug das primeiras linhas
+            if DEBUG and len(dados_xp) <= 3:
+                log(f"  {nome}: Lvl {level}, Y={exp_yesterday:,}, 7D={exp_7days:,}, 30D={exp_30days:,}", "DEBUG")
         
         log(f"XP extraída para {len(dados_xp)} jogadores", "OK")
         return dados_xp
