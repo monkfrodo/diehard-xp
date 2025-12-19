@@ -1,0 +1,3449 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3798021-2"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-3798021-2');
+	</script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diehard -  Tibia Statistics - GuildStats.eu</title>
+	<link rel="shortcut icon" href="images/icon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        // Odczytujemy motyw z LocalStorage przed renderowaniem strony
+        (function() {
+            let theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.write('<link id="theme-link" rel="stylesheet" href="css/style-black5.css">');
+            } else {
+                document.write('<link id="theme-link" rel="stylesheet" href="css/style-170928.css">');
+            }
+        })();
+    </script>	
+	<link href="fontawesome/css/all.css" async rel="stylesheet">	
+	<META HTTP-EQUIV="Content-Language" CONTENT="en">
+	<META NAME="Keywords" CONTENT="guilds, Diehard -  tibia, statistic">
+	<META NAME="Description" CONTENT="Want know which of tibian guild are the best? Or which one are the oldest? Enter and check all information about your guild!">	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" type="text/css" href="css/tabs.css">	<script type="text/javascript">
+		const root = document.documentElement;
+		const rootStyles = getComputedStyle(root);
+		const primaryColor = rootStyles.getPropertyValue("--primary-color").trim();
+	    const secondaryColor = rootStyles.getPropertyValue("--secondary-color").trim();	
+		const borderColor = rootStyles.getPropertyValue("--border-color").trim();				
+		const fontColor = rootStyles.getPropertyValue("--font-color").trim();	
+	</script>
+ <script data-cfasync="false" nonce="c8f1fe31-b516-49ca-82a4-9f862cb52853">try{(function(w,d){!function(j,k,l,m){if(j.zaraz)console.error("zaraz is loaded twice");else{j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5874";j.zaraz._n="c8f1fe31-b516-49ca-82a4-9f862cb52853";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const t of Object.entries(Object.entries(dataLayer).reduce((u,v)=>({...u[1],...v[1]}),{})))zaraz.set(t[0],t[1],{scope:"page"});j[l].q=[];for(;j.zaraz.q.length;){const w=j.zaraz.q.shift();j[l].q.push(w)}r.defer=!0;for(const x of[localStorage,sessionStorage])Object.keys(x||{}).filter(z=>z.startsWith("_zaraz_")).forEach(y=>{try{j[l]["z_"+y.slice(7)]=JSON.parse(x.getItem(y))}catch{j[l]["z_"+y.slice(7)]=x.getItem(y)}});r.referrerPolicy="origin";r.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async d$=>new Promise(ea=>{if(d$){d$.e&&d$.e.forEach(eb=>{try{const ec=d.querySelector("script[nonce]"),ed=ec?.nonce||ec?.getAttribute("nonce"),ee=d.createElement("script");ed&&(ee.nonce=ed);ee.innerHTML=eb;ee.onload=()=>{d.head.removeChild(ee)};d.head.appendChild(ee)}catch(ef){console.error(`Error executing script: ${eb}\n`,ef)}});Promise.allSettled((d$.f||[]).map(eg=>fetch(eg[0],eg[1])))}ea()});zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script></head>
+<body id="container">
+<nav class="navbar navbar-expand-md navbar-dark bg-custom br-down">
+	<div class="row no-gutters" style="width: 100%">
+		<div class="col-lg-2 col-md-3 col-sm-3 d-none d-sm-none d-md-block text-center">
+		  <div class="bg-sides">
+			<div class="bg-shadow2" style="height: 116px;">
+				<a href="https://www.tibia.com/community/?subtopic=fansites"><img src="images/promoted2.webp" style="margin-top: 8px"></a>
+			</div>
+			<div class="logosDv">
+			   <label class="theme-switch" for="checkbox">
+							   <input type="checkbox" id="checkbox" class="checkbox" />
+							   <div class="slider round"></div>
+						   </label>
+						   <span id="theme-label">dark theme</span>			</div>			
+		  </div>
+		</div>
+		<div class="col-md-7 col-lg-8 text-center">	
+		  <a class="navbar-brand" href="/"><img src="images/logo.webp" alt="GuildStats.eu" class="img-fluid align-middle"></a>
+		  <!--<a class="navbar-brand" href="/"><img src="images/logo_christmas.png" alt="GuildStats.eu" class="img-fluid align-middle"></a>-->
+		  <div class="d-none d-sm-none d-md-block topBar" style="text-align: center;">
+			<form method="GET" action="guild" style="display:inline; padding-right: 4px; position: relative;">
+				<div class="search-wrapper" style="position: relative; display: inline-block;">
+					<input type="text" placeholder="Search guild or character" name="guild" class="topInput topCls searchBox">
+					<div class="results"></div>
+				</div><input type="submit" value="Go" class="btn btn-info btn-sm topBtn topClsBtn">
+			</form>
+			<form method="GET" action="guilds" style="display:inline; padding-right: 4px;">
+				<SELECT SIZE="1" NAME="world" style="vertical-align:middle" class="topCls"> 
+					<OPTION VALUE="">(choose world)</OPTION>
+						<OPTION VALUE="Aethera">Aethera</OPTION><OPTION VALUE="Antica">Antica</OPTION><OPTION VALUE="Astera">Astera</OPTION><OPTION VALUE="Belobra">Belobra</OPTION><OPTION VALUE="Blumera">Blumera</OPTION><OPTION VALUE="Bona">Bona</OPTION><OPTION VALUE="Bravoria">Bravoria</OPTION><OPTION VALUE="Calmera">Calmera</OPTION><OPTION VALUE="Cantabra">Cantabra</OPTION><OPTION VALUE="Celebra">Celebra</OPTION><OPTION VALUE="Celesta">Celesta</OPTION><OPTION VALUE="Citra">Citra</OPTION><OPTION VALUE="Collabra">Collabra</OPTION><OPTION VALUE="Descubra">Descubra</OPTION><OPTION VALUE="Dia">Dia</OPTION><OPTION VALUE="Dracobra">Dracobra</OPTION><OPTION VALUE="Eclipta">Eclipta</OPTION><OPTION VALUE="Epoca">Epoca</OPTION><OPTION VALUE="Escura">Escura</OPTION><OPTION VALUE="Etebra">Etebra</OPTION><OPTION VALUE="Ferobra">Ferobra</OPTION><OPTION VALUE="Firmera">Firmera</OPTION><OPTION VALUE="Gentebra">Gentebra</OPTION><OPTION VALUE="Gladera">Gladera</OPTION><OPTION VALUE="Gladibra">Gladibra</OPTION><OPTION VALUE="Harmonia">Harmonia</OPTION><OPTION VALUE="Havera">Havera</OPTION><OPTION VALUE="Honbra">Honbra</OPTION><OPTION VALUE="Hostera">Hostera</OPTION><OPTION VALUE="Idyllia">Idyllia</OPTION><OPTION VALUE="Ignitera">Ignitera</OPTION><OPTION VALUE="Inabra">Inabra</OPTION><OPTION VALUE="Issobra">Issobra</OPTION><OPTION VALUE="Jadebra">Jadebra</OPTION><OPTION VALUE="Kalanta">Kalanta</OPTION><OPTION VALUE="Kalibra">Kalibra</OPTION><OPTION VALUE="Kalimera">Kalimera</OPTION><OPTION VALUE="Karmeya">Karmeya</OPTION><OPTION VALUE="Lobera">Lobera</OPTION><OPTION VALUE="Luminera">Luminera</OPTION><OPTION VALUE="Lutabra">Lutabra</OPTION><OPTION VALUE="Luzibra">Luzibra</OPTION><OPTION VALUE="Menera">Menera</OPTION><OPTION VALUE="Monstera">Monstera</OPTION><OPTION VALUE="Monza">Monza</OPTION><OPTION VALUE="Mystera">Mystera</OPTION><OPTION VALUE="Nefera">Nefera</OPTION><OPTION VALUE="Nevia">Nevia</OPTION><OPTION VALUE="Noctalia">Noctalia</OPTION><OPTION VALUE="Oceanis">Oceanis</OPTION><OPTION VALUE="Ombra">Ombra</OPTION><OPTION VALUE="Ourobra">Ourobra</OPTION><OPTION VALUE="Pacera">Pacera</OPTION><OPTION VALUE="Peloria">Peloria</OPTION><OPTION VALUE="Penumbra">Penumbra</OPTION><OPTION VALUE="Premia">Premia</OPTION><OPTION VALUE="Quelibra">Quelibra</OPTION><OPTION VALUE="Quidera">Quidera</OPTION><OPTION VALUE="Quintera">Quintera</OPTION><OPTION VALUE="Rasteibra">Rasteibra</OPTION><OPTION VALUE="Refugia">Refugia</OPTION><OPTION VALUE="Retalia">Retalia</OPTION><OPTION VALUE="Secura">Secura</OPTION><OPTION VALUE="Serdebra">Serdebra</OPTION><OPTION VALUE="Solidera">Solidera</OPTION><OPTION VALUE="Sombra">Sombra</OPTION><OPTION VALUE="Sonira">Sonira</OPTION><OPTION VALUE="Stralis">Stralis</OPTION><OPTION VALUE="Talera">Talera</OPTION><OPTION VALUE="Tempestera">Tempestera</OPTION><OPTION VALUE="Terribra">Terribra</OPTION><OPTION VALUE="Thyria">Thyria</OPTION><OPTION VALUE="Tornabra">Tornabra</OPTION><OPTION VALUE="Unebra">Unebra</OPTION><OPTION VALUE="Ustebra">Ustebra</OPTION><OPTION VALUE="Venebra">Venebra</OPTION><OPTION VALUE="Victoris">Victoris</OPTION><OPTION VALUE="Vunira">Vunira</OPTION><OPTION VALUE="Wintera">Wintera</OPTION><OPTION VALUE="Xybra">Xybra</OPTION><OPTION VALUE="Xyla">Xyla</OPTION><OPTION VALUE="Xymera">Xymera</OPTION><OPTION VALUE="Yonabra">Yonabra</OPTION><OPTION VALUE="Yovera">Yovera</OPTION><OPTION VALUE="Yubra">Yubra</OPTION><OPTION VALUE="Zuna">Zuna</OPTION><OPTION VALUE="Zunera">Zunera</OPTION>				</SELECT>
+			</form>
+			<span style="cursor: pointer" data-container="body" data-html="true" data-trigger="hover" data-placement="bottom" data-content="<img src=images/rashid/darashia.gif>"><img src="images/Rashid2.gif" width="22px" height="25px" style="vertical-align: middle" alt="NPC Rashid"> Rashid: Darashia </span> |
+			Servers save in <div id="defaultCountdown"></div>
+			 <a class="btn btn-info btn-sm linkBtn topBtn" href="donation">Donate</a>
+			 </div>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		</div>
+		<div class="col-md-2 text-center">
+		  <div class="collapse navbar-collapse text-center bg-shadow2" id="navbarsExampleDefault"> 
+			<div class="text-center rightTopPanel">
+			
+					<form class="form text-center" style="margin: auto" method="POST"> <!-- action="forum/ucp.php?mode=login">-->
+					  <input type="hidden" name="action" value="login">
+					  <input class="form-control form-control-sm" type="text" placeholder="username" aria-label="Username" name="username">	
+					  <input class="form-control form-control-sm" type="password" placeholder="Password" aria-label="Password" name="password">
+					  <div style="font-size: 11px">
+						  <div class="btn-group-toggle" data-toggle="buttons" style="display: inline-block;">
+							  <label class="btn btn-outline-dark btn-sm active chkbx" style="width: 15px; height: 15px">
+								<input type="checkbox" id="x" value="test" name="x" checked="checked">x
+							  </label>
+						 </div> <label for="alog" style="display:inline">Remember</label>/<a href="forum/ucp.php?mode=register">Register</a>
+					 </div>
+					  <div><input type="hidden" name="redirect" value="/guild.php"><button class="btn btn-secondary btn-sm text-center" name="login" type="submit">Login</button></div>
+					</form>			</div>
+			
+		  </div>
+			<div class="text-center langDiv logosDv2" style="width: 100%;">
+<a href="?lang=pl"><img src="images/pl.png" alt="Jezyk polski"></a> 
+				<a href="?lang=en"><img src="images/uk.png" alt="English"></a>
+				<a href="?lang=nl"><img src="images/nl.png" alt="Nederlands"></a> 
+				<a href="?lang=pt"><img src="images/br.png" alt="Portuguese"></a> 
+<a href="?lang=es
+"><img src="images/es.png" alt="Spanish"></a> 	
+				<span class="d-md-none">
+					<label class="theme-switch" for="checkbox">
+					   <input type="checkbox" id="checkbox" class="checkbox" />
+					   <div class="slider round"></div>
+				   </label>
+					<span id="theme-label">dark theme</span>
+				</div>
+			</div>				
+		</div>
+	</div>	  
+</nav>
+<!--				<div>
+					<span>
+						The death of one man is a tragedy, the death of millions is a statistic.					</span> 
+				</div>
+-->
+<main role="main">
+	<div class="row no-gutters row-offcanvas row-offcanvas-left">  
+			<div class="col-lg-2 col-md-3 sidebar-offcanvas"  id="sidebar">			
+				<div class="list-group bg-customMenu bg-shadow">
+					<a href="index" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Index</p></a>
+					<a href="info" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Info</p></a>
+					<a href="forum" class="list-group-item-action"><p><i class="fa fa-caret-right"></i> Forum</p></a>
+					<a href="articles" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Articles</p></a>
+					<a href="polls" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Polls</p></a>
+					<a href="activity-system" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Activity system</p></a>
+					<a href="sow" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Screen of Week</p></a>
+					<!--<a href="contest" class="list-group-item-action "><p style="color: red"><i class="fa fa-caret-right"></i> Contest</p></a>-->
+					<!--<a href="update" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Test Server screenshots</p></a>	-->				
+					<!--<a href="signature" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Signatures</p></a>	-->	
+					<!--<a href="suggestion" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Suggestion</p></a>	-->	
+					<a href="donation" class="list-group-item-action "><p style="color: red"><i class="fa fa-caret-right"></i> Donation</p></a>						
+					<a href="lottery" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Lottery</p></a>						
+					<a href="contact" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Contact</p></a>
+					<div class="text-center font-weight-bold">General</div>
+					<div class="mainDv"></div>
+					<a href="creation" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Creation of Majestic Shield</p></a>
+					<a href="fansite-item" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Fansite item owners</p></a>
+					<a href="census" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Overall statistics</p></a>
+					<a href="online-counter" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Players online chart</p></a>
+					<a href="worlds" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Worlds statistics</p></a>
+					<!--<a href="majorlanguage" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Languages on worlds</p></a>-->
+					<a href="servers-merge" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> World merge</p></a>
+					<!--<a href="majorlanguage?forumLanguage=1" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> User nationality</p></a>-->
+					<a href="monsters" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Monsters list</p></a>
+					<a href="bosses" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Bosses list</p></a>
+					<div class="text-center font-weight-bold">Guilds statistics</div>
+					<div class="mainDv"></div>
+					<a class="list-group-item-action headClass" data-toggle="collapse" href="#collapseGuilds" role="button" aria-expanded="false" aria-controls="collapseGuilds"><p><i class="fa fa-caret-right"></i> Top 100 guilds</p></a>
+					<div class="collapse padMenu" id="collapseGuilds">
+						<div class="card card-body click-menu box1">
+							<a href="guilds"><div class="box2" ><p><i class="fa fa-caret-right"></i>Overall</p></div></a>
+							<a href="guilds?type=nopvp"><div class="box2" ><p><i class="fa fa-caret-right"></i>Optional PvP</p></div></a>
+							<a href="guilds?type=pvp"><div class="box2" ><p><i class="fa fa-caret-right"></i>Open PvP</p></div></a>
+							<a href="guilds?type=hard"><div class="box2" ><p><i class="fa fa-caret-right"></i>Hardcore PvP</p></div></a>
+							<a href="guilds?type=retroopen"><div class="box2" ><p><i class="fa fa-caret-right"></i>Retro Open PvP</p></div></a>
+							<a href="guilds?type=retrohardcore"><div class="box2" ><p><i class="fa fa-caret-right"></i>Retro Hardcore PvP</p></div></a>
+							<a href="guilds?type=europe"><div class="box2" ><p><i class="fa fa-caret-right"></i>Europe servers</p></div></a>
+							<a href="guilds?type=american"><div class="box2" ><p><i class="fa fa-caret-right"></i>American servers</p></div></a>
+							<a href="guilds?type=south"><div class="box2" ><p><i class="fa fa-caret-right"></i>South Amer.</p></div></a>
+							<a href="guilds?type=rook"><div class="box2" ><p><i class="fa fa-caret-right"></i>Rookgaard guilds</p></div></a>
+							<a href="guilds?type=female"><div class="box2" ><p><i class="fa fa-caret-right"></i>Female guilds</p></div></a>
+						</div>
+					</div>
+					<a href="best" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> The best guilds</p></a>
+					<a href="wars" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Wars</p></a>
+					<a href="guildhall" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Guildhalls</p></a>
+					<a href="guild-anniversary" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Guilds anniversary</p></a>
+					<a href="awarded-guilds" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Awarded guilds</p></a>
+					<a href="compare" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Compare guilds</p></a>
+					<a href="change-info" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Manage guild</p></a>
+										<div class="text-center font-weight-bold">Characters statistics</div>
+					<div class="mainDv"></div>					
+					<a class="list-group-item-action headClass" data-toggle="collapse" href="#collapseHighscores" role="button" aria-expanded="false" aria-controls="collapseHighscores"><p><i class="fa fa-caret-right"></i> Tibia highscores</p></a>
+					<div class="collapse padMenu" id="collapseHighscores">
+						<div class="card card-body click-menu box1">			
+							<a href="ranking"><div class="box2" ><p><i class="fa fa-caret-right"></i>Experience</p></div></a>
+							<a href="ranking?rank=11&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Magic level</p></div></a>
+							<a href="ranking?rank=12&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Shielding</p></div></a>
+							<a href="ranking?rank=5&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Distance Fighting</p></div></a>
+							<a href="ranking?rank=13&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Sword Fighting</p></div></a>
+							<a href="ranking?rank=4&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Club Fighting</p></div></a>
+							<a href="ranking?rank=2&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Axe Fighting</p></div></a>
+							<a href="ranking?rank=8&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Fist Fighting</p></div></a>
+							<a href="ranking?rank=7&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Fishing</p></div></a>
+							<a href="ranking?rank=1&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Achievements</p></div></a>
+							<a href="ranking?rank=10&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Loyalty</p></div></a>
+							<a href="ranking?rank=3&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Charm Points</p></div></a>
+							<a href="ranking?rank=9&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Goshnars Tiant</p></div></a>
+							<a href="ranking?rank=14&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Drome score</p></div></a>
+							<a href="ranking?rank=15&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Boss points</p></div></a>
+							<a href="ranking?rank=16&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Bounty points</p></div></a>
+							<a href="ranking?rank=17&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Weekly tasks</p></div></a>						
+							<a href="ranking?rank=21&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Titles</p></div></a>
+							<a href="ranking?rank=22&amp;world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Tibia completed</p></div></a>
+							<a href="ranking-points?world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Ranking points</p></div></a>
+							<a href="ranking-rook?world="><div class="box2" ><p><i class="fa fa-caret-right"></i>Experience Rookgaard</p></div></a>
+						</div>
+					</div>
+					<a href="best-char" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> The best characters</p></a>
+					<a href="time-online" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Time online</p></a>
+					<a href="world-ranking" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> The best on worlds</p></a>
+					<a href="oldestacc" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> The oldest accounts</p></a>
+					<a href="player-anniversary" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Account birthday</p></a>
+					<a href="mostexp" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Top experience</p></a>	
+					<a href="deaths" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Top deaths</p></a>		
+					<a href="world-transfer" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> World transfers</p></a>	
+					<a href="changed-names" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Changed names</p></a>	
+					<a href="traded-characters" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Traded characters</p></a>						
+					<a href="compare-char" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Compare characters</p></a>
+					<div class="text-center font-weight-bold">Rookgaard</div>
+					<div class="mainDv"></div>				
+					<a href="best-char?rook=1" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> The best characters</p></a>
+					<a href="time-online?world=&rook=1" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Time online</p></a>
+					<a href="oldestacc?world=&rook=1" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> The oldest accounts</p></a>
+					<a href="bosses?rook=1" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Bosses list</p></a>
+					<a href="guilds?type=rook" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Rookgaard guilds</p></a>
+					<a href="ranking-rook" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Experience</p></a>
+					<a href="ranking?rank=8&amp;world=&amp;voc=5" class="list-group-item-action" ><p><i class="fa fa-caret-right"></i> Fist Fighting</p></a>
+					<a href="ranking?rank=7&amp;world=&amp;voc=5" class="list-group-item-action" ><p><i class="fa fa-caret-right"></i> Fishing</p></a>
+					<a href="ranking?rank=1&amp;world=&amp;voc=5" class="list-group-item-action" ><p><i class="fa fa-caret-right"></i> Achievements</p></a>
+					<a href="ranking?rank=10&amp;world=&amp;voc=5" class="list-group-item-action" ><p><i class="fa fa-caret-right"></i> Loyalty</p></a>
+					
+					<div class="text-center font-weight-bold">Tools</div>	
+					<div class="mainDv"></div>
+					<a href="options?v=8" class="list-group-item-action  "><p><i class="fa fa-caret-right"></i> Your online lists</p></a>
+					<a href="options?v=6" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Birthday notification</p></a>
+					<a href="tibian-years" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Age calculator</p></a>
+					<a href="speed-calc" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Speed calculator</p></a>
+					<a href="character-hits" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Hits calculator</p></a>
+					<a href="character-level" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Level calculator</p></a>
+					<a href="training-calculator" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Training calculator</p></a>						
+					<a href="transferability-calc" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Transfer checker</p></a>						
+					<a href="stamina-calculator" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Stamina calculator</p></a>						
+					<a href="frag-calculator" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Unjustified kills</p></a>						
+					<a href="blacklist" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Blacklist</p></a>						
+					<a href="ach-checker" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Achievements checker</p></a>						
+					<a href="forge-simulator" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Forge simulator</p></a>						
+					<a href="predict-level" class="list-group-item-action "><p><i class="fa fa-caret-right"></i> Predict level</p></a>
+					
+					<!--<div class="text-center font-weight-bold">Donator</div>	-->
+					<!--<div class="mainDv"></div>		-->												
+					<div class="logosDv resCl">Summary</div>
+					<div class="resClbelow">
+						Guilds in Tibia: 2779<br>People in guilds: 204388<br>Random guild: <a href="guild?guild=Nadora Alliance">Nadora Alliance</a><br>The most guilds: <a href="guilds?world=Antica">Antica</a> (113)<br>The least guilds: <a href="guilds?world=Zunera">Zunera</a> (2)<br>Avg. people in guild: 73<br>Wars: 2326<br>Most wars happend on: <a href="guilds?world=Vunira">Vunira</a> (834)<br>Players online: <a href="time-online">10850</a><br>							Top donator: <a href="forum/memberlist.php?mode=viewprofile&u=8788">nerana</a>
+					</div>
+				</div>				
+			</div>
+			<div class="col-lg-10 col-md-9 col-sm-12">
+			  <p class="pull-left d-block d-md-none">
+				<button type="button" class="btn btn-primary btn-block text-left" data-toggle="offcanvas">Menu</button>
+			  </p>			
+			  <div class="starter-template">
+				<div class="d-block text-white d-md-none text-center mobileBox">
+					<form method="GET" action="guild" style="display:inline;position: relative;">
+						<div class="search-wrapper" style="position: relative; display: inline-block;">
+							<input autocomplete="off" type="text" placeholder="Search guild or character" name="guild" style="height: 24px;" class="searchBox" >
+							<div class="results"></div>
+						</div><input type="submit" value="Go" class="btn btn-info btn-sm topBtn">
+					</form>				
+				</div>		
+				
+
+
+<div id="wrapper">
+    <ul id="nav" class="tabs">
+        <li ><a href="guild=Diehard">General info</a></li>
+        <li ><a href="guild=Diehard&op=2">Members</a></li>
+        <li class="active"><a href="guild=Diehard&op=3">Time online</a></li>
+        <li ><a href="guild=Diehard&op=7">Guild log</a></li><li style="width: 92px"><a href="set=Diehard" style="color: #7c7c7c; font-weight: normal">Recruitment</a></li>
+    </ul>
+    <div><div id="tab3" class="tab_content" style="padding: 0px;"><table id="myTable2" class="newTable tablesorterNew"  style="border-top: 0px;">
+				<thead>
+					<th style="border-top: 0px; border-left: 0px">#</th>
+					<th style="border-top: 0px">Nick</th>
+					<th style="border-top: 0px">Lvl</th>
+					<th style="border-top: 0px">Last month</th>
+					<th style="border-top: 0px">Current month</th>
+					<th style="border-top: 0px">Current week</th>
+					<th style="border-top: 0px; ">Mon</th>
+					<th style="border-top: 0px; ">Tue</th>
+					<th style="border-top: 0px; ">Wed</th>
+					<th style="border-top: 0px; ">Thu</th>
+					<th style="border-top: 0px;  background-color: #add9fb">Fri</th>
+					<th style="border-top: 0px; ">Sat</th>
+					<th style="border-top: 0px; ">Sun</th>
+					<th style="border-top: 0px; font-size: x-small">Exp yesterday</th>	
+					<th style="border-top: 0px; font-size: x-small">Exp 7 days</th>		
+					<th style="border-top: 0px; font-size: x-small">Exp 30 days</th>						
+					<th style="border-top: 0px; border-right: 0px; width: 5px">ON</th>
+				</thead><tr >
+					<td  style="border-left: 0px">1</td>
+					<td><a href="character?nick=Jubernauty">Jubernauty</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Jubernauty"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Jubernauty')"></i></td>
+					<td>175</td>
+					<td >231:45</td>
+					<td >133:30</td>
+					<td >44:00</td>
+					<td style="background-color: #FFFFCC">15:30</td>
+					<td >7:30</td>
+					<td >5:30</td>
+					<td >7:30</td>
+					<td >3:30</td>
+					<td >0:15</td>
+					<td >4:15</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+4,017,257</span></td>	
+					<td><span style="color: var(--pos)">+15,895,586</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">2</td>
+					<td><a href="character?nick=Vitorelli">Vitorelli</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Vitorelli"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Vitorelli')"></i></td>
+					<td>350</td>
+					<td >127:00</td>
+					<td >100:30</td>
+					<td >41:15</td>
+					<td >7:00</td>
+					<td >5:30</td>
+					<td >3:30</td>
+					<td >4:15</td>
+					<td >6:15</td>
+					<td >7:30</td>
+					<td >7:15</td>
+					<td><span style="color: var(--pos)">+971,857</span></td>	
+					<td><span style="color: var(--pos)">+25,262,354</span></td>	
+					<td><span style="color: var(--pos)">+177,861,875</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">3</td>
+					<td><a href="character?nick=Ardercimex Dariciann">Ardercimex Dariciann</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Ardercimex Dariciann"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Ardercimex Dariciann')"></i></td>
+					<td>751</td>
+					<td >142:30</td>
+					<td >126:45</td>
+					<td >39:45</td>
+					<td >9:15</td>
+					<td >8:00</td>
+					<td >2:45</td>
+					<td >9:30</td>
+					<td >3:45</td>
+					<td >4:30</td>
+					<td >2:00</td>
+					<td><span style="color: var(--pos)">+28,770,749</span></td>	
+					<td><span style="color: var(--pos)">+118,494,355</span></td>	
+					<td><span style="color: var(--pos)">+335,256,310</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">4</td>
+					<td><a href="character?nick=Thador Rizzak">Thador Rizzak</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Thador Rizzak"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Thador Rizzak')"></i></td>
+					<td>417</td>
+					<td >146:00</td>
+					<td >110:45</td>
+					<td >37:15</td>
+					<td >6:00</td>
+					<td >3:45</td>
+					<td >5:00</td>
+					<td >5:00</td>
+					<td >4:00</td>
+					<td >6:45</td>
+					<td >6:45</td>
+					<td><span style="color: var(--pos)">+5,288,527</span></td>	
+					<td><span style="color: var(--pos)">+89,078,349</span></td>	
+					<td><span style="color: var(--pos)">+268,023,359</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">5</td>
+					<td><a href="character?nick=Bourkey">Bourkey</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Bourkey"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Bourkey')"></i></td>
+					<td>332</td>
+					<td >146:15</td>
+					<td >107:30</td>
+					<td >37:00</td>
+					<td >6:15</td>
+					<td >5:45</td>
+					<td >4:30</td>
+					<td >5:00</td>
+					<td >1:00</td>
+					<td >7:00</td>
+					<td >7:30</td>
+					<td><span style="color: var(--pos)">+7,162,798</span></td>	
+					<td><span style="color: var(--pos)">+35,675,366</span></td>	
+					<td><span style="color: var(--pos)">+115,744,688</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">6</td>
+					<td><a href="character?nick=Domto">Domto</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Domto"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Domto')"></i></td>
+					<td>399</td>
+					<td >112:00</td>
+					<td >79:15</td>
+					<td >36:00</td>
+					<td >8:15</td>
+					<td >4:00</td>
+					<td >5:00</td>
+					<td >5:00</td>
+					<td >5:30</td>
+					<td >5:30</td>
+					<td >2:45</td>
+					<td><span style="color: var(--pos)">+10,642,430</span></td>	
+					<td><span style="color: var(--pos)">+72,458,341</span></td>	
+					<td><span style="color: var(--pos)">+251,615,935</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">7</td>
+					<td><a href="character?nick=Homem Barbaro">Homem Barbaro</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Homem Barbaro"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Homem Barbaro')"></i></td>
+					<td>976</td>
+					<td >180:30</td>
+					<td >112:15</td>
+					<td >35:30</td>
+					<td >6:30</td>
+					<td >5:00</td>
+					<td >4:15</td>
+					<td >5:00</td>
+					<td >3:00</td>
+					<td >6:00</td>
+					<td >5:45</td>
+					<td><span style="color: var(--pos)">+27,260,559</span></td>	
+					<td><span style="color: var(--pos)">+204,382,584</span></td>	
+					<td><span style="color: var(--pos)">+759,813,381</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">8</td>
+					<td><a href="character?nick=Roger Bass">Roger Bass</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Roger Bass"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Roger Bass')"></i></td>
+					<td>564</td>
+					<td >132:45</td>
+					<td >100:45</td>
+					<td >35:15</td>
+					<td >6:00</td>
+					<td >3:45</td>
+					<td >8:15</td>
+					<td >4:30</td>
+					<td >0:00</td>
+					<td >3:15</td>
+					<td >9:30</td>
+					<td><span style="color: var(--pos)">+1,506,604</span></td>	
+					<td><span style="color: var(--pos)">+46,198,639</span></td>	
+					<td><span style="color: var(--pos)">+207,954,853</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">9</td>
+					<td><a href="character?nick=Vaughn Benjamin">Vaughn Benjamin</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Vaughn Benjamin"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Vaughn Benjamin')"></i></td>
+					<td>773</td>
+					<td >211:45</td>
+					<td >92:00</td>
+					<td >35:15</td>
+					<td >2:30</td>
+					<td >2:30</td>
+					<td >9:30</td>
+					<td >3:30</td>
+					<td >3:15</td>
+					<td >6:15</td>
+					<td >7:45</td>
+					<td><span style="color: var(--pos)">+6,531,030</span></td>	
+					<td><span style="color: var(--pos)">+78,619,538</span></td>	
+					<td><span style="color: var(--pos)">+309,395,665</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">10</td>
+					<td><a href="character?nick=Gobaevofin">Gobaevofin</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Gobaevofin"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Gobaevofin')"></i></td>
+					<td>414</td>
+					<td >1:00</td>
+					<td >57:45</td>
+					<td >34:00</td>
+					<td >3:00</td>
+					<td >7:45</td>
+					<td >3:45</td>
+					<td >6:00</td>
+					<td >3:45</td>
+					<td >3:15</td>
+					<td >6:30</td>
+					<td><span style="color: var(--pos)">+1,916,952</span></td>	
+					<td><span style="color: var(--pos)">+6,814,025</span></td>	
+					<td><span style="color: var(--pos)">+10,444,472</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">11</td>
+					<td><a href="character?nick=Harvok Chen">Harvok Chen</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Harvok Chen"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Harvok Chen')"></i></td>
+					<td>605</td>
+					<td >65:00</td>
+					<td >64:00</td>
+					<td >28:00</td>
+					<td >4:45</td>
+					<td >0:15</td>
+					<td >3:30</td>
+					<td >3:00</td>
+					<td >2:45</td>
+					<td >8:00</td>
+					<td >5:45</td>
+					<td><span style="color: var(--pos)">+4,490,318</span></td>	
+					<td><span style="color: var(--pos)">+51,048,422</span></td>	
+					<td><span style="color: var(--pos)">+153,156,589</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">12</td>
+					<td><a href="character?nick=Brock Rez Demon">Brock Rez Demon</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Brock Rez Demon"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Brock Rez Demon')"></i></td>
+					<td>466</td>
+					<td >68:30</td>
+					<td >61:15</td>
+					<td >26:30</td>
+					<td >4:00</td>
+					<td >3:00</td>
+					<td >6:00</td>
+					<td >5:00</td>
+					<td >2:30</td>
+					<td >3:15</td>
+					<td >2:45</td>
+					<td><span style="color: var(--pos)">+6,411,340</span></td>	
+					<td><span style="color: var(--pos)">+49,766,535</span></td>	
+					<td><span style="color: var(--pos)">+140,389,421</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">13</td>
+					<td><a href="character?nick=Homem Barbaridade">Homem Barbaridade</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Homem Barbaridade"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Homem Barbaridade')"></i></td>
+					<td>309</td>
+					<td >116:45</td>
+					<td >75:30</td>
+					<td >26:00</td>
+					<td >5:45</td>
+					<td >3:00</td>
+					<td >4:15</td>
+					<td >4:45</td>
+					<td >1:30</td>
+					<td >4:45</td>
+					<td >2:00</td>
+					<td><span style="color: var(--pos)">+233,741</span></td>	
+					<td><span style="color: var(--pos)">+6,077,853</span></td>	
+					<td><span style="color: var(--pos)">+28,691,624</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">14</td>
+					<td><a href="character?nick=Firo Kavo">Firo Kavo</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Firo Kavo"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Firo Kavo')"></i></td>
+					<td>621</td>
+					<td >57:30</td>
+					<td >75:15</td>
+					<td >23:30</td>
+					<td >4:15</td>
+					<td >3:00</td>
+					<td >2:45</td>
+					<td >4:15</td>
+					<td >0:00</td>
+					<td >5:30</td>
+					<td >3:45</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+62,168,022</span></td>	
+					<td><span style="color: var(--pos)">+211,730,631</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">15</td>
+					<td><a href="character?nick=Bentcho">Bentcho</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Bentcho"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Bentcho')"></i></td>
+					<td>381</td>
+					<td >71:15</td>
+					<td >50:45</td>
+					<td >22:15</td>
+					<td >7:00</td>
+					<td >4:45</td>
+					<td >3:15</td>
+					<td >6:15</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><span style="color: var(--pos)">+5,415,713</span></td>	
+					<td><span style="color: var(--pos)">+20,175,607</span></td>	
+					<td><span style="color: var(--pos)">+77,881,524</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">16</td>
+					<td><a href="character?nick=Enraged Motoboy">Enraged Motoboy</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Enraged Motoboy"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Enraged Motoboy')"></i></td>
+					<td>118</td>
+					<td >90:15</td>
+					<td >73:00</td>
+					<td >20:00</td>
+					<td >3:15</td>
+					<td >5:30</td>
+					<td >3:30</td>
+					<td >2:15</td>
+					<td >1:45</td>
+					<td >3:00</td>
+					<td >0:45</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">17</td>
+					<td><a href="character?nick=Mega Runa Cinco">Mega Runa Cinco</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Mega Runa Cinco"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Mega Runa Cinco')"></i></td>
+					<td>360</td>
+					<td >112:15</td>
+					<td >63:00</td>
+					<td >20:00</td>
+					<td >5:15</td>
+					<td >2:15</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >4:15</td>
+					<td >3:30</td>
+					<td >4:00</td>
+					<td><span style="color: var(--pos)">+5,014,501</span></td>	
+					<td><span style="color: var(--pos)">+44,749,696</span></td>	
+					<td><span style="color: var(--pos)">+229,839,486</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">18</td>
+					<td><a href="character?nick=Scarlett Stinson">Scarlett Stinson</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Scarlett Stinson"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Scarlett Stinson')"></i></td>
+					<td>182</td>
+					<td >47:30</td>
+					<td >44:00</td>
+					<td >19:45</td>
+					<td >1:00</td>
+					<td >1:45</td>
+					<td >1:00</td>
+					<td >2:00</td>
+					<td >1:15</td>
+					<td >7:15</td>
+					<td >5:30</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">19</td>
+					<td><a href="character?nick=Fathima Teles">Fathima Teles</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Fathima Teles"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Fathima Teles')"></i></td>
+					<td>528</td>
+					<td >69:45</td>
+					<td >62:00</td>
+					<td >19:30</td>
+					<td >3:45</td>
+					<td >3:45</td>
+					<td >4:30</td>
+					<td >6:00</td>
+					<td >1:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><span style="color: var(--pos)">+1,237,498</span></td>	
+					<td><span style="color: var(--pos)">+8,599,412</span></td>	
+					<td><span style="color: var(--pos)">+44,685,252</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">20</td>
+					<td><a href="character?nick=Ruckert">Ruckert</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Ruckert"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Ruckert')"></i></td>
+					<td>207</td>
+					<td >0:00</td>
+					<td >29:30</td>
+					<td >18:15</td>
+					<td >2:00</td>
+					<td >0:15</td>
+					<td >2:00</td>
+					<td >2:15</td>
+					<td >2:30</td>
+					<td >3:15</td>
+					<td >6:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">21</td>
+					<td><a href="character?nick=Falaac Venon">Falaac Venon</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Falaac Venon"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Falaac Venon')"></i></td>
+					<td>321</td>
+					<td >93:30</td>
+					<td >69:15</td>
+					<td >17:30</td>
+					<td >3:00</td>
+					<td >3:00</td>
+					<td >3:15</td>
+					<td >0:15</td>
+					<td >0:30</td>
+					<td >6:15</td>
+					<td >1:15</td>
+					<td><span style="color: var(--pos)">+156,931</span></td>	
+					<td><span style="color: var(--pos)">+13,166,209</span></td>	
+					<td><span style="color: var(--pos)">+55,708,197</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">22</td>
+					<td><a href="character?nick=Emperium Paladyn">Emperium Paladyn</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Emperium Paladyn"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Emperium Paladyn')"></i></td>
+					<td>377</td>
+					<td >39:15</td>
+					<td >52:45</td>
+					<td >17:00</td>
+					<td >1:30</td>
+					<td >2:00</td>
+					<td >1:30</td>
+					<td >3:45</td>
+					<td >0:30</td>
+					<td >3:45</td>
+					<td >4:00</td>
+					<td><span style="color: var(--pos)">+1,069,128</span></td>	
+					<td><span style="color: var(--pos)">+12,444,548</span></td>	
+					<td><span style="color: var(--pos)">+66,262,854</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">23</td>
+					<td><a href="character?nick=Axl Wood">Axl Wood</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Axl Wood"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Axl Wood')"></i></td>
+					<td>327</td>
+					<td >7:45</td>
+					<td >18:30</td>
+					<td >15:45</td>
+					<td >4:15</td>
+					<td >0:30</td>
+					<td >3:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >7:15</td>
+					<td >0:45</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+21,074,727</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">24</td>
+					<td><a href="character?nick=Guerilla Shooter">Guerilla Shooter</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Guerilla Shooter"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Guerilla Shooter')"></i></td>
+					<td>544</td>
+					<td >201:30</td>
+					<td >89:45</td>
+					<td >15:30</td>
+					<td >2:45</td>
+					<td >4:00</td>
+					<td >2:45</td>
+					<td >1:00</td>
+					<td >2:30</td>
+					<td >0:30</td>
+					<td >2:00</td>
+					<td><span style="color: var(--pos)">+5,934,879</span></td>	
+					<td><span style="color: var(--pos)">+35,381,660</span></td>	
+					<td><span style="color: var(--pos)">+271,770,570</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">25</td>
+					<td><a href="character?nick=Koznight">Koznight</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Koznight"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Koznight')"></i></td>
+					<td>558</td>
+					<td >70:00</td>
+					<td >41:45</td>
+					<td >15:00</td>
+					<td >3:15</td>
+					<td >2:00</td>
+					<td >1:30</td>
+					<td >1:30</td>
+					<td >2:45</td>
+					<td >0:15</td>
+					<td >3:45</td>
+					<td><span style="color: var(--pos)">+4,339,351</span></td>	
+					<td><span style="color: var(--pos)">+26,587,289</span></td>	
+					<td><span style="color: var(--pos)">+121,095,458</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">26</td>
+					<td><a href="character?nick=Legolas Drachenreiter">Legolas Drachenreiter</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Legolas Drachenreiter"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Legolas Drachenreiter')"></i></td>
+					<td>276</td>
+					<td >190:00</td>
+					<td >68:15</td>
+					<td >13:45</td>
+					<td >0:15</td>
+					<td >0:30</td>
+					<td >3:45</td>
+					<td >5:45</td>
+					<td >2:30</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td><span style="color: var(--pos)">+2,380,903</span></td>	
+					<td><span style="color: var(--pos)">+9,994,640</span></td>	
+					<td><span style="color: var(--pos)">+49,474,980</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">27</td>
+					<td><a href="character?nick=Ted Neon">Ted Neon</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Ted Neon"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Ted Neon')"></i></td>
+					<td>476</td>
+					<td >12:45</td>
+					<td >27:15</td>
+					<td >13:30</td>
+					<td >1:15</td>
+					<td >0:00</td>
+					<td >0:30</td>
+					<td >2:45</td>
+					<td >2:45</td>
+					<td >1:30</td>
+					<td >4:45</td>
+					<td><span style="color: var(--pos)">+16,208,804</span></td>	
+					<td><span style="color: var(--pos)">+44,408,450</span></td>	
+					<td><span style="color: var(--pos)">+95,854,547</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">28</td>
+					<td><a href="character?nick=Klnkor">Klnkor</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Klnkor"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Klnkor')"></i></td>
+					<td>252</td>
+					<td >0:45</td>
+					<td >13:30</td>
+					<td >13:30</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >5:30</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >6:45</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">29</td>
+					<td><a href="character?nick=Faladd Aellatek">Faladd Aellatek</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Faladd Aellatek"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Faladd Aellatek')"></i></td>
+					<td>330</td>
+					<td >9:00</td>
+					<td >30:00</td>
+					<td >12:45</td>
+					<td >4:15</td>
+					<td >4:15</td>
+					<td >1:30</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >1:00</td>
+					<td><span style="color: var(--pos)">+1,667,987</span></td>	
+					<td><span style="color: var(--pos)">+13,027,608</span></td>	
+					<td><span style="color: var(--pos)">+24,063,996</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">30</td>
+					<td><a href="character?nick=Rode Nill">Rode Nill</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Rode Nill"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Rode Nill')"></i></td>
+					<td>98</td>
+					<td >5:15</td>
+					<td >16:45</td>
+					<td >12:30</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >3:00</td>
+					<td >3:00</td>
+					<td >0:00</td>
+					<td >2:45</td>
+					<td >3:15</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">31</td>
+					<td><a href="character?nick=Belmon Mu">Belmon Mu</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Belmon Mu"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Belmon Mu')"></i></td>
+					<td>478</td>
+					<td >52:45</td>
+					<td >31:00</td>
+					<td >12:00</td>
+					<td >1:00</td>
+					<td >0:45</td>
+					<td >0:45</td>
+					<td >1:30</td>
+					<td >3:00</td>
+					<td >0:15</td>
+					<td >4:45</td>
+					<td><span style="color: var(--pos)">+8,161,582</span></td>	
+					<td><span style="color: var(--pos)">+16,099,944</span></td>	
+					<td><span style="color: var(--pos)">+71,209,506</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">32</td>
+					<td><a href="character?nick=Thran">Thran</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Thran"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Thran')"></i></td>
+					<td>167</td>
+					<td >0:00</td>
+					<td >27:00</td>
+					<td >12:00</td>
+					<td >2:30</td>
+					<td >1:00</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >2:45</td>
+					<td >5:15</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">33</td>
+					<td><a href="character?nick=Pamilinha Hidex">Pamilinha Hidex</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Pamilinha Hidex"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Pamilinha Hidex')"></i></td>
+					<td>532</td>
+					<td >0:45</td>
+					<td >29:30</td>
+					<td >11:45</td>
+					<td >3:15</td>
+					<td >0:30</td>
+					<td >6:00</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >1:15</td>
+					<td >0:00</td>
+					<td><span style="color: var(--pos)">+178,244</span></td>	
+					<td><span style="color: var(--pos)">+20,736,198</span></td>	
+					<td><span style="color: var(--pos)">+45,658,822</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">34</td>
+					<td><a href="character?nick=Thauroz">Thauroz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Thauroz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Thauroz')"></i></td>
+					<td>233</td>
+					<td >34:30</td>
+					<td >23:15</td>
+					<td >11:45</td>
+					<td >6:00</td>
+					<td >1:30</td>
+					<td >2:30</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >1:15</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">35</td>
+					<td><a href="character?nick=Fex Dord">Fex Dord</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Fex Dord"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Fex Dord')"></i></td>
+					<td>599</td>
+					<td >51:00</td>
+					<td >41:30</td>
+					<td >11:15</td>
+					<td >2:45</td>
+					<td >1:30</td>
+					<td >2:00</td>
+					<td >2:45</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td >1:30</td>
+					<td><span style="color: var(--pos)">+6,648,247</span></td>	
+					<td><span style="color: var(--pos)">+33,631,953</span></td>	
+					<td><span style="color: var(--pos)">+125,156,767</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">36</td>
+					<td><a href="character?nick=Farol Falyn">Farol Falyn</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Farol Falyn"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Farol Falyn')"></i></td>
+					<td>343</td>
+					<td >0:00</td>
+					<td >56:15</td>
+					<td >11:00</td>
+					<td >1:45</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >4:45</td>
+					<td >3:45</td>
+					<td>0</td>	
+					<td><span style="color: red">-5,374,547</span></td>	
+					<td><span style="color: red">-12,143,156</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">37</td>
+					<td><a href="character?nick=Med Prudente">Med Prudente</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Med Prudente"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Med Prudente')"></i></td>
+					<td>147</td>
+					<td >13:15</td>
+					<td >20:30</td>
+					<td >10:00</td>
+					<td >3:15</td>
+					<td >1:15</td>
+					<td >2:00</td>
+					<td >2:15</td>
+					<td >0:00</td>
+					<td >1:15</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">38</td>
+					<td><a href="character?nick=Kauan Blade">Kauan Blade</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Kauan Blade"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Kauan Blade')"></i></td>
+					<td>157</td>
+					<td >28:45</td>
+					<td >17:00</td>
+					<td >7:45</td>
+					<td >1:45</td>
+					<td >0:30</td>
+					<td >1:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >2:30</td>
+					<td >1:45</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">39</td>
+					<td><a href="character?nick=Doctor Mounjaro">Doctor Mounjaro</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Doctor Mounjaro"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Doctor Mounjaro')"></i></td>
+					<td>359</td>
+					<td >13:15</td>
+					<td >22:15</td>
+					<td >7:30</td>
+					<td >1:15</td>
+					<td >0:15</td>
+					<td >2:00</td>
+					<td >0:45</td>
+					<td >0:45</td>
+					<td >2:30</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+6,457,196</span></td>	
+					<td><span style="color: var(--pos)">+37,547,935</span></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">40</td>
+					<td><a href="character?nick=Shaman snake">Shaman snake</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Shaman snake"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Shaman snake')"></i></td>
+					<td>540</td>
+					<td >30:45</td>
+					<td >33:15</td>
+					<td >6:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >5:45</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><span style="color: var(--pos)">+1,133,083</span></td>	
+					<td><span style="color: var(--pos)">+19,851,940</span></td>	
+					<td><span style="color: var(--pos)">+118,504,380</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">41</td>
+					<td><a href="character?nick=Viollent monsterstar">Viollent monsterstar</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Viollent monsterstar"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Viollent monsterstar')"></i></td>
+					<td>506</td>
+					<td >32:15</td>
+					<td >18:45</td>
+					<td >6:15</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >1:30</td>
+					<td >3:15</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td><span style="color: var(--pos)">+6,702,592</span></td>	
+					<td><span style="color: var(--pos)">+17,478,914</span></td>	
+					<td><span style="color: var(--pos)">+60,352,739</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">42</td>
+					<td><a href="character?nick=Dempis Cyron">Dempis Cyron</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dempis Cyron"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dempis Cyron')"></i></td>
+					<td>508</td>
+					<td >8:45</td>
+					<td >9:00</td>
+					<td >6:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >1:15</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >4:15</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+13,219,341</span></td>	
+					<td><span style="color: var(--pos)">+28,748,761</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">43</td>
+					<td><a href="character?nick=Kiinaah">Kiinaah</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Kiinaah"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Kiinaah')"></i></td>
+					<td>210</td>
+					<td >4:45</td>
+					<td >29:45</td>
+					<td >5:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >1:00</td>
+					<td >3:30</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">44</td>
+					<td><a href="character?nick=Cona Larrsonti">Cona Larrsonti</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Cona Larrsonti"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Cona Larrsonti')"></i></td>
+					<td>710</td>
+					<td >34:15</td>
+					<td >13:00</td>
+					<td >4:30</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >1:00</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >1:15</td>
+					<td >1:00</td>
+					<td><span style="color: var(--pos)">+2,018,485</span></td>	
+					<td><span style="color: var(--pos)">+2,988,247</span></td>	
+					<td><span style="color: var(--pos)">+10,470,570</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">45</td>
+					<td><a href="character?nick=Angel of Lumi">Angel of Lumi</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Angel of Lumi"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Angel of Lumi')"></i></td>
+					<td>89</td>
+					<td >13:15</td>
+					<td >9:45</td>
+					<td >4:30</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >4:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">46</td>
+					<td><a href="character?nick=Laine Ski">Laine Ski</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Laine Ski"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Laine Ski')"></i></td>
+					<td>164</td>
+					<td >18:15</td>
+					<td >7:45</td>
+					<td >4:30</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >1:15</td>
+					<td >0:00</td>
+					<td >1:45</td>
+					<td >0:45</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">47</td>
+					<td><a href="character?nick=Alice Thir">Alice Thir</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Alice Thir"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Alice Thir')"></i></td>
+					<td>323</td>
+					<td >20:30</td>
+					<td >18:30</td>
+					<td >4:00</td>
+					<td >0:30</td>
+					<td >1:00</td>
+					<td >0:45</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >1:30</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+5,840,760</span></td>	
+					<td><span style="color: var(--pos)">+15,105,204</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">48</td>
+					<td><a href="character?nick=Dieu Apollon">Dieu Apollon</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dieu Apollon"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dieu Apollon')"></i></td>
+					<td>95</td>
+					<td >12:45</td>
+					<td >6:15</td>
+					<td >3:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >3:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">49</td>
+					<td><a href="character?nick=Bezecrra">Bezecrra</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Bezecrra"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Bezecrra')"></i></td>
+					<td>118</td>
+					<td >16:00</td>
+					<td >11:45</td>
+					<td >3:15</td>
+					<td >0:30</td>
+					<td >0:15</td>
+					<td >0:45</td>
+					<td >0:30</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:45</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">50</td>
+					<td><a href="character?nick=Tiquitito">Tiquitito</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Tiquitito"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Tiquitito')"></i></td>
+					<td>178</td>
+					<td >19:15</td>
+					<td >4:15</td>
+					<td >3:00</td>
+					<td >0:30</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >1:15</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">51</td>
+					<td><a href="character?nick=Lord Froilan">Lord Froilan</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Lord Froilan"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Lord Froilan')"></i></td>
+					<td>691</td>
+					<td >228:15</td>
+					<td >61:30</td>
+					<td >2:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >1:30</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+5,996,653</span></td>	
+					<td><span style="color: var(--pos)">+191,133,578</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">52</td>
+					<td><a href="character?nick=Miro on Scorpion">Miro on Scorpion</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Miro on Scorpion"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Miro on Scorpion')"></i></td>
+					<td>334</td>
+					<td >12:30</td>
+					<td >10:30</td>
+					<td >2:45</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >1:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:30</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+792,601</span></td>	
+					<td><span style="color: var(--pos)">+1,423,429</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">53</td>
+					<td><a href="character?nick=Crassus">Crassus</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Crassus"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Crassus')"></i></td>
+					<td>199</td>
+					<td >23:00</td>
+					<td >18:15</td>
+					<td >2:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >1:00</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd">1<div class="online"></div></td>
+				</tr><tr >
+					<td  style="border-left: 0px">54</td>
+					<td><a href="character?nick=Thi">Thi</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Thi"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Thi')"></i></td>
+					<td>566</td>
+					<td >8:30</td>
+					<td >5:30</td>
+					<td >2:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >2:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+7,039,638</span></td>	
+					<td><span style="color: var(--pos)">+27,670,131</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">55</td>
+					<td><a href="character?nick=Hangg Loose">Hangg Loose</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Hangg Loose"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Hangg Loose')"></i></td>
+					<td>133</td>
+					<td >0:15</td>
+					<td >20:00</td>
+					<td >1:45</td>
+					<td >0:00</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">56</td>
+					<td><a href="character?nick=Flowaley">Flowaley</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Flowaley"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Flowaley')"></i></td>
+					<td>136</td>
+					<td >1:00</td>
+					<td >2:00</td>
+					<td >1:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >1:15</td>
+					<td >0:30</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">57</td>
+					<td><a href="character?nick=Engrei">Engrei</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Engrei"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Engrei')"></i></td>
+					<td>281</td>
+					<td >74:45</td>
+					<td >32:15</td>
+					<td >1:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+456</span></td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">58</td>
+					<td><a href="character?nick=Arqetipo">Arqetipo</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Arqetipo"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Arqetipo')"></i></td>
+					<td>91</td>
+					<td >0:30</td>
+					<td >21:45</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">59</td>
+					<td><a href="character?nick=John Bee">John Bee</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=John Bee"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('John Bee')"></i></td>
+					<td>143</td>
+					<td >6:45</td>
+					<td >3:30</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">60</td>
+					<td><a href="character?nick=Guerrilla">Guerrilla</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Guerrilla"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Guerrilla')"></i></td>
+					<td>177</td>
+					<td >5:45</td>
+					<td >2:00</td>
+					<td >0:45</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+535,945</span></td>	
+					<td><span style="color: var(--pos)">+2,808,473</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">61</td>
+					<td><a href="character?nick=Guiwilder">Guiwilder</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Guiwilder"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Guiwilder')"></i></td>
+					<td>58</td>
+					<td >3:00</td>
+					<td >1:15</td>
+					<td >0:45</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">62</td>
+					<td><a href="character?nick=Kisim Kinao">Kisim Kinao</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Kisim Kinao"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Kisim Kinao')"></i></td>
+					<td>73</td>
+					<td >1:00</td>
+					<td >1:00</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">63</td>
+					<td><a href="character?nick=Wymiko Surya">Wymiko Surya</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Wymiko Surya"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Wymiko Surya')"></i></td>
+					<td>61</td>
+					<td >3:30</td>
+					<td >0:30</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">64</td>
+					<td><a href="character?nick=Thikadai">Thikadai</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Thikadai"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Thikadai')"></i></td>
+					<td>648</td>
+					<td >7:45</td>
+					<td >4:30</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+2,584,234</span></td>	
+					<td><span style="color: var(--pos)">+35,075,215</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">65</td>
+					<td><a href="character?nick=Davi Off Dragon">Davi Off Dragon</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Davi Off Dragon"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Davi Off Dragon')"></i></td>
+					<td>570</td>
+					<td >0:00</td>
+					<td >3:45</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+776,482</span></td>	
+					<td><span style="color: var(--pos)">+7,975,572</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">66</td>
+					<td><a href="character?nick=Thigor">Thigor</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Thigor"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Thigor')"></i></td>
+					<td>575</td>
+					<td >8:00</td>
+					<td >3:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+4,586,220</span></td>	
+					<td><span style="color: var(--pos)">+13,948,187</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">67</td>
+					<td><a href="character?nick=Opusz">Opusz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Opusz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Opusz')"></i></td>
+					<td>257</td>
+					<td >2:00</td>
+					<td >3:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">68</td>
+					<td><a href="character?nick=Crossbander">Crossbander</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Crossbander"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Crossbander')"></i></td>
+					<td>375</td>
+					<td >2:45</td>
+					<td >1:45</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+9,856,166</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">69</td>
+					<td><a href="character?nick=Kinkor">Kinkor</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Kinkor"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Kinkor')"></i></td>
+					<td>320</td>
+					<td >17:45</td>
+					<td >1:30</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+1,670</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">70</td>
+					<td><a href="character?nick=Soma Huntress">Soma Huntress</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Soma Huntress"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Soma Huntress')"></i></td>
+					<td>162</td>
+					<td >2:00</td>
+					<td >0:30</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">71</td>
+					<td><a href="character?nick=Sheik Cat">Sheik Cat</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Sheik Cat"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Sheik Cat')"></i></td>
+					<td>50</td>
+					<td >0:45</td>
+					<td >0:30</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">72</td>
+					<td><a href="character?nick=Jaguncio Ancap">Jaguncio Ancap</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Jaguncio Ancap"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Jaguncio Ancap')"></i></td>
+					<td>137</td>
+					<td >0:15</td>
+					<td >0:30</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">73</td>
+					<td><a href="character?nick=Gavinha">Gavinha</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Gavinha"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Gavinha')"></i></td>
+					<td>223</td>
+					<td >0:45</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">74</td>
+					<td><a href="character?nick=Shiryu of Dragon">Shiryu of Dragon</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Shiryu of Dragon"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Shiryu of Dragon')"></i></td>
+					<td>151</td>
+					<td >0:30</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">75</td>
+					<td><a href="character?nick=Dagon Dargo">Dagon Dargo</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dagon Dargo"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dagon Dargo')"></i></td>
+					<td>212</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">76</td>
+					<td><a href="character?nick=Jow no Arms">Jow no Arms</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Jow no Arms"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Jow no Arms')"></i></td>
+					<td>143</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">77</td>
+					<td><a href="character?nick=Dekoth Frax">Dekoth Frax</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dekoth Frax"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dekoth Frax')"></i></td>
+					<td>70</td>
+					<td >81:15</td>
+					<td >3:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">78</td>
+					<td><a href="character?nick=Dominique Thauroz">Dominique Thauroz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dominique Thauroz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dominique Thauroz')"></i></td>
+					<td>50</td>
+					<td >4:00</td>
+					<td >3:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+335,807</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">79</td>
+					<td><a href="character?nick=Insane Sudden Death">Insane Sudden Death</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Insane Sudden Death"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Insane Sudden Death')"></i></td>
+					<td>78</td>
+					<td >7:30</td>
+					<td >2:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">80</td>
+					<td><a href="character?nick=Massah">Massah</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Massah"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Massah')"></i></td>
+					<td>96</td>
+					<td >0:00</td>
+					<td >1:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">81</td>
+					<td><a href="character?nick=Crashzera">Crashzera</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Crashzera"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Crashzera')"></i></td>
+					<td>132</td>
+					<td >6:15</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">82</td>
+					<td><a href="character?nick=Junior Teles">Junior Teles</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Junior Teles"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Junior Teles')"></i></td>
+					<td>204</td>
+					<td >3:00</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">83</td>
+					<td><a href="character?nick=Comando Druid">Comando Druid</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Comando Druid"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Comando Druid')"></i></td>
+					<td>474</td>
+					<td >1:30</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">84</td>
+					<td><a href="character?nick=Pelo do Macaco">Pelo do Macaco</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Pelo do Macaco"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Pelo do Macaco')"></i></td>
+					<td>143</td>
+					<td >40:15</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">85</td>
+					<td><a href="character?nick=Uchiha Veloz">Uchiha Veloz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Uchiha Veloz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Uchiha Veloz')"></i></td>
+					<td>42</td>
+					<td >1:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">86</td>
+					<td><a href="character?nick=Ti bia Brothers">Ti bia Brothers</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Ti bia Brothers"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Ti bia Brothers')"></i></td>
+					<td>187</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td><span style="color: red">-2,823,137</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">87</td>
+					<td><a href="character?nick=Hierabolt">Hierabolt</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Hierabolt"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Hierabolt')"></i></td>
+					<td>59</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr >
+					<td  style="border-left: 0px">88</td>
+					<td><a href="character?nick=Hunter Kingman">Hunter Kingman</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Hunter Kingman"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Hunter Kingman')"></i></td>
+					<td>75</td>
+					<td >0:00</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">89</td>
+					<td><a href="character?nick=Radikanss">Radikanss</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Radikanss"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Radikanss')"></i></td>
+					<td>86</td>
+					<td >12:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">90</td>
+					<td><a href="character?nick=Lady Santoro">Lady Santoro</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Lady Santoro"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Lady Santoro')"></i></td>
+					<td>60</td>
+					<td >6:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">91</td>
+					<td><a href="character?nick=Thebk">Thebk</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Thebk"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Thebk')"></i></td>
+					<td>124</td>
+					<td >4:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">92</td>
+					<td><a href="character?nick=Roger Guna">Roger Guna</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Roger Guna"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Roger Guna')"></i></td>
+					<td>256</td>
+					<td >3:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">93</td>
+					<td><a href="character?nick=Dundie Award">Dundie Award</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dundie Award"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dundie Award')"></i></td>
+					<td>344</td>
+					<td >1:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">94</td>
+					<td><a href="character?nick=Arccheer">Arccheer</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Arccheer"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Arccheer')"></i></td>
+					<td>102</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">95</td>
+					<td><a href="character?nick=Majestrix Queen">Majestrix Queen</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Majestrix Queen"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Majestrix Queen')"></i></td>
+					<td>238</td>
+					<td >1:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">96</td>
+					<td><a href="character?nick=Hum milhao">Hum milhao</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Hum milhao"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Hum milhao')"></i></td>
+					<td>165</td>
+					<td >0:45</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">97</td>
+					<td><a href="character?nick=Hali Palla">Hali Palla</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Hali Palla"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Hali Palla')"></i></td>
+					<td>71</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">98</td>
+					<td><a href="character?nick=Starlord Zepp">Starlord Zepp</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Starlord Zepp"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Starlord Zepp')"></i></td>
+					<td>133</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">99</td>
+					<td><a href="character?nick=Dona Emilia Flaubertina">Dona Emilia Flaubertina</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dona Emilia Flaubertina"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dona Emilia Flaubertina')"></i></td>
+					<td>50</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">100</td>
+					<td><a href="character?nick=Maclane max">Maclane max</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Maclane max"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Maclane max')"></i></td>
+					<td>50</td>
+					<td >0:30</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">101</td>
+					<td><a href="character?nick=Sendomus">Sendomus</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Sendomus"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Sendomus')"></i></td>
+					<td>312</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td><span style="color: var(--pos)">+8,100</span></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">102</td>
+					<td><a href="character?nick=Confia No Druid">Confia No Druid</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Confia No Druid"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Confia No Druid')"></i></td>
+					<td>329</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">103</td>
+					<td><a href="character?nick=Zyna yatth">Zyna yatth</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Zyna yatth"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Zyna yatth')"></i></td>
+					<td>257</td>
+					<td >0:15</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">104</td>
+					<td><a href="character?nick=Little Vih">Little Vih</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Little Vih"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Little Vih')"></i></td>
+					<td>143</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">105</td>
+					<td><a href="character?nick=Dord Cath">Dord Cath</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dord Cath"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dord Cath')"></i></td>
+					<td>24</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">106</td>
+					<td><a href="character?nick=Mage no Rush">Mage no Rush</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Mage no Rush"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Mage no Rush')"></i></td>
+					<td>95</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">107</td>
+					<td><a href="character?nick=Xenodiron">Xenodiron</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Xenodiron"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Xenodiron')"></i></td>
+					<td>118</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">108</td>
+					<td><a href="character?nick=Blax Grim Fighter">Blax Grim Fighter</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Blax Grim Fighter"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Blax Grim Fighter')"></i></td>
+					<td>530</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">109</td>
+					<td><a href="character?nick=Compliancehchc">Compliancehchc</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Compliancehchc"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Compliancehchc')"></i></td>
+					<td>196</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">110</td>
+					<td><a href="character?nick=Dhohaeris">Dhohaeris</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dhohaeris"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dhohaeris')"></i></td>
+					<td>335</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">111</td>
+					<td><a href="character?nick=Guma of Sabia">Guma of Sabia</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Guma of Sabia"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Guma of Sabia')"></i></td>
+					<td>384</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">112</td>
+					<td><a href="character?nick=Jeta Larus">Jeta Larus</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Jeta Larus"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Jeta Larus')"></i></td>
+					<td>35</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">113</td>
+					<td><a href="character?nick=Palastroked">Palastroked</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Palastroked"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Palastroked')"></i></td>
+					<td>120</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">114</td>
+					<td><a href="character?nick=Rapid Man">Rapid Man</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Rapid Man"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Rapid Man')"></i></td>
+					<td>257</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">115</td>
+					<td><a href="character?nick=Yochimaru">Yochimaru</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Yochimaru"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Yochimaru')"></i></td>
+					<td>241</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">116</td>
+					<td><a href="character?nick=Zwergolas">Zwergolas</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Zwergolas"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Zwergolas')"></i></td>
+					<td>42</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">117</td>
+					<td><a href="character?nick=Diehard Guard">Diehard Guard</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Diehard Guard"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Diehard Guard')"></i></td>
+					<td>8</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">118</td>
+					<td><a href="character?nick=Dyana Bolt">Dyana Bolt</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Dyana Bolt"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Dyana Bolt')"></i></td>
+					<td>304</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">119</td>
+					<td><a href="character?nick=Felipe Star">Felipe Star</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Felipe Star"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Felipe Star')"></i></td>
+					<td>144</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">120</td>
+					<td><a href="character?nick=Palimmyr">Palimmyr</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Palimmyr"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Palimmyr')"></i></td>
+					<td>400</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">121</td>
+					<td><a href="character?nick=Rob Oz">Rob Oz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Rob Oz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Rob Oz')"></i></td>
+					<td>152</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">122</td>
+					<td><a href="character?nick=Sir&apos;Lestatt">Sir&apos;Lestatt</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Sir&apos;Lestatt"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Sir&apos;Lestatt')"></i></td>
+					<td>200</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">123</td>
+					<td><a href="character?nick=Yusuke Lion">Yusuke Lion</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Yusuke Lion"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Yusuke Lion')"></i></td>
+					<td>106</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">124</td>
+					<td><a href="character?nick=Darkin Light">Darkin Light</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Darkin Light"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Darkin Light')"></i></td>
+					<td>288</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">125</td>
+					<td><a href="character?nick=Doombledore">Doombledore</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Doombledore"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Doombledore')"></i></td>
+					<td>305</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">126</td>
+					<td><a href="character?nick=Hayk Han">Hayk Han</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Hayk Han"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Hayk Han')"></i></td>
+					<td>201</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">127</td>
+					<td><a href="character?nick=Larsinhu Noo">Larsinhu Noo</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Larsinhu Noo"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Larsinhu Noo')"></i></td>
+					<td>164</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">128</td>
+					<td><a href="character?nick=Panda Yololo">Panda Yololo</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Panda Yololo"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Panda Yololo')"></i></td>
+					<td>183</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">129</td>
+					<td><a href="character?nick=Elite Pop">Elite Pop</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Elite Pop"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Elite Pop')"></i></td>
+					<td>209</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">130</td>
+					<td><a href="character?nick=Fuffles">Fuffles</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Fuffles"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Fuffles')"></i></td>
+					<td>444</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">131</td>
+					<td><a href="character?nick=Alustar">Alustar</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Alustar"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Alustar')"></i></td>
+					<td>540</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">132</td>
+					<td><a href="character?nick=Elite History">Elite History</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Elite History"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Elite History')"></i></td>
+					<td>304</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">133</td>
+					<td><a href="character?nick=Menron Dezilluram">Menron Dezilluram</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Menron Dezilluram"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Menron Dezilluram')"></i></td>
+					<td>89</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">134</td>
+					<td><a href="character?nick=Sthynkz">Sthynkz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Sthynkz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Sthynkz')"></i></td>
+					<td>267</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">135</td>
+					<td><a href="character?nick=Elitezaum Tankabox Utitado">Elitezaum Tankabox Utitado</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Elitezaum Tankabox Utitado"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Elitezaum Tankabox Utitado')"></i></td>
+					<td>291</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">136</td>
+					<td><a href="character?nick=Cron Golitaline">Cron Golitaline</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Cron Golitaline"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Cron Golitaline')"></i></td>
+					<td>178</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">137</td>
+					<td><a href="character?nick=Exalted Barbatos">Exalted Barbatos</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Exalted Barbatos"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Exalted Barbatos')"></i></td>
+					<td>137</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">138</td>
+					<td><a href="character?nick=Lord Gordon">Lord Gordon</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Lord Gordon"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Lord Gordon')"></i></td>
+					<td>132</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">139</td>
+					<td><a href="character?nick=Midnght">Midnght</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Midnght"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Midnght')"></i></td>
+					<td>456</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">140</td>
+					<td><a href="character?nick=Poetic Justice">Poetic Justice</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Poetic Justice"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Poetic Justice')"></i></td>
+					<td>154</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">141</td>
+					<td><a href="character?nick=Royal Nerso">Royal Nerso</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Royal Nerso"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Royal Nerso')"></i></td>
+					<td>397</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">142</td>
+					<td><a href="character?nick=Tebba">Tebba</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Tebba"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Tebba')"></i></td>
+					<td>146</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">143</td>
+					<td><a href="character?nick=Hottz">Hottz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Hottz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Hottz')"></i></td>
+					<td>260</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">144</td>
+					<td><a href="character?nick=Ghoticz">Ghoticz</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Ghoticz"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Ghoticz')"></i></td>
+					<td>279</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">145</td>
+					<td><a href="character?nick=Luminis larows">Luminis larows</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Luminis larows"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Luminis larows')"></i></td>
+					<td>127</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">146</td>
+					<td><a href="character?nick=Migan Alig">Migan Alig</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Migan Alig"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Migan Alig')"></i></td>
+					<td>118</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">147</td>
+					<td><a href="character?nick=Princess Larah">Princess Larah</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Princess Larah"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Princess Larah')"></i></td>
+					<td>212</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">148</td>
+					<td><a href="character?nick=Warriior of death">Warriior of death</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Warriior of death"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Warriior of death')"></i></td>
+					<td>184</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">149</td>
+					<td><a href="character?nick=Apoth of Zexend">Apoth of Zexend</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Apoth of Zexend"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Apoth of Zexend')"></i></td>
+					<td>231</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">150</td>
+					<td><a href="character?nick=Pedro Matias Pedroso">Pedro Matias Pedroso</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Pedro Matias Pedroso"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Pedro Matias Pedroso')"></i></td>
+					<td>419</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">151</td>
+					<td><a href="character?nick=Kyors Healer">Kyors Healer</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Kyors Healer"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Kyors Healer')"></i></td>
+					<td>273</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td>0</td>	
+					<td>0</td>	
+					<td>0</td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">152</td>
+					<td><a href="character?nick=Darkness Hell Gate">Darkness Hell Gate</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Darkness Hell Gate"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Darkness Hell Gate')"></i></td>
+					<td>120</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">153</td>
+					<td><a href="character?nick=Nandys">Nandys</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Nandys"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Nandys')"></i></td>
+					<td>108</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">154</td>
+					<td><a href="character?nick=Punho Etero">Punho Etero</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Punho Etero"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Punho Etero')"></i></td>
+					<td>21</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">155</td>
+					<td><a href="character?nick=Saka Shea">Saka Shea</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Saka Shea"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Saka Shea')"></i></td>
+					<td>67</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tr style="color: gray">
+					<td  style="border-left: 0px">156</td>
+					<td><a href="character?nick=Bife Moido">Bife Moido</a> <a href="http://www.tibia.com/community/?subtopic=characters&name=Bife Moido"><img src="images/t.gif" alt="Check at Tibia.com"></a> <i class="fa fa-random" onclick="AddCompare('Bife Moido')"></i></td>
+					<td>165</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td >0:00</td>
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>	
+					<td><i data-container="body" data-trigger="hover" data-placement="bottom" data-content="Level is too low to get experience data">-</i></td>				
+					<td class="hideTd"></td>
+				</tr><tfoot>
+				 <tr>
+				   <th></th>
+				   <th>Total</th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th></th>
+				   <th>169,454,833</th>
+				   <th>1,231,838,934</th>
+				   <th>4,831,710,699</th>
+				   <th></th>
+				 </tr>
+			 </tfoot>		
+		</table><div style="margin: 0px auto; padding: 0px; text-align: center; width: 515px; margin-top: 10px">
+					<div class="news" style="width: 512px; margin-right: 10px; margin-bottom: 10px;">
+						<div class="ok">Diehard</div>
+						<div style="text-align: left; padding-left: 5px">
+							Sum of time online in current month: <span >2692:00</span><br>
+							Average time online per player in week: <span >5:51</span><br>
+							Active players during last month: 93/156 (59.6%)
+						</div>
+				    </div>
+			  </div>
+		</div></div>
+        </div>
+    </div>
+<div class="gDiv">	
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- Guildstats glowna -->
+						<ins class="adsbygoogle"
+						     style="display:inline-block;width:728px;height:90px"
+						     data-ad-client="ca-pub-3086877587442670"
+						     data-ad-slot="0788126866"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+</div>
+			  </div>
+			</div>
+	</div><!--/.sidebar-offcanvas-->
+</main><!-- /.container -->
+
+<footer class="footer mt-auto py-3 bg-dark shadowBelow">
+  <div class="container footer_text" style="text-align: center">
+    <span class="text-muted"><a href="https://guildstats.eu" class="gsLink">GuildStats.eu</a> © 2025. All rights reserved.
+Tibia and TibiaME are trademarks of <a href="http://www.cipsoft.com/">CipSoft GmbH</a>.</span>
+  </div>
+  <div style="color: #c2c2c2; text-align: center; margin-top: 10px">Partners</div>
+  <div class="partners">
+	<a href="https://Tibia.Fandom.com"><img src="images/partners/TibiaFandomcom.gif" title="Tibia.Fandom.com"></a>
+	<a href="https://TibiaMaps.io"><img src="images/partners/TibiaMapsio.gif" title="TibiaMaps.io"></a>	
+  </div>
+</footer>
+<div class="overCl">
+	<div class="charCl">
+		<form action="compare-char" method="GET">
+			<div class="topTxt">Compare characters <i class="far fa-window-close eraseBtn" onclick="EraseAllCompare()"></i></div>
+			<div class="compareChars mGee">
+
+			</div>
+			<div class="text-center">
+				<button class="btn btn-info btn-sm topBtn cmprBtn" type="submit">Compare</button>
+			</div>
+		</form>
+	</div>
+	<div class="guildCl">
+		<form action="compare" method="GET">
+			<div class="topTxt">Compare guilds <i class="far fa-window-close eraseBtn" onclick="EraseAllCompareGuild()"></i></div>
+			<div class="compareGuilds mGee">
+
+			</div>
+			<div class="text-center">
+				<button class="btn btn-info btn-sm topBtn cmprBtn" type="submit">Compare</button>
+			</div>
+		</form>
+	</div>	
+</div>
+	<link href="css/offcanvas.css" rel="stylesheet">		
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+	<script src="js/offcanvas.js"></script>
+	<script src="lib/jquery.plugin.min.js"></script>
+	<script src="lib/jquery.countdown.min.js"></script>
+	<script src="js/compare.js" type="text/javascript"></script>
+	<script type="text/javascript">		
+		$(function () {
+			$('[data-trigger="hover"]').popover()
+			const now = new Date();
+			const target = new Date(now);
+			target.setHours(10, 0, 0, 0);
+
+			if (target < now) {
+				target.setDate(target.getDate() + 1);
+			}
+	
+			//console.log(target);
+			$('#defaultCountdown').countdown({until: target, compact: true, format: 'HMS'});
+		});
+		function RefreshCookie() {
+			$('.charCl').hide();
+			$('.compareChars').empty();
+			var cookies = readCookie('compare');
+			var i = 0;
+			if(cookies!="") {
+				$('.charCl').show();
+				cookies.forEach(element => 
+					$('.compareChars').append('<div>'+element.Nick+' <a class="remove" onclick="RemoveCompare('+ element.Id +')"><i class="fas fa-backspace"></i></a><br><input name="char'+element.Id++ +'" value="'+element.Nick+'" type="hidden"></div>'));
+			}
+		}
+		function RefreshGuildCookie() {
+			$('.guildCl').hide();
+			$('.compareGuilds').empty();
+			var cookies = readCookie('compareGuild');
+			var i = 0;
+			if(cookies!="") {
+				$('.guildCl').show();		
+				cookies.forEach(element => 
+					$('.compareGuilds').append('<div>'+element.Nick+' <a class="remove" onclick="RemoveCompareGuild('+ element.Id +')"><i class="fas fa-backspace"></i></a><br><input name="guild'+element.Id++ +'" value="'+element.Nick+'" type="hidden"></div>'));
+			}
+		}			
+	$(document).ready( function() {
+		RefreshCookie();
+		RefreshGuildCookie();
+		$("#popup_box").fadeIn("slow");
+		$("#container").css({ // this is just for style
+			"opacity": "1.0"  
+		}); 
+		
+		
+	  var countDownDate = new Date("Sep 29, 2025 10:00:00").getTime();
+	  var x = setInterval(function() {
+		var now = new Date().getTime();
+		var distance = countDownDate - now;
+
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		$("#days").text(days);
+		$("#hours").text(hours);
+		$("#minutes").text(minutes);
+		$("#seconds").text(seconds);
+
+		if (distance < 0) {
+		  clearInterval(x);
+		  $("#timer").html("Results <a href='https://tibiopedia.pl/tools/lottery/12533'>available here</a>");
+		}
+	  }, 1000);		
+	
+		$("#popupBoxClose").click( function() {			
+			unloadPopupBox();
+		});
+		
+		$("#container").click( function() {
+			unloadPopupBox();
+		});
+
+		function unloadPopupBox() {	// TO Unload the Popupbox
+			$("#popup_box").fadeOut("slow");
+			$("#container").css({ // this is just for style		
+				"opacity": "1"  
+			}); 
+		}	
+		
+			
+		function getVoc($voc) {
+			if($voc==1) return 'K';
+			else if($voc==2) return 'EK';
+			else if($voc==3) return 'P';
+			else if($voc==4) return 'RP';
+			else if($voc==5) return 'S';
+			else if($voc==6) return 'MS';
+			else if($voc==7) return 'D';
+			else if($voc==8) return 'ED';
+			else if($voc==9) return 'M';
+			else if($voc==10) return 'EM';			
+			else return '';
+		}
+	
+		const searchInputs  = document.querySelectorAll('.searchBox');
+			
+		searchInputs.forEach(searchInput => {
+			const wrapper = searchInput.closest('.search-wrapper');	
+			const resultsDiv = wrapper.querySelector('.results');
+			let debounceTimeout;
+			
+			searchInput.addEventListener('input', function () {
+				  const query = this.value.trim();
+				  clearTimeout(debounceTimeout);
+				  
+				  debounceTimeout = setTimeout(() => {
+					  if (query.length < 2) {
+						resultsDiv.innerHTML = '';
+						return;
+					  }
+
+					  fetch('include/search.php?q=' + encodeURIComponent(query))
+						.then(response => response.json())
+						.then(data => {
+						  let html = '';
+
+						  if (data.players.length > 0) {
+							html += '<div class="group"><strong>Characters:</strong>';
+							data.players.forEach(player => {
+							  html += `<div class="result-item" onclick="window.location.href = '/character?nick=${player.name}'">${player.name} <div class="c-xs">${player.lvl}lvl - ${getVoc(player.voc)} - ${player.world}</div></div>`;
+							});
+							html += '</div>';
+						  }
+
+						  if (data.guilds.length > 0) {
+							html += '<div class="group"><strong>Guilds:</strong>';
+							data.guilds.forEach(guild => {
+							  html += `<div class="result-item" onclick="window.location.href = '/guild?guild=${guild.name}'">${guild.name} <div class="c-xs">${guild.world}</div></div>`;
+							});
+							html += '</div>';
+						  }
+
+						  resultsDiv.innerHTML = html || '<div class="no-results">No results</div>';
+						});
+					}, 500);
+				});	
+
+			  document.addEventListener('click', function(event) {
+					if (!wrapper.contains(event.target)) {
+					  resultsDiv.innerHTML = '';
+					}
+			  });
+			});  
+	});
+	</script>
+	
+				<link rel="stylesheet" href="css/tablesorter.css" type="text/css" media="print, projection, screen" />
+				<script src="lib/jquery.tablesorter.min.js" type="text/javascript"></script>
+				<script type="text/javascript">
+				$(document).ready(function() {
+				$("#myTable").tablesorter();});
+				</script>
+			
+				<script src="lib/jquery.tablesorter.min.js" type="text/javascript"></script>
+				<script src="lib/tablesorter_filter.js" type="text/javascript"></script>
+				<!--<link rel="stylesheet" href="lib/style.css" type="text/css" media="print, projection, screen" />-->
+				<script type="text/javascript">
+				$.tablesorter.addParser({
+				    id: 'timespan',
+				    is: function(s) { return false; }, // don't auto detect
+				    format: function(s) { return s.replace(/\D/g,""); },
+				    type: 'numeric'
+				});
+				$.tablesorter.addParser({
+					id: "fancyNumber",
+					is: function (s) {
+						return /^[0-9]?[0-9,\.]*$/.test(s);
+					},
+					format: function (s) {
+						return jQuery.tablesorter.formatFloat(s.replace(/,/g, ''));
+					},
+					type: "numeric"
+				});					
+				$(function() {
+						 $("#myTable1").tablesorter();
+						 $("#myTable2").tablesorter({
+						    dateFormat: 'HH:ii',
+
+					        headers: {
+					            3: { sorter:'timespan' },
+					            4: { sorter:'timespan' },
+					            5: { sorter:'timespan' },
+					            6: { sorter:'timespan' },
+					            7: { sorter:'timespan' },
+					            8: { sorter:'timespan' },
+					            9: { sorter:'timespan' },
+					            10: { sorter:'timespan' },
+								13: { sorter: 'fancyNumber' },
+								14: { sorter: 'fancyNumber' },
+								15: { sorter: 'fancyNumber' },
+					        }
+						 });
+				});
+				
+				$(document).ready(function(){				
+					//Hide Loading Image
+					function Hide_Load() {
+						$("#loadingHistory").fadeOut("slow");
+					};
+					var guildname = "Diehard";
+					guildname = guildname.replace(/ /g,'+')
+
+					$("#lvlGuildHistoryContent").addClass("is-loading");
+					$("#pagination li:first").addClass("disabled");					
+					$("#lvlGuildHistoryContent").load("include/pagiationGuildHistory_data.php?page=1&guild="+guildname, function() { $("#lvlGuildHistoryContent").removeClass("is-loading"); });					
+					$("#pagination li").click(function(){
+						$("#lvlGuildHistoryContent").addClass("is-loading");
+						$("#pagination li").removeClass("disabled");
+						$(this).addClass("disabled"); 					
+						var pageNum = this.id;
+						$("#lvlGuildHistoryContent").load("include/pagiationGuildHistory_data.php?guild="+guildname+"&page=" + pageNum, function() { $("#lvlGuildHistoryContent").removeClass("is-loading"); });
+					});		
+				});
+				
+				</script>
+												<script>
+$(document).ready(function() {
+        let themeLink = $('#theme-link');
+		const checkbox = $('.checkbox');
+		if (localStorage.getItem('theme') === 'dark') {
+			themeLink.attr('href', 'css/style-black5.css');
+			checkbox.prop('checked', true); 
+		}
+		checkbox.change(function() {
+			let currentTheme = themeLink.attr('href');
+
+			if (currentTheme === 'css/style-170928.css') {
+				themeLink.attr('href', 'css/style-black5.css');
+				localStorage.setItem('theme', 'dark'); // Zapisujemy motyw jako ciemny
+			} else {
+				themeLink.attr('href', 'css/style-170928.css');
+				localStorage.setItem('theme', 'light'); // Zapisujemy motyw jako jasny
+			}
+		});	
+	  const select = document.querySelector('select[name="world"]');
+	  select.addEventListener('change', function() {	  
+		this.form.submit();
+	  });	
+});
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"381c01b1bb984f76960d44bd36c00172","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
