@@ -1,65 +1,58 @@
-# ⚔️ Diehard Guild - Ranking XP
+# 🏰 Diehard Guild - Ranking de XP
 
-Ranking de experiência da guild **Diehard** (Luminera) com dados de **ontem**, **7 dias** e **30 dias**.
+Sistema de tracking de experiência para a guild **Diehard** no servidor **Luminera** (Tibia).
 
----
+## ✨ Funcionalidades
 
-## 🔄 COMO FORÇAR ATUALIZAÇÃO MANUAL
+- **Rankings**: Ontem, 7 dias, 30 dias e Consolidado
+- **Filtros**: Todos, 500+ ou até 500
+- **Screenshot**: Gera imagem do Top 20
+- **Mobile**: Mostra XP de Ontem no consolidado (ordenação principal)
+- **Extras**: Trackeamento de jogadores fora da guild
 
-1. Vá no seu repositório no GitHub
-2. Clique na aba **"Actions"** (no menu superior)
-3. No menu lateral esquerdo, clique em **"Atualizar Ranking"**
-4. Clique no botão azul **"Run workflow"** (lado direito)
-5. Clique novamente em **"Run workflow"** no dropdown
-6. Aguarde ~2 minutos e atualize sua página!
+## 🔄 Atualização Automática
 
-> ⚠️ **Se não aparecer o botão "Run workflow"**: O arquivo `.github/workflows/atualizar.yml` pode não ter sido enviado corretamente. Certifique-se de que a pasta `.github` (com o ponto!) existe no seu repositório.
+- **Horário**: 7h da manhã (Brasília) via GitHub Actions
+- **Fontes**: GuildStats.eu (XP) + TibiaData API (vocações/levels)
 
----
-
-## 📁 Estrutura de Arquivos
+## 📁 Estrutura
 
 ```
-diehard-xp/
-├── .github/
-│   └── workflows/
-│       └── atualizar.yml    ← Automação (IMPORTANTE: pasta com ponto!)
+diehard-xp-main/
+├── index.html                    # Interface web
 ├── scraper/
-│   └── buscar_dados.py      ← Script Python
+│   └── buscar_dados.py          # Script de coleta
 ├── dados/
-│   ├── extras.json          ← Jogadores de fora da guild
-│   └── ranking.json         ← Dados do ranking
-├── index.html               ← Página web
-└── README.md
+│   ├── ranking.json             # Dados (gerado automaticamente)
+│   ├── extras.json              # Lista de extras
+│   └── debug_guildstats.html    # HTML para debug
+└── .github/workflows/
+    └── atualizar.yml            # GitHub Actions
 ```
 
----
+## ➕ Extras
 
-## 👥 Jogadores Extras
-
-Edite `dados/extras.json` para adicionar jogadores que estão temporariamente fora da guild:
+Edite `dados/extras.json` para adicionar jogadores **fora da guild**:
 
 ```json
 {
   "extras": [
-    {"nome": "Nome Exato Do Char"},
-    {"nome": "Outro Char"}
+    {"nome": "Nome do Jogador"}
   ]
 }
 ```
 
----
+⚠️ **NÃO coloque membros da guild aqui** - eles são puxados automaticamente!
 
-## ⏰ Atualização Automática
+## 🛠️ Desenvolvimento
 
-O ranking atualiza automaticamente todos os dias às **6:30 AM** (horário de Brasília).
+```bash
+pip install requests beautifulsoup4
+python scraper/buscar_dados.py
+python -m http.server 8000
+```
 
----
+## 🔗 Links
 
-## 📜 Créditos
-
-- [GuildStats.eu](https://guildstats.eu) - Dados de XP
-- [TibiaData API](https://tibiadata.com) - Vocações
-- [GitHub Pages](https://pages.github.com) - Hospedagem
-
-**Diehard** ⚔️ Luminera
+- [GuildStats](https://guildstats.eu/guild?guild=Diehard)
+- [Tibia.com](https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Diehard)

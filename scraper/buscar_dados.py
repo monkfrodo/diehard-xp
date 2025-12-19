@@ -1,62 +1,226 @@
 #!/usr/bin/env python3
+"""
+Scraper de XP para Guild Diehard - Luminera
+Versão 2.0 - Corrigida e testada
+
+CORREÇÕES:
+- Parsing de XP usa índice fixo (13, 14, 15) em vez de negativo
+- Level extraído da coluna correta (índice 2)
+- Membros da guild vêm do TibiaData (fonte confiável)
+- Extras são filtrados automaticamente (remove quem já está na guild)
+"""
+
 import requests
 from bs4 import BeautifulSoup
 import json
 from datetime import datetime
 import os
 import time
+import re
+import sys
+import traceback
 
+# Configurações
 GUILD_NAME = "Diehard"
 WORLD = "Luminera"
+DEBUG = True
 
-# URL CORRIGIDA - era "guild=" mas deve ser "guild?guild="
+# URLs
 GUILDSTATS_URL = f"https://guildstats.eu/guild?guild={GUILD_NAME}&op=3"
+TIBIADATA_GUILD_URL = f"https://api.tibiadata.com/v4/guild/{GUILD_NAME}"
+
+def log(msg, level="INFO"):
+    """Log com timestamp e emoji."""
+    timestamp = datetime.now().strftime('%H:%M:%S')
+    prefix = {
+        "INFO": "ℹ️", 
+        "OK": "✅", 
+        "WARN": "⚠️", 
+        "ERROR": "❌", 
+        "DEBUG": "🔍"
+    }.get(level, "")
+    print(f"[{timestamp}] {prefix} {msg}")
+    sys.stdout.flush()
 
 def parse_exp_value(exp_str):
-    """Converte string de XP para inteiro."""
-    if not exp_str or exp_str.strip() in ['*-*', '-', '', '0']:
+    """
+    Converte string de XP para inteiro.
+    Exemplos: "+27,260,559" -> 27260559, "*-*" -> 0, "-5,374,547" -> -5374547
+    """
+    if not exp_str:
         return 0
-    clean = exp_str.strip().replace(',', '').replace('.', '').replace('+', '').replace(' ', '')
-    is_negative = clean.startswith('-')
-    clean = clean.replace('-', '')
+    
+    clean = exp_str.strip()
+    
+    # Valores que indicam ausência de dados
+    if clean in ['*-*', '-', '', '0', '*']:
+        return 0
+    
+    # Verifica se é negativo (começa com - seguido de dígito)
+    is_negative = bool(re.match(r'^-[\d,.]', clean))
+    
+    # Remove tudo exceto dígitos
+    digits_only = re.sub(r'[^\d]', '', clean)
+    
+    if not digits_only:
+        return 0
+    
     try:
-        return -int(clean) if is_negative else int(clean)
-    except:
+        value = int(digits_only)
+        return -value if is_negative else value
+    except ValueError:
         return 0
 
-def buscar_vocacoes_guild_tibiadata():
-    """Busca vocações e levels de todos os membros da guild via TibiaData API."""
-    print("Buscando vocações da guild via TibiaData API...")
-    vocacoes = {}
+def buscar_membros_tibiadata():
+    """
+    Busca lista COMPLETA de membros da guild via TibiaData API.
+    Retorna dict com nome_lower -> {name, vocation, level}
+    """
+    log("Buscando membros da guild via TibiaData API...")
+    
     try:
-        url = f"https://api.tibiadata.com/v4/guild/{GUILD_NAME}"
-        resp = requests.get(url, timeout=30)
-        if resp.status_code == 200:
-            data = resp.json()
-            if 'guild' in data and 'members' in data['guild']:
-                for member in data['guild']['members']:
-                    nome_lower = member.get('name', '').lower()
-                    vocacoes[nome_lower] = {
-                        'vocation': member.get('vocation', ''),
-                        'level': member.get('level', 0)
-                    }
-                print(f"  ✓ {len(vocacoes)} vocações carregadas")
-        else:
-            print(f"  ERRO HTTP {resp.status_code}")
+        headers = {'User-Agent': 'Diehard-XP-Tracker/2.0'}
+        resp = requests.get(TIBIADATA_GUILD_URL, headers=headers, timeout=30)
+        resp.raise_for_status()
+        
+        data = resp.json()
+        
+        if 'guild' not in data or 'members' not in data['guild']:
+            log("Resposta inválida da TibiaData", "ERROR")
+            return {}
+        
+        membros = {}
+        for member in data['guild']['members']:
+            nome = member.get('name', '')
+            if nome:
+                membros[nome.lower()] = {
+                    'name': nome,
+                    'vocation': member.get('vocation', ''),
+                    'level': member.get('level', 0)
+                }
+        
+        log(f"Encontrados {len(membros)} membros na guild", "OK")
+        return membros
+        
     except Exception as e:
-        print(f"  ERRO: {e}")
-    return vocacoes
+        log(f"Erro ao buscar TibiaData: {e}", "ERROR")
+        if DEBUG:
+            traceback.print_exc()
+        return {}
 
-def buscar_vocacao_individual(nome, tentativa=1):
-    """Busca vocação de um jogador específico (para extras)."""
+def buscar_xp_guildstats():
+    """
+    Busca dados de XP da página do GuildStats.
+    Retorna dict com nome_lower -> {name, level, exp_yesterday, exp_7days, exp_30days}
+    
+    ESTRUTURA DA TABELA (16-17 colunas):
+    0: #, 1: Nick, 2: Lvl, 3-12: tempos, 13: Exp yesterday, 14: Exp 7 days, 15: Exp 30 days, 16: ON
+    """
+    log(f"Buscando XP do GuildStats...")
+    
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+        }
+        
+        resp = requests.get(GUILDSTATS_URL, headers=headers, timeout=30)
+        resp.raise_for_status()
+        
+        # Salva HTML para debug
+        debug_dir = os.path.join(os.getcwd(), 'dados')
+        os.makedirs(debug_dir, exist_ok=True)
+        debug_path = os.path.join(debug_dir, 'debug_guildstats.html')
+        with open(debug_path, 'w', encoding='utf-8') as f:
+            f.write(resp.text)
+        log(f"HTML salvo em {debug_path}", "DEBUG")
+        
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        tables = soup.find_all('table')
+        log(f"Encontradas {len(tables)} tabelas", "DEBUG")
+        
+        dados_xp = {}
+        tabela_encontrada = False
+        
+        for table in tables:
+            rows = table.find_all('tr')
+            if len(rows) < 10:
+                continue
+            
+            # Verifica se é a tabela de XP
+            header = rows[0].get_text().lower() if rows else ""
+            if 'exp' not in header and 'yesterday' not in header:
+                continue
+            
+            tabela_encontrada = True
+            log(f"Tabela de XP encontrada com {len(rows)} linhas", "OK")
+            
+            for i, row in enumerate(rows[1:], 1):  # Pula header
+                cells = row.find_all('td')
+                
+                if len(cells) < 14:  # Precisa de pelo menos 14 colunas
+                    continue
+                
+                # Extrai dados usando ÍNDICES FIXOS
+                # Coluna 1: Nome (com link)
+                nome = None
+                nome_cell = cells[1] if len(cells) > 1 else None
+                if nome_cell:
+                    link = nome_cell.find('a')
+                    nome = link.get_text().strip() if link else nome_cell.get_text().strip()
+                
+                if not nome:
+                    continue
+                
+                # Coluna 2: Level
+                level = 0
+                level_cell = cells[2] if len(cells) > 2 else None
+                if level_cell:
+                    level_text = level_cell.get_text().strip()
+                    if level_text.isdigit():
+                        level = int(level_text)
+                
+                # Colunas 13, 14, 15: XP (ÍNDICES FIXOS!)
+                exp_yesterday = parse_exp_value(cells[13].get_text()) if len(cells) > 13 else 0
+                exp_7days = parse_exp_value(cells[14].get_text()) if len(cells) > 14 else 0
+                exp_30days = parse_exp_value(cells[15].get_text()) if len(cells) > 15 else 0
+                
+                dados_xp[nome.lower()] = {
+                    'name': nome,
+                    'level': level,
+                    'exp_yesterday': exp_yesterday,
+                    'exp_7days': exp_7days,
+                    'exp_30days': exp_30days
+                }
+                
+                # Debug das primeiras linhas
+                if DEBUG and i <= 3:
+                    log(f"  {nome}: Lvl {level}, Y={exp_yesterday:,}, 7D={exp_7days:,}, 30D={exp_30days:,}", "DEBUG")
+            
+            break  # Encontrou a tabela certa
+        
+        if not tabela_encontrada:
+            log("Tabela de XP não encontrada no HTML!", "ERROR")
+            return {}
+        
+        log(f"XP extraída para {len(dados_xp)} jogadores", "OK")
+        return dados_xp
+        
+    except Exception as e:
+        log(f"Erro ao buscar GuildStats: {e}", "ERROR")
+        if DEBUG:
+            traceback.print_exc()
+        return {}
+
+def buscar_vocacao_individual(nome):
+    """Busca vocação de um jogador específico via TibiaData."""
     try:
         import urllib.parse
-        nome_encoded = urllib.parse.quote(nome)
-        url = f"https://api.tibiadata.com/v4/character/{nome_encoded}"
+        url = f"https://api.tibiadata.com/v4/character/{urllib.parse.quote(nome)}"
+        headers = {'User-Agent': 'Diehard-XP-Tracker/2.0'}
         
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
         resp = requests.get(url, headers=headers, timeout=15)
-        
         if resp.status_code == 200:
             data = resp.json()
             char = data.get('character', {}).get('character', {})
@@ -65,267 +229,180 @@ def buscar_vocacao_individual(nome, tentativa=1):
                     'vocation': char.get('vocation', ''),
                     'level': char.get('level', 0)
                 }
-            else:
-                print(f"    Resposta sem dados: {str(data)[:150]}")
-        elif resp.status_code == 429 and tentativa < 3:
-            # Rate limited - espera e tenta novamente
-            print(f"    Rate limited, aguardando...")
-            time.sleep(5)
-            return buscar_vocacao_individual(nome, tentativa + 1)
-        else:
-            print(f"    HTTP {resp.status_code}")
-    except Exception as e:
-        print(f"    Erro: {e}")
-        if tentativa < 3:
-            time.sleep(2)
-            return buscar_vocacao_individual(nome, tentativa + 1)
-    return None
+        return None
+    except:
+        return None
 
-def buscar_exp_guildstats(nome):
-    """Busca XP de um jogador na página individual do GuildStats (tab=9)."""
+def buscar_xp_individual(nome):
+    """Busca XP de um jogador na página individual do GuildStats."""
     try:
         import urllib.parse
         url = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}&tab=9"
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        resp = requests.get(url, headers=headers, timeout=15)
         
+        resp = requests.get(url, headers=headers, timeout=15)
         if resp.status_code != 200:
             return None
         
         if "does not exsists" in resp.text or "don't have in our datebase" in resp.text:
-            print(f"    {nome}: não existe no GuildStats")
             return None
         
         soup = BeautifulSoup(resp.text, 'html.parser')
         exp_values = []
         
         for table in soup.find_all('table'):
-            rows = table.find_all('tr')
-            for row in rows:
+            for row in table.find_all('tr'):
                 cells = row.find_all('td')
                 if len(cells) >= 2:
-                    date_cell = cells[0].text.strip()
-                    exp_cell = cells[1].text.strip()
+                    date_cell = cells[0].get_text().strip()
+                    exp_cell = cells[1].get_text().strip()
                     
-                    if len(date_cell) == 10 and date_cell[4] == '-' and date_cell[7] == '-':
-                        exp_value = parse_exp_value(exp_cell)
-                        exp_values.append(exp_value)
+                    if re.match(r'\d{4}-\d{2}-\d{2}', date_cell):
+                        exp_values.append(parse_exp_value(exp_cell))
         
         if not exp_values:
-            print(f"    {nome}: nenhum dado de XP encontrado")
             return None
         
-        exp_yesterday = exp_values[-1] if len(exp_values) >= 1 else 0
-        exp_7days = sum(exp_values[-7:]) if len(exp_values) >= 1 else 0
-        exp_30days = sum(exp_values[-30:]) if len(exp_values) >= 1 else 0
-        
-        print(f"    ✓ XP: ontem={exp_yesterday:,}, 7d={exp_7days:,}, 30d={exp_30days:,}")
         return {
-            'exp_yesterday': exp_yesterday,
-            'exp_7days': exp_7days,
-            'exp_30days': exp_30days
+            'exp_yesterday': exp_values[-1] if len(exp_values) >= 1 else 0,
+            'exp_7days': sum(exp_values[-7:]) if exp_values else 0,
+            'exp_30days': sum(exp_values[-30:]) if exp_values else 0
         }
-        
-    except Exception as e:
-        print(f"    Erro buscando XP de {nome}: {e}")
-    return None
-
-def buscar_dados_guild():
-    """Busca dados de XP da guild no GuildStats (página op=3)."""
-    print(f"Buscando dados de XP do GuildStats...")
-    print(f"  URL: {GUILDSTATS_URL}")
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-    
-    try:
-        resp = requests.get(GUILDSTATS_URL, headers=headers, timeout=30)
-        resp.raise_for_status()
-        
-        # DEBUG: Salva HTML para análise
-        debug_path = os.path.join(os.getcwd(), 'dados', 'debug_guildstats.html')
-        os.makedirs(os.path.dirname(debug_path), exist_ok=True)
-        with open(debug_path, 'w', encoding='utf-8') as f:
-            f.write(resp.text)
-        print(f"  DEBUG: HTML salvo em {debug_path}")
-        
-        soup = BeautifulSoup(resp.text, 'html.parser')
-        jogadores = []
-        
-        # Procura todas as tabelas
-        tables = soup.find_all('table')
-        print(f"  DEBUG: {len(tables)} tabelas encontradas")
-        
-        # Tenta encontrar a tabela principal (geralmente a maior)
-        target_table = None
-        max_rows = 0
-        for table in tables:
-            rows = table.find_all('tr')
-            if len(rows) > max_rows:
-                max_rows = len(rows)
-                target_table = table
-        
-        if not target_table:
-            print("  ✗ ERRO: Nenhuma tabela encontrada!")
-            return []
-        
-        print(f"  DEBUG: Tabela principal tem {max_rows} linhas")
-        
-        for row in target_table.find_all('tr'):
-            cols = row.find_all('td')
-            
-            # Debug: mostra quantidade de colunas
-            if len(cols) > 0 and len(jogadores) < 3:  # Mostra só as primeiras 3
-                print(f"  DEBUG: Linha com {len(cols)} colunas")
-            
-            # Ajuste: procura linhas com pelo menos 10 colunas
-            if len(cols) < 10:
-                continue
-            
-            # Procura o link do personagem
-            char_link = None
-            nome = ""
-            for col in cols:
-                link = col.find('a')
-                if link and 'character?nick=' in str(link.get('href', '')):
-                    char_link = link
-                    nome = link.text.strip()
-                    break
-            
-            if not char_link or not nome:
-                continue
-            
-            # Tenta extrair level (geralmente está próximo ao nome)
-            level = 0
-            for i, col in enumerate(cols):
-                text = col.text.strip()
-                if text.isdigit() and int(text) > 7:  # Level mínimo 8
-                    level = int(text)
-                    break
-            
-            # XP geralmente está nas últimas 3 ou 4 colunas
-            # Procura valores que pareçam XP (números grandes ou com + -)
-            exp_yesterday = 0
-            exp_7days = 0
-            exp_30days = 0
-            
-            # Tenta as últimas colunas
-            if len(cols) >= 3:
-                exp_yesterday = parse_exp_value(cols[-3].text.strip())
-                exp_7days = parse_exp_value(cols[-2].text.strip())
-                exp_30days = parse_exp_value(cols[-1].text.strip())
-            
-            # Se não encontrou, tenta colunas anteriores
-            if exp_yesterday == 0 and exp_7days == 0 and exp_30days == 0 and len(cols) >= 6:
-                exp_yesterday = parse_exp_value(cols[-6].text.strip())
-                exp_7days = parse_exp_value(cols[-5].text.strip())
-                exp_30days = parse_exp_value(cols[-4].text.strip())
-            
-            jogadores.append({
-                'name': nome,
-                'level': level,
-                'exp_yesterday': exp_yesterday,
-                'exp_7days': exp_7days,
-                'exp_30days': exp_30days,
-                'vocation': '',
-                'is_extra': False
-            })
-            
-            # Debug: mostra primeiros jogadores
-            if len(jogadores) <= 3:
-                print(f"  DEBUG: {nome} - Lvl {level} - XP: {exp_yesterday}/{exp_7days}/{exp_30days}")
-        
-        print(f"  ✓ {len(jogadores)} jogadores encontrados na guild")
-        return jogadores
-        
-    except Exception as e:
-        print(f"  ✗ ERRO ao buscar dados da guild: {e}")
-        import traceback
-        traceback.print_exc()
-        return []
+    except:
+        return None
 
 def carregar_extras():
     """Carrega lista de extras do arquivo JSON."""
-    possiveis_caminhos = [
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'dados', 'extras.json'),
+    caminhos = [
         os.path.join(os.getcwd(), 'dados', 'extras.json'),
-        'dados/extras.json'
+        'dados/extras.json',
     ]
     
-    for caminho in possiveis_caminhos:
+    for caminho in caminhos:
         if os.path.exists(caminho):
             try:
                 with open(caminho, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     extras = [e.get('nome', '') for e in data.get('extras', []) if e.get('nome')]
-                    print(f"  ✓ {len(extras)} extras carregados de {caminho}")
+                    log(f"{len(extras)} extras no arquivo", "OK")
                     return extras
             except Exception as e:
-                print(f"  Erro ao ler {caminho}: {e}")
+                log(f"Erro ao ler {caminho}: {e}", "WARN")
     
-    print("  ✗ Nenhum arquivo extras.json encontrado")
     return []
 
 def main():
-    print("=" * 60)
-    print(f"Atualizando ranking: {GUILD_NAME}")
-    print(f"Hora: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 60)
+    """Função principal."""
+    print("=" * 70)
+    log(f"INICIANDO ATUALIZAÇÃO DO RANKING - {GUILD_NAME}")
+    log(f"Data/Hora: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("=" * 70)
     
-    # 1. Busca vocações da guild
-    vocacoes_guild = buscar_vocacoes_guild_tibiadata()
+    output_dir = os.path.join(os.getcwd(), 'dados')
+    os.makedirs(output_dir, exist_ok=True)
     
-    # 2. Busca dados de XP da guild
-    jogadores = buscar_dados_guild()
+    # 1. Busca membros da guild (TibiaData = fonte confiável para vocações/levels)
+    membros_guild = buscar_membros_tibiadata()
     
-    if not jogadores:
-        print("\n✗ ERRO CRÍTICO: Não foi possível buscar dados da guild!")
-        print("  Verifique o arquivo debug_guildstats.html para análise manual")
-        return
+    # 2. Busca XP do GuildStats
+    dados_xp = buscar_xp_guildstats()
     
-    # 3. Aplica vocações
-    print("\nAplicando vocações...")
-    for jogador in jogadores:
-        nome_lower = jogador['name'].lower()
-        if nome_lower in vocacoes_guild:
-            jogador['vocation'] = vocacoes_guild[nome_lower]['vocation']
-            if jogador['level'] == 0:
-                jogador['level'] = vocacoes_guild[nome_lower]['level']
+    if not dados_xp and not membros_guild:
+        log("ERRO CRÍTICO: Não foi possível obter dados de nenhuma fonte!", "ERROR")
+        error_log = {
+            'timestamp': datetime.now().isoformat(),
+            'error': 'Falha ao buscar dados do GuildStats e TibiaData'
+        }
+        with open(os.path.join(output_dir, 'error_log.json'), 'w') as f:
+            json.dump(error_log, f, indent=2)
+        sys.exit(1)
     
-    # 4. Processa extras
-    print("\nCarregando extras...")
-    extras = carregar_extras()
+    # 3. Combina dados: XP do GuildStats + Vocações do TibiaData
+    log("Combinando dados...")
+    jogadores = []
+    nomes_processados = set()
     
-    if extras:
-        print(f"\nProcessando {len(extras)} extras:")
-        for i, nome in enumerate(extras):
-            print(f"  → {nome} ({i+1}/{len(extras)})")
-            
-            # Delay entre requisições para evitar rate limiting
-            if i > 0:
-                time.sleep(1)
-            
-            # Busca vocação
-            dados = buscar_vocacao_individual(nome)
-            if not dados:
-                print(f"    ✗ Não encontrado no TibiaData")
-                continue
-            
-            print(f"    Level {dados['level']}, {dados['vocation']}")
-            
-            # Busca XP
-            exp = buscar_exp_guildstats(nome)
-            time.sleep(1)  # Rate limiting
-            
+    # Processa jogadores que têm XP no GuildStats
+    for nome_lower, xp in dados_xp.items():
+        jogador = {
+            'name': xp['name'],
+            'level': xp['level'],
+            'vocation': '',
+            'exp_yesterday': xp['exp_yesterday'],
+            'exp_7days': xp['exp_7days'],
+            'exp_30days': xp['exp_30days'],
+            'is_extra': nome_lower not in membros_guild
+        }
+        
+        # Complementa com dados do TibiaData
+        if nome_lower in membros_guild:
+            jogador['vocation'] = membros_guild[nome_lower]['vocation']
+            # Usa o level maior (TibiaData é mais atualizado)
+            if membros_guild[nome_lower]['level'] > jogador['level']:
+                jogador['level'] = membros_guild[nome_lower]['level']
+        
+        jogadores.append(jogador)
+        nomes_processados.add(nome_lower)
+    
+    # Adiciona membros da guild que não apareceram no GuildStats (sem XP recente)
+    for nome_lower, membro in membros_guild.items():
+        if nome_lower not in nomes_processados:
             jogadores.append({
-                'name': nome,
-                'level': dados['level'],
-                'vocation': dados['vocation'],
-                'exp_yesterday': exp['exp_yesterday'] if exp else 0,
-                'exp_7days': exp['exp_7days'] if exp else 0,
-                'exp_30days': exp['exp_30days'] if exp else 0,
-                'is_extra': True
+                'name': membro['name'],
+                'level': membro['level'],
+                'vocation': membro['vocation'],
+                'exp_yesterday': 0,
+                'exp_7days': 0,
+                'exp_30days': 0,
+                'is_extra': False
             })
+            nomes_processados.add(nome_lower)
     
-    # 5. Cria rankings (sem limite)
+    total_guild = len([j for j in jogadores if not j['is_extra']])
+    log(f"Total membros da guild: {total_guild}", "OK")
+    
+    # 4. Processa extras (apenas quem NÃO está na guild)
+    extras_arquivo = carregar_extras()
+    
+    if extras_arquivo:
+        # Filtra: só processa quem NÃO está na guild
+        extras_reais = [e for e in extras_arquivo if e.lower() not in nomes_processados]
+        
+        if extras_reais:
+            log(f"Processando {len(extras_reais)} extras (de {len(extras_arquivo)} no arquivo)...")
+            
+            for i, nome in enumerate(extras_reais):
+                if i > 0 and i % 5 == 0:
+                    time.sleep(2)
+                elif i > 0:
+                    time.sleep(0.5)
+                
+                log(f"  → {nome} ({i+1}/{len(extras_reais)})")
+                
+                # Busca vocação
+                voc = buscar_vocacao_individual(nome)
+                if not voc:
+                    log(f"    Não encontrado", "WARN")
+                    continue
+                
+                # Busca XP
+                xp = buscar_xp_individual(nome)
+                time.sleep(0.5)
+                
+                jogadores.append({
+                    'name': nome,
+                    'level': voc['level'],
+                    'vocation': voc['vocation'],
+                    'exp_yesterday': xp['exp_yesterday'] if xp else 0,
+                    'exp_7days': xp['exp_7days'] if xp else 0,
+                    'exp_30days': xp['exp_30days'] if xp else 0,
+                    'is_extra': True
+                })
+                nomes_processados.add(nome.lower())
+        else:
+            log("Todos os extras já estão na guild ou já processados", "INFO")
+    
+    # 5. Cria rankings
     def criar_ranking(jogadores, campo):
         filtrados = [j for j in jogadores if j.get(campo, 0) > 0]
         filtrados.sort(key=lambda x: x.get(campo, 0), reverse=True)
@@ -343,7 +420,8 @@ def main():
         'world': WORLD,
         'last_update': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'last_update_display': datetime.now().strftime('%d/%m/%Y às %H:%M'),
-        'total_members': len([j for j in jogadores if not j.get('is_extra')]),
+        'total_members': total_guild,
+        'total_extras': len([j for j in jogadores if j.get('is_extra')]),
         'rankings': {
             'yesterday': criar_ranking(jogadores, 'exp_yesterday'),
             '7days': criar_ranking(jogadores, 'exp_7days'),
@@ -351,21 +429,58 @@ def main():
         }
     }
     
-    # Salva o arquivo
-    output_path = os.path.join(os.getcwd(), 'dados', 'ranking.json')
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    
-    print(f"\nSalvando em: {output_path}")
-    
+    # 6. Salva
+    output_path = os.path.join(output_dir, 'ranking.json')
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(dados_finais, f, ensure_ascii=False, indent=2)
     
-    print(f"\n{'='*60}")
-    print(f"✅ Concluído!")
-    print(f"   Membros da guild: {dados_finais['total_members']}")
-    print(f"   Ontem: {len(dados_finais['rankings']['yesterday'])} jogadores")
-    print(f"   7 dias: {len(dados_finais['rankings']['7days'])} jogadores")
-    print(f"   30 dias: {len(dados_finais['rankings']['30days'])} jogadores")
+    log(f"Ranking salvo em {output_path}", "OK")
+    
+    # 7. Gera arquivo de STATUS para validação
+    # Pega top 5 de ontem como amostra
+    top5_ontem = dados_finais['rankings']['yesterday'][:5]
+    amostra = []
+    for p in top5_ontem:
+        amostra.append({
+            'pos': p['rank'],
+            'nome': p['name'],
+            'xp': f"{p['points']:,}".replace(',', '.')
+        })
+    
+    status = {
+        'ultima_execucao': datetime.now().strftime('%d/%m/%Y às %H:%M:%S'),
+        'sucesso': True,
+        'fonte_membros': 'TibiaData API',
+        'fonte_xp': 'GuildStats.eu',
+        'total_membros_guild': dados_finais['total_members'],
+        'total_extras': dados_finais['total_extras'],
+        'jogadores_com_xp_ontem': len(dados_finais['rankings']['yesterday']),
+        'jogadores_com_xp_7dias': len(dados_finais['rankings']['7days']),
+        'jogadores_com_xp_30dias': len(dados_finais['rankings']['30days']),
+        'top5_ontem': amostra,
+        'validacao': {
+            'tem_dados': len(dados_finais['rankings']['yesterday']) > 0,
+            'xp_parece_correta': top5_ontem[0]['points'] > 1000000 if top5_ontem else False,
+            'msg': '✅ Tudo OK!' if (len(dados_finais['rankings']['yesterday']) > 0 and (top5_ontem[0]['points'] > 1000000 if top5_ontem else False)) else '⚠️ Verificar dados'
+        }
+    }
+    
+    status_path = os.path.join(output_dir, 'status.json')
+    with open(status_path, 'w', encoding='utf-8') as f:
+        json.dump(status, f, ensure_ascii=False, indent=2)
+    
+    log(f"Status salvo em {status_path}", "OK")
+    
+    # 8. Resumo
+    print("\n" + "=" * 70)
+    log("ATUALIZAÇÃO CONCLUÍDA!")
+    log(f"  Membros da guild: {dados_finais['total_members']}")
+    log(f"  Extras: {dados_finais['total_extras']}")
+    log(f"  Ranking Ontem: {len(dados_finais['rankings']['yesterday'])} com XP > 0")
+    log(f"  Ranking 7 dias: {len(dados_finais['rankings']['7days'])} com XP > 0")
+    log(f"  Ranking 30 dias: {len(dados_finais['rankings']['30days'])} com XP > 0")
+    log(f"  {status['validacao']['msg']}")
+    print("=" * 70)
 
 if __name__ == "__main__":
     main()
