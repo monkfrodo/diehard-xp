@@ -1,0 +1,65 @@
+name: Atualizar Ranking Diehard
+
+on:
+  schedule:
+    # 7:00 AM Brasília = 10:00 UTC
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Instalar dependências
+      run: pip install requests beautifulsoup4
+    
+    - name: Debug - Mostrar hora
+      run: |
+        echo "🕐 UTC: $(date -u)"
+        echo "🕐 Brasília: $(TZ='America/Sao_Paulo' date)"
+    
+    - name: Executar scraper
+      run: |
+        python scraper/buscar_dados.py
+        
+        echo ""
+        echo "========== VALIDAÇÃO =========="
+        if [ -f "dados/status.json" ]; then
+          cat dados/status.json
+        fi
+        echo "==============================="
+        
+        if [ -f "dados/ranking.json" ]; then
+          echo "✅ ranking.json gerado"
+        else
+          echo "❌ ERRO: ranking.json não foi gerado"
+          cat dados/error_log.json 2>/dev/null || true
+          exit 1
+        fi
+    
+    - name: Commit e Push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        git add dados/ranking.json
+        git add dados/status.json
+        git add dados/debug_guildstats.html 2>/dev/null || true
+        
+        if git diff --staged --quiet; then
+          echo "Sem mudanças"
+        else
+          HORA=$(TZ='America/Sao_Paulo' date +'%d/%m/%Y %H:%M')
+          git commit -m "🔄 Atualização - ${HORA}"
+          git push
+        fi
