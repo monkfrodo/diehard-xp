@@ -31,6 +31,42 @@
             --positive: #16a34a;
         }
 
+        /* Banner de Status */
+        .status-banner {
+            background: linear-gradient(90deg, #0d1f0d 0%, #1a2e1a 100%);
+            border-bottom: 1px solid #2a4a2a;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+        }
+        
+        .status-banner.aguardando {
+            background: linear-gradient(90deg, #1f1a0d 0%, #2e2a1a 100%);
+            border-bottom-color: #4a4a2a;
+        }
+        
+        .status-banner.aguardando .status-icon {
+            animation: statusPulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .status-banner strong {
+            color: #4ade80;
+            font-weight: 600;
+        }
+        
+        .status-banner.aguardando strong {
+            color: #fbbf24;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -497,6 +533,13 @@
     </style>
 </head>
 <body>
+    
+    <!-- Banner de Status -->
+    <div id="status-banner" class="status-banner" style="display: none;">
+        <span class="status-icon">✅</span>
+        <span class="status-text"></span>
+    </div>
+    
     <div class="container">
         <header>
             <div class="header-top">
@@ -1068,13 +1111,34 @@
 
         loadData();
         
-        // Carrega status de validação
+        /// Carrega status de validação e mostra banner
         fetch('dados/status.json?v=' + Date.now())
             .then(r => r.json())
             .then(status => {
-                const el = document.getElementById('status-info');
-                if (el && status) {
-                    el.innerHTML = `${status.validacao?.msg || ''} | Última execução: ${status.ultima_execucao || '?'} | Top 1 ontem: ${status.top5_ontem?.[0]?.nome || '?'} (${status.top5_ontem?.[0]?.xp || '?'} XP)`;
+                const banner = document.getElementById('status-banner');
+                const icon = banner.querySelector('.status-icon');
+                const text = banner.querySelector('.status-text');
+                
+                if (banner && status) {
+                    banner.style.display = 'flex';
+                    
+                    if (status.aguardando_atualizacao) {
+                        banner.classList.add('aguardando');
+                        icon.textContent = '⏳';
+                        text.innerHTML = '<strong>Em atualização</strong> — dados podem estar desatualizados';
+                    } else {
+                        banner.classList.remove('aguardando');
+                        icon.textContent = '✅';
+                        const dataXp = status.data_xp || 'hoje';
+                        const hora = status.ultima_execucao?.split(' às ')[1] || '';
+                        text.innerHTML = `XP do dia <strong>${dataXp}</strong> — atualizado às ${hora}`;
+                    }
+                }
+                
+                // Também atualiza o rodapé (mantém compatibilidade)
+                const footerEl = document.getElementById('status-info');
+                if (footerEl) {
+                    footerEl.style.display = 'none'; // Esconde o rodapé antigo
                 }
             })
             .catch(() => {});
