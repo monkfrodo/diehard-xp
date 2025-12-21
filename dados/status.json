@@ -1,13 +1,15 @@
 {
-  "ultima_execucao": "21/12/2025 às 12:41:58",
+  "ultima_execucao": "21/12/2025 às 14:55:24",
   "sucesso": true,
+  "aguardando_atualizacao": false,
+  "data_xp": "20/12",
   "fonte_membros": "TibiaData API",
   "fonte_xp": "GuildStats.eu",
   "total_membros_guild": 156,
   "total_extras": 22,
-  "jogadores_com_xp_ontem": 43,
-  "jogadores_com_xp_7dias": 64,
-  "jogadores_com_xp_30dias": 67,
+  "jogadores_com_xp_ontem": 42,
+  "jogadores_com_xp_7dias": 63,
+  "jogadores_com_xp_30dias": 66,
   "top5_ontem": [
     {
       "pos": 1,
@@ -37,7 +39,6 @@
   ],
   "validacao": {
     "tem_dados": true,
-    "xp_parece_correta": true,
-    "msg": "✅ Tudo OK!"
+    "msg": "✅ XP do dia 20/12 — atualizado às 14:55"
   }
 }
