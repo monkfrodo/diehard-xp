@@ -9,7 +9,7 @@ on:
 jobs:
   atualizar:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 210  # 3h30 para permitir 36 retries de 5min
     
     steps:
     - name: Checkout
