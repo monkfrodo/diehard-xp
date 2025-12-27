@@ -1,15 +1,15 @@
 {
-  "ultima_execucao": "27/12/2025 às 07:29:05",
+  "ultima_execucao": "27/12/2025 às 08:17:35",
   "sucesso": true,
   "aguardando_atualizacao": false,
   "data_xp": "26/12",
   "fonte_membros": "TibiaData API",
   "fonte_xp": "GuildStats.eu",
-  "total_membros_guild": 0,
-  "total_extras": 14,
-  "jogadores_com_xp_ontem": 37,
-  "jogadores_com_xp_7dias": 55,
-  "jogadores_com_xp_30dias": 59,
+  "total_membros_guild": 166,
+  "total_extras": 21,
+  "jogadores_com_xp_ontem": 44,
+  "jogadores_com_xp_7dias": 62,
+  "jogadores_com_xp_30dias": 66,
   "top5_ontem": [
     {
       "pos": 1,
@@ -23,22 +23,22 @@
     },
     {
       "pos": 3,
+      "nome": "Maltz",
+      "xp": "82.451.238"
+    },
+    {
+      "pos": 4,
       "nome": "Farofa of Bacon",
       "xp": "80.641.676"
     },
     {
-      "pos": 4,
+      "pos": 5,
       "nome": "Homem Barbaro",
       "xp": "75.795.111"
-    },
-    {
-      "pos": 5,
-      "nome": "Luskzin",
-      "xp": "64.321.984"
     }
   ],
   "validacao": {
     "tem_dados": true,
-    "msg": "✅ XP do dia 26/12 — atualizado às 07:29"
+    "msg": "✅ XP do dia 26/12 — atualizado às 08:17"
   }
 }
