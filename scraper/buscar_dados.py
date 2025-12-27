@@ -212,7 +212,7 @@ def main():
     # Garante que o diretório de dados existe
     os.makedirs(DADOS_DIR, exist_ok=True)
     
-    # 1. Busca membros da guild (vocações e levels)
+    # 1. Busca membros da guild (vocações e levels) - FONTE PRIMÁRIA
     membros_guild = buscar_membros_guild()
     
     # 2. Loop de tentativas até GuildStats atualizar
@@ -233,22 +233,27 @@ def main():
                 log(f"Aguardando {INTERVALO_MINUTOS} minutos para próxima tentativa...", "🔄")
                 time.sleep(INTERVALO_MINUTOS * 60)
     
-    # 3. Monta lista de jogadores combinando dados
+    # 3. Monta lista de jogadores - COMEÇA PELOS MEMBROS DA GUILD (não pelo GuildStats)
     jogadores = []
+    processados = set()
     
-    for nome_lower, xp in xp_data.items():
-        membro = membros_guild.get(nome_lower, {})
+    # Primeiro: todos os membros da guild atual (com vocação garantida)
+    for nome_lower, membro in membros_guild.items():
+        xp = xp_data.get(nome_lower, {})
         jogadores.append({
-            'name': xp['name'],
-            'level': membro.get('level', 0),
-            'vocation': membro.get('vocation', ''),
-            'exp_yesterday': xp['exp_yesterday'],
-            'exp_7days': xp['exp_7days'],
-            'exp_30days': xp['exp_30days'],
+            'name': membro['name'],
+            'level': membro['level'],
+            'vocation': membro['vocation'],
+            'exp_yesterday': xp.get('exp_yesterday', 0),
+            'exp_7days': xp.get('exp_7days', 0),
+            'exp_30days': xp.get('exp_30days', 0),
             'is_extra': False
         })
+        processados.add(nome_lower)
     
-    # 4. Processa extras
+    log(f"Membros da guild processados: {len(jogadores)}", "✅")
+    
+    # 4. Processa extras (jogadores fora da guild que queremos trackear)
     extras = carregar_extras()
     total_extras = 0
     
@@ -257,29 +262,35 @@ def main():
         for nome in extras:
             nome_lower = nome.lower()
             
-            # Pula se já está na lista
-            if nome_lower in xp_data:
+            # Pula se já foi processado como membro da guild
+            if nome_lower in processados:
                 continue
             
             time.sleep(1)  # Rate limiting
             
+            # Busca vocação via TibiaData
             dados = buscar_vocacao_individual(nome)
             if not dados:
+                log(f"  {nome}: não encontrado no TibiaData", "⚠️")
                 continue
             
-            exp = buscar_exp_individual(nome)
-            time.sleep(1)
+            # Busca XP - primeiro tenta do cache do GuildStats, senão busca individual
+            xp = xp_data.get(nome_lower)
+            if not xp:
+                time.sleep(1)
+                xp = buscar_exp_individual(nome)
             
             jogadores.append({
                 'name': nome,
                 'level': dados['level'],
                 'vocation': dados['vocation'],
-                'exp_yesterday': exp['exp_yesterday'] if exp else 0,
-                'exp_7days': exp['exp_7days'] if exp else 0,
-                'exp_30days': exp['exp_30days'] if exp else 0,
+                'exp_yesterday': xp.get('exp_yesterday', 0) if xp else 0,
+                'exp_7days': xp.get('exp_7days', 0) if xp else 0,
+                'exp_30days': xp.get('exp_30days', 0) if xp else 0,
                 'is_extra': True
             })
             total_extras += 1
+            log(f"  {nome}: Level {dados['level']} {dados['vocation']}", "✅")
     
     # 5. Cria rankings
     def criar_ranking(jogadores, campo):
