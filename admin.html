@@ -406,6 +406,9 @@
             <h2 class="card-title">
                 <span>&#128100;</span> Extras Atuais
                 <span id="extras-count" class="count-badge">0</span>
+                <button id="reload-btn" class="btn" style="margin-left: auto; padding: 4px 10px; font-size: 0.75rem; background: var(--bg-secondary);" title="Recarregar do GitHub">
+                    &#8635; Recarregar
+                </button>
             </h2>
 
             <div class="search-box">
@@ -462,10 +465,39 @@
         let extrasData = null;
         let hasChanges = false;
 
-        async function loadExtras() {
+        async function loadExtras(fromGitHub = false) {
             try {
-                const response = await fetch('dados/extras.json?v=' + Date.now());
-                extrasData = await response.json();
+                let data;
+
+                if (fromGitHub) {
+                    // Carrega direto do GitHub (nao do cache do Pages)
+                    const token = document.getElementById('github-token').value.trim();
+                    const response = await fetch(
+                        'https://api.github.com/repos/monkfrodo/diehard-xp/contents/dados/extras.json',
+                        {
+                            headers: token ? {
+                                'Authorization': `token ${token}`,
+                                'Accept': 'application/vnd.github.v3+json'
+                            } : {
+                                'Accept': 'application/vnd.github.v3+json'
+                            }
+                        }
+                    );
+
+                    if (response.ok) {
+                        const fileData = await response.json();
+                        const content = atob(fileData.content);
+                        data = JSON.parse(content);
+                    } else {
+                        throw new Error('Falha ao carregar do GitHub');
+                    }
+                } else {
+                    // Carrega do GitHub Pages (mais rapido, mas pode ter cache)
+                    const response = await fetch('dados/extras.json?v=' + Date.now());
+                    data = await response.json();
+                }
+
+                extrasData = data;
                 renderList();
             } catch (error) {
                 console.error('Erro ao carregar extras:', error);
@@ -614,9 +646,11 @@
 
                 if (updateResponse.ok) {
                     status.className = 'update-status success';
-                    status.innerHTML = '&#10003; Salvo no GitHub com sucesso!';
+                    status.innerHTML = '&#10003; Salvo no GitHub com sucesso! Agora pode clicar em "Forcar Atualizacao".';
                     hasChanges = false;
                     document.getElementById('pending-alert').style.display = 'none';
+                    // Recarrega os dados do GitHub para confirmar
+                    await loadExtras(true);
                 } else if (updateResponse.status === 401) {
                     status.className = 'update-status error';
                     status.textContent = 'Token invalido ou expirado.';
@@ -726,8 +760,34 @@
             }
         });
 
-        // Carrega dados ao iniciar
-        loadExtras();
+        // Botao recarregar do GitHub
+        document.getElementById('reload-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('reload-btn');
+            btn.disabled = true;
+            btn.textContent = '...';
+
+            if (hasChanges && !confirm('Voce tem alteracoes nao salvas. Deseja recarregar mesmo assim?')) {
+                btn.disabled = false;
+                btn.innerHTML = '&#8635; Recarregar';
+                return;
+            }
+
+            await loadExtras(true);
+            hasChanges = false;
+            document.getElementById('pending-alert').style.display = 'none';
+            document.getElementById('save-btn').style.display = 'none';
+
+            btn.disabled = false;
+            btn.innerHTML = '&#8635; Recarregar';
+        });
+
+        // Carrega dados ao iniciar - do GitHub se tiver token
+        const initialToken = localStorage.getItem('diehard_github_token');
+        if (initialToken) {
+            loadExtras(true);  // Carrega direto do GitHub
+        } else {
+            loadExtras(false); // Carrega do Pages (pode ter cache)
+        }
     </script>
 </body>
 </html>
