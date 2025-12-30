@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Diehard XP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #f5f0e8;
+            --bg-secondary: #ebe5db;
+            --bg-white: #ffffff;
+            --accent: #1a1a1a;
+            --accent-blue: #0066cc;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border: #e0dbd3;
+            --border-dark: #d0cbc3;
+            --positive: #16a34a;
+            --negative: #dc2626;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        header {
+            margin-bottom: 32px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .header-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .header-info h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-info .subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 24px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .add-form input {
+            flex: 1;
+            font-family: inherit;
+            font-size: 0.9375rem;
+            padding: 10px 14px;
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            background: var(--bg-white);
+            outline: none;
+            transition: border-color 0.15s;
+        }
+
+        .add-form input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .add-form input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .btn {
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-success {
+            background: var(--positive);
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background: #15803d;
+        }
+
+        .btn-danger {
+            background: transparent;
+            color: var(--negative);
+            padding: 6px 10px;
+        }
+
+        .btn-danger:hover {
+            background: #fef2f2;
+        }
+
+        .extras-list {
+            list-style: none;
+        }
+
+        .extras-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .extras-list li:last-child {
+            border-bottom: none;
+        }
+
+        .extra-name {
+            font-weight: 500;
+        }
+
+        .extra-link {
+            font-size: 0.8125rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-left: 8px;
+        }
+
+        .extra-link:hover {
+            text-decoration: underline;
+        }
+
+        .count-badge {
+            background: var(--bg-secondary);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 32px;
+            color: var(--text-muted);
+        }
+
+        .actions-bar {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 0.875rem;
+            display: none;
+        }
+
+        .alert-success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .alert-error {
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        .pending-changes {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-box {
+            margin-bottom: 16px;
+        }
+
+        .search-box input {
+            width: 100%;
+            font-family: inherit;
+            font-size: 0.875rem;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg-secondary);
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-blue);
+            background: var(--bg-white);
+        }
+
+        .instructions {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+
+        .instructions strong {
+            color: var(--text-primary);
+        }
+
+        .btn-warning {
+            background: #f59e0b;
+            color: #fff;
+        }
+
+        .btn-warning:hover {
+            background: #d97706;
+        }
+
+        .btn-warning:disabled {
+            background: #fcd34d;
+            cursor: wait;
+        }
+
+        .token-input {
+            width: 100%;
+            font-family: inherit;
+            font-size: 0.875rem;
+            padding: 10px 14px;
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            background: var(--bg-white);
+            outline: none;
+            margin-bottom: 12px;
+        }
+
+        .token-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .update-status {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            display: none;
+        }
+
+        .update-status.success {
+            display: block;
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .update-status.error {
+            display: block;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .update-status.loading {
+            display: block;
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        .token-help {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .token-help a {
+            color: var(--accent-blue);
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 20px 16px; }
+            .add-form { flex-direction: column; }
+            .add-form .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <span>&larr;</span> Voltar ao Ranking
+        </a>
+
+        <header>
+            <div class="header-top">
+                <div class="header-icon">&#9881;</div>
+                <div class="header-info">
+                    <h1>Gerenciar Extras</h1>
+                    <p class="subtitle">Jogadores fora da guild para trackear</p>
+                </div>
+            </div>
+        </header>
+
+        <div id="alert-container">
+            <div id="pending-alert" class="alert pending-changes">
+                <span>&#9888;</span>
+                <span>Alteracoes pendentes - clique em <strong>Salvar</strong> para baixar o novo arquivo</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">
+                <span>&#10133;</span> Adicionar Extra
+            </h2>
+            <form id="add-form" class="add-form">
+                <input type="text" id="new-extra" placeholder="Nome do jogador (exato como no Tibia)" required>
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">
+                <span>&#128100;</span> Extras Atuais
+                <span id="extras-count" class="count-badge">0</span>
+            </h2>
+
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar...">
+            </div>
+
+            <ul id="extras-list" class="extras-list">
+                <li class="empty-state">Carregando...</li>
+            </ul>
+
+            <div class="actions-bar">
+                <button id="save-btn" class="btn btn-success" style="display: none;">
+                    <span>&#128190;</span> Salvar no GitHub
+                </button>
+            </div>
+            <div id="save-status" class="update-status"></div>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">
+                <span>&#128273;</span> GitHub Token
+            </h2>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 16px;">
+                Necessario para salvar extras e forcar atualizacao.
+            </p>
+            <input type="password" id="github-token" class="token-input" placeholder="GitHub Personal Access Token">
+            <p class="token-help">
+                <a href="https://github.com/settings/tokens/new?scopes=repo&description=Diehard%20XP%20Admin" target="_blank">Criar token aqui</a> (marque "repo")
+            </p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title">
+                <span>&#9889;</span> Forcar Atualizacao
+            </h2>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 16px;">
+                Dispara o scraper no GitHub Actions para atualizar os dados agora.
+            </p>
+            <button id="force-update-btn" class="btn btn-warning" style="width: 100%; justify-content: center;">
+                <span>&#9889;</span> Forcar Atualizacao Agora
+            </button>
+            <div id="update-status" class="update-status"></div>
+        </div>
+
+        <div class="instructions">
+            <strong>Como funciona:</strong><br>
+            1. Adicione ou remova jogadores da lista<br>
+            2. Clique em "Salvar no GitHub" (precisa do token)<br>
+            3. Clique em "Forcar Atualizacao" para rodar o scraper agora
+        </div>
+    </div>
+
+    <script>
+        let extrasData = null;
+        let hasChanges = false;
+
+        async function loadExtras() {
+            try {
+                const response = await fetch('dados/extras.json?v=' + Date.now());
+                extrasData = await response.json();
+                renderList();
+            } catch (error) {
+                console.error('Erro ao carregar extras:', error);
+                document.getElementById('extras-list').innerHTML =
+                    '<li class="empty-state">Erro ao carregar dados</li>';
+            }
+        }
+
+        function renderList(filter = '') {
+            const list = document.getElementById('extras-list');
+            const countBadge = document.getElementById('extras-count');
+
+            if (!extrasData || !extrasData.extras) {
+                list.innerHTML = '<li class="empty-state">Nenhum extra cadastrado</li>';
+                countBadge.textContent = '0';
+                return;
+            }
+
+            let extras = extrasData.extras;
+
+            if (filter) {
+                extras = extras.filter(e =>
+                    e.nome.toLowerCase().includes(filter.toLowerCase())
+                );
+            }
+
+            countBadge.textContent = extrasData.extras.length;
+
+            if (extras.length === 0) {
+                list.innerHTML = filter
+                    ? '<li class="empty-state">Nenhum resultado encontrado</li>'
+                    : '<li class="empty-state">Nenhum extra cadastrado</li>';
+                return;
+            }
+
+            list.innerHTML = extras.map(extra => `
+                <li>
+                    <div>
+                        <span class="extra-name">${extra.nome}</span>
+                        <a href="https://guildstats.eu/character?nick=${encodeURIComponent(extra.nome)}"
+                           target="_blank" class="extra-link">GuildStats</a>
+                    </div>
+                    <button class="btn btn-danger" onclick="removeExtra('${extra.nome}')" title="Remover">
+                        &#10005;
+                    </button>
+                </li>
+            `).join('');
+        }
+
+        function addExtra(nome) {
+            nome = nome.trim();
+
+            if (!nome) return;
+
+            // Verifica se ja existe
+            const exists = extrasData.extras.some(
+                e => e.nome.toLowerCase() === nome.toLowerCase()
+            );
+
+            if (exists) {
+                alert('Este jogador ja esta na lista!');
+                return;
+            }
+
+            extrasData.extras.push({ nome: nome });
+            extrasData.extras.sort((a, b) => a.nome.localeCompare(b.nome));
+            extrasData.last_updated = new Date().toISOString().split('T')[0];
+
+            markAsChanged();
+            renderList();
+        }
+
+        function removeExtra(nome) {
+            if (!confirm(`Remover "${nome}" da lista de extras?`)) return;
+
+            extrasData.extras = extrasData.extras.filter(
+                e => e.nome.toLowerCase() !== nome.toLowerCase()
+            );
+            extrasData.last_updated = new Date().toISOString().split('T')[0];
+
+            markAsChanged();
+            renderList(document.getElementById('search-input').value);
+        }
+
+        function markAsChanged() {
+            hasChanges = true;
+            document.getElementById('pending-alert').style.display = 'flex';
+            document.getElementById('save-btn').style.display = 'inline-flex';
+        }
+
+        async function saveExtras() {
+            const token = document.getElementById('github-token').value.trim();
+            const btn = document.getElementById('save-btn');
+            const status = document.getElementById('save-status');
+
+            if (!token) {
+                alert('Digite o GitHub Token primeiro!');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<span>&#8987;</span> Salvando...';
+            status.className = 'update-status loading';
+            status.textContent = 'Buscando arquivo atual...';
+
+            try {
+                // 1. Busca o SHA atual do arquivo
+                const getResponse = await fetch(
+                    'https://api.github.com/repos/monkfrodo/diehard-xp/contents/dados/extras.json',
+                    {
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+
+                if (!getResponse.ok && getResponse.status !== 404) {
+                    throw new Error('Erro ao buscar arquivo');
+                }
+
+                const fileData = getResponse.status === 404 ? null : await getResponse.json();
+                const sha = fileData?.sha;
+
+                // 2. Atualiza o arquivo
+                status.textContent = 'Salvando no GitHub...';
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(extrasData, null, 2))));
+
+                const updateResponse = await fetch(
+                    'https://api.github.com/repos/monkfrodo/diehard-xp/contents/dados/extras.json',
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `Atualiza extras.json via admin`,
+                            content: content,
+                            sha: sha,
+                            branch: 'main'
+                        })
+                    }
+                );
+
+                if (updateResponse.ok) {
+                    status.className = 'update-status success';
+                    status.innerHTML = '&#10003; Salvo no GitHub com sucesso!';
+                    hasChanges = false;
+                    document.getElementById('pending-alert').style.display = 'none';
+                } else if (updateResponse.status === 401) {
+                    status.className = 'update-status error';
+                    status.textContent = 'Token invalido ou expirado.';
+                } else {
+                    const error = await updateResponse.json();
+                    status.className = 'update-status error';
+                    status.textContent = `Erro: ${error.message || updateResponse.status}`;
+                }
+            } catch (error) {
+                status.className = 'update-status error';
+                status.textContent = `Erro: ${error.message}`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span>&#128190;</span> Salvar no GitHub';
+            }
+        }
+
+        // Event listeners
+        document.getElementById('add-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('new-extra');
+            addExtra(input.value);
+            input.value = '';
+            input.focus();
+        });
+
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            renderList(e.target.value);
+        });
+
+        document.getElementById('save-btn').addEventListener('click', saveExtras);
+
+        // Forcar atualizacao via GitHub Actions
+        document.getElementById('force-update-btn').addEventListener('click', async () => {
+            const token = document.getElementById('github-token').value.trim();
+            const btn = document.getElementById('force-update-btn');
+            const status = document.getElementById('update-status');
+
+            if (!token) {
+                alert('Digite o GitHub Token primeiro!');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<span>&#8987;</span> Disparando...';
+            status.className = 'update-status loading';
+            status.textContent = 'Enviando requisicao para GitHub Actions...';
+
+            try {
+                const response = await fetch(
+                    'https://api.github.com/repos/monkfrodo/diehard-xp/actions/workflows/atualizar.yml/dispatches',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ ref: 'main' })
+                    }
+                );
+
+                if (response.status === 204) {
+                    status.className = 'update-status success';
+                    status.innerHTML = '&#10003; Workflow disparado com sucesso! Aguarde alguns minutos para os dados atualizarem.';
+                } else if (response.status === 401) {
+                    status.className = 'update-status error';
+                    status.textContent = 'Token invalido ou expirado. Crie um novo token.';
+                } else if (response.status === 404) {
+                    status.className = 'update-status error';
+                    status.textContent = 'Workflow nao encontrado. Verifique se o repositorio esta correto.';
+                } else {
+                    const error = await response.json();
+                    status.className = 'update-status error';
+                    status.textContent = `Erro: ${error.message || response.status}`;
+                }
+            } catch (error) {
+                status.className = 'update-status error';
+                status.textContent = `Erro de conexao: ${error.message}`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span>&#9889;</span> Forcar Atualizacao Agora';
+            }
+        });
+
+        // Aviso ao sair com mudancas pendentes
+        window.addEventListener('beforeunload', (e) => {
+            if (hasChanges) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
+        // Carrega token salvo do localStorage
+        const savedToken = localStorage.getItem('diehard_github_token');
+        if (savedToken) {
+            document.getElementById('github-token').value = savedToken;
+        }
+
+        // Salva token quando mudar
+        document.getElementById('github-token').addEventListener('change', (e) => {
+            const token = e.target.value.trim();
+            if (token) {
+                localStorage.setItem('diehard_github_token', token);
+            } else {
+                localStorage.removeItem('diehard_github_token');
+            }
+        });
+
+        // Carrega dados ao iniciar
+        loadExtras();
+    </script>
+</body>
+</html>
