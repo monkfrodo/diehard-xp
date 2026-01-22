@@ -128,24 +128,30 @@ def buscar_xp_guildstats():
         log(f"Erro ao buscar GuildStats: {e}", "❌")
         return {}, 0
 
-def buscar_vocacao_individual(nome):
-    """Busca vocação de um jogador específico (para extras)."""
-    try:
-        import urllib.parse
-        url = f"https://api.tibiadata.com/v4/character/{urllib.parse.quote(nome)}"
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        resp = requests.get(url, headers=headers, timeout=15)
-        
-        if resp.status_code == 200:
-            data = resp.json()
-            char = data.get('character', {}).get('character', {})
-            if char and char.get('name'):
-                return {
-                    'vocation': char.get('vocation', ''),
-                    'level': char.get('level', 0)
-                }
-    except:
-        pass
+def buscar_vocacao_individual(nome, tentativas=3):
+    """Busca vocação de um jogador específico (para extras) com retry."""
+    import urllib.parse
+    url = f"https://api.tibiadata.com/v4/character/{urllib.parse.quote(nome)}"
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+
+    for tentativa in range(tentativas):
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+
+            if resp.status_code == 200 and resp.text.strip():
+                data = resp.json()
+                char = data.get('character', {}).get('character', {})
+                if char and char.get('name'):
+                    return {
+                        'vocation': char.get('vocation', ''),
+                        'level': char.get('level', 0)
+                    }
+            # Se resposta vazia ou erro, espera e tenta de novo
+            if tentativa < tentativas - 1:
+                time.sleep(5)
+        except:
+            if tentativa < tentativas - 1:
+                time.sleep(5)
     return None
 
 def buscar_exp_individual(nome):
@@ -266,18 +272,18 @@ def main():
             if nome_lower in processados:
                 continue
             
-            time.sleep(1)  # Rate limiting
-            
+            time.sleep(3)  # Rate limiting - 3s para evitar bloqueio da API
+
             # Busca vocação via TibiaData
             dados = buscar_vocacao_individual(nome)
             if not dados:
                 log(f"  {nome}: não encontrado no TibiaData", "⚠️")
                 continue
-            
+
             # Busca XP - primeiro tenta do cache do GuildStats, senão busca individual
             xp = xp_data.get(nome_lower)
             if not xp:
-                time.sleep(1)
+                time.sleep(3)
                 xp = buscar_exp_individual(nome)
             
             jogadores.append({
