@@ -154,6 +154,69 @@ def buscar_vocacao_individual(nome, tentativas=3):
                 time.sleep(5)
     return None
 
+def buscar_dados_guildstats_individual(nome):
+    """Busca dados completos de um jogador na página individual do GuildStats (vocação, level e XP)."""
+    try:
+        import urllib.parse
+        import re
+        url = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}"
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        resp = requests.get(url, headers=headers, timeout=20)
+
+        if resp.status_code != 200:
+            return None
+
+        if "does not exsists" in resp.text or "don't have in our datebase" in resp.text:
+            return None
+
+        soup = BeautifulSoup(resp.text, 'html.parser')
+
+        # Busca vocação e level da página principal
+        vocation = ''
+        level = 0
+
+        # Procura na tabela de informações do personagem
+        for table in soup.find_all('table'):
+            for row in table.find_all('tr'):
+                cells = row.find_all('td')
+                if len(cells) >= 2:
+                    label = cells[0].text.strip().lower()
+                    value = cells[1].text.strip()
+                    if 'vocation' in label and label.endswith(':'):
+                        vocation = value
+                    elif 'level' in label and label.endswith(':'):
+                        # Level pode ter formato "347 \n49.6%\n (687,383,020 exp)"
+                        # Extrai apenas o primeiro número
+                        match = re.search(r'^(\d+)', value.replace(',', '').replace('.', ''))
+                        if match:
+                            level = int(match.group(1))
+
+        # Agora busca XP na aba de experiência
+        url_xp = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}&tab=9"
+        resp_xp = requests.get(url_xp, headers=headers, timeout=20)
+
+        exp_values = []
+        if resp_xp.status_code == 200:
+            soup_xp = BeautifulSoup(resp_xp.text, 'html.parser')
+            for table in soup_xp.find_all('table'):
+                for row in table.find_all('tr'):
+                    cells = row.find_all('td')
+                    if len(cells) >= 2:
+                        date_cell = cells[0].text.strip()
+                        if len(date_cell) == 10 and date_cell[4] == '-':
+                            exp_values.append(parse_exp_value(cells[1].text.strip()))
+
+        return {
+            'vocation': vocation,
+            'level': level,
+            'exp_yesterday': exp_values[-1] if len(exp_values) >= 1 else 0,
+            'exp_7days': sum(exp_values[-7:]) if exp_values else 0,
+            'exp_30days': sum(exp_values[-30:]) if exp_values else 0
+        }
+    except Exception as e:
+        log(f"Erro ao buscar dados do GuildStats para {nome}: {e}", "⚠️")
+        return None
+
 def buscar_exp_individual(nome):
     """Busca XP de um jogador na página individual do GuildStats."""
     try:
@@ -161,16 +224,16 @@ def buscar_exp_individual(nome):
         url = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}&tab=9"
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
         resp = requests.get(url, headers=headers, timeout=15)
-        
+
         if resp.status_code != 200:
             return None
-        
+
         if "does not exsists" in resp.text or "don't have in our datebase" in resp.text:
             return None
-        
+
         soup = BeautifulSoup(resp.text, 'html.parser')
         exp_values = []
-        
+
         for table in soup.find_all('table'):
             for row in table.find_all('tr'):
                 cells = row.find_all('td')
@@ -178,10 +241,10 @@ def buscar_exp_individual(nome):
                     date_cell = cells[0].text.strip()
                     if len(date_cell) == 10 and date_cell[4] == '-':
                         exp_values.append(parse_exp_value(cells[1].text.strip()))
-        
+
         if not exp_values:
             return None
-        
+
         return {
             'exp_yesterday': exp_values[-1] if len(exp_values) >= 1 else 0,
             'exp_7days': sum(exp_values[-7:]),
@@ -262,41 +325,60 @@ def main():
     # 4. Processa extras (jogadores fora da guild que queremos trackear)
     extras = carregar_extras()
     total_extras = 0
-    
+
     if extras:
         log(f"Processando {len(extras)} extras...")
         for nome in extras:
             nome_lower = nome.lower()
-            
+
             # Pula se já foi processado como membro da guild
             if nome_lower in processados:
+                log(f"  {nome}: já está na guild, pulando", "ℹ️")
                 continue
-            
-            time.sleep(3)  # Rate limiting - 3s para evitar bloqueio da API
 
-            # Busca vocação via TibiaData
+            time.sleep(2)  # Rate limiting
+
+            # Tenta buscar vocação via TibiaData primeiro
             dados = buscar_vocacao_individual(nome)
-            if not dados:
-                log(f"  {nome}: não encontrado no TibiaData", "⚠️")
-                continue
 
-            # Busca XP - primeiro tenta do cache do GuildStats, senão busca individual
-            xp = xp_data.get(nome_lower)
-            if not xp:
-                time.sleep(3)
-                xp = buscar_exp_individual(nome)
-            
-            jogadores.append({
-                'name': nome,
-                'level': dados['level'],
-                'vocation': dados['vocation'],
-                'exp_yesterday': xp.get('exp_yesterday', 0) if xp else 0,
-                'exp_7days': xp.get('exp_7days', 0) if xp else 0,
-                'exp_30days': xp.get('exp_30days', 0) if xp else 0,
-                'is_extra': True
-            })
-            total_extras += 1
-            log(f"  {nome}: Level {dados['level']} {dados['vocation']}", "✅")
+            if dados:
+                # TibiaData funcionou - busca XP separadamente
+                xp = xp_data.get(nome_lower)
+                if not xp:
+                    time.sleep(2)
+                    xp = buscar_exp_individual(nome)
+
+                jogadores.append({
+                    'name': nome,
+                    'level': dados['level'],
+                    'vocation': dados['vocation'],
+                    'exp_yesterday': xp.get('exp_yesterday', 0) if xp else 0,
+                    'exp_7days': xp.get('exp_7days', 0) if xp else 0,
+                    'exp_30days': xp.get('exp_30days', 0) if xp else 0,
+                    'is_extra': True
+                })
+                total_extras += 1
+                log(f"  {nome}: Level {dados['level']} {dados['vocation']} (TibiaData)", "✅")
+            else:
+                # TibiaData falhou - usa GuildStats como fonte completa (fallback)
+                log(f"  {nome}: TibiaData timeout, tentando GuildStats...", "⚠️")
+                time.sleep(2)
+                dados_gs = buscar_dados_guildstats_individual(nome)
+
+                if dados_gs:
+                    jogadores.append({
+                        'name': nome,
+                        'level': dados_gs['level'],
+                        'vocation': dados_gs['vocation'],
+                        'exp_yesterday': dados_gs['exp_yesterday'],
+                        'exp_7days': dados_gs['exp_7days'],
+                        'exp_30days': dados_gs['exp_30days'],
+                        'is_extra': True
+                    })
+                    total_extras += 1
+                    log(f"  {nome}: Level {dados_gs['level']} {dados_gs['vocation']} (GuildStats)", "✅")
+                else:
+                    log(f"  {nome}: não encontrado em nenhuma fonte", "❌")
     
     # 5. Cria rankings
     def criar_ranking(jogadores, campo):
