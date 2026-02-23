@@ -1,0 +1,66 @@
+# ============================================
+# .claudeignore — Arquivos ignorados pelo Claude Code
+# ============================================
+# Impede leitura automática de arquivos que não contêm código útil.
+# O Claude ainda pode ler esses arquivos se você pedir explicitamente.
+
+# --- Imagens e mídia ---
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.webp
+*.bmp
+*.tiff
+*.mp4
+*.webm
+*.mp3
+*.wav
+*.ogg
+
+# --- Pastas de imagens/assets ---
+img/
+images/
+assets/images/
+public/images/
+screenshots/
+
+# --- Fontes ---
+*.woff
+*.woff2
+*.ttf
+*.eot
+*.otf
+
+# --- Build e dependências ---
+node_modules/
+.next/
+dist/
+build/
+out/
+coverage/
+.vercel/
+__pycache__/
+
+# --- Lock files (enormes e inúteis pro Claude) ---
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# --- Database local ---
+*.db
+*.sqlite
+*.sqlite3
+prisma/migrations/
+
+# --- Logs ---
+*.log
+npm-debug.log*
+
+# --- IDE e OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
