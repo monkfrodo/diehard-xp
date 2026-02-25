@@ -570,8 +570,8 @@
             <div class="actions">
                 <div class="level-filter">
                     <button class="level-filter-btn active" data-filter="all">Todos</button>
-                    <button class="level-filter-btn" data-filter="500+">500+</button>
-                    <button class="level-filter-btn" data-filter="500-">Até 500</button>
+                    <button class="level-filter-btn" data-filter="600+">600+</button>
+                    <button class="level-filter-btn" data-filter="600-">Até 600</button>
                 </div>
                 <span class="meta" id="showing-count"></span>
                 <button class="screenshot-btn" id="screenshot-btn" title="Gerar imagem do Top 20">
@@ -633,14 +633,14 @@
 
         const filterLabels = {
             'all': '',
-            '500+': ' (500+)',
-            '500-': ' (Até 500)'
+            '600+': ' (600+)',
+            '600-': ' (Até 600)'
         };
 
         function filterByLevel(data) {
             if (currentLevelFilter === 'all') return data;
-            if (currentLevelFilter === '500+') return data.filter(p => (p.level || 0) >= 500);
-            if (currentLevelFilter === '500-') return data.filter(p => (p.level || 0) < 500);
+            if (currentLevelFilter === '600+') return data.filter(p => (p.level || 0) >= 600);
+            if (currentLevelFilter === '600-') return data.filter(p => (p.level || 0) < 600);
             return data;
         }
 
