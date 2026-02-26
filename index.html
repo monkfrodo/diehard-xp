@@ -439,13 +439,13 @@
                         <button class="level-filter-btn" data-filter="600+">600+</button>
                         <button class="level-filter-btn" data-filter="600-">Até 600</button>
                     </div>
-                    <button class="screenshot-btn" id="screenshot-btn" title="Gerar imagem do Top 20">
+                    <button class="screenshot-btn" id="screenshot-btn" title="Gerar imagem do Top 10">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
                             <circle cx="8.5" cy="8.5" r="1.5"/>
                             <polyline points="21 15 16 10 5 21"/>
                         </svg>
-                        Top 20
+                        Top 10
                     </button>
                 </div>
             </div>
@@ -790,7 +790,7 @@
                 } else {
                     data = filterByLevel(rankingData.rankings[currentPeriod] || []);
                 }
-                const top20 = data.slice(0, 20);
+                const top20 = data.slice(0, 10);
                 if (top20.length === 0) { alert('Nenhum dado disponível.'); return; }
 
                 const container = document.getElementById('screenshot-container');
@@ -809,7 +809,7 @@
                 const link = document.createElement('a');
                 const date = new Date().toISOString().split('T')[0];
                 const filterSuffix = currentLevelFilter !== 'all' ? `-${currentLevelFilter}` : '';
-                link.download = `diehard-top20-${currentPeriod}${filterSuffix}-${date}.png`;
+                link.download = `diehard-top10-${currentPeriod}${filterSuffix}-${date}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             } catch (err) {
@@ -823,7 +823,7 @@
                         <circle cx="8.5" cy="8.5" r="1.5"/>
                         <polyline points="21 15 16 10 5 21"/>
                     </svg>
-                    Top 20`;
+                    Top 10`;
             }
         }
 
