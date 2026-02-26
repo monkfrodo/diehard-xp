@@ -675,14 +675,18 @@
             const p2phrase = frasesData ? pickRandom(frasesData.p2) : '';
             const p3phrase = frasesData ? pickRandom(frasesData.p3) : '';
 
-            // Posições 4-20: sorteia 5 para receber frase (não todo mundo)
+            // Posições 4+: sorteia 4 para receber frase genérica (não todo mundo)
             const extraAvail = Array.from({ length: Math.max(0, top20.length - 3) }, (_, i) => i + 3);
             for (let i = extraAvail.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [extraAvail[i], extraAvail[j]] = [extraAvail[j], extraAvail[i]];
             }
             const phraseMap = {};
-            extraAvail.slice(0, 5).forEach((idx, n) => { phraseMap[idx] = genericsShuffled[n] || ''; });
+            extraAvail.slice(0, 4).forEach((idx, n) => { phraseMap[idx] = genericsShuffled[n] || ''; });
+
+            // Menção honrosa: um jogador aleatório de posição 4+ recebe nome circulado + frase de incentivo
+            const mencaoPhrase = frasesData?.mencao ? pickRandom(frasesData.mencao) : 'vale o destaque.';
+            const mencaoIdx = extraAvail.length > 0 ? extraAvail[Math.floor(Math.random() * extraAvail.length)] : -1;
 
             const isConsolidated = currentPeriod === 'consolidated';
             const periodLabel = periodLabelsShort[currentPeriod];
@@ -738,17 +742,22 @@
                         </div>`;
                 } else {
                     const phrase = phraseMap[index];
+                    const isMencao = index === mencaoIdx;
+                    const nameMarkupExtra = isMencao
+                        ? `<span style="border:2px solid #8b5a00;border-radius:42% 58% 52% 48%/48% 52% 60% 40%;padding:1px 10px 1px 7px;transform:rotate(-0.5deg);display:inline-block;color:#5a3a00;">${player.name}</span>`
+                        : `<span style="color:#1a1510;">${player.name}</span>`;
                     rows += `
-                        <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.05);">
+                        <div style="display:flex;align-items:flex-start;gap:10px;padding:${isMencao ? '10px' : '8px'} 0;border-bottom:1px solid rgba(0,0,0,0.05);">
                             <span style="${F}font-size:1.2rem;font-weight:700;color:#c0b0a0;min-width:34px;text-align:right;padding-top:1px;">${rank}.</span>
                             <div style="flex:1;min-width:0;">
                                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;">
-                                    <span style="${F}font-size:1.2rem;font-weight:600;color:#1a1510;">${player.name}</span>
+                                    <span style="${F}font-size:1.2rem;font-weight:600;">${nameMarkupExtra}</span>
                                     <span style="${F}font-size:1.15rem;font-weight:700;color:#1a2870;white-space:nowrap;flex-shrink:0;">+${formatNumber(xp)}</span>
                                 </div>
                                 <div style="${F}font-size:0.88rem;color:#c0b090;margin-top:2px;">
-                                    <span style="color:${vocColor};font-weight:700;">${vocShort}</span> · Lv ${player.level || '—'}${phrase ? `<span style="color:#706050;"> · ${phrase}</span>` : ''}
+                                    <span style="color:${vocColor};font-weight:700;">${vocShort}</span> · Lv ${player.level || '—'}${phrase && !isMencao ? `<span style="color:#706050;"> · ${phrase}</span>` : ''}
                                 </div>
+                                ${isMencao ? `<div style="display:flex;align-items:flex-start;gap:5px;margin-top:4px;"><span style="${F}font-size:1rem;color:#8b5a00;flex-shrink:0;line-height:1.3;">←</span><span style="${F}font-size:1.05rem;font-weight:700;line-height:1.35;color:#8b5a00;transform:rotate(-0.8deg);display:inline-block;">✦ menção honrosa — ${mencaoPhrase}</span></div>` : ''}
                             </div>
                         </div>`;
                 }
