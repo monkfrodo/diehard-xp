@@ -3,410 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diehard Guild - Ranking XP | Luminera</title>
+    <title>Diehard Guild — Ranking XP · Luminera</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-        :root {
-            --bg-primary: #f5f0e8;
-            --bg-secondary: #ebe5db;
-            --bg-white: #ffffff;
-            --bg-hover: #f9f6f1;
-            --accent: #1a1a1a;
-            --accent-blue: #0066cc;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --text-muted: #999999;
-            --border: #e0dbd3;
-            --border-dark: #d0cbc3;
-            
-            --voc-knight: #b8860b;
-            --voc-paladin: #228b22;
-            --voc-druid: #4169e1;
-            --voc-sorcerer: #8b008b;
-            --voc-monk: #d2691e;
-            
-            --positive: #16a34a;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Kalam', cursive;
+            background: #cdc6b9;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Banner de Status */
+        /* ── STATUS BANNER ── */
         .status-banner {
-            background: linear-gradient(90deg, #0d1f0d 0%, #1a2e1a 100%);
+            background: linear-gradient(90deg, #0d1f0d, #1a2e1a);
             border-bottom: 1px solid #2a4a2a;
-            padding: 10px 20px;
+            padding: 9px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-size: 0.85rem;
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
             color: #b0b0b0;
         }
-        
-        .status-banner.aguardando {
-            background: linear-gradient(90deg, #1f1a0d 0%, #2e2a1a 100%);
-            border-bottom-color: #4a4a2a;
-        }
-        
-        .status-banner.aguardando .status-icon {
-            animation: statusPulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes statusPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .status-banner strong {
-            color: #4ade80;
-            font-weight: 600;
-        }
-        
-        .status-banner.aguardando strong {
-            color: #fbbf24;
-        }
+        .status-banner.aguardando { background: linear-gradient(90deg, #1f1a0d, #2e2a1a); border-bottom-color: #4a4a2a; }
+        .status-banner.aguardando .status-icon { animation: statusPulse 1.5s ease-in-out infinite; }
+        @keyframes statusPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+        .status-banner strong { color: #4ade80; font-weight: 700; }
+        .status-banner.aguardando strong { color: #fbbf24; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-
+        /* ── CONTAINER ── */
         .container {
-            max-width: 900px;
+            max-width: 760px;
             margin: 0 auto;
-            padding: 32px 24px;
+            padding: 24px 16px 56px;
         }
 
-        header { margin-bottom: 32px; }
+        /* ── PAPEL ── */
+        .paper {
+            background: #fdf9f0;
+            background-image: repeating-linear-gradient(
+                transparent, transparent 39px,
+                rgba(80,100,200,0.05) 39px, rgba(80,100,200,0.05) 40px
+            );
+            background-size: 100% 40px;
+            padding: 36px 40px 32px;
+            position: relative;
+            border-radius: 2px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+        }
+        .paper::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 54px;
+            width: 1.5px;
+            background: rgba(200,60,60,0.2);
+        }
 
+        /* ── HEADER ── */
         .header-top {
             display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 8px;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 14px;
+            border-bottom: 2.5px solid #1a1510;
+            margin-bottom: 20px;
         }
-
-        .guild-logo {
-            width: 48px;
-            height: 48px;
-            background: var(--accent);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .header-info h1 {
-            font-size: 1.75rem;
+        .guild-name {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.2;
+            color: #1a1510;
+            line-height: 1;
         }
-
-        .header-info .subtitle {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
+        .guild-sub {
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            color: #b0a090;
+            margin-top: 5px;
         }
-
-        .header-info .subtitle a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        .header-info .subtitle a:hover { text-decoration: underline; }
-
+        .guild-sub a { color: inherit; text-decoration: none; }
         .header-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 12px;
-            font-size: 0.8125rem;
-            color: var(--text-muted);
+            text-align: right;
+            font-family: 'Caveat', cursive;
+            font-size: 0.85rem;
+            color: #c0b0a0;
+            line-height: 1.6;
         }
 
+        /* ── ABAS ── */
         .nav-tabs {
             display: flex;
-            gap: 4px;
-            margin-bottom: 24px;
-            border-bottom: 1px solid var(--border);
+            gap: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            border-bottom: 1.5px solid rgba(0,0,0,0.1);
+            margin-bottom: 16px;
         }
-
+        .nav-tabs::-webkit-scrollbar { display: none; }
         .nav-tab {
-            font-family: inherit;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 12px 20px;
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 8px 18px;
             background: transparent;
             border: none;
-            border-bottom: 2px solid transparent;
-            color: var(--text-secondary);
+            border-bottom: 2.5px solid transparent;
+            color: #c0b090;
             cursor: pointer;
-            transition: all 0.15s ease;
-            margin-bottom: -1px;
+            white-space: nowrap;
+            margin-bottom: -1.5px;
+            transition: color 0.15s;
         }
+        .nav-tab:hover { color: #1a1510; }
+        .nav-tab.active { color: #1a1510; border-bottom-color: #1a1510; }
 
-        .nav-tab:hover { color: var(--text-primary); }
-        .nav-tab.active {
-            color: var(--text-primary);
-            border-bottom-color: var(--accent);
-        }
-
+        /* ── STATS BAR ── */
         .stats-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 16px;
-            padding: 0 4px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
-
         .stats-bar .period {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: var(--text-primary);
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #a09080;
         }
-
         .stats-bar .actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
-        .stats-bar .meta {
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-        }
-
+        /* ── FILTRO DE LEVEL ── */
         .level-filter {
             display: flex;
-            background: var(--bg-secondary);
+            background: rgba(0,0,0,0.07);
             border-radius: 6px;
             padding: 2px;
             gap: 2px;
         }
-
         .level-filter-btn {
-            font-family: inherit;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 5px 10px;
+            font-family: 'Caveat', cursive;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 5px 12px;
             background: transparent;
             border: none;
-            border-radius: 4px;
-            color: var(--text-secondary);
+            border-radius: 5px;
+            color: #a09080;
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.15s;
         }
-
-        .level-filter-btn:hover { color: var(--text-primary); }
+        .level-filter-btn:hover { color: #1a1510; }
         .level-filter-btn.active {
-            background: var(--bg-white);
-            color: var(--text-primary);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            background: #fdf9f0;
+            color: #1a1510;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
         }
 
-        .table-container {
-            background: var(--bg-white);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }
-
-        .ranking-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .ranking-table th {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-            padding: 14px 16px;
-            text-align: left;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .ranking-table th.align-right,
-        .ranking-table td.align-right { text-align: right; }
-
-        .ranking-table th.align-center,
-        .ranking-table td.align-center { text-align: center; }
-
-        .ranking-table tbody tr { transition: background 0.1s ease; }
-        .ranking-table tbody tr:hover { background: var(--bg-hover); }
-
-        .ranking-table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.875rem;
-        }
-
-        .ranking-table tbody tr:last-child td { border-bottom: none; }
-
-        .col-rank {
-            width: 50px;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        .rank-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        .rank-1 .rank-badge { background: #ffd700; color: #1a1a1a; }
-        .rank-2 .rank-badge { background: #c0c0c0; color: #1a1a1a; }
-        .rank-3 .rank-badge { background: #cd7f32; color: #fff; }
-
-        .col-player { font-weight: 500; }
-        .col-player a { color: var(--text-primary); text-decoration: none; }
-        .col-player a:hover { color: var(--accent-blue); }
-
-        .col-vocation { width: 60px; }
-
-        .vocation-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            background: var(--bg-secondary);
-        }
-
-        .voc-knight { color: var(--voc-knight); }
-        .voc-paladin { color: var(--voc-paladin); }
-        .voc-druid { color: var(--voc-druid); }
-        .voc-sorcerer { color: var(--voc-sorcerer); }
-        .voc-monk { color: var(--voc-monk); }
-        .voc-unknown { color: var(--text-muted); }
-
-        .col-level {
-            width: 70px;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .col-exp {
-            width: 130px;
-            font-weight: 600;
-            font-variant-numeric: tabular-nums;
-            color: var(--positive);
-        }
-
-        .load-more {
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .load-more-btn {
-            font-family: inherit;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 10px 24px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-dark);
-            border-radius: 8px;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .load-more-btn:hover { background: var(--border); }
-
+        /* ── BOTÃO PRINT ── */
         .screenshot-btn {
-            font-family: inherit;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 6px 12px;
-            background: var(--accent);
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 7px 16px;
+            background: #1a1510;
             border: none;
             border-radius: 6px;
-            color: #fff;
+            color: #fdf9f0;
             cursor: pointer;
-            transition: all 0.15s ease;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            transition: background 0.15s;
+            white-space: nowrap;
         }
+        .screenshot-btn:hover { background: #3a3028; }
+        .screenshot-btn:disabled { opacity: 0.5; cursor: wait; }
+        .screenshot-btn svg { width: 14px; height: 14px; }
 
-        .screenshot-btn:hover { background: #333; }
-        .screenshot-btn:disabled { opacity: 0.6; cursor: wait; }
-
-        .screenshot-btn svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        footer {
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .footer-links {
+        /* ── LISTA DE JOGADORES ── */
+        .player-row {
             display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 16px;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .player-row:last-child { border-bottom: none; }
+        .player-row.top { padding: 10px 0; }
+
+        .num {
+            font-family: 'Caveat', cursive;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #c0b0a0;
+            min-width: 30px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .player-row.top .num { font-size: 1.3rem; color: #1a1510; }
+
+        .player-info { flex: 1; min-width: 0; }
+
+        .player-name {
+            font-family: 'Caveat', cursive;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1a1510;
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        .player-row.top .player-name { font-size: 1.3rem; }
+
+        .player-name.circled {
+            border: 2px solid #b82020;
+            border-radius: 42% 58% 52% 48% / 48% 52% 60% 40%;
+            padding: 0 9px 0 7px;
+            transform: rotate(-0.5deg);
+            overflow: visible;
+            text-overflow: clip;
+        }
+        .player-name.underlined {
+            border-bottom: 2px solid #1a2870;
+            padding-bottom: 1px;
         }
 
-        .footer-links a {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            text-decoration: none;
+        .player-meta {
+            font-family: 'Caveat', cursive;
+            font-size: 0.85rem;
+            color: #c0b090;
+            display: block;
+            margin-top: 1px;
         }
 
-        .footer-links a:hover { color: var(--accent-blue); }
+        .voc-ek { color: #a06010; font-weight: 700; }
+        .voc-rp { color: #1a6828; font-weight: 700; }
+        .voc-ed { color: #1a3080; font-weight: 700; }
+        .voc-ms { color: #700c80; font-weight: 700; }
+        .voc-mk { color: #d2691e; font-weight: 700; }
 
-        .footer-text {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .player-xp {
+            font-family: 'Caveat', cursive;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a2870;
+            text-align: right;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .player-row.top .player-xp { font-size: 1.3rem; }
+
+        /* Consolidado: múltiplas colunas */
+        .player-exp-cols {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1px;
+            flex-shrink: 0;
+        }
+        .exp-col {
+            font-family: 'Caveat', cursive;
+            font-size: 0.8rem;
+            color: #a09080;
+            white-space: nowrap;
+        }
+        .exp-col.primary {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a2870;
+        }
+        .player-row.top .exp-col.primary { font-size: 1.3rem; }
+
+        /* ── SEPARADOR ── */
+        .sep {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 14px 0 8px;
+        }
+        .sep-line { flex: 1; height: 1px; background: rgba(0,0,0,0.1); }
+        .sep-label {
+            font-family: 'Caveat', cursive;
+            font-size: 0.88rem;
+            color: #c0b090;
         }
 
+        /* ── LOAD MORE ── */
+        .load-more { text-align: center; padding: 18px 0 4px; }
+        .load-more-btn {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 10px 32px;
+            background: transparent;
+            border: 1.5px solid rgba(0,0,0,0.15);
+            border-radius: 6px;
+            color: #a09080;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .load-more-btn:hover { background: rgba(0,0,0,0.04); color: #1a1510; }
+
+        /* ── LOADING / EMPTY ── */
         .loading {
             text-align: center;
             padding: 60px 20px;
-            color: var(--text-muted);
+            color: #c0b090;
+            font-family: 'Caveat', cursive;
         }
-
         .loading-spinner {
-            width: 32px;
-            height: 32px;
-            border: 3px solid var(--border);
-            border-top-color: var(--accent);
+            width: 28px; height: 28px;
+            border: 2.5px solid rgba(0,0,0,0.1);
+            border-top-color: #1a1510;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin: 0 auto 12px;
         }
-
         @keyframes spin { to { transform: rotate(360deg); } }
-
         .empty-state {
             text-align: center;
             padding: 60px 20px;
-            color: var(--text-muted);
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            color: #c0b090;
         }
 
-        /* Screenshot container - hidden, used for generating image */
+        /* ── FOOTER ── */
+        footer { margin-top: 24px; text-align: center; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            font-family: 'Caveat', cursive;
+            font-size: 0.9rem;
+            color: #b0a090;
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: #1a1510; }
+        .footer-text {
+            font-family: 'Caveat', cursive;
+            font-size: 0.8rem;
+            color: #c0b0a0;
+        }
+
+        /* ── SCREENSHOT CONTAINER (oculto) ── */
         .screenshot-container {
             position: absolute;
             left: -9999px;
@@ -416,219 +374,82 @@
             font-family: 'Kalam', cursive;
         }
 
-        .screenshot-container .screenshot-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .screenshot-container .screenshot-title {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .screenshot-container .screenshot-logo {
-            width: 56px;
-            height: 56px;
-            background: var(--accent);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-
-        .screenshot-container .screenshot-info h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .screenshot-container .screenshot-info p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .screenshot-container .screenshot-period {
-            text-align: right;
-        }
-
-        .screenshot-container .screenshot-period h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .screenshot-container .screenshot-period p {
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-        }
-
-        .screenshot-container .screenshot-table {
-            background: var(--bg-white);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }
-
-        .screenshot-container .screenshot-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .screenshot-container .screenshot-table th {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-            padding: 16px 20px;
-            text-align: left;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .screenshot-container .screenshot-table td {
-            padding: 14px 20px;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.9375rem;
-        }
-
-        .screenshot-container .screenshot-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .screenshot-container .screenshot-footer {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
+        /* ── MOBILE ── */
         @media (max-width: 640px) {
-            .container { padding: 16px 14px; }
-            .header-top { gap: 10px; margin-bottom: 6px; }
-            .guild-logo { width: 38px; height: 38px; font-size: 18px; flex-shrink: 0; }
-            .header-info h1 { font-size: 1.35rem; }
-            .header-meta { gap: 10px; margin-top: 8px; font-size: 0.75rem; }
-
-            /* Abas: scroll horizontal sem esconder o indicador */
-            .nav-tabs {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                gap: 0;
-                padding-bottom: 0;
-            }
-            .nav-tabs::-webkit-scrollbar { display: none; }
-            .nav-tab { padding: 11px 14px; font-size: 0.8rem; white-space: nowrap; }
-
-            /* Stats bar: linha 1 = label / linha 2 = filtros / linha 3 = print */
-            .stats-bar {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-                margin-bottom: 12px;
-            }
-            .stats-bar .period { font-size: 0.875rem; }
-            .stats-bar .actions {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                gap: 8px;
-            }
-            .stats-bar .meta { display: none; }
-
-            /* Filtro de level: ocupa o que tiver, botões maiores pra toque */
+            .container { padding: 14px 10px 48px; }
+            .paper { padding: 24px 20px 24px; }
+            .paper::before { left: 36px; }
+            .guild-name { font-size: 1.6rem; }
+            .header-top { align-items: flex-start; }
+            .nav-tab { padding: 8px 13px; font-size: 0.9rem; }
+            .stats-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+            .stats-bar .period { font-size: 0.9rem; }
+            .stats-bar .actions { width: 100%; justify-content: space-between; }
             .level-filter { flex: 1; }
-            .level-filter-btn { flex: 1; padding: 8px 4px; font-size: 0.8rem; text-align: center; }
-
-            /* Botão de print: toque fácil */
-            .screenshot-btn {
-                padding: 8px 14px;
-                font-size: 0.8rem;
-                flex-shrink: 0;
-            }
-
-            /* Tabela */
+            .level-filter-btn { flex: 1; text-align: center; padding: 7px 4px; }
+            .screenshot-btn { padding: 8px 14px; }
             .hide-mobile { display: none !important; }
-            .ranking-table th, .ranking-table td { padding: 10px 10px; }
-            .col-rank { width: 36px; }
-            .col-vocation { width: 48px; }
-            .col-exp { width: auto; }
-            .col-player { max-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-            .vocation-badge { padding: 2px 6px; font-size: 0.7rem; }
-            .rank-badge { width: 22px; height: 22px; font-size: 0.7rem; }
-
-            /* Load more */
-            .load-more-btn { width: 100%; padding: 14px; }
+            .load-more-btn { width: 100%; }
+            .player-name { max-width: 170px; }
         }
-
         @media (max-width: 380px) {
-            .nav-tab { padding: 10px 11px; font-size: 0.75rem; }
-            .ranking-table th, .ranking-table td { padding: 9px 7px; font-size: 0.8125rem; }
+            .paper { padding: 20px 14px; }
+            .nav-tab { padding: 7px 10px; font-size: 0.85rem; }
+            .player-name { max-width: 130px; }
         }
     </style>
 </head>
 <body>
-    
-    <!-- Banner de Status -->
+
     <div id="status-banner" class="status-banner" style="display: none;">
         <span class="status-icon">✅</span>
         <span class="status-text"></span>
     </div>
-    
+
     <div class="container">
-        <header>
-            <div class="header-top">
-                <div class="guild-logo">⚔️</div>
-                <div class="header-info">
-                    <h1>Diehard Guild</h1>
-                    <p class="subtitle">
-                        <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> · Optional PvP
-                    </p>
+        <div class="paper">
+
+            <header>
+                <div class="header-top">
+                    <div>
+                        <div class="guild-name">Diehard Guild ⚔️</div>
+                        <div class="guild-sub">
+                            <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> · Optional PvP
+                        </div>
+                    </div>
+                    <div class="header-meta">
+                        <div id="last-update">Carregando...</div>
+                        <div id="member-count">— membros</div>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-period="consolidated">Consolidado</button>
+                <button class="nav-tab" data-period="yesterday">Ontem</button>
+                <button class="nav-tab" data-period="7days">7 Dias</button>
+                <button class="nav-tab" data-period="30days">30 Dias</button>
+            </nav>
+
+            <div class="stats-bar">
+                <span class="period" id="current-period">Ranking Consolidado</span>
+                <div class="actions">
+                    <div class="level-filter">
+                        <button class="level-filter-btn active" data-filter="all">Todos</button>
+                        <button class="level-filter-btn" data-filter="600+">600+</button>
+                        <button class="level-filter-btn" data-filter="600-">Até 600</button>
+                    </div>
+                    <button class="screenshot-btn" id="screenshot-btn" title="Gerar imagem do Top 20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        Top 20
+                    </button>
                 </div>
             </div>
-            <div class="header-meta">
-                <span id="last-update">Carregando...</span>
-                <span>·</span>
-                <span id="member-count">-- membros</span>
-            </div>
-        </header>
 
-        <nav class="nav-tabs">
-            <button class="nav-tab active" data-period="consolidated">Consolidado</button>
-            <button class="nav-tab" data-period="yesterday">Ontem</button>
-            <button class="nav-tab" data-period="7days">7 Dias</button>
-            <button class="nav-tab" data-period="30days">30 Dias</button>
-        </nav>
-
-        <div class="stats-bar">
-            <span class="period" id="current-period">Experiência de Ontem</span>
-            <div class="actions">
-                <div class="level-filter">
-                    <button class="level-filter-btn active" data-filter="all">Todos</button>
-                    <button class="level-filter-btn" data-filter="600+">600+</button>
-                    <button class="level-filter-btn" data-filter="600-">Até 600</button>
-                </div>
-                <span class="meta" id="showing-count"></span>
-                <button class="screenshot-btn" id="screenshot-btn" title="Gerar imagem do Top 20">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <polyline points="21 15 16 10 5 21"/>
-                    </svg>
-                    Top 20
-                </button>
-            </div>
-        </div>
-
-        <div class="table-container">
             <div id="ranking-content">
                 <div class="loading">
                     <div class="loading-spinner"></div>
@@ -636,21 +457,21 @@
                 </div>
             </div>
             <div class="load-more" id="load-more-container" style="display: none;">
-                <button class="load-more-btn" id="load-more-btn">Carregar mais</button>
+                <button class="load-more-btn" id="load-more-btn">carregar mais</button>
             </div>
-        </div>
 
-        <footer>
-            <div class="footer-links">
-                <a href="https://guildstats.eu/guild=Diehard" target="_blank">GuildStats</a>
-                <a href="https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Diehard" target="_blank">Tibia.com</a>
-            </div>
-            <p class="footer-text">Dados atualizados automaticamente via GuildStats.eu</p>
-            <div id="status-info" class="footer-text" style="margin-top: 8px; font-size: 0.7rem; color: var(--text-muted);"></div>
-        </footer>
-    </div>
+            <footer>
+                <div class="footer-links">
+                    <a href="https://guildstats.eu/guild=Diehard" target="_blank">GuildStats</a>
+                    <a href="https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Diehard" target="_blank">Tibia.com</a>
+                </div>
+                <p class="footer-text">Dados atualizados via GuildStats.eu</p>
+                <div id="status-info" style="display:none;"></div>
+            </footer>
 
-    <!-- Hidden container for screenshot generation -->
+        </div><!-- /paper -->
+    </div><!-- /container -->
+
     <div class="screenshot-container" id="screenshot-container"></div>
 
     <script>
@@ -664,8 +485,8 @@
         const periodLabels = {
             'consolidated': 'Ranking Consolidado',
             'yesterday': 'Experiência de Ontem',
-            '7days': 'Experiência dos Últimos 7 Dias',
-            '30days': 'Experiência dos Últimos 30 Dias'
+            '7days': 'Experiência 7 Dias',
+            '30days': 'Experiência 30 Dias'
         };
 
         const periodLabelsShort = {
@@ -690,258 +511,49 @@
 
         function buildConsolidatedData() {
             if (!rankingData) return [];
-            
-            // Primeiro, monta o mapa de todos os jogadores com seus dados brutos
             const playerMap = {};
-            
-            // Pega dados de ontem
-            const yesterday = rankingData.rankings.yesterday || [];
-            yesterday.forEach(p => {
-                playerMap[p.name] = {
-                    name: p.name,
-                    vocation: p.vocation,
-                    level: p.level,
-                    exp_yesterday: p.points,
-                    exp_7days: 0,
-                    exp_30days: 0
-                };
+            (rankingData.rankings.yesterday || []).forEach(p => {
+                playerMap[p.name] = { name: p.name, vocation: p.vocation, level: p.level, exp_yesterday: p.points, exp_7days: 0, exp_30days: 0 };
             });
-            
-            // Adiciona dados de 7 dias
-            const days7 = rankingData.rankings['7days'] || [];
-            days7.forEach(p => {
-                if (playerMap[p.name]) {
-                    playerMap[p.name].exp_7days = p.points;
-                } else {
-                    playerMap[p.name] = {
-                        name: p.name,
-                        vocation: p.vocation,
-                        level: p.level,
-                        exp_yesterday: 0,
-                        exp_7days: p.points,
-                        exp_30days: 0
-                    };
-                }
+            (rankingData.rankings['7days'] || []).forEach(p => {
+                if (playerMap[p.name]) playerMap[p.name].exp_7days = p.points;
+                else playerMap[p.name] = { name: p.name, vocation: p.vocation, level: p.level, exp_yesterday: 0, exp_7days: p.points, exp_30days: 0 };
             });
-            
-            // Adiciona dados de 30 dias
-            const days30 = rankingData.rankings['30days'] || [];
-            days30.forEach(p => {
-                if (playerMap[p.name]) {
-                    playerMap[p.name].exp_30days = p.points;
-                } else {
-                    playerMap[p.name] = {
-                        name: p.name,
-                        vocation: p.vocation,
-                        level: p.level,
-                        exp_yesterday: 0,
-                        exp_7days: 0,
-                        exp_30days: p.points
-                    };
-                }
+            (rankingData.rankings['30days'] || []).forEach(p => {
+                if (playerMap[p.name]) playerMap[p.name].exp_30days = p.points;
+                else playerMap[p.name] = { name: p.name, vocation: p.vocation, level: p.level, exp_yesterday: 0, exp_7days: 0, exp_30days: p.points };
             });
-            
-            // Converte para array
-            let allPlayers = Object.values(playerMap);
-            
-            // Aplica filtro de level
-            allPlayers = filterByLevel(allPlayers);
-            
-            // Agora calcula os ranks DENTRO do filtro aplicado
-            // Rank de 30 dias
-            const sorted30 = [...allPlayers].sort((a, b) => b.exp_30days - a.exp_30days);
-            sorted30.forEach((p, idx) => {
-                const player = allPlayers.find(x => x.name === p.name);
-                if (player) player.rank_30days = idx + 1;
-            });
-            
-            // Rank de 7 dias
-            const sorted7 = [...allPlayers].sort((a, b) => b.exp_7days - a.exp_7days);
-            sorted7.forEach((p, idx) => {
-                const player = allPlayers.find(x => x.name === p.name);
-                if (player) player.rank_7days = idx + 1;
-            });
-            
-            // Rank de ontem
-            const sortedYesterday = [...allPlayers].sort((a, b) => b.exp_yesterday - a.exp_yesterday);
-            sortedYesterday.forEach((p, idx) => {
-                const player = allPlayers.find(x => x.name === p.name);
-                if (player) player.rank_yesterday = idx + 1;
-            });
-            
-            // Retorna ordenado por XP de ontem, só quem fez XP ontem
-            return allPlayers
-                .filter(p => p.exp_yesterday > 0)
-                .sort((a, b) => b.exp_yesterday - a.exp_yesterday);
+            let all = filterByLevel(Object.values(playerMap));
+            const s30 = [...all].sort((a,b) => b.exp_30days - a.exp_30days);
+            s30.forEach((p,i) => { const pl = all.find(x => x.name===p.name); if(pl) pl.rank_30days = i+1; });
+            const s7 = [...all].sort((a,b) => b.exp_7days - a.exp_7days);
+            s7.forEach((p,i) => { const pl = all.find(x => x.name===p.name); if(pl) pl.rank_7days = i+1; });
+            const sy = [...all].sort((a,b) => b.exp_yesterday - a.exp_yesterday);
+            sy.forEach((p,i) => { const pl = all.find(x => x.name===p.name); if(pl) pl.rank_yesterday = i+1; });
+            return all.filter(p => p.exp_yesterday > 0).sort((a,b) => b.exp_yesterday - a.exp_yesterday);
         }
 
-        function getVocationClass(vocation) {
-            if (!vocation) return 'voc-unknown';
-            const v = vocation.toLowerCase();
-            if (v.includes('knight')) return 'voc-knight';
-            if (v.includes('paladin')) return 'voc-paladin';
-            if (v.includes('druid')) return 'voc-druid';
-            if (v.includes('sorcerer')) return 'voc-sorcerer';
-            if (v.includes('monk') || v.includes('grove') || v.includes('archon')) return 'voc-monk';
-            return 'voc-unknown';
-        }
-
-        function getVocationColor(vocation) {
-            const vocClass = getVocationClass(vocation);
-            const colors = {
-                'voc-knight': '#b8860b',
-                'voc-paladin': '#228b22',
-                'voc-druid': '#4169e1',
-                'voc-sorcerer': '#8b008b',
-                'voc-monk': '#d2691e',
-                'voc-unknown': '#999999'
+        function shortenVocation(vocation) {
+            if (!vocation) return '—';
+            const map = {
+                'Elite Knight':'EK','Royal Paladin':'RP','Elder Druid':'ED','Master Sorcerer':'MS',
+                'Knight':'K','Paladin':'P','Druid':'D','Sorcerer':'S','Grove Keeper':'GK','Archon':'AR'
             };
-            return colors[vocClass] || '#999999';
+            return map[vocation] || vocation.substring(0,2).toUpperCase();
         }
 
         function formatNumber(num) {
             return new Intl.NumberFormat('pt-BR').format(num);
         }
 
-        function getRankBgColor(rank) {
-            if (rank === 1) return 'rgba(255, 215, 0, 0.25)'; // Ouro suave
-            if (rank === 2) return 'rgba(192, 192, 192, 0.3)'; // Prata suave
-            if (rank === 3) return 'rgba(205, 127, 50, 0.25)'; // Bronze suave
-            return null;
-        }
-
-        function shortenVocation(vocation) {
-            if (!vocation) return '—';
-            const map = {
-                'Elite Knight': 'EK', 'Royal Paladin': 'RP',
-                'Elder Druid': 'ED', 'Master Sorcerer': 'MS',
-                'Knight': 'K', 'Paladin': 'P', 'Druid': 'D', 'Sorcerer': 'S',
-                'Grove Keeper': 'GK', 'Archon': 'AR'
-            };
-            return map[vocation] || vocation.substring(0, 2).toUpperCase();
-        }
-
-        function renderRanking() {
-            const content = document.getElementById('ranking-content');
-            const loadMoreContainer = document.getElementById('load-more-container');
-            
-            if (!rankingData) {
-                content.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Carregando ranking...</p></div>';
-                return;
-            }
-
-            let rawData;
-            if (currentPeriod === 'consolidated') {
-                rawData = buildConsolidatedData(); // Já aplica o filtro internamente
-            } else {
-                rawData = rankingData.rankings[currentPeriod] || [];
-                rawData = filterByLevel(rawData); // Aplica filtro só para abas simples
-            }
-            
-            const data = rawData;
-            const toShow = data.slice(0, displayCount);
-            
-            if (toShow.length === 0) {
-                content.innerHTML = '<div class="empty-state">Nenhum dado disponível para este filtro.</div>';
-                loadMoreContainer.style.display = 'none';
-                document.getElementById('showing-count').textContent = '';
-                return;
-            }
-
-            const isConsolidated = currentPeriod === 'consolidated';
-
-            let html = `
-                <table class="ranking-table">
-                    <thead>
-                        <tr>
-                            <th class="align-center">#</th>
-                            <th>Jogador</th>
-                            <th class="align-center">Voc</th>
-                            <th class="align-center hide-mobile">Level</th>
-                            ${isConsolidated ? `
-                                <th class="align-right">Ontem</th>
-                                <th class="align-right hide-mobile">7 Dias</th>
-                                <th class="align-right hide-mobile">30 Dias</th>
-                            ` : `
-                                <th class="align-right">Exp</th>
-                            `}
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            toShow.forEach((player, index) => {
-                const rank = index + 1;
-                const rankClass = rank <= 3 ? `rank-${rank}` : '';
-                const rankDisplay = rank <= 3 
-                    ? `<span class="rank-badge">${rank}</span>` 
-                    : rank;
-                const vocClass = getVocationClass(player.vocation);
-                const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}`;
-                
-                if (isConsolidated) {
-                    // Cores de fundo para top 3 de cada período
-                    const bg30 = getRankBgColor(player.rank_30days);
-                    const bg7 = getRankBgColor(player.rank_7days);
-                    const bgYesterday = getRankBgColor(player.rank_yesterday);
-                    
-                    const style30 = bg30 ? `background:${bg30};` : '';
-                    const style7 = bg7 ? `background:${bg7};` : '';
-                    const styleYesterday = bgYesterday ? `background:${bgYesterday};` : '';
-                    
-                    html += `
-                        <tr class="${rankClass}">
-                            <td class="col-rank align-center">${rankDisplay}</td>
-                            <td class="col-player"><a href="${charUrl}" target="_blank">${player.name}</a></td>
-                            <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(player.vocation)}</span></td>
-                            <td class="col-level align-center hide-mobile">${player.level || '—'}</td>
-                            <td class="col-exp align-right" style="${styleYesterday}">+${formatNumber(player.exp_yesterday)}</td>
-                            <td class="col-exp align-right hide-mobile" style="color: var(--text-secondary);${style7}">+${formatNumber(player.exp_7days)}</td>
-                            <td class="col-exp align-right hide-mobile" style="color: var(--text-secondary);${style30}">+${formatNumber(player.exp_30days)}</td>
-                        </tr>
-                    `;
-                } else {
-                    html += `
-                        <tr class="${rankClass}">
-                            <td class="col-rank align-center">${rankDisplay}</td>
-                            <td class="col-player"><a href="${charUrl}" target="_blank">${player.name}</a></td>
-                            <td class="col-vocation align-center"><span class="vocation-badge ${vocClass}">${shortenVocation(player.vocation)}</span></td>
-                            <td class="col-level align-center hide-mobile">${player.level || '—'}</td>
-                            <td class="col-exp align-right">+${formatNumber(player.points)}</td>
-                        </tr>
-                    `;
-                }
-            });
-
-            html += '</tbody></table>';
-            content.innerHTML = html;
-
-            loadMoreContainer.style.display = displayCount < data.length ? 'block' : 'none';
-            document.getElementById('showing-count').textContent = `${toShow.length} de ${data.length}`;
-        }
-
-        function switchPeriod(period) {
-            currentPeriod = period;
-            displayCount = 20;
-            
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.toggle('active', tab.dataset.period === period);
-            });
-            
-            document.getElementById('current-period').textContent = periodLabels[period] + filterLabels[currentLevelFilter];
-            renderRanking();
-        }
-
-        function switchLevelFilter(filter) {
-            currentLevelFilter = filter;
-            displayCount = 20;
-            
-            document.querySelectorAll('.level-filter-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.filter === filter);
-            });
-            
-            document.getElementById('current-period').textContent = periodLabels[currentPeriod] + filterLabels[filter];
-            renderRanking();
+        function getVocPaperClass(vocation) {
+            const v = (vocation || '').toLowerCase();
+            if (v.includes('knight')) return 'voc-ek';
+            if (v.includes('paladin')) return 'voc-rp';
+            if (v.includes('druid')) return 'voc-ed';
+            if (v.includes('sorcerer')) return 'voc-ms';
+            if (v.includes('monk') || v.includes('grove') || v.includes('archon')) return 'voc-mk';
+            return '';
         }
 
         function getVocPaperColor(vocation) {
@@ -953,6 +565,102 @@
             if (v.includes('monk') || v.includes('grove') || v.includes('archon')) return '#d2691e';
             return '#888';
         }
+
+        function renderRanking() {
+            const content = document.getElementById('ranking-content');
+            const loadMoreContainer = document.getElementById('load-more-container');
+
+            let rawData;
+            if (currentPeriod === 'consolidated') {
+                rawData = buildConsolidatedData();
+            } else {
+                rawData = rankingData.rankings[currentPeriod] || [];
+                rawData = filterByLevel(rawData);
+            }
+
+            const toShow = rawData.slice(0, displayCount);
+
+            if (toShow.length === 0) {
+                content.innerHTML = '<div class="empty-state">Nenhum dado disponível para este filtro.</div>';
+                loadMoreContainer.style.display = 'none';
+                return;
+            }
+
+            const isConsolidated = currentPeriod === 'consolidated';
+            let html = '<div class="ranking-list">';
+
+            toShow.forEach((player, index) => {
+                const rank = index + 1;
+                const vocClass = getVocPaperClass(player.vocation);
+                const vocShort = shortenVocation(player.vocation);
+                const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}`;
+
+                if (rank === 4) {
+                    html += `
+                        <div class="sep">
+                            <div class="sep-line"></div>
+                            <span class="sep-label">os demais mortais</span>
+                            <div class="sep-line"></div>
+                        </div>`;
+                }
+
+                const isTop = rank <= 3;
+                let nameMarkup;
+                if (rank === 1) {
+                    nameMarkup = `<span class="player-name circled">${player.name}</span>`;
+                } else if (rank === 2) {
+                    nameMarkup = `<span class="player-name underlined">${player.name}</span>`;
+                } else if (rank === 3) {
+                    nameMarkup = `<span class="player-name">${player.name} ✱</span>`;
+                } else {
+                    nameMarkup = `<span class="player-name">${player.name}</span>`;
+                }
+
+                let xpContent;
+                if (isConsolidated) {
+                    xpContent = `
+                        <div class="player-exp-cols">
+                            <span class="exp-col primary">+${formatNumber(player.exp_yesterday)}</span>
+                            <span class="exp-col hide-mobile">7d +${formatNumber(player.exp_7days)}</span>
+                            <span class="exp-col hide-mobile">30d +${formatNumber(player.exp_30days)}</span>
+                        </div>`;
+                } else {
+                    xpContent = `<span class="player-xp">+${formatNumber(player.points)}</span>`;
+                }
+
+                html += `
+                    <div class="player-row ${isTop ? 'top' : ''}">
+                        <span class="num">${rank}.</span>
+                        <div class="player-info">
+                            <a href="${charUrl}" target="_blank" style="text-decoration:none;">${nameMarkup}</a>
+                            <span class="player-meta"><span class="${vocClass}">${vocShort}</span> · Lv ${player.level || '—'}</span>
+                        </div>
+                        ${xpContent}
+                    </div>`;
+            });
+
+            html += '</div>';
+            content.innerHTML = html;
+            loadMoreContainer.style.display = displayCount < rawData.length ? 'block' : 'none';
+        }
+
+        function switchPeriod(period) {
+            currentPeriod = period;
+            displayCount = 20;
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.period === period));
+            document.getElementById('current-period').textContent = periodLabels[period] + filterLabels[currentLevelFilter];
+            renderRanking();
+        }
+
+        function switchLevelFilter(filter) {
+            currentLevelFilter = filter;
+            displayCount = 20;
+            document.querySelectorAll('.level-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+            document.getElementById('current-period').textContent = periodLabels[currentPeriod] + filterLabels[filter];
+            renderRanking();
+        }
+
+        // ── SCREENSHOT: papel manuscrito, frases só em alguns ──
 
         function buildPapelHTML(top20) {
             const pickRandom = (pool) => pool[Math.floor(Math.random() * pool.length)];
@@ -967,18 +675,21 @@
             const p2phrase = frasesData ? pickRandom(frasesData.p2) : '';
             const p3phrase = frasesData ? pickRandom(frasesData.p3) : '';
 
+            // Posições 4-20: sorteia 5 para receber frase (não todo mundo)
+            const extraAvail = Array.from({ length: Math.max(0, top20.length - 3) }, (_, i) => i + 3);
+            for (let i = extraAvail.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [extraAvail[i], extraAvail[j]] = [extraAvail[j], extraAvail[i]];
+            }
+            const phraseMap = {};
+            extraAvail.slice(0, 5).forEach((idx, n) => { phraseMap[idx] = genericsShuffled[n] || ''; });
+
             const isConsolidated = currentPeriod === 'consolidated';
             const periodLabel = periodLabelsShort[currentPeriod];
             const dateStr = rankingData.last_update_display || '';
             const now = new Date();
             const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-
-            // Fonte base: 16px no container de 700px → renderizado em 2x = 1400px
-            // Em celular ~390pt (1170px físico) → imagem fica próxima de 1:1, fonte ~32px na tela
-            const F = {
-                cav: "font-family:'Caveat',cursive;",
-                kal: "font-family:'Kalam',cursive;",
-            };
+            const F = "font-family:'Caveat',cursive;";
 
             let rows = '';
             top20.forEach((player, index) => {
@@ -987,12 +698,11 @@
                 const vocShort = shortenVocation(player.vocation);
                 const vocColor = getVocPaperColor(player.vocation);
 
-                // Separador antes do 4º
                 if (rank === 4) {
                     rows += `
                         <div style="display:flex;align-items:center;gap:10px;margin:16px 0 10px;">
                             <div style="flex:1;height:1px;background:rgba(0,0,0,0.1);"></div>
-                            <span style="${F.cav}font-size:1rem;color:#c0b090;letter-spacing:0.02em;">os demais mortais</span>
+                            <span style="${F}font-size:0.95rem;color:#c0b090;">os demais mortais</span>
                             <div style="flex:1;height:1px;background:rgba(0,0,0,0.1);"></div>
                         </div>`;
                 }
@@ -1011,36 +721,33 @@
                     }
                     rows += `
                         <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.06);">
-                            <span style="${F.cav}font-size:1.5rem;font-weight:700;color:#1a1510;min-width:34px;text-align:right;padding-top:2px;">${rank}.</span>
+                            <span style="${F}font-size:1.5rem;font-weight:700;color:#1a1510;min-width:34px;text-align:right;padding-top:2px;">${rank}.</span>
                             <div style="flex:1;min-width:0;">
                                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;">
-                                    <span style="${F.cav}font-size:1.5rem;font-weight:700;color:#1a1510;line-height:1.2;">${nameMarkup}</span>
-                                    <span style="${F.cav}font-size:1.35rem;font-weight:700;color:#1a2870;white-space:nowrap;flex-shrink:0;">+${formatNumber(xp)}</span>
+                                    <span style="${F}font-size:1.5rem;font-weight:700;color:#1a1510;">${nameMarkup}</span>
+                                    <span style="${F}font-size:1.4rem;font-weight:700;color:#1a2870;white-space:nowrap;flex-shrink:0;">+${formatNumber(xp)}</span>
                                 </div>
-                                <div style="${F.cav}font-size:0.95rem;color:#c0b090;margin:3px 0 6px;">
-                                    <span style="color:${vocColor};font-weight:600;">${vocShort}</span> · Lv ${player.level || '—'}
+                                <div style="${F}font-size:0.95rem;color:#c0b090;margin:3px 0 6px;">
+                                    <span style="color:${vocColor};font-weight:700;">${vocShort}</span> · Lv ${player.level || '—'}
                                 </div>
-                                <div style="display:flex;align-items:flex-start;gap:5px;">
-                                    <span style="${F.cav}font-size:1.1rem;color:${noteColor};flex-shrink:0;line-height:1.3;margin-top:1px;">←</span>
-                                    <span style="${F.cav}font-size:1.2rem;font-weight:600;line-height:1.35;color:${noteColor};transform:rotate(${noteRotate});display:inline-block;">${phrase}</span>
+                                <div style="display:flex;align-items:flex-start;gap:6px;">
+                                    <span style="${F}font-size:1.1rem;color:${noteColor};flex-shrink:0;line-height:1.3;margin-top:1px;">←</span>
+                                    <span style="${F}font-size:1.2rem;font-weight:700;line-height:1.35;color:${noteColor};transform:rotate(${noteRotate});display:inline-block;">${phrase}</span>
                                 </div>
                             </div>
                         </div>`;
                 } else {
-                    const phrase = genericsShuffled[index - 3] || '';
+                    const phrase = phraseMap[index];
                     rows += `
                         <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.05);">
-                            <span style="${F.cav}font-size:1.2rem;font-weight:700;color:#c0b0a0;min-width:34px;text-align:right;padding-top:2px;">${rank}.</span>
+                            <span style="${F}font-size:1.2rem;font-weight:700;color:#c0b0a0;min-width:34px;text-align:right;padding-top:1px;">${rank}.</span>
                             <div style="flex:1;min-width:0;">
                                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;">
-                                    <span style="${F.cav}font-size:1.2rem;font-weight:600;color:#1a1510;">${player.name}</span>
-                                    <span style="${F.cav}font-size:1.1rem;font-weight:700;color:#1a2870;white-space:nowrap;flex-shrink:0;">+${formatNumber(xp)}</span>
+                                    <span style="${F}font-size:1.2rem;font-weight:600;color:#1a1510;">${player.name}</span>
+                                    <span style="${F}font-size:1.15rem;font-weight:700;color:#1a2870;white-space:nowrap;flex-shrink:0;">+${formatNumber(xp)}</span>
                                 </div>
-                                <div style="display:flex;align-items:flex-start;gap:5px;margin-top:3px;">
-                                    <span style="${F.cav}font-size:0.9rem;color:#888;flex-shrink:0;line-height:1.4;">
-                                        <span style="color:${vocColor};font-weight:600;">${vocShort}</span> · Lv ${player.level || '—'} ·
-                                    </span>
-                                    <span style="${F.cav}font-size:0.95rem;color:#706050;line-height:1.4;transform:rotate(-0.4deg);display:inline-block;">${phrase}</span>
+                                <div style="${F}font-size:0.88rem;color:#c0b090;margin-top:2px;">
+                                    <span style="color:${vocColor};font-weight:700;">${vocShort}</span> · Lv ${player.level || '—'}${phrase ? `<span style="color:#706050;"> · ${phrase}</span>` : ''}
                                 </div>
                             </div>
                         </div>`;
@@ -1052,18 +759,18 @@
                     <div style="position:absolute;top:0;bottom:0;left:60px;width:1.5px;background:rgba(200,60,60,0.2);"></div>
                     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;padding-bottom:12px;border-bottom:2.5px solid #1a1510;">
                         <div>
-                            <div style="${F.cav}font-size:2rem;font-weight:700;color:#1a1510;line-height:1;">Diehard Guild ⚔️</div>
-                            <div style="${F.cav}font-size:0.95rem;color:#b0a090;margin-top:4px;">Luminera · Optional PvP</div>
+                            <div style="${F}font-size:2rem;font-weight:700;color:#1a1510;line-height:1;">Diehard Guild ⚔️</div>
+                            <div style="${F}font-size:0.95rem;color:#b0a090;margin-top:4px;">Luminera · Optional PvP</div>
                         </div>
                         <div style="text-align:right;">
-                            <div style="${F.cav}font-size:1.25rem;font-weight:700;color:#1a1510;">Ranking — ${periodLabel}</div>
-                            <div style="${F.cav}font-size:0.85rem;color:#c0b0a0;margin-top:2px;">${dateStr} · ${timeStr}</div>
+                            <div style="${F}font-size:1.25rem;font-weight:700;color:#1a1510;">Ranking — ${periodLabel}</div>
+                            <div style="${F}font-size:0.85rem;color:#c0b0a0;margin-top:2px;">${dateStr} · ${timeStr}</div>
                         </div>
                     </div>
                     ${rows}
                     <div style="margin-top:18px;display:flex;justify-content:space-between;">
-                        <span style="${F.cav}font-size:0.8rem;color:#d0c0b0;">guildstats.eu/guild=Diehard</span>
-                        <span style="${F.cav}font-size:0.8rem;color:#d0c0b0;">diehard-xp · Luminera</span>
+                        <span style="${F}font-size:0.8rem;color:#d0c0b0;">guildstats.eu/guild=Diehard</span>
+                        <span style="${F}font-size:0.8rem;color:#d0c0b0;">diehard-xp · Luminera</span>
                     </div>
                 </div>`;
         }
@@ -1075,34 +782,22 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
                     <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
                 </svg>
-                Gerando...
-            `;
-
+                Gerando...`;
             try {
                 let data;
                 if (currentPeriod === 'consolidated') {
-                    data = buildConsolidatedData(); // Já aplica filtro
+                    data = buildConsolidatedData();
                 } else {
-                    let rawData = rankingData.rankings[currentPeriod] || [];
-                    data = filterByLevel(rawData);
+                    data = filterByLevel(rankingData.rankings[currentPeriod] || []);
                 }
                 const top20 = data.slice(0, 20);
-                
-                if (top20.length === 0) {
-                    alert('Nenhum dado disponível para gerar imagem.');
-                    return;
-                }
+                if (top20.length === 0) { alert('Nenhum dado disponível.'); return; }
 
-                const isConsolidated = currentPeriod === 'consolidated';
-
-                // Build screenshot HTML (papel / manuscrito)
                 const container = document.getElementById('screenshot-container');
                 container.innerHTML = buildPapelHTML(top20);
 
-                // Wait a bit for rendering
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 150));
 
-                // Generate canvas
                 const canvas = await html2canvas(container, {
                     scale: 2,
                     useCORS: true,
@@ -1111,16 +806,14 @@
                     windowWidth: 700
                 });
 
-                // Download image
                 const link = document.createElement('a');
                 const date = new Date().toISOString().split('T')[0];
                 const filterSuffix = currentLevelFilter !== 'all' ? `-${currentLevelFilter}` : '';
                 link.download = `diehard-top20-${currentPeriod}${filterSuffix}-${date}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
-
-            } catch (error) {
-                console.error('Erro ao gerar screenshot:', error);
+            } catch (err) {
+                console.error(err);
                 alert('Erro ao gerar imagem. Tente novamente.');
             } finally {
                 btn.disabled = false;
@@ -1130,78 +823,56 @@
                         <circle cx="8.5" cy="8.5" r="1.5"/>
                         <polyline points="21 15 16 10 5 21"/>
                     </svg>
-                    Top 20
-                `;
+                    Top 20`;
             }
         }
 
         async function loadData() {
             try {
-                const [rankingResponse, frasesResponse] = await Promise.all([
+                const [rankingRes, frasesRes] = await Promise.all([
                     fetch('dados/ranking.json?v=' + Date.now()),
                     fetch('dados/frases.json?v=' + Date.now())
                 ]);
-                rankingData = await rankingResponse.json();
-                frasesData = await frasesResponse.json();
-                
-                document.getElementById('last-update').textContent = 
+                rankingData = await rankingRes.json();
+                frasesData = await frasesRes.json();
+
+                document.getElementById('last-update').textContent =
                     `Atualizado ${rankingData.last_update_display || '—'}`;
-                document.getElementById('member-count').textContent = 
+                document.getElementById('member-count').textContent =
                     `${rankingData.total_members || '—'} membros`;
-                
+
                 renderRanking();
-            } catch (error) {
-                console.error('Erro:', error);
-                document.getElementById('ranking-content').innerHTML = 
+            } catch (err) {
+                console.error(err);
+                document.getElementById('ranking-content').innerHTML =
                     '<div class="empty-state">Erro ao carregar dados.</div>';
             }
         }
 
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', () => switchPeriod(tab.dataset.period));
-        });
-
-        document.querySelectorAll('.level-filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => switchLevelFilter(btn.dataset.filter));
-        });
-
-        document.getElementById('load-more-btn').addEventListener('click', () => {
-            displayCount += INCREMENT;
-            renderRanking();
-        });
-
+        document.querySelectorAll('.nav-tab').forEach(t => t.addEventListener('click', () => switchPeriod(t.dataset.period)));
+        document.querySelectorAll('.level-filter-btn').forEach(b => b.addEventListener('click', () => switchLevelFilter(b.dataset.filter)));
+        document.getElementById('load-more-btn').addEventListener('click', () => { displayCount += INCREMENT; renderRanking(); });
         document.getElementById('screenshot-btn').addEventListener('click', generateScreenshot);
 
         loadData();
-        
-        /// Carrega status de validação e mostra banner
+
         fetch('dados/status.json?v=' + Date.now())
             .then(r => r.json())
             .then(status => {
                 const banner = document.getElementById('status-banner');
+                if (!banner || !status) return;
+                banner.style.display = 'flex';
                 const icon = banner.querySelector('.status-icon');
                 const text = banner.querySelector('.status-text');
-                
-                if (banner && status) {
-                    banner.style.display = 'flex';
-                    
-                    if (status.aguardando_atualizacao) {
-                        banner.classList.add('aguardando');
-                        icon.textContent = '⏳';
-                        text.innerHTML = '<strong>Em atualização</strong> — dados podem estar desatualizados';
-                    } else {
-                        banner.classList.remove('aguardando');
-                        icon.textContent = '✅';
-                        const dataXp = status.data_xp || 'hoje';
-                        const hora = status.ultima_execucao?.split(' às ')[1] || '';
-                        text.innerHTML = `XP do dia <strong>${dataXp}</strong> — atualizado às ${hora}`;
-                    }
-                }
-                
-                // Também atualiza o rodapé (mantém compatibilidade)
-                const footerEl = document.getElementById('status-info');
-                if (footerEl) {
-                    footerEl.style.display = 'none'; // Esconde o rodapé antigo
+                if (status.aguardando_atualizacao) {
+                    banner.classList.add('aguardando');
+                    icon.textContent = '⏳';
+                    text.innerHTML = '<strong>Em atualização</strong> — dados podem estar desatualizados';
+                } else {
+                    icon.textContent = '✅';
+                    const dataXp = status.data_xp || 'hoje';
+                    const hora = status.ultima_execucao?.split(' às ')[1] || '';
+                    text.innerHTML = `XP do dia <strong>${dataXp}</strong> — atualizado às ${hora}`;
                 }
             })
             .catch(() => {});
