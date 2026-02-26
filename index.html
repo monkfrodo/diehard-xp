@@ -510,25 +510,68 @@
         }
 
         @media (max-width: 640px) {
-            .container { padding: 20px 16px; }
-            .header-top { gap: 12px; }
-            .guild-logo { width: 40px; height: 40px; font-size: 20px; }
-            .header-info h1 { font-size: 1.5rem; }
-            .nav-tabs { overflow-x: auto; gap: 0; }
-            .nav-tab { padding: 12px 14px; font-size: 0.8125rem; white-space: nowrap; }
-            .ranking-table th, .ranking-table td { padding: 10px 8px; }
-            .hide-mobile { display: none !important; }
-            .col-exp { width: auto; }
-            .col-rank { width: 40px; }
-            .col-vocation { width: 50px; }
-            .stats-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
-            .stats-bar .actions { width: 100%; justify-content: space-between; }
-        }
+            .container { padding: 16px 14px; }
+            .header-top { gap: 10px; margin-bottom: 6px; }
+            .guild-logo { width: 38px; height: 38px; font-size: 18px; flex-shrink: 0; }
+            .header-info h1 { font-size: 1.35rem; }
+            .header-meta { gap: 10px; margin-top: 8px; font-size: 0.75rem; }
 
-        @media (max-width: 400px) {
-            .ranking-table th, .ranking-table td { padding: 8px 6px; font-size: 0.8125rem; }
+            /* Abas: scroll horizontal sem esconder o indicador */
+            .nav-tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 0;
+                padding-bottom: 0;
+            }
+            .nav-tabs::-webkit-scrollbar { display: none; }
+            .nav-tab { padding: 11px 14px; font-size: 0.8rem; white-space: nowrap; }
+
+            /* Stats bar: linha 1 = label / linha 2 = filtros / linha 3 = print */
+            .stats-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                margin-bottom: 12px;
+            }
+            .stats-bar .period { font-size: 0.875rem; }
+            .stats-bar .actions {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                gap: 8px;
+            }
+            .stats-bar .meta { display: none; }
+
+            /* Filtro de level: ocupa o que tiver, botões maiores pra toque */
+            .level-filter { flex: 1; }
+            .level-filter-btn { flex: 1; padding: 8px 4px; font-size: 0.8rem; text-align: center; }
+
+            /* Botão de print: toque fácil */
+            .screenshot-btn {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+                flex-shrink: 0;
+            }
+
+            /* Tabela */
+            .hide-mobile { display: none !important; }
+            .ranking-table th, .ranking-table td { padding: 10px 10px; }
+            .col-rank { width: 36px; }
+            .col-vocation { width: 48px; }
+            .col-exp { width: auto; }
+            .col-player { max-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
             .vocation-badge { padding: 2px 6px; font-size: 0.7rem; }
             .rank-badge { width: 22px; height: 22px; font-size: 0.7rem; }
+
+            /* Load more */
+            .load-more-btn { width: 100%; padding: 14px; }
+        }
+
+        @media (max-width: 380px) {
+            .nav-tab { padding: 10px 11px; font-size: 0.75rem; }
+            .ranking-table th, .ranking-table td { padding: 9px 7px; font-size: 0.8125rem; }
         }
     </style>
 </head>
