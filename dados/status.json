@@ -1,44 +1,18 @@
 {
-  "ultima_execucao": "11/03/2026 às 07:44:18",
-  "sucesso": true,
-  "aguardando_atualizacao": false,
-  "data_xp": "10/03",
+  "ultima_execucao": "12/03/2026 às 10:39:59",
+  "sucesso": false,
+  "aguardando_atualizacao": true,
+  "data_xp": "11/03",
   "fonte_membros": "TibiaData API",
   "fonte_xp": "GuildStats.eu",
   "total_membros_guild": 163,
   "total_extras": 37,
-  "jogadores_com_xp_ontem": 40,
-  "jogadores_com_xp_7dias": 64,
-  "jogadores_com_xp_30dias": 75,
-  "top5_ontem": [
-    {
-      "pos": 1,
-      "nome": "Maltz",
-      "xp": "40.806.704"
-    },
-    {
-      "pos": 2,
-      "nome": "Homem Barbaro",
-      "xp": "38.826.435"
-    },
-    {
-      "pos": 3,
-      "nome": "Val Teles",
-      "xp": "33.430.040"
-    },
-    {
-      "pos": 4,
-      "nome": "Van Teles",
-      "xp": "31.059.394"
-    },
-    {
-      "pos": 5,
-      "nome": "Luskzin",
-      "xp": "28.236.476"
-    }
-  ],
+  "jogadores_com_xp_ontem": 0,
+  "jogadores_com_xp_7dias": 0,
+  "jogadores_com_xp_30dias": 0,
+  "top5_ontem": [],
   "validacao": {
-    "tem_dados": true,
-    "msg": "✅ XP do dia 10/03 — atualizado às 07:44"
+    "tem_dados": false,
+    "msg": "⏳ Aguardando atualização do GuildStats"
   }
 }
