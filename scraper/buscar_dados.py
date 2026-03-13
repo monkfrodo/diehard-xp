@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import os
 import time
+from http_client import fetch
 
 # ============================================================
 # CONFIGURAÇÕES
@@ -83,13 +84,10 @@ def buscar_membros_guild():
 def buscar_xp_guildstats():
     """Busca XP de todos os jogadores no GuildStats."""
     log("Buscando XP do GuildStats...")
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-    
     try:
-        resp = requests.get(GUILDSTATS_URL, headers=headers, timeout=30)
-        resp.raise_for_status()
+        html = fetch(GUILDSTATS_URL)
         
-        soup = BeautifulSoup(resp.text, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
         jogadores = {}
         
         for row in soup.find_all('tr'):
@@ -160,16 +158,12 @@ def buscar_dados_guildstats_individual(nome):
         import urllib.parse
         import re
         url = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}"
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        resp = requests.get(url, headers=headers, timeout=20)
+        html = fetch(url, timeout=20)
 
-        if resp.status_code != 200:
+        if "does not exsists" in html or "don't have in our datebase" in html:
             return None
 
-        if "does not exsists" in resp.text or "don't have in our datebase" in resp.text:
-            return None
-
-        soup = BeautifulSoup(resp.text, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
 
         # Busca vocação e level da página principal
         vocation = ''
@@ -193,12 +187,11 @@ def buscar_dados_guildstats_individual(nome):
 
         # Agora busca XP na aba de experiência
         url_xp = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}&tab=9"
-        resp_xp = requests.get(url_xp, headers=headers, timeout=20)
+        html_xp = fetch(url_xp, timeout=20)
 
         exp_values = []
-        if resp_xp.status_code == 200:
-            soup_xp = BeautifulSoup(resp_xp.text, 'html.parser')
-            for table in soup_xp.find_all('table'):
+        soup_xp = BeautifulSoup(html_xp, 'html.parser')
+        for table in soup_xp.find_all('table'):
                 for row in table.find_all('tr'):
                     cells = row.find_all('td')
                     if len(cells) >= 2:
@@ -222,16 +215,12 @@ def buscar_exp_individual(nome):
     try:
         import urllib.parse
         url = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}&tab=9"
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        resp = requests.get(url, headers=headers, timeout=15)
+        html = fetch(url, timeout=15)
 
-        if resp.status_code != 200:
+        if "does not exsists" in html or "don't have in our datebase" in html:
             return None
 
-        if "does not exsists" in resp.text or "don't have in our datebase" in resp.text:
-            return None
-
-        soup = BeautifulSoup(resp.text, 'html.parser')
+        soup = BeautifulSoup(html, 'html.parser')
         exp_values = []
 
         for table in soup.find_all('table'):
@@ -291,16 +280,26 @@ def main():
     for tentativa in range(1, MAX_TENTATIVAS + 1):
         log(f"Tentativa {tentativa}/{MAX_TENTATIVAS}", "🔄")
         
-        xp_data, com_xp_ontem = buscar_xp_guildstats()
-        
-        if com_xp_ontem > 0:
-            log(f"GuildStats atualizado! {com_xp_ontem} membros com XP ontem", "✅")
-            break
-        else:
-            log(f"GuildStats ainda não atualizou (0 membros com XP)", "⚠️")
-            if tentativa < MAX_TENTATIVAS:
-                log(f"Aguardando {INTERVALO_MINUTOS} minutos para próxima tentativa...", "🔄")
-                time.sleep(INTERVALO_MINUTOS * 60)
+        try:
+            xp_data, com_xp_ontem = buscar_xp_guildstats()
+            
+            if com_xp_ontem > 0:
+                log(f"GuildStats atualizado! {com_xp_ontem} membros com XP ontem", "✅")
+                break
+            else:
+                log(f"GuildStats ainda não atualizou (0 jogadores com XP)", "⚠️")
+        except Exception as e:
+            if "403" in str(e):
+                log(f"ERRO: Bloqueio anti-bot detectado (403).", "🚫")
+            else:
+                log(f"Erro inesperado: {e}", "❌")
+            
+            # Se falhou por bloqueio ou erro, tratamos como "não atualizou" para o retry loop seguir
+            com_xp_ontem = 0
+            
+        if tentativa < MAX_TENTATIVAS:
+            log(f"Aguardando {INTERVALO_MINUTOS} minutos para próxima tentativa...", "🔄")
+            time.sleep(INTERVALO_MINUTOS * 60)
     
     # 3. Monta lista de jogadores - COMEÇA PELOS MEMBROS DA GUILD (não pelo GuildStats)
     jogadores = []
