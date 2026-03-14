@@ -23,3 +23,6 @@ ENV/
 
 # Logs
 *.log
+
+# Cache temporário entre scrapers
+dados/_cache_tibiadata.json

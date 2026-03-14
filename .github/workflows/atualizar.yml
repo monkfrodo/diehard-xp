@@ -49,13 +49,26 @@ jobs:
           exit 1
         fi
     
+    - name: Executar scraper de mortes
+      run: |
+        python scraper/buscar_mortes.py
+
+        if [ -f "dados/mortes_ranking.json" ]; then
+          echo "✅ mortes_ranking.json gerado"
+        else
+          echo "⚠️ mortes_ranking.json não foi gerado"
+        fi
+
     - name: Commit e Push
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        
+
         git add dados/ranking.json
         git add dados/status.json
+        git add dados/mortes_historico.json 2>/dev/null || true
+        git add dados/mortes_ranking.json 2>/dev/null || true
+        git add dados/mortes_status.json 2>/dev/null || true
         git add dados/debug_guildstats.html 2>/dev/null || true
         
         if git diff --staged --quiet; then

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diehard Guild — Ranking XP · Luminera</title>
+    <title>Diehard Guild — Mural da Vergonha · Luminera</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
 
         /* ── STATUS BANNER ── */
         .status-banner {
-            background: linear-gradient(90deg, #0d1f0d, #1a2e1a);
-            border-bottom: 1px solid #2a4a2a;
+            background: linear-gradient(90deg, #1f0d0d, #2e1a1a);
+            border-bottom: 1px solid #4a2a2a;
             padding: 9px 20px;
             display: flex;
             align-items: center;
@@ -31,11 +31,7 @@
             font-size: 0.95rem;
             color: #b0b0b0;
         }
-        .status-banner.aguardando { background: linear-gradient(90deg, #1f1a0d, #2e2a1a); border-bottom-color: #4a4a2a; }
-        .status-banner.aguardando .status-icon { animation: statusPulse 1.5s ease-in-out infinite; }
-        @keyframes statusPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
-        .status-banner strong { color: #4ade80; font-weight: 700; }
-        .status-banner.aguardando strong { color: #fbbf24; }
+        .status-banner strong { color: #f87171; font-weight: 700; }
 
         /* ── CONTAINER ── */
         .container {
@@ -122,7 +118,7 @@
             transition: color 0.15s;
         }
         .nav-tab:hover { color: #1a1510; }
-        .nav-tab.active { color: #1a1510; border-bottom-color: #1a1510; }
+        .nav-tab.active { color: #b82020; border-bottom-color: #b82020; }
 
         /* ── STATS BAR ── */
         .stats-bar {
@@ -177,7 +173,7 @@
             font-size: 0.95rem;
             font-weight: 700;
             padding: 7px 16px;
-            background: #1a1510;
+            background: #8b1a1a;
             border: none;
             border-radius: 6px;
             color: #fdf9f0;
@@ -188,7 +184,7 @@
             transition: background 0.15s;
             white-space: nowrap;
         }
-        .screenshot-btn:hover { background: #3a3028; }
+        .screenshot-btn:hover { background: #a82020; }
         .screenshot-btn:disabled { opacity: 0.5; cursor: wait; }
         .screenshot-btn svg { width: 14px; height: 14px; }
 
@@ -199,7 +195,10 @@
             gap: 10px;
             padding: 7px 0;
             border-bottom: 1px solid rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: background 0.1s;
         }
+        .player-row:hover { background: rgba(0,0,0,0.02); }
         .player-row:last-child { border-bottom: none; }
         .player-row.top { padding: 10px 0; }
 
@@ -239,7 +238,7 @@
             text-overflow: clip;
         }
         .player-name.underlined {
-            border-bottom: 2px solid #1a2870;
+            border-bottom: 2px solid #b82020;
             padding-bottom: 1px;
         }
 
@@ -257,37 +256,70 @@
         .voc-ms { color: #700c80; font-weight: 700; }
         .voc-mk { color: #d2691e; font-weight: 700; }
 
-        .player-xp {
+        .death-count {
             font-family: 'Caveat', cursive;
             font-size: 1.05rem;
             font-weight: 700;
-            color: #1a2870;
+            color: #b82020;
             text-align: right;
             flex-shrink: 0;
             white-space: nowrap;
         }
-        .player-row.top .player-xp { font-size: 1.3rem; }
+        .player-row.top .death-count { font-size: 1.3rem; }
 
-        /* Consolidado: múltiplas colunas */
-        .player-exp-cols {
+        /* ── DETALHES DE MORTES (expandível) ── */
+        .death-details {
+            padding: 4px 0 8px 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .death-detail-row {
+            font-family: 'Kalam', cursive;
+            font-size: 0.82rem;
+            color: #706050;
+            padding: 3px 0;
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 1px;
+            align-items: baseline;
+            gap: 6px;
+        }
+        .death-detail-row .death-arrow {
+            color: #b82020;
             flex-shrink: 0;
         }
-        .exp-col {
-            font-family: 'Caveat', cursive;
-            font-size: 0.8rem;
-            color: #a09080;
-            white-space: nowrap;
-        }
-        .exp-col.primary {
-            font-size: 1.05rem;
+        .death-detail-row .pk-badge {
+            background: #b82020;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 0 5px;
+            border-radius: 3px;
             font-weight: 700;
-            color: #1a2870;
+            flex-shrink: 0;
         }
-        .player-row.top .exp-col.primary { font-size: 1.3rem; }
+
+        /* ── FRASE ── */
+        .player-phrase {
+            font-family: 'Caveat', cursive;
+            font-size: 0.88rem;
+            color: #8b5a5a;
+            display: block;
+            margin-top: 2px;
+            font-style: italic;
+        }
+        .player-row.top .player-phrase {
+            font-size: 0.95rem;
+            color: #a81818;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* ── CHEVRON ── */
+        .chevron {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            color: #c0b0a0;
+            transition: transform 0.2s;
+        }
+        .chevron.open { transform: rotate(90deg); }
 
         /* ── SEPARADOR ── */
         .sep {
@@ -329,7 +361,7 @@
         .loading-spinner {
             width: 28px; height: 28px;
             border: 2.5px solid rgba(0,0,0,0.1);
-            border-top-color: #1a1510;
+            border-top-color: #b82020;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin: 0 auto 12px;
@@ -388,21 +420,21 @@
             .level-filter { flex: 1; }
             .level-filter-btn { flex: 1; text-align: center; padding: 7px 4px; }
             .screenshot-btn { padding: 8px 14px; }
-            .hide-mobile { display: none !important; }
             .load-more-btn { width: 100%; }
-            .player-name { max-width: 170px; }
+            .player-name { max-width: 150px; }
+            .death-details { padding-left: 20px; }
         }
         @media (max-width: 380px) {
             .paper { padding: 20px 14px; }
             .nav-tab { padding: 7px 10px; font-size: 0.85rem; }
-            .player-name { max-width: 130px; }
+            .player-name { max-width: 120px; }
         }
     </style>
 </head>
 <body>
 
     <div id="status-banner" class="status-banner" style="display: none;">
-        <span class="status-icon">✅</span>
+        <span class="status-icon">💀</span>
         <span class="status-text"></span>
     </div>
 
@@ -412,9 +444,9 @@
             <header>
                 <div class="header-top">
                     <div>
-                        <div class="guild-name">Diehard Guild ⚔️</div>
+                        <div class="guild-name">Diehard Guild 💀</div>
                         <div class="guild-sub">
-                            <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> · Optional PvP
+                            <a href="https://www.tibia.com/community/?subtopic=worlds&world=Luminera" target="_blank">Luminera</a> · Mural da Vergonha
                         </div>
                     </div>
                     <div class="header-meta">
@@ -425,19 +457,19 @@
             </header>
 
             <nav class="nav-tabs">
-                <button class="nav-tab active" data-period="consolidated">Consolidado</button>
                 <button class="nav-tab" data-period="yesterday">Ontem</button>
-                <button class="nav-tab" data-period="7days">7 Dias</button>
+                <button class="nav-tab active" data-period="7days">7 Dias</button>
                 <button class="nav-tab" data-period="30days">30 Dias</button>
+                <button class="nav-tab" data-period="alltime">All-Time</button>
             </nav>
 
             <div class="stats-bar">
-                <span class="period" id="current-period">Ranking Consolidado</span>
+                <span class="period" id="current-period">Mortes nos Ultimos 7 Dias</span>
                 <div class="actions">
                     <div class="level-filter">
                         <button class="level-filter-btn active" data-filter="all">Todos</button>
                         <button class="level-filter-btn" data-filter="600+">600+</button>
-                        <button class="level-filter-btn" data-filter="600-">Até 600</button>
+                        <button class="level-filter-btn" data-filter="600-">Ate 600</button>
                     </div>
                     <button class="screenshot-btn" id="screenshot-btn" title="Gerar imagem do Top 10">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -453,7 +485,7 @@
             <div id="ranking-content">
                 <div class="loading">
                     <div class="loading-spinner"></div>
-                    <p>Carregando ranking...</p>
+                    <p>Carregando ranking de mortes...</p>
                 </div>
             </div>
             <div class="load-more" id="load-more-container" style="display: none;">
@@ -462,12 +494,11 @@
 
             <footer>
                 <div class="footer-links">
-                    <a href="mortes.html">Mural da Vergonha 💀</a>
+                    <a href="index.html">Ranking XP</a>
                     <a href="https://guildstats.eu/guild=Diehard" target="_blank">GuildStats</a>
                     <a href="https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=Diehard" target="_blank">Tibia.com</a>
                 </div>
-                <p class="footer-text">Dados atualizados via GuildStats.eu</p>
-                <div id="status-info" style="display:none;"></div>
+                <p class="footer-text">Dados de mortes via TibiaData API</p>
             </footer>
 
         </div><!-- /paper -->
@@ -478,29 +509,30 @@
     <script>
         let rankingData = null;
         let frasesData = null;
-        let currentPeriod = 'consolidated';
+        let currentPeriod = '7days';
         let currentLevelFilter = 'all';
         let displayCount = 20;
+        let expandedPlayer = null;
         const INCREMENT = 10;
 
         const periodLabels = {
-            'consolidated': 'Ranking Consolidado',
-            'yesterday': 'Experiência de Ontem',
-            '7days': 'Experiência 7 Dias',
-            '30days': 'Experiência 30 Dias'
+            'yesterday': 'Mortes de Ontem',
+            '7days': 'Mortes nos Ultimos 7 Dias',
+            '30days': 'Mortes nos Ultimos 30 Dias',
+            'alltime': 'Mortes All-Time'
         };
 
         const periodLabelsShort = {
-            'consolidated': 'Consolidado',
             'yesterday': 'Ontem',
             '7days': '7 Dias',
-            '30days': '30 Dias'
+            '30days': '30 Dias',
+            'alltime': 'All-Time'
         };
 
         const filterLabels = {
             'all': '',
             '600+': ' (600+)',
-            '600-': ' (Até 600)'
+            '600-': ' (Ate 600)'
         };
 
         function filterByLevel(data) {
@@ -510,30 +542,6 @@
             return data;
         }
 
-        function buildConsolidatedData() {
-            if (!rankingData) return [];
-            const playerMap = {};
-            (rankingData.rankings.yesterday || []).forEach(p => {
-                playerMap[p.name] = { name: p.name, vocation: p.vocation, level: p.level, exp_yesterday: p.points, exp_7days: 0, exp_30days: 0 };
-            });
-            (rankingData.rankings['7days'] || []).forEach(p => {
-                if (playerMap[p.name]) playerMap[p.name].exp_7days = p.points;
-                else playerMap[p.name] = { name: p.name, vocation: p.vocation, level: p.level, exp_yesterday: 0, exp_7days: p.points, exp_30days: 0 };
-            });
-            (rankingData.rankings['30days'] || []).forEach(p => {
-                if (playerMap[p.name]) playerMap[p.name].exp_30days = p.points;
-                else playerMap[p.name] = { name: p.name, vocation: p.vocation, level: p.level, exp_yesterday: 0, exp_7days: 0, exp_30days: p.points };
-            });
-            let all = filterByLevel(Object.values(playerMap));
-            const s30 = [...all].sort((a,b) => b.exp_30days - a.exp_30days);
-            s30.forEach((p,i) => { const pl = all.find(x => x.name===p.name); if(pl) pl.rank_30days = i+1; });
-            const s7 = [...all].sort((a,b) => b.exp_7days - a.exp_7days);
-            s7.forEach((p,i) => { const pl = all.find(x => x.name===p.name); if(pl) pl.rank_7days = i+1; });
-            const sy = [...all].sort((a,b) => b.exp_yesterday - a.exp_yesterday);
-            sy.forEach((p,i) => { const pl = all.find(x => x.name===p.name); if(pl) pl.rank_yesterday = i+1; });
-            return all.filter(p => p.exp_yesterday > 0).sort((a,b) => b.exp_yesterday - a.exp_yesterday);
-        }
-
         function shortenVocation(vocation) {
             if (!vocation) return '—';
             const map = {
@@ -541,10 +549,6 @@
                 'Knight':'K','Paladin':'P','Druid':'D','Sorcerer':'S','Grove Keeper':'GK','Archon':'AR'
             };
             return map[vocation] || vocation.substring(0,2).toUpperCase();
-        }
-
-        function formatNumber(num) {
-            return new Intl.NumberFormat('pt-BR').format(num);
         }
 
         function getVocPaperClass(vocation) {
@@ -567,27 +571,75 @@
             return '#888';
         }
 
+        function formatDeathTime(timeStr) {
+            try {
+                const d = new Date(timeStr);
+                const day = String(d.getDate()).padStart(2, '0');
+                const month = String(d.getMonth() + 1).padStart(2, '0');
+                const hours = String(d.getHours()).padStart(2, '0');
+                const mins = String(d.getMinutes()).padStart(2, '0');
+                return `${day}/${month} ${hours}:${mins}`;
+            } catch {
+                return timeStr;
+            }
+        }
+
+        function parseDeathReason(reason) {
+            // "Died at Level 450 by a Demon" → "a Demon"
+            const match = reason.match(/by (.+)$/i);
+            return match ? match[1] : reason;
+        }
+
+        function toggleDeathDetails(playerName) {
+            expandedPlayer = expandedPlayer === playerName ? null : playerName;
+            renderRanking();
+        }
+
+        function shuffleArray(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function buildPhraseMap(count) {
+            if (!frasesData) return {};
+            const pickRandom = (pool) => pool[Math.floor(Math.random() * pool.length)];
+            const map = {};
+
+            // Top 3: frases específicas
+            if (count >= 1) map[0] = pickRandom(frasesData.p1);
+            if (count >= 2) map[1] = pickRandom(frasesData.p2);
+            if (count >= 3) map[2] = pickRandom(frasesData.p3);
+
+            // 4+: frases genéricas embaralhadas para todos
+            const generics = shuffleArray(frasesData.genericas);
+            for (let i = 3; i < count; i++) {
+                map[i] = generics[i % generics.length] || '';
+            }
+
+            return map;
+        }
+
         function renderRanking() {
             const content = document.getElementById('ranking-content');
             const loadMoreContainer = document.getElementById('load-more-container');
 
-            let rawData;
-            if (currentPeriod === 'consolidated') {
-                rawData = buildConsolidatedData();
-            } else {
-                rawData = rankingData.rankings[currentPeriod] || [];
-                rawData = filterByLevel(rawData);
-            }
+            let rawData = rankingData.rankings[currentPeriod] || [];
+            rawData = filterByLevel(rawData);
 
             const toShow = rawData.slice(0, displayCount);
 
             if (toShow.length === 0) {
-                content.innerHTML = '<div class="empty-state">Nenhum dado disponível para este filtro.</div>';
+                content.innerHTML = '<div class="empty-state">Nenhuma morte registrada para este periodo.</div>';
                 loadMoreContainer.style.display = 'none';
                 return;
             }
 
-            const isConsolidated = currentPeriod === 'consolidated';
+            const phraseMap = buildPhraseMap(toShow.length);
+
             let html = '<div class="ranking-list">';
 
             toShow.forEach((player, index) => {
@@ -595,12 +647,14 @@
                 const vocClass = getVocPaperClass(player.vocation);
                 const vocShort = shortenVocation(player.vocation);
                 const charUrl = `https://guildstats.eu/character?nick=${encodeURIComponent(player.name)}`;
+                const isExpanded = expandedPlayer === player.name;
+                const phrase = phraseMap[index] || '';
 
                 if (rank === 4) {
                     html += `
                         <div class="sep">
                             <div class="sep-line"></div>
-                            <span class="sep-label">os demais mortais</span>
+                            <span class="sep-label">os demais caidos</span>
                             <div class="sep-line"></div>
                         </div>`;
                 }
@@ -617,27 +671,38 @@
                     nameMarkup = `<span class="player-name">${player.name}</span>`;
                 }
 
-                let xpContent;
-                if (isConsolidated) {
-                    xpContent = `
-                        <div class="player-exp-cols">
-                            <span class="exp-col primary">+${formatNumber(player.exp_yesterday)}</span>
-                            <span class="exp-col hide-mobile">7d +${formatNumber(player.exp_7days)}</span>
-                            <span class="exp-col hide-mobile">30d +${formatNumber(player.exp_30days)}</span>
-                        </div>`;
-                } else {
-                    xpContent = `<span class="player-xp">+${formatNumber(player.points)}</span>`;
-                }
+                const deathLabel = player.death_count === 1 ? 'morte' : 'mortes';
+                const chevronSvg = `<svg class="chevron ${isExpanded ? 'open' : ''}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`;
+                const phraseHtml = phrase ? `<span class="player-phrase">${phrase}</span>` : '';
 
                 html += `
-                    <div class="player-row ${isTop ? 'top' : ''}">
+                    <div class="player-row ${isTop ? 'top' : ''}" onclick="toggleDeathDetails('${player.name.replace(/'/g, "\\'")}')">
                         <span class="num">${rank}.</span>
                         <div class="player-info">
-                            <a href="${charUrl}" target="_blank" style="text-decoration:none;">${nameMarkup}</a>
+                            <a href="${charUrl}" target="_blank" style="text-decoration:none;" onclick="event.stopPropagation();">${nameMarkup}</a>
                             <span class="player-meta"><span class="${vocClass}">${vocShort}</span> · Lv ${player.level || '—'}</span>
+                            ${phraseHtml}
                         </div>
-                        ${xpContent}
+                        <span class="death-count">💀 ${player.death_count} ${deathLabel}</span>
+                        ${chevronSvg}
                     </div>`;
+
+                // Detalhes expandidos
+                if (isExpanded && player.deaths && player.deaths.length > 0) {
+                    html += '<div class="death-details">';
+                    player.deaths.forEach(death => {
+                        const timeFormatted = formatDeathTime(death.time);
+                        const killer = parseDeathReason(death.reason);
+                        const pkBadge = death.is_pk ? '<span class="pk-badge">PK</span>' : '';
+                        html += `
+                            <div class="death-detail-row">
+                                <span class="death-arrow">▸</span>
+                                <span>${timeFormatted} — Lv ${death.level} — ${killer}</span>
+                                ${pkBadge}
+                            </div>`;
+                    });
+                    html += '</div>';
+                }
             });
 
             html += '</div>';
@@ -648,6 +713,7 @@
         function switchPeriod(period) {
             currentPeriod = period;
             displayCount = 20;
+            expandedPlayer = null;
             document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.period === period));
             document.getElementById('current-period').textContent = periodLabels[period] + filterLabels[currentLevelFilter];
             renderRanking();
@@ -656,14 +722,15 @@
         function switchLevelFilter(filter) {
             currentLevelFilter = filter;
             displayCount = 20;
+            expandedPlayer = null;
             document.querySelectorAll('.level-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
             document.getElementById('current-period').textContent = periodLabels[currentPeriod] + filterLabels[filter];
             renderRanking();
         }
 
-        // ── SCREENSHOT: papel manuscrito, frases só em alguns ──
+        // ── SCREENSHOT ──
 
-        function buildPapelHTML(top20) {
+        function buildPapelMortesHTML(top10) {
             const pickRandom = (pool) => pool[Math.floor(Math.random() * pool.length)];
 
             const genericsShuffled = frasesData ? [...frasesData.genericas] : [];
@@ -676,8 +743,7 @@
             const p2phrase = frasesData ? pickRandom(frasesData.p2) : '';
             const p3phrase = frasesData ? pickRandom(frasesData.p3) : '';
 
-            // Posições 4+: sorteia 4 para receber frase genérica (não todo mundo)
-            const extraAvail = Array.from({ length: Math.max(0, top20.length - 3) }, (_, i) => i + 3);
+            const extraAvail = Array.from({ length: Math.max(0, top10.length - 3) }, (_, i) => i + 3);
             for (let i = extraAvail.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [extraAvail[i], extraAvail[j]] = [extraAvail[j], extraAvail[i]];
@@ -685,11 +751,9 @@
             const phraseMap = {};
             extraAvail.slice(0, 4).forEach((idx, n) => { phraseMap[idx] = genericsShuffled[n] || ''; });
 
-            // Menção honrosa: um jogador aleatório de posição 4+ recebe nome circulado + frase de incentivo
-            const mencaoPhrase = frasesData?.mencao ? pickRandom(frasesData.mencao) : 'vale o destaque.';
+            const mencaoPhrase = frasesData?.mencao ? pickRandom(frasesData.mencao) : '';
             const mencaoIdx = extraAvail.length > 0 ? extraAvail[Math.floor(Math.random() * extraAvail.length)] : -1;
 
-            const isConsolidated = currentPeriod === 'consolidated';
             const periodLabel = periodLabelsShort[currentPeriod];
             const dateStr = rankingData.last_update_display || '';
             const now = new Date();
@@ -697,17 +761,17 @@
             const F = "font-family:'Caveat',cursive;";
 
             let rows = '';
-            top20.forEach((player, index) => {
+            top10.forEach((player, index) => {
                 const rank = index + 1;
-                const xp = isConsolidated ? player.exp_yesterday : player.points;
                 const vocShort = shortenVocation(player.vocation);
                 const vocColor = getVocPaperColor(player.vocation);
+                const deathLabel = player.death_count === 1 ? 'morte' : 'mortes';
 
                 if (rank === 4) {
                     rows += `
                         <div style="display:flex;align-items:center;gap:10px;margin:16px 0 10px;">
                             <div style="flex:1;height:1px;background:rgba(0,0,0,0.1);"></div>
-                            <span style="${F}font-size:0.95rem;color:#c0b090;">os demais mortais</span>
+                            <span style="${F}font-size:0.95rem;color:#c0b090;">os demais caidos</span>
                             <div style="flex:1;height:1px;background:rgba(0,0,0,0.1);"></div>
                         </div>`;
                 }
@@ -718,11 +782,11 @@
                         nameMarkup = `<span style="border:2.5px solid #b82020;border-radius:42% 58% 52% 48%/48% 52% 60% 40%;padding:2px 12px 2px 9px;transform:rotate(-0.8deg);display:inline-block;">${player.name}</span>`;
                         noteColor = '#a81818'; noteRotate = '-1deg'; phrase = p1phrase;
                     } else if (rank === 2) {
-                        nameMarkup = `<span style="border-bottom:2.5px solid #1a2870;padding-bottom:2px;">${player.name}</span>`;
-                        noteColor = '#142060'; noteRotate = '-0.8deg'; phrase = p2phrase;
+                        nameMarkup = `<span style="border-bottom:2.5px solid #b82020;padding-bottom:2px;">${player.name}</span>`;
+                        noteColor = '#8b1a1a'; noteRotate = '-0.8deg'; phrase = p2phrase;
                     } else {
                         nameMarkup = `${player.name} ✱`;
-                        noteColor = '#145a20'; noteRotate = '-1.2deg'; phrase = p3phrase;
+                        noteColor = '#6b1010'; noteRotate = '-1.2deg'; phrase = p3phrase;
                     }
                     rows += `
                         <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.06);">
@@ -730,7 +794,7 @@
                             <div style="flex:1;min-width:0;">
                                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;">
                                     <span style="${F}font-size:1.5rem;font-weight:700;color:#1a1510;">${nameMarkup}</span>
-                                    <span style="${F}font-size:1.4rem;font-weight:700;color:#1a2870;white-space:nowrap;flex-shrink:0;">+${formatNumber(xp)}</span>
+                                    <span style="${F}font-size:1.4rem;font-weight:700;color:#b82020;white-space:nowrap;flex-shrink:0;">💀 ${player.death_count} ${deathLabel}</span>
                                 </div>
                                 <div style="${F}font-size:0.95rem;color:#c0b090;margin:3px 0 6px;">
                                     <span style="color:${vocColor};font-weight:700;">${vocShort}</span> · Lv ${player.level || '—'}
@@ -745,7 +809,7 @@
                     const phrase = phraseMap[index];
                     const isMencao = index === mencaoIdx;
                     const nameMarkupExtra = isMencao
-                        ? `<span style="border:2px solid #8b5a00;border-radius:42% 58% 52% 48%/48% 52% 60% 40%;padding:1px 10px 1px 7px;transform:rotate(-0.5deg);display:inline-block;color:#5a3a00;">${player.name}</span>`
+                        ? `<span style="border:2px solid #8b1a1a;border-radius:42% 58% 52% 48%/48% 52% 60% 40%;padding:1px 10px 1px 7px;transform:rotate(-0.5deg);display:inline-block;color:#5a1010;">${player.name}</span>`
                         : `<span style="color:#1a1510;">${player.name}</span>`;
                     rows += `
                         <div style="display:flex;align-items:flex-start;gap:10px;padding:${isMencao ? '10px' : '8px'} 0;border-bottom:1px solid rgba(0,0,0,0.05);">
@@ -753,12 +817,12 @@
                             <div style="flex:1;min-width:0;">
                                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;">
                                     <span style="${F}font-size:1.2rem;font-weight:600;">${nameMarkupExtra}</span>
-                                    <span style="${F}font-size:1.15rem;font-weight:700;color:#1a2870;white-space:nowrap;flex-shrink:0;">+${formatNumber(xp)}</span>
+                                    <span style="${F}font-size:1.15rem;font-weight:700;color:#b82020;white-space:nowrap;flex-shrink:0;">💀 ${player.death_count} ${deathLabel}</span>
                                 </div>
                                 <div style="${F}font-size:0.88rem;color:#c0b090;margin-top:2px;">
                                     <span style="color:${vocColor};font-weight:700;">${vocShort}</span> · Lv ${player.level || '—'}${phrase && !isMencao ? `<span style="color:#706050;"> · ${phrase}</span>` : ''}
                                 </div>
-                                ${isMencao ? `<div style="display:flex;align-items:flex-start;gap:5px;margin-top:4px;"><span style="${F}font-size:1rem;color:#8b5a00;flex-shrink:0;line-height:1.3;">↑</span><span style="${F}font-size:1.05rem;font-weight:700;line-height:1.35;color:#8b5a00;transform:rotate(-0.8deg);display:inline-block;">✦ menção honrosa — ${mencaoPhrase}</span></div>` : ''}
+                                ${isMencao ? `<div style="display:flex;align-items:flex-start;gap:5px;margin-top:4px;"><span style="${F}font-size:1rem;color:#8b1a1a;flex-shrink:0;line-height:1.3;">↑</span><span style="${F}font-size:1.05rem;font-weight:700;line-height:1.35;color:#8b1a1a;transform:rotate(-0.8deg);display:inline-block;">✦ mencao honrosa — ${mencaoPhrase}</span></div>` : ''}
                             </div>
                         </div>`;
                 }
@@ -769,18 +833,18 @@
                     <div style="position:absolute;top:0;bottom:0;left:60px;width:1.5px;background:rgba(200,60,60,0.2);"></div>
                     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;padding-bottom:12px;border-bottom:2.5px solid #1a1510;">
                         <div>
-                            <div style="${F}font-size:2rem;font-weight:700;color:#1a1510;line-height:1;">Diehard Guild ⚔️</div>
-                            <div style="${F}font-size:0.95rem;color:#b0a090;margin-top:4px;">Luminera · Optional PvP</div>
+                            <div style="${F}font-size:2rem;font-weight:700;color:#1a1510;line-height:1;">Diehard Guild 💀</div>
+                            <div style="${F}font-size:0.95rem;color:#b0a090;margin-top:4px;">Luminera · Mural da Vergonha</div>
                         </div>
                         <div style="text-align:right;">
-                            <div style="${F}font-size:1.25rem;font-weight:700;color:#1a1510;">Ranking — ${periodLabel}</div>
+                            <div style="${F}font-size:1.25rem;font-weight:700;color:#b82020;">Mortes — ${periodLabel}</div>
                             <div style="${F}font-size:0.85rem;color:#c0b0a0;margin-top:2px;">${dateStr} · ${timeStr}</div>
                         </div>
                     </div>
                     ${rows}
                     <div style="margin-top:18px;display:flex;justify-content:space-between;">
-                        <span style="${F}font-size:0.8rem;color:#d0c0b0;">guildstats.eu/guild=Diehard</span>
-                        <span style="${F}font-size:0.8rem;color:#d0c0b0;">diehard-xp · Luminera</span>
+                        <span style="${F}font-size:0.8rem;color:#d0c0b0;">TibiaData API · Luminera</span>
+                        <span style="${F}font-size:0.8rem;color:#d0c0b0;">diehard-xp · Mural da Vergonha</span>
                     </div>
                 </div>`;
         }
@@ -794,17 +858,12 @@
                 </svg>
                 Gerando...`;
             try {
-                let data;
-                if (currentPeriod === 'consolidated') {
-                    data = buildConsolidatedData();
-                } else {
-                    data = filterByLevel(rankingData.rankings[currentPeriod] || []);
-                }
-                const top20 = data.slice(0, 10);
-                if (top20.length === 0) { alert('Nenhum dado disponível.'); return; }
+                let data = filterByLevel(rankingData.rankings[currentPeriod] || []);
+                const top10 = data.slice(0, 10);
+                if (top10.length === 0) { alert('Nenhum dado disponivel.'); return; }
 
                 const container = document.getElementById('screenshot-container');
-                container.innerHTML = buildPapelHTML(top20);
+                container.innerHTML = buildPapelMortesHTML(top10);
 
                 await new Promise(resolve => setTimeout(resolve, 150));
 
@@ -819,7 +878,7 @@
                 const link = document.createElement('a');
                 const date = new Date().toISOString().split('T')[0];
                 const filterSuffix = currentLevelFilter !== 'all' ? `-${currentLevelFilter}` : '';
-                link.download = `diehard-top10-${currentPeriod}${filterSuffix}-${date}.png`;
+                link.download = `diehard-mortes-${currentPeriod}${filterSuffix}-${date}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             } catch (err) {
@@ -840,8 +899,8 @@
         async function loadData() {
             try {
                 const [rankingRes, frasesRes] = await Promise.all([
-                    fetch('dados/ranking.json?v=' + Date.now()),
-                    fetch('dados/frases.json?v=' + Date.now())
+                    fetch('dados/mortes_ranking.json?v=' + Date.now()),
+                    fetch('dados/frases_mortes.json?v=' + Date.now())
                 ]);
                 rankingData = await rankingRes.json();
                 frasesData = await frasesRes.json();
@@ -855,7 +914,7 @@
             } catch (err) {
                 console.error(err);
                 document.getElementById('ranking-content').innerHTML =
-                    '<div class="empty-state">Erro ao carregar dados.</div>';
+                    '<div class="empty-state">Erro ao carregar dados. Aguarde a primeira execucao do scraper.</div>';
             }
         }
 
@@ -866,24 +925,15 @@
 
         loadData();
 
-        fetch('dados/status.json?v=' + Date.now())
+        fetch('dados/mortes_status.json?v=' + Date.now())
             .then(r => r.json())
             .then(status => {
                 const banner = document.getElementById('status-banner');
                 if (!banner || !status) return;
                 banner.style.display = 'flex';
-                const icon = banner.querySelector('.status-icon');
                 const text = banner.querySelector('.status-text');
-                if (status.aguardando_atualizacao) {
-                    banner.classList.add('aguardando');
-                    icon.textContent = '⏳';
-                    text.innerHTML = '<strong>Em atualização</strong> — dados podem estar desatualizados';
-                } else {
-                    icon.textContent = '✅';
-                    const dataXp = status.data_xp || 'hoje';
-                    const hora = status.ultima_execucao?.split(' às ')[1] || '';
-                    text.innerHTML = `XP do dia <strong>${dataXp}</strong> — atualizado às ${hora}`;
-                }
+                const hora = status.ultima_execucao?.split(' às ')[1] || '';
+                text.innerHTML = `<strong>${status.total_historico || 0} mortes</strong> registradas — atualizado às ${hora}`;
             })
             .catch(() => {});
     </script>

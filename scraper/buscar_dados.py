@@ -127,7 +127,8 @@ def buscar_xp_guildstats():
         return {}, 0
 
 def buscar_vocacao_individual(nome, tentativas=3):
-    """Busca vocação de um jogador específico (para extras) com retry."""
+    """Busca vocação de um jogador específico (para extras) com retry.
+    Também extrai mortes e salva no cache para o scraper de mortes reaproveitar."""
     import urllib.parse
     url = f"https://api.tibiadata.com/v4/character/{urllib.parse.quote(nome)}"
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
@@ -138,8 +139,24 @@ def buscar_vocacao_individual(nome, tentativas=3):
 
             if resp.status_code == 200 and resp.text.strip():
                 data = resp.json()
-                char = data.get('character', {}).get('character', {})
+                character = data.get('character', {})
+                char = character.get('character', {})
                 if char and char.get('name'):
+                    # Extrai mortes para o cache
+                    deaths_raw = character.get('deaths', [])
+                    deaths = []
+                    for death in deaths_raw:
+                        reason = death.get('reason', 'Unknown')
+                        involved = death.get('involved', [])
+                        is_pk = any(i.get('player', False) for i in involved)
+                        deaths.append({
+                            'time': death.get('time', ''),
+                            'level': death.get('level', 0),
+                            'reason': reason,
+                            'is_pk': is_pk
+                        })
+                    _salvar_cache_tibiadata(nome, deaths, char.get('vocation', ''), char.get('level', 0))
+
                     return {
                         'vocation': char.get('vocation', ''),
                         'level': char.get('level', 0)
@@ -151,6 +168,32 @@ def buscar_vocacao_individual(nome, tentativas=3):
             if tentativa < tentativas - 1:
                 time.sleep(5)
     return None
+
+
+# Cache de respostas TibiaData para o scraper de mortes reaproveitar
+CACHE_PATH = os.path.join(DADOS_DIR, '_cache_tibiadata.json')
+
+def _carregar_cache_tibiadata():
+    """Carrega cache existente ou retorna dict vazio."""
+    if os.path.exists(CACHE_PATH):
+        try:
+            with open(CACHE_PATH, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            pass
+    return {}
+
+def _salvar_cache_tibiadata(nome, deaths, vocation, level):
+    """Salva dados de um personagem no cache."""
+    cache = _carregar_cache_tibiadata()
+    cache[nome] = {
+        'deaths': deaths,
+        'vocation': vocation,
+        'level': level,
+        'fetched_at': agora().strftime('%Y-%m-%d %H:%M:%S')
+    }
+    with open(CACHE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
 
 def buscar_dados_guildstats_individual(nome):
     """Busca dados completos de um jogador na página individual do GuildStats (vocação, level e XP)."""
