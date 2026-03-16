@@ -50,6 +50,7 @@ jobs:
         fi
     
     - name: Executar scraper de mortes
+      continue-on-error: true
       run: |
         python scraper/buscar_mortes.py
 

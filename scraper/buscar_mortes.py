@@ -301,6 +301,8 @@ def main():
     # 5. Carrega cache do buscar_dados.py (extras já buscados)
     cache = carregar_cache_tibiadata()
     cache_hits = 0
+    mortes_novas = 0
+    jogadores_com_mortes = 0
 
     def processar_mortes(nome, deaths, vocation, level):
         """Processa mortes de um jogador (cache ou API)."""
@@ -343,8 +345,6 @@ def main():
     jogadores_restantes = [n for n in jogadores_info if n not in cache]
     log(f"API: {len(jogadores_restantes)} jogadores a buscar via TibiaData")
 
-    mortes_novas = 0
-    jogadores_com_mortes = 0
     falhas = 0
 
     for i, nome in enumerate(jogadores_restantes, 1):
