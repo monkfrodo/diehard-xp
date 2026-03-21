@@ -1,44 +1,18 @@
 {
-  "ultima_execucao": "20/03/2026 às 07:43:26",
-  "sucesso": true,
-  "aguardando_atualizacao": false,
-  "data_xp": "19/03",
+  "ultima_execucao": "21/03/2026 às 10:28:35",
+  "sucesso": false,
+  "aguardando_atualizacao": true,
+  "data_xp": "20/03",
   "fonte_membros": "TibiaData API",
   "fonte_xp": "GuildStats.eu",
   "total_membros_guild": 163,
   "total_extras": 41,
-  "jogadores_com_xp_ontem": 49,
-  "jogadores_com_xp_7dias": 68,
-  "jogadores_com_xp_30dias": 78,
-  "top5_ontem": [
-    {
-      "pos": 1,
-      "nome": "Sir'Desttroyer",
-      "xp": "38.704.482"
-    },
-    {
-      "pos": 2,
-      "nome": "Van Teles",
-      "xp": "33.248.844"
-    },
-    {
-      "pos": 3,
-      "nome": "Hali Man",
-      "xp": "29.530.580"
-    },
-    {
-      "pos": 4,
-      "nome": "Utribull",
-      "xp": "27.772.823"
-    },
-    {
-      "pos": 5,
-      "nome": "Pani Kartofel",
-      "xp": "23.424.765"
-    }
-  ],
+  "jogadores_com_xp_ontem": 0,
+  "jogadores_com_xp_7dias": 0,
+  "jogadores_com_xp_30dias": 0,
+  "top5_ontem": [],
   "validacao": {
-    "tem_dados": true,
-    "msg": "✅ XP do dia 19/03 — atualizado às 07:43"
+    "tem_dados": false,
+    "msg": "⏳ Aguardando atualização do GuildStats"
   }
 }
