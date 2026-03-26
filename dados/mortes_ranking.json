@@ -1,8 +1,8 @@
 {
   "guild": "Diehard",
   "world": "Luminera",
-  "last_update": "2026-03-25 10:56:56",
-  "last_update_display": "25/03/2026 às 10:56",
+  "last_update": "2026-03-26 10:58:02",
+  "last_update_display": "26/03/2026 às 10:58",
   "total_members": 161,
   "rankings": {
     "yesterday": [
@@ -15,39 +15,91 @@
         "deaths": [
           {
             "character": "Lord Froilan",
-            "time": "2026-03-24T04:35:13Z",
+            "time": "2026-03-25T20:35:40Z",
             "level": 719,
-            "reason": "Died at Level 719 by falcon knight.",
+            "reason": "Died at Level 719 by falcon paladin.",
+            "is_pk": false
+          }
+        ],
+        "rank": 1
+      }
+    ],
+    "7days": [
+      {
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 942,
+        "is_extra": true,
+        "death_count": 4,
+        "deaths": [
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T09:34:15Z",
+            "level": 944,
+            "reason": "Died at Level 944 by undertaker.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T08:30:42Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sulphider.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T11:39:53Z",
+            "level": 944,
+            "reason": "Died at Level 944 by gorger inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T09:24:07Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sineater inferniarch.",
             "is_pk": false
           }
         ],
         "rank": 1
       },
       {
-        "name": "Pray for sio",
+        "name": "Lord Froilan",
         "vocation": "Elder Druid",
-        "level": 627,
-        "is_extra": true,
-        "death_count": 1,
+        "level": 719,
+        "is_extra": false,
+        "death_count": 3,
         "deaths": [
           {
-            "character": "Pray for sio",
-            "time": "2026-03-24T20:19:40Z",
-            "level": 628,
-            "reason": "Died at Level 628 by cave chimera.",
+            "character": "Lord Froilan",
+            "time": "2026-03-25T20:35:40Z",
+            "level": 719,
+            "reason": "Died at Level 719 by falcon paladin.",
+            "is_pk": false
+          },
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-24T04:35:13Z",
+            "level": 719,
+            "reason": "Died at Level 719 by falcon knight.",
+            "is_pk": false
+          },
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-21T21:40:35Z",
+            "level": 718,
+            "reason": "Died at Level 718 by girtablilu warrior.",
             "is_pk": false
           }
         ],
         "rank": 2
-      }
-    ],
-    "7days": [
+      },
       {
         "name": "Spirit Matt",
         "vocation": "Elder Druid",
         "level": 221,
         "is_extra": true,
-        "death_count": 4,
+        "death_count": 3,
         "deaths": [
           {
             "character": "Spirit Matt",
@@ -68,61 +120,6 @@
             "time": "2026-03-19T16:20:06Z",
             "level": 215,
             "reason": "Died at Level 215 by werebadger.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-03-18T20:26:19Z",
-            "level": 212,
-            "reason": "Died at Level 212 by crystalcrusher.",
-            "is_pk": false
-          }
-        ],
-        "rank": 1
-      },
-      {
-        "name": "Lord Froilan",
-        "vocation": "Elder Druid",
-        "level": 719,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Lord Froilan",
-            "time": "2026-03-24T04:35:13Z",
-            "level": 719,
-            "reason": "Died at Level 719 by falcon knight.",
-            "is_pk": false
-          },
-          {
-            "character": "Lord Froilan",
-            "time": "2026-03-21T21:40:35Z",
-            "level": 718,
-            "reason": "Died at Level 718 by girtablilu warrior.",
-            "is_pk": false
-          }
-        ],
-        "rank": 2
-      },
-      {
-        "name": "Farofa of Bacon",
-        "vocation": "Royal Paladin",
-        "level": 1036,
-        "is_extra": true,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Farofa of Bacon",
-            "time": "2026-03-23T10:25:41Z",
-            "level": 1037,
-            "reason": "Died at Level 1037 by agony.",
-            "is_pk": false
-          },
-          {
-            "character": "Farofa of Bacon",
-            "time": "2026-03-18T08:32:36Z",
-            "level": 1035,
-            "reason": "Died at Level 1035 by undertaker.",
             "is_pk": false
           }
         ],
@@ -153,30 +150,6 @@
         "rank": 4
       },
       {
-        "name": "Val Teles",
-        "vocation": "Elder Druid",
-        "level": 945,
-        "is_extra": true,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T11:39:53Z",
-            "level": 944,
-            "reason": "Died at Level 944 by gorger inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T09:24:07Z",
-            "level": 945,
-            "reason": "Died at Level 945 by sineater inferniarch.",
-            "is_pk": false
-          }
-        ],
-        "rank": 5
-      },
-      {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
         "level": 663,
@@ -191,12 +164,12 @@
             "is_pk": false
           }
         ],
-        "rank": 6
+        "rank": 5
       },
       {
         "name": "Homem Barbaro",
         "vocation": "Elite Knight",
-        "level": 1037,
+        "level": 1038,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -208,7 +181,7 @@
             "is_pk": false
           }
         ],
-        "rank": 7
+        "rank": 6
       },
       {
         "name": "Mega Runa Cinco",
@@ -225,24 +198,7 @@
             "is_pk": false
           }
         ],
-        "rank": 8
-      },
-      {
-        "name": "Fex Dord",
-        "vocation": "Elite Knight",
-        "level": 644,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Fex Dord",
-            "time": "2026-03-18T01:53:23Z",
-            "level": 641,
-            "reason": "Died at Level 641 by Mitmah Vanguard.",
-            "is_pk": false
-          }
-        ],
-        "rank": 9
+        "rank": 7
       },
       {
         "name": "Khytez",
@@ -259,7 +215,7 @@
             "is_pk": false
           }
         ],
-        "rank": 10
+        "rank": 8
       },
       {
         "name": "Rode Nill",
@@ -276,7 +232,7 @@
             "is_pk": false
           }
         ],
-        "rank": 11
+        "rank": 9
       },
       {
         "name": "Scarlett Stinson",
@@ -293,12 +249,29 @@
             "is_pk": false
           }
         ],
-        "rank": 12
+        "rank": 10
+      },
+      {
+        "name": "Farofa of Bacon",
+        "vocation": "Royal Paladin",
+        "level": 1036,
+        "is_extra": true,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Farofa of Bacon",
+            "time": "2026-03-23T10:25:41Z",
+            "level": 1037,
+            "reason": "Died at Level 1037 by agony.",
+            "is_pk": false
+          }
+        ],
+        "rank": 11
       },
       {
         "name": "Frodo Leads",
         "vocation": "Exalted Monk",
-        "level": 466,
+        "level": 467,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -310,7 +283,7 @@
             "is_pk": false
           }
         ],
-        "rank": 13
+        "rank": 12
       },
       {
         "name": "Maltudro moruran",
@@ -327,12 +300,12 @@
             "is_pk": false
           }
         ],
-        "rank": 14
+        "rank": 13
       },
       {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 483,
+        "level": 484,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -344,7 +317,7 @@
             "is_pk": false
           }
         ],
-        "rank": 15
+        "rank": 14
       },
       {
         "name": "Nery Blackgold",
@@ -358,6 +331,23 @@
             "time": "2026-03-21T12:22:38Z",
             "level": 703,
             "reason": "Died at Level 703 by weretiger.",
+            "is_pk": false
+          }
+        ],
+        "rank": 15
+      },
+      {
+        "name": "Proxye",
+        "vocation": "Elite Knight",
+        "level": 678,
+        "is_extra": true,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Proxye",
+            "time": "2026-03-26T00:27:42Z",
+            "level": 678,
+            "reason": "Died at Level 678 by choking fear.",
             "is_pk": false
           }
         ],
@@ -550,9 +540,106 @@
         "rank": 3
       },
       {
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 942,
+        "is_extra": true,
+        "death_count": 6,
+        "deaths": [
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T09:34:15Z",
+            "level": 944,
+            "reason": "Died at Level 944 by undertaker.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T08:30:42Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sulphider.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T11:39:53Z",
+            "level": 944,
+            "reason": "Died at Level 944 by gorger inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T09:24:07Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sineater inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-02T08:50:20Z",
+            "level": 926,
+            "reason": "Died at Level 926 by rage squid.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-02-25T08:15:51Z",
+            "level": 922,
+            "reason": "Died at Level 922 by ink blob.",
+            "is_pk": false
+          }
+        ],
+        "rank": 4
+      },
+      {
+        "name": "Lord Froilan",
+        "vocation": "Elder Druid",
+        "level": 719,
+        "is_extra": false,
+        "death_count": 5,
+        "deaths": [
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-25T20:35:40Z",
+            "level": 719,
+            "reason": "Died at Level 719 by falcon paladin.",
+            "is_pk": false
+          },
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-24T04:35:13Z",
+            "level": 719,
+            "reason": "Died at Level 719 by falcon knight.",
+            "is_pk": false
+          },
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-21T21:40:35Z",
+            "level": 718,
+            "reason": "Died at Level 718 by girtablilu warrior.",
+            "is_pk": false
+          },
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-16T00:42:15Z",
+            "level": 713,
+            "reason": "Died at Level 713 by juvenile bashmu.",
+            "is_pk": false
+          },
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-06T23:17:27Z",
+            "level": 702,
+            "reason": "Died at Level 702 by orclops bloodbreaker.",
+            "is_pk": false
+          }
+        ],
+        "rank": 5
+      },
+      {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 483,
+        "level": 484,
         "is_extra": true,
         "death_count": 5,
         "deaths": [
@@ -592,45 +679,7 @@
             "is_pk": false
           }
         ],
-        "rank": 4
-      },
-      {
-        "name": "Lord Froilan",
-        "vocation": "Elder Druid",
-        "level": 719,
-        "is_extra": false,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Lord Froilan",
-            "time": "2026-03-24T04:35:13Z",
-            "level": 719,
-            "reason": "Died at Level 719 by falcon knight.",
-            "is_pk": false
-          },
-          {
-            "character": "Lord Froilan",
-            "time": "2026-03-21T21:40:35Z",
-            "level": 718,
-            "reason": "Died at Level 718 by girtablilu warrior.",
-            "is_pk": false
-          },
-          {
-            "character": "Lord Froilan",
-            "time": "2026-03-16T00:42:15Z",
-            "level": 713,
-            "reason": "Died at Level 713 by juvenile bashmu.",
-            "is_pk": false
-          },
-          {
-            "character": "Lord Froilan",
-            "time": "2026-03-06T23:17:27Z",
-            "level": 702,
-            "reason": "Died at Level 702 by orclops bloodbreaker.",
-            "is_pk": false
-          }
-        ],
-        "rank": 5
+        "rank": 6
       },
       {
         "name": "Scarlett Stinson",
@@ -668,7 +717,7 @@
             "is_pk": false
           }
         ],
-        "rank": 6
+        "rank": 7
       },
       {
         "name": "Vitorelli",
@@ -703,44 +752,6 @@
             "time": "2026-03-05T10:44:37Z",
             "level": 432,
             "reason": "Died at Level 432 by The Pale Worm.",
-            "is_pk": false
-          }
-        ],
-        "rank": 7
-      },
-      {
-        "name": "Val Teles",
-        "vocation": "Elder Druid",
-        "level": 945,
-        "is_extra": true,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T11:39:53Z",
-            "level": 944,
-            "reason": "Died at Level 944 by gorger inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T09:24:07Z",
-            "level": 945,
-            "reason": "Died at Level 945 by sineater inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-02T08:50:20Z",
-            "level": 926,
-            "reason": "Died at Level 926 by rage squid.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-02-25T08:15:51Z",
-            "level": 922,
-            "reason": "Died at Level 922 by ink blob.",
             "is_pk": false
           }
         ],
@@ -811,7 +822,7 @@
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 683,
+        "level": 684,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -983,7 +994,7 @@
       {
         "name": "Hangg Loose",
         "vocation": "Royal Paladin",
-        "level": 233,
+        "level": 235,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -1029,9 +1040,33 @@
         "rank": 18
       },
       {
+        "name": "Proxye",
+        "vocation": "Elite Knight",
+        "level": 678,
+        "is_extra": true,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Proxye",
+            "time": "2026-03-26T00:27:42Z",
+            "level": 678,
+            "reason": "Died at Level 678 by choking fear.",
+            "is_pk": false
+          },
+          {
+            "character": "Proxye",
+            "time": "2026-03-09T04:26:51Z",
+            "level": 679,
+            "reason": "Died at Level 679 by weretiger.",
+            "is_pk": false
+          }
+        ],
+        "rank": 19
+      },
+      {
         "name": "Utribull",
         "vocation": "Elite Knight",
-        "level": 1070,
+        "level": 1071,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1050,12 +1085,12 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
       },
       {
         "name": "Homem Barbaro",
         "vocation": "Elite Knight",
-        "level": 1037,
+        "level": 1038,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1067,7 +1102,7 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Ted Neon",
@@ -1084,7 +1119,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Homem Barbaridade",
@@ -1101,12 +1136,12 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 23
       },
       {
         "name": "Bentcho",
         "vocation": "Royal Paladin",
-        "level": 417,
+        "level": 418,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1118,7 +1153,7 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 24
       },
       {
         "name": "Falaac Venon",
@@ -1135,7 +1170,7 @@
             "is_pk": false
           }
         ],
-        "rank": 24
+        "rank": 25
       },
       {
         "name": "Fex Dord",
@@ -1152,7 +1187,7 @@
             "is_pk": false
           }
         ],
-        "rank": 25
+        "rank": 26
       },
       {
         "name": "Jake Gael",
@@ -1169,7 +1204,7 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 27
       },
       {
         "name": "Khytez",
@@ -1186,7 +1221,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 28
       },
       {
         "name": "Med Prudente",
@@ -1203,7 +1238,7 @@
             "is_pk": false
           }
         ],
-        "rank": 28
+        "rank": 29
       },
       {
         "name": "Rode Nill",
@@ -1220,12 +1255,12 @@
             "is_pk": false
           }
         ],
-        "rank": 29
+        "rank": 30
       },
       {
         "name": "Frodo Leads",
         "vocation": "Exalted Monk",
-        "level": 466,
+        "level": 467,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1237,7 +1272,7 @@
             "is_pk": false
           }
         ],
-        "rank": 30
+        "rank": 31
       },
       {
         "name": "Frozudo",
@@ -1254,7 +1289,7 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 32
       },
       {
         "name": "Maltz",
@@ -1271,7 +1306,7 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 33
       },
       {
         "name": "Nery Blackgold",
@@ -1285,23 +1320,6 @@
             "time": "2026-03-21T12:22:38Z",
             "level": 703,
             "reason": "Died at Level 703 by weretiger.",
-            "is_pk": false
-          }
-        ],
-        "rank": 33
-      },
-      {
-        "name": "Proxye",
-        "vocation": "Elite Knight",
-        "level": 678,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Proxye",
-            "time": "2026-03-09T04:26:51Z",
-            "level": 679,
-            "reason": "Died at Level 679 by weretiger.",
             "is_pk": false
           }
         ],
@@ -1432,8 +1450,15 @@
         "vocation": "Elder Druid",
         "level": 719,
         "is_extra": false,
-        "death_count": 7,
+        "death_count": 8,
         "deaths": [
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-25T20:35:40Z",
+            "level": 719,
+            "reason": "Died at Level 719 by falcon paladin.",
+            "is_pk": false
+          },
           {
             "character": "Lord Froilan",
             "time": "2026-03-24T04:35:13Z",
@@ -1487,6 +1512,72 @@
         "rank": 2
       },
       {
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 942,
+        "is_extra": true,
+        "death_count": 8,
+        "deaths": [
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T09:34:15Z",
+            "level": 944,
+            "reason": "Died at Level 944 by undertaker.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T08:30:42Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sulphider.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T11:39:53Z",
+            "level": 944,
+            "reason": "Died at Level 944 by gorger inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T09:24:07Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sineater inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-02T08:50:20Z",
+            "level": 926,
+            "reason": "Died at Level 926 by rage squid.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-02-25T08:15:51Z",
+            "level": 922,
+            "reason": "Died at Level 922 by ink blob.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-02-20T08:18:07Z",
+            "level": 921,
+            "reason": "Died at Level 921 by rage squid.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-02-15T11:37:04Z",
+            "level": 920,
+            "reason": "Died at Level 920 by lava creature.",
+            "is_pk": false
+          }
+        ],
+        "rank": 3
+      },
+      {
         "name": "Maltudro moruran",
         "vocation": "Master Sorcerer",
         "level": 754,
@@ -1536,12 +1627,12 @@
             "is_pk": false
           }
         ],
-        "rank": 3
+        "rank": 4
       },
       {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 483,
+        "level": 484,
         "is_extra": true,
         "death_count": 6,
         "deaths": [
@@ -1588,7 +1679,7 @@
             "is_pk": false
           }
         ],
-        "rank": 4
+        "rank": 5
       },
       {
         "name": "Theophile Monk",
@@ -1637,58 +1728,6 @@
             "time": "2026-02-24T01:47:59Z",
             "level": 386,
             "reason": "Died at Level 386 by headwalker.",
-            "is_pk": false
-          }
-        ],
-        "rank": 5
-      },
-      {
-        "name": "Val Teles",
-        "vocation": "Elder Druid",
-        "level": 945,
-        "is_extra": true,
-        "death_count": 6,
-        "deaths": [
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T11:39:53Z",
-            "level": 944,
-            "reason": "Died at Level 944 by gorger inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T09:24:07Z",
-            "level": 945,
-            "reason": "Died at Level 945 by sineater inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-02T08:50:20Z",
-            "level": 926,
-            "reason": "Died at Level 926 by rage squid.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-02-25T08:15:51Z",
-            "level": 922,
-            "reason": "Died at Level 922 by ink blob.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-02-20T08:18:07Z",
-            "level": 921,
-            "reason": "Died at Level 921 by rage squid.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-02-15T11:37:04Z",
-            "level": 920,
-            "reason": "Died at Level 920 by lava creature.",
             "is_pk": false
           }
         ],
@@ -1818,7 +1857,7 @@
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 683,
+        "level": 684,
         "is_extra": true,
         "death_count": 4,
         "deaths": [
@@ -2066,7 +2105,7 @@
       {
         "name": "Hangg Loose",
         "vocation": "Royal Paladin",
-        "level": 233,
+        "level": 235,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -2112,9 +2151,33 @@
         "rank": 19
       },
       {
+        "name": "Proxye",
+        "vocation": "Elite Knight",
+        "level": 678,
+        "is_extra": true,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Proxye",
+            "time": "2026-03-26T00:27:42Z",
+            "level": 678,
+            "reason": "Died at Level 678 by choking fear.",
+            "is_pk": false
+          },
+          {
+            "character": "Proxye",
+            "time": "2026-03-09T04:26:51Z",
+            "level": 679,
+            "reason": "Died at Level 679 by weretiger.",
+            "is_pk": false
+          }
+        ],
+        "rank": 20
+      },
+      {
         "name": "Utribull",
         "vocation": "Elite Knight",
-        "level": 1070,
+        "level": 1071,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -2133,12 +2196,12 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Homem Barbaro",
         "vocation": "Elite Knight",
-        "level": 1037,
+        "level": 1038,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2150,7 +2213,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Ted Neon",
@@ -2167,7 +2230,7 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 23
       },
       {
         "name": "Harvok Chen",
@@ -2184,7 +2247,7 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 24
       },
       {
         "name": "Homem Barbaridade",
@@ -2201,7 +2264,7 @@
             "is_pk": false
           }
         ],
-        "rank": 24
+        "rank": 25
       },
       {
         "name": "Axl Wood",
@@ -2218,12 +2281,12 @@
             "is_pk": false
           }
         ],
-        "rank": 25
+        "rank": 26
       },
       {
         "name": "Bentcho",
         "vocation": "Royal Paladin",
-        "level": 417,
+        "level": 418,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2235,7 +2298,7 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 27
       },
       {
         "name": "Domto",
@@ -2252,7 +2315,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 28
       },
       {
         "name": "Falaac Venon",
@@ -2269,7 +2332,7 @@
             "is_pk": false
           }
         ],
-        "rank": 28
+        "rank": 29
       },
       {
         "name": "Fex Dord",
@@ -2286,7 +2349,7 @@
             "is_pk": false
           }
         ],
-        "rank": 29
+        "rank": 30
       },
       {
         "name": "Finn Gael",
@@ -2303,7 +2366,7 @@
             "is_pk": false
           }
         ],
-        "rank": 30
+        "rank": 31
       },
       {
         "name": "Jake Gael",
@@ -2320,7 +2383,7 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 32
       },
       {
         "name": "Khurlan",
@@ -2337,7 +2400,7 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 33
       },
       {
         "name": "Khytez",
@@ -2354,7 +2417,7 @@
             "is_pk": false
           }
         ],
-        "rank": 33
+        "rank": 34
       },
       {
         "name": "Med Prudente",
@@ -2371,7 +2434,7 @@
             "is_pk": false
           }
         ],
-        "rank": 34
+        "rank": 35
       },
       {
         "name": "Rode Nill",
@@ -2388,7 +2451,7 @@
             "is_pk": false
           }
         ],
-        "rank": 35
+        "rank": 36
       },
       {
         "name": "Ruckert",
@@ -2405,7 +2468,7 @@
             "is_pk": false
           }
         ],
-        "rank": 36
+        "rank": 37
       },
       {
         "name": "Vaughn Benjamin",
@@ -2422,7 +2485,7 @@
             "is_pk": false
           }
         ],
-        "rank": 37
+        "rank": 38
       },
       {
         "name": "Edu Fredericci",
@@ -2439,12 +2502,12 @@
             "is_pk": false
           }
         ],
-        "rank": 38
+        "rank": 39
       },
       {
         "name": "Frodo Leads",
         "vocation": "Exalted Monk",
-        "level": 466,
+        "level": 467,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -2456,7 +2519,7 @@
             "is_pk": false
           }
         ],
-        "rank": 39
+        "rank": 40
       },
       {
         "name": "Frozudo",
@@ -2473,7 +2536,7 @@
             "is_pk": false
           }
         ],
-        "rank": 40
+        "rank": 41
       },
       {
         "name": "Luskzin",
@@ -2490,7 +2553,7 @@
             "is_pk": false
           }
         ],
-        "rank": 41
+        "rank": 42
       },
       {
         "name": "Nery Blackgold",
@@ -2507,7 +2570,7 @@
             "is_pk": false
           }
         ],
-        "rank": 42
+        "rank": 43
       },
       {
         "name": "Niko Fredericci",
@@ -2524,29 +2587,12 @@
             "is_pk": false
           }
         ],
-        "rank": 43
-      },
-      {
-        "name": "Proxye",
-        "vocation": "Elite Knight",
-        "level": 678,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Proxye",
-            "time": "2026-03-09T04:26:51Z",
-            "level": 679,
-            "reason": "Died at Level 679 by weretiger.",
-            "is_pk": false
-          }
-        ],
         "rank": 44
       },
       {
         "name": "Sir'Desttroyer",
         "vocation": "Royal Paladin",
-        "level": 683,
+        "level": 684,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
