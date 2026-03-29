@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo C — Tibia Medieval</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #2c1810;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .screenshot {
+            width: 1200px;
+            background: #d4c5a0;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 3px solid #8b6914;
+            box-shadow: 0 0 0 1px #5a4510, 0 8px 32px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* Decorative corners */
+        .screenshot::before,
+        .screenshot::after {
+            content: '◆';
+            position: absolute;
+            font-size: 14px;
+            color: #8b6914;
+            z-index: 2;
+        }
+        .screenshot::before { top: 6px; left: 10px; }
+        .screenshot::after { top: 6px; right: 10px; }
+
+        /* === HEADER === */
+        .header {
+            background: linear-gradient(180deg, #2c1810 0%, #3d2419 100%);
+            padding: 36px 48px;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid #8b6914;
+        }
+
+        .header-divider {
+            color: #8b6914;
+            font-size: 0.9rem;
+            letter-spacing: 8px;
+            margin-bottom: 8px;
+        }
+
+        .guild-name {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #d4af37;
+            letter-spacing: 4px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 4px;
+        }
+
+        .guild-sub {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            color: #a08050;
+            letter-spacing: 3px;
+        }
+
+        .header-bottom {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .header-meta {
+            font-size: 0.8rem;
+            color: #7a6540;
+            letter-spacing: 1px;
+        }
+
+        .header-meta strong {
+            color: #d4af37;
+        }
+
+        /* === CHAMPIONS === */
+        .champions {
+            padding: 36px 48px 28px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #5a4510;
+            text-align: center;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '─────';
+            color: #b8a070;
+            font-family: monospace;
+            letter-spacing: 0;
+        }
+
+        .section-title::before { margin-right: 16px; }
+        .section-title::after { margin-left: 16px; }
+
+        .champion-cards {
+            display: flex;
+            gap: 20px;
+        }
+
+        .champion {
+            flex: 1;
+            background: linear-gradient(180deg, #e8dcc0 0%, #d4c5a0 100%);
+            border-radius: 8px;
+            border: 2px solid #b8a070;
+            padding: 24px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .champion.first {
+            border-color: #d4af37;
+            background: linear-gradient(180deg, #f0e4c0 0%, #e0d4b0 100%);
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.15);
+        }
+
+        .champion.first::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        .champion.second { border-color: #a0a0a0; }
+        .champion.second::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #a0a0a0;
+        }
+
+        .champion.third { border-color: #8b6914; }
+        .champion.third::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #8b6914;
+        }
+
+        .champion-icon {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .champion-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2c1810;
+            margin-bottom: 6px;
+        }
+
+        .first .champion-name { font-size: 1.3rem; }
+
+        .champion-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .voc-badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(90, 69, 16, 0.1);
+            border: 1px solid rgba(90, 69, 16, 0.15);
+        }
+
+        .voc-ek { color: #8b6914; }
+        .voc-rp { color: #2d6a2d; }
+        .voc-ed { color: #3355a0; }
+        .voc-ms { color: #7a2080; }
+
+        .champion-level {
+            font-size: 0.8rem;
+            color: #8a7a60;
+        }
+
+        .champion-xp {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #2d6a2d;
+            margin-bottom: 12px;
+        }
+
+        .first .champion-xp {
+            font-size: 1.75rem;
+            color: #1a5a1a;
+        }
+
+        .xp-bar {
+            height: 6px;
+            background: #c0b48a;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+
+        .first .xp-bar-fill { background: linear-gradient(90deg, #d4af37, #2d6a2d); }
+        .second .xp-bar-fill { background: linear-gradient(90deg, #a0a0a0, #2d6a2d); }
+        .third .xp-bar-fill { background: linear-gradient(90deg, #8b6914, #2d6a2d); }
+
+        .xp-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .phrase {
+            font-size: 0.82rem;
+            color: #8a7a60;
+            font-style: italic;
+            padding-top: 12px;
+            border-top: 1px solid #c0b48a;
+        }
+
+        /* === RANKING TABLE === */
+        .ranking {
+            padding: 0 48px 32px;
+        }
+
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #e8dcc0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #b8a070;
+        }
+
+        .ranking-table thead th {
+            text-align: left;
+            padding: 14px 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #5a4510;
+            background: #d4c5a0;
+            border-bottom: 2px solid #b8a070;
+        }
+
+        .ranking-table thead th:first-child { text-align: center; width: 50px; }
+        .ranking-table thead th:nth-child(3) { text-align: center; width: 70px; }
+        .ranking-table thead th:nth-child(4) { text-align: center; width: 70px; }
+        .ranking-table thead th:last-child { text-align: right; width: 160px; }
+
+        .ranking-table tbody td {
+            padding: 12px 16px;
+            font-size: 0.875rem;
+            color: #4a3a20;
+            border-bottom: 1px solid #c8b890;
+        }
+
+        .ranking-table tbody tr:last-child td { border-bottom: none; }
+
+        .ranking-table tbody tr:hover {
+            background: #ddd0b0;
+        }
+
+        .ranking-table tbody td:first-child {
+            text-align: center;
+            font-weight: 700;
+            color: #8a7a60;
+            font-family: 'Cinzel', serif;
+        }
+
+        .ranking-table tbody td:nth-child(3) { text-align: center; }
+        .ranking-table tbody td:nth-child(4) { text-align: center; color: #8a7a60; }
+        .ranking-table tbody td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: #2d6a2d;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .table-name {
+            font-weight: 500;
+            color: #2c1810;
+        }
+
+        .table-voc {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(90, 69, 16, 0.08);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: linear-gradient(180deg, #3d2419 0%, #2c1810 100%);
+            padding: 16px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 3px solid #8b6914;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: #7a6540;
+        }
+
+        .footer-center {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: #8b6914;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .members-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #d4af37;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="screenshot">
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-divider">◆ ─── ◆ ─── ◆</div>
+        <div class="guild-name">⚔ DIEHARD ⚔</div>
+        <div class="guild-sub">Guild Hall · Luminera</div>
+        <div class="header-bottom">
+            <span class="header-meta"><strong>Ranking de Ontem</strong></span>
+            <span class="header-meta">25/02/2026 · 07:30</span>
+            <span class="header-meta">Top 20</span>
+        </div>
+    </div>
+
+    <!-- CHAMPIONS -->
+    <div class="champions">
+        <div class="section-title">Campeões do Dia</div>
+        <div class="champion-cards">
+            <div class="champion first">
+                <div class="champion-icon">👑</div>
+                <div class="champion-name">Monk Frodo</div>
+                <div class="champion-info">
+                    <span class="voc-badge voc-ek">Elite Knight</span>
+                    <span class="champion-level">Level 842</span>
+                </div>
+                <div class="champion-xp">+2.483.000</div>
+                <div class="xp-bar"><div class="xp-bar-fill" style="width: 100%"></div></div>
+                <div class="phrase">"Huntou até o server save e voltou pra huntar mais" 🔥</div>
+            </div>
+
+            <div class="champion second">
+                <div class="champion-icon">⚔</div>
+                <div class="champion-name">Spirit Elite</div>
+                <div class="champion-info">
+                    <span class="voc-badge voc-rp">Royal Paladin</span>
+                    <span class="champion-level">Level 798</span>
+                </div>
+                <div class="champion-xp">+1.847.000</div>
+                <div class="xp-bar"><div class="xp-bar-fill" style="width: 74%"></div></div>
+                <div class="phrase">"Só faltou um pouco de boost... e umas 3 horas" 😅</div>
+            </div>
+
+            <div class="champion third">
+                <div class="champion-icon">🛡</div>
+                <div class="champion-name">Gelloo</div>
+                <div class="champion-info">
+                    <span class="voc-badge voc-ed">Elder Druid</span>
+                    <span class="champion-level">Level 756</span>
+                </div>
+                <div class="champion-xp">+1.234.000</div>
+                <div class="xp-bar"><div class="xp-bar-fill" style="width: 50%"></div></div>
+                <div class="phrase">"Pelo menos tá no pódio, né?" 🤷</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RANKING TABLE -->
+    <div class="ranking">
+        <table class="ranking-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Jogador</th>
+                    <th>Voc</th>
+                    <th>Level</th>
+                    <th>Exp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>4</td><td class="table-name">Farofa of Bacon</td><td><span class="table-voc voc-ek">EK</span></td><td>721</td><td>+987.000</td></tr>
+                <tr><td>5</td><td class="table-name">Hali Man</td><td><span class="table-voc voc-ms">MS</span></td><td>695</td><td>+876.000</td></tr>
+                <tr><td>6</td><td class="table-name">Royal Knight</td><td><span class="table-voc voc-ek">EK</span></td><td>678</td><td>+754.000</td></tr>
+                <tr><td>7</td><td class="table-name">Murdrak</td><td><span class="table-voc voc-rp">RP</span></td><td>654</td><td>+698.000</td></tr>
+                <tr><td>8</td><td class="table-name">Pani Kartofel</td><td><span class="table-voc voc-ed">ED</span></td><td>632</td><td>+612.000</td></tr>
+                <tr><td>9</td><td class="table-name">Wasted Thyme</td><td><span class="table-voc voc-ms">MS</span></td><td>601</td><td>+543.000</td></tr>
+                <tr><td>10</td><td class="table-name">Murthar</td><td><span class="table-voc voc-ek">EK</span></td><td>589</td><td>+498.000</td></tr>
+                <tr><td>11</td><td class="table-name">Proxye</td><td><span class="table-voc voc-rp">RP</span></td><td>567</td><td>+432.000</td></tr>
+                <tr><td>12</td><td class="table-name">Edu Fredericci</td><td><span class="table-voc voc-ek">EK</span></td><td>545</td><td>+387.000</td></tr>
+                <tr><td>13</td><td class="table-name">Luskzin</td><td><span class="table-voc voc-ms">MS</span></td><td>523</td><td>+345.000</td></tr>
+                <tr><td>14</td><td class="table-name">Deep Slot</td><td><span class="table-voc voc-ed">ED</span></td><td>498</td><td>+298.000</td></tr>
+                <tr><td>15</td><td class="table-name">Val Teles</td><td><span class="table-voc voc-rp">RP</span></td><td>476</td><td>+256.000</td></tr>
+                <tr><td>16</td><td class="table-name">Thionk</td><td><span class="table-voc voc-ek">EK</span></td><td>454</td><td>+213.000</td></tr>
+                <tr><td>17</td><td class="table-name">Renanzhyn</td><td><span class="table-voc voc-ms">MS</span></td><td>432</td><td>+187.000</td></tr>
+                <tr><td>18</td><td class="table-name">Niko Fredericci</td><td><span class="table-voc voc-ed">ED</span></td><td>410</td><td>+154.000</td></tr>
+                <tr><td>19</td><td class="table-name">Wings Hope</td><td><span class="table-voc voc-rp">RP</span></td><td>398</td><td>+132.000</td></tr>
+                <tr><td>20</td><td class="table-name">Van Teles</td><td><span class="table-voc voc-ek">EK</span></td><td>376</td><td>+98.000</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-text">guildstats.eu/guild=Diehard</div>
+        <div class="footer-center">◆ Diehard Guild ◆</div>
+        <div class="members-badge">45 membros ativos</div>
+    </div>
+</div>
+
+</body>
+</html>

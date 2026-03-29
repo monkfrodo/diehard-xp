@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diehard XP — Elite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050508;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 48px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           CONTAINER — 1200px (formato screenshot real)
+        ═══════════════════════════════════════════════ */
+        .frame {
+            width: 1200px;
+            background: #0a0a10;
+            overflow: hidden;
+        }
+
+        /* ═══════ HEADER ═══════ */
+        .header {
+            padding: 32px 52px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d0d14;
+            border-bottom: 1px solid #16162a;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(140deg, #e2b84a 0%, #8a6020 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .guild-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #f4f4f4;
+            letter-spacing: -0.4px;
+            line-height: 1.1;
+        }
+
+        .guild-sub {
+            font-size: 0.78rem;
+            color: #44445a;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .period-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #35354a;
+            margin-bottom: 5px;
+        }
+
+        .period-value {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #d4a030;
+            letter-spacing: -0.3px;
+        }
+
+        .period-date {
+            font-size: 0.72rem;
+            color: #333348;
+            margin-top: 3px;
+        }
+
+        /* ═══════ TOP 3 — PODIUM ═══════ */
+        .podium {
+            padding: 44px 52px 36px;
+            display: grid;
+            grid-template-columns: 1fr 1.18fr 1fr;
+            gap: 14px;
+            background: linear-gradient(180deg, #0d0d14 0%, #0a0a10 100%);
+        }
+
+        .podium-card {
+            border-radius: 10px;
+            padding: 28px 26px 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* backgrounds com toque de cor da medalha */
+        .podium-card.rank-1 {
+            background: #0e0c04;
+            border: 1px solid rgba(210, 160, 48, 0.22);
+            padding: 32px 26px 26px;
+        }
+
+        .podium-card.rank-2 {
+            background: #0b0c12;
+            border: 1px solid rgba(160, 175, 195, 0.14);
+        }
+
+        .podium-card.rank-3 {
+            background: #0e0b08;
+            border: 1px solid rgba(185, 120, 56, 0.14);
+        }
+
+        /* número grande fantasma ao fundo */
+        .ghost-rank {
+            position: absolute;
+            bottom: -10px;
+            right: 10px;
+            font-size: 9rem;
+            font-weight: 900;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .rank-1 .ghost-rank { color: #d4a030; opacity: 0.07; }
+        .rank-2 .ghost-rank { color: #a0b0c0; opacity: 0.055; }
+        .rank-3 .ghost-rank { color: #b87838; opacity: 0.06; }
+
+        /* badge de posição */
+        .pos-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 18px;
+        }
+
+        .rank-1 .pos-badge { background: #d4a030; color: #1a1000; }
+        .rank-2 .pos-badge { background: #8090a8; color: #0e1018; }
+        .rank-3 .pos-badge { background: #a86030; color: #f0dcc0; }
+
+        .podium-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #e8e8f0;
+            line-height: 1.2;
+            margin-bottom: 7px;
+        }
+
+        .rank-1 .podium-name {
+            font-size: 1.35rem;
+            color: #fff;
+        }
+
+        .podium-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .voc {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .voc-ek { background: rgba(210,170,48,0.12); color: #d4aa30; }
+        .voc-rp { background: rgba(60,190,90,0.10); color: #3cbe5a; }
+        .voc-ed { background: rgba(70,130,220,0.10); color: #4682dc; }
+        .voc-ms { background: rgba(170,80,210,0.10); color: #aa50d2; }
+
+        .lvl {
+            font-size: 0.73rem;
+            color: #3a3a52;
+            font-weight: 500;
+        }
+
+        .podium-phrase {
+            font-size: 0.76rem;
+            color: #3a3a50;
+            font-style: italic;
+            line-height: 1.45;
+            margin-bottom: 20px;
+        }
+
+        .podium-xp {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #3cd478;
+            letter-spacing: -0.5px;
+            margin-bottom: 11px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .rank-1 .podium-xp {
+            font-size: 1.85rem;
+            color: #4ade80;
+        }
+
+        .bar-track {
+            height: 3px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .rank-1 .bar-fill { background: linear-gradient(90deg, #3cd478, #7aeba0); }
+        .rank-2 .bar-fill { background: #2a9050; }
+        .rank-3 .bar-fill { background: #1e6838; }
+
+        /* ═══════ LISTA 4-20 ═══════ */
+        .list {
+            padding: 0 52px 36px;
+        }
+
+        .list-divider {
+            height: 1px;
+            background: #14142a;
+            margin-bottom: 8px;
+        }
+
+        .list-row {
+            display: grid;
+            grid-template-columns: 40px 1fr 56px 64px 160px;
+            gap: 16px;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #0e0e1a;
+        }
+
+        .list-row:last-child { border-bottom: none; }
+
+        .list-num {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #2a2a40;
+            text-align: center;
+        }
+
+        .list-name {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #b0b0c8;
+        }
+
+        .list-voc {
+            text-align: center;
+        }
+
+        .list-lvl {
+            font-size: 0.78rem;
+            color: #303048;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .list-xp-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+        }
+
+        .list-xp-val {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #2a9450;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .list-bar-track {
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .list-bar-fill {
+            height: 100%;
+            border-radius: 1px;
+            background: #1a5a30;
+        }
+
+        /* ═══════ FOOTER ═══════ */
+        .footer {
+            padding: 14px 52px;
+            border-top: 1px solid #0e0e1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer span {
+            font-size: 0.62rem;
+            color: #1e1e30;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="frame">
+
+    <!-- ── HEADER ── -->
+    <div class="header">
+        <div class="header-left">
+            <div class="logo">⚔️</div>
+            <div>
+                <div class="guild-name">Diehard Guild</div>
+                <div class="guild-sub">Luminera · Optional PvP</div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="period-label">Ranking de XP</div>
+            <div class="period-value">Ontem</div>
+            <div class="period-date">25/02/2026 · gerado às 07:30</div>
+        </div>
+    </div>
+
+    <!-- ── TOP 3 ── -->
+    <div class="podium">
+
+        <!-- 2º -->
+        <div class="podium-card rank-2">
+            <div class="ghost-rank">2</div>
+            <div class="pos-badge">2</div>
+            <div class="podium-name">Spirit Elite</div>
+            <div class="podium-meta">
+                <span class="voc voc-rp">RP</span>
+                <span class="lvl">Lv. 798</span>
+            </div>
+            <div class="podium-phrase">"Só faltou um pouco de boost... e umas 3 horas" 😅</div>
+            <div class="podium-xp">+1.847.000</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width: 74%"></div>
+            </div>
+        </div>
+
+        <!-- 1º -->
+        <div class="podium-card rank-1">
+            <div class="ghost-rank">1</div>
+            <div class="pos-badge">1</div>
+            <div class="podium-name">Monk Frodo</div>
+            <div class="podium-meta">
+                <span class="voc voc-ek">EK</span>
+                <span class="lvl">Lv. 842</span>
+            </div>
+            <div class="podium-phrase">"Huntou até o server save e voltou pra huntar mais" 🔥</div>
+            <div class="podium-xp">+2.483.000</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width: 100%"></div>
+            </div>
+        </div>
+
+        <!-- 3º -->
+        <div class="podium-card rank-3">
+            <div class="ghost-rank">3</div>
+            <div class="pos-badge">3</div>
+            <div class="podium-name">Gelloo</div>
+            <div class="podium-meta">
+                <span class="voc voc-ed">ED</span>
+                <span class="lvl">Lv. 756</span>
+            </div>
+            <div class="podium-phrase">"Pelo menos tá no pódio, né?" 🤷</div>
+            <div class="podium-xp">+1.234.000</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width: 50%"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ── LISTA 4–20 ── -->
+    <div class="list">
+        <div class="list-divider"></div>
+
+        <div class="list-row">
+            <span class="list-num">4</span>
+            <span class="list-name">Farofa of Bacon</span>
+            <span class="list-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="list-lvl">721</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+987.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:40%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">5</span>
+            <span class="list-name">Hali Man</span>
+            <span class="list-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="list-lvl">695</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+876.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:35%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">6</span>
+            <span class="list-name">Royal Knight</span>
+            <span class="list-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="list-lvl">678</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+754.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:30%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">7</span>
+            <span class="list-name">Murdrak</span>
+            <span class="list-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="list-lvl">654</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+698.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:28%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">8</span>
+            <span class="list-name">Pani Kartofel</span>
+            <span class="list-voc"><span class="voc voc-ed">ED</span></span>
+            <span class="list-lvl">632</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+612.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:25%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">9</span>
+            <span class="list-name">Wasted Thyme</span>
+            <span class="list-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="list-lvl">601</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+543.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:22%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">10</span>
+            <span class="list-name">Murthar</span>
+            <span class="list-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="list-lvl">589</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+498.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:20%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">11</span>
+            <span class="list-name">Proxye</span>
+            <span class="list-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="list-lvl">567</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+432.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:17%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">12</span>
+            <span class="list-name">Edu Fredericci</span>
+            <span class="list-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="list-lvl">545</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+387.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:16%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">13</span>
+            <span class="list-name">Luskzin</span>
+            <span class="list-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="list-lvl">523</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+345.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:14%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">14</span>
+            <span class="list-name">Deep Slot</span>
+            <span class="list-voc"><span class="voc voc-ed">ED</span></span>
+            <span class="list-lvl">498</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+298.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:12%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">15</span>
+            <span class="list-name">Val Teles</span>
+            <span class="list-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="list-lvl">476</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+256.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:10%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">16</span>
+            <span class="list-name">Thionk</span>
+            <span class="list-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="list-lvl">454</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+213.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:9%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">17</span>
+            <span class="list-name">Renanzhyn</span>
+            <span class="list-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="list-lvl">432</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+187.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:8%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">18</span>
+            <span class="list-name">Niko Fredericci</span>
+            <span class="list-voc"><span class="voc voc-ed">ED</span></span>
+            <span class="list-lvl">410</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+154.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:6%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">19</span>
+            <span class="list-name">Wings Hope</span>
+            <span class="list-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="list-lvl">398</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+132.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:5%"></div></div>
+            </div>
+        </div>
+
+        <div class="list-row">
+            <span class="list-num">20</span>
+            <span class="list-name">Van Teles</span>
+            <span class="list-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="list-lvl">376</span>
+            <div class="list-xp-cell">
+                <span class="list-xp-val">+98.000</span>
+                <div class="list-bar-track"><div class="list-bar-fill" style="width:4%"></div></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <div class="footer">
+        <span>guildstats.eu/guild=Diehard</span>
+        <span>diehard-xp · Luminera</span>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -343,6 +343,22 @@
             color: #c0b090;
         }
 
+        /* ── FRASE ── */
+        .player-phrase {
+            font-family: 'Caveat', cursive;
+            font-size: 0.88rem;
+            color: #706050;
+            display: block;
+            margin-top: 2px;
+            font-style: italic;
+        }
+        .player-row.top .player-phrase {
+            font-size: 0.95rem;
+            color: #1a2870;
+            font-weight: 700;
+            font-style: normal;
+        }
+
         /* ── FOOTER ── */
         footer { margin-top: 24px; text-align: center; }
         .footer-links {
@@ -567,6 +583,34 @@
             return '#888';
         }
 
+        function shuffleArray(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function buildPhraseMap(count) {
+            if (!frasesData) return {};
+            const pickRandom = (pool) => pool[Math.floor(Math.random() * pool.length)];
+            const map = {};
+
+            // Top 3: frases específicas
+            if (count >= 1) map[0] = pickRandom(frasesData.p1);
+            if (count >= 2) map[1] = pickRandom(frasesData.p2);
+            if (count >= 3) map[2] = pickRandom(frasesData.p3);
+
+            // 4+: frases genéricas embaralhadas para todos
+            const generics = shuffleArray(frasesData.genericas);
+            for (let i = 3; i < count; i++) {
+                map[i] = generics[i % generics.length] || '';
+            }
+
+            return map;
+        }
+
         function renderRanking() {
             const content = document.getElementById('ranking-content');
             const loadMoreContainer = document.getElementById('load-more-container');
@@ -587,6 +631,7 @@
                 return;
             }
 
+            const phraseMap = buildPhraseMap(toShow.length);
             const isConsolidated = currentPeriod === 'consolidated';
             let html = '<div class="ranking-list">';
 
@@ -617,6 +662,9 @@
                     nameMarkup = `<span class="player-name">${player.name}</span>`;
                 }
 
+                const phrase = phraseMap[index] || '';
+                const phraseHtml = phrase ? `<span class="player-phrase">${phrase}</span>` : '';
+
                 let xpContent;
                 if (isConsolidated) {
                     xpContent = `
@@ -635,6 +683,7 @@
                         <div class="player-info">
                             <a href="${charUrl}" target="_blank" style="text-decoration:none;">${nameMarkup}</a>
                             <span class="player-meta"><span class="${vocClass}">${vocShort}</span> · Lv ${player.level || '—'}</span>
+                            ${phraseHtml}
                         </div>
                         ${xpContent}
                     </div>`;

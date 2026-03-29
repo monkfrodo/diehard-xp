@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Diehard XP — Arena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050510;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 48px;
+        }
+
+        /* ══ FRAME 1200px ══ */
+        .frame {
+            width: 1200px;
+            background: radial-gradient(ellipse at 50% 0%, #16103a 0%, #08080f 55%);
+            overflow: hidden;
+        }
+
+        /* ══ HEADER ══ */
+        .header {
+            padding: 30px 48px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f0c040 0%, #906010 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #f0f0ff;
+            letter-spacing: -0.3px;
+        }
+
+        .brand-sub {
+            font-size: 0.75rem;
+            color: #40406a;
+            margin-top: 3px;
+        }
+
+        .header-period {
+            text-align: right;
+        }
+
+        .period-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #8080c0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .period-date {
+            font-size: 0.68rem;
+            color: #30304a;
+        }
+
+        /* ══ TOP 3 ══ */
+        .top3 {
+            padding: 40px 48px 32px;
+            display: grid;
+            grid-template-columns: 1fr 1.12fr 1fr;
+            gap: 16px;
+            align-items: end;
+        }
+
+        /* cards base */
+        .champion-card {
+            border-radius: 14px;
+            padding: 28px 24px 26px;
+            position: relative;
+            overflow: hidden;
+            transition: none;
+        }
+
+        /* 1º — dourado, glow, maior */
+        .champion-card.p1 {
+            background: linear-gradient(160deg, #1c1500 0%, #0f0d00 100%);
+            border: 1.5px solid rgba(240, 180, 30, 0.35);
+            box-shadow: 0 0 60px rgba(240, 180, 30, 0.07), 0 0 120px rgba(240, 180, 30, 0.04);
+            padding: 32px 24px 28px;
+        }
+
+        /* 2º — prata/ciano */
+        .champion-card.p2 {
+            background: linear-gradient(160deg, #0c1020 0%, #080c18 100%);
+            border: 1.5px solid rgba(140, 180, 230, 0.2);
+            box-shadow: 0 0 40px rgba(140, 180, 230, 0.04);
+        }
+
+        /* 3º — bronze/laranja */
+        .champion-card.p3 {
+            background: linear-gradient(160deg, #18090400 0%, #120703 100%);
+            border: 1.5px solid rgba(210, 120, 40, 0.2);
+            box-shadow: 0 0 40px rgba(210, 120, 40, 0.04);
+        }
+
+        /* número fantasma gigante */
+        .ghost {
+            position: absolute;
+            right: -8px;
+            bottom: -16px;
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.07;
+        }
+
+        .p1 .ghost { color: #f0c030; opacity: 0.12; font-size: 12rem; }
+        .p2 .ghost { color: #90b0e0; }
+        .p3 .ghost { color: #d07828; }
+
+        /* posição badge */
+        .pos {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .pos-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.9rem;
+        }
+
+        .p1 .pos-num { background: #f0c030; color: #1a1000; }
+        .p2 .pos-num { background: #8090a8; color: #0e1018; }
+        .p3 .pos-num { background: #c07030; color: #fff8f0; }
+
+        .pos-icon {
+            font-size: 1.1rem;
+        }
+
+        /* nome */
+        .champ-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ebebff;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+            line-height: 1.1;
+        }
+
+        .p1 .champ-name {
+            font-size: 1.55rem;
+            color: #fff;
+        }
+
+        /* voc + level */
+        .champ-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .voc {
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 5px;
+        }
+
+        /* vocações com fundo sólido, bem coloridas */
+        .voc-ek { background: #c88020; color: #fff; }
+        .voc-rp { background: #18a040; color: #fff; }
+        .voc-ed { background: #2060d0; color: #fff; }
+        .voc-ms { background: #9030b0; color: #fff; }
+
+        .champ-lvl {
+            font-size: 0.73rem;
+            color: #404060;
+            font-weight: 500;
+        }
+
+        /* frase */
+        .champ-phrase {
+            font-size: 0.8rem;
+            line-height: 1.45;
+            font-style: italic;
+            color: #48486a;
+            margin-bottom: 22px;
+            padding-left: 10px;
+            border-left: 2px solid rgba(255,255,255,0.06);
+        }
+
+        .p1 .champ-phrase {
+            border-left-color: rgba(240, 190, 40, 0.2);
+            color: #505038;
+        }
+
+        /* XP */
+        .champ-xp {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #30d870;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .p1 .champ-xp {
+            font-size: 1.9rem;
+            color: #40e880;
+        }
+
+        /* barra XP — grossa */
+        .xpbar {
+            height: 8px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .xpbar-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .p1 .xpbar-fill { background: linear-gradient(90deg, #28c860, #60ffaa); }
+        .p2 .xpbar-fill { background: #20905a; }
+        .p3 .xpbar-fill { background: #186040; }
+
+        /* ══ LISTA 4–20 ══ */
+        .list-wrap {
+            padding: 0 48px 36px;
+        }
+
+        .list-sep {
+            height: 1px;
+            background: rgba(255,255,255,0.04);
+            margin-bottom: 6px;
+        }
+
+        .list-head {
+            display: grid;
+            grid-template-columns: 44px 1fr 64px 72px 180px;
+            gap: 16px;
+            padding: 8px 0;
+        }
+
+        .list-head span {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #252540;
+        }
+
+        .list-head span:nth-child(1) { text-align: center; }
+        .list-head span:nth-child(3) { text-align: center; }
+        .list-head span:nth-child(4) { text-align: center; }
+        .list-head span:nth-child(5) { text-align: right; }
+
+        .list-row {
+            display: grid;
+            grid-template-columns: 44px 1fr 64px 72px 180px;
+            gap: 16px;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.025);
+        }
+
+        .list-row:last-child { border-bottom: none; }
+
+        .lr-num {
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #252540;
+        }
+
+        .lr-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #a0a0cc;
+        }
+
+        .lr-voc { text-align: center; }
+
+        .lr-lvl {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #30304a;
+            font-weight: 500;
+        }
+
+        .lr-xp {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+        }
+
+        .lr-xp-val {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #20944a;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .lr-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .lr-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: #185530;
+        }
+
+        /* ══ FOOTER ══ */
+        .footer {
+            padding: 14px 48px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer span {
+            font-size: 0.62rem;
+            color: #1c1c38;
+        }
+    </style>
+</head>
+<body>
+
+<div class="frame">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-brand">
+            <div class="logo">⚔️</div>
+            <div>
+                <div class="brand-name">Diehard Guild</div>
+                <div class="brand-sub">Luminera · Optional PvP</div>
+            </div>
+        </div>
+        <div class="header-period">
+            <div class="period-tag">XP de Ontem</div>
+            <div class="period-date">25/02/2026 · gerado às 07:30</div>
+        </div>
+    </div>
+
+    <!-- TOP 3 -->
+    <div class="top3">
+
+        <!-- 2º lugar -->
+        <div class="champion-card p2">
+            <div class="ghost">2</div>
+            <div class="pos">
+                <div class="pos-num">2</div>
+                <span class="pos-icon">🥈</span>
+            </div>
+            <div class="champ-name">Spirit Elite</div>
+            <div class="champ-meta">
+                <span class="voc voc-rp">RP</span>
+                <span class="champ-lvl">Level 798</span>
+            </div>
+            <div class="champ-phrase">"Só faltou um pouco de boost... e umas 3 horas" 😅</div>
+            <div class="champ-xp">+1.847.000</div>
+            <div class="xpbar"><div class="xpbar-fill" style="width:74%"></div></div>
+        </div>
+
+        <!-- 1º lugar -->
+        <div class="champion-card p1">
+            <div class="ghost">1</div>
+            <div class="pos">
+                <div class="pos-num">1</div>
+                <span class="pos-icon">👑</span>
+            </div>
+            <div class="champ-name">Monk Frodo</div>
+            <div class="champ-meta">
+                <span class="voc voc-ek">EK</span>
+                <span class="champ-lvl">Level 842</span>
+            </div>
+            <div class="champ-phrase">"Huntou até o server save e voltou pra huntar mais" 🔥</div>
+            <div class="champ-xp">+2.483.000</div>
+            <div class="xpbar"><div class="xpbar-fill" style="width:100%"></div></div>
+        </div>
+
+        <!-- 3º lugar -->
+        <div class="champion-card p3">
+            <div class="ghost">3</div>
+            <div class="pos">
+                <div class="pos-num">3</div>
+                <span class="pos-icon">🥉</span>
+            </div>
+            <div class="champ-name">Gelloo</div>
+            <div class="champ-meta">
+                <span class="voc voc-ed">ED</span>
+                <span class="champ-lvl">Level 756</span>
+            </div>
+            <div class="champ-phrase">"Pelo menos tá no pódio, né?" 🤷</div>
+            <div class="champ-xp">+1.234.000</div>
+            <div class="xpbar"><div class="xpbar-fill" style="width:50%"></div></div>
+        </div>
+
+    </div>
+
+    <!-- LISTA 4–20 -->
+    <div class="list-wrap">
+        <div class="list-sep"></div>
+        <div class="list-head">
+            <span>#</span>
+            <span>Jogador</span>
+            <span>Voc</span>
+            <span>Level</span>
+            <span>Exp</span>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">4</span>
+            <span class="lr-name">Farofa of Bacon</span>
+            <span class="lr-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="lr-lvl">721</span>
+            <div class="lr-xp"><span class="lr-xp-val">+987.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:40%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">5</span>
+            <span class="lr-name">Hali Man</span>
+            <span class="lr-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="lr-lvl">695</span>
+            <div class="lr-xp"><span class="lr-xp-val">+876.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:35%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">6</span>
+            <span class="lr-name">Royal Knight</span>
+            <span class="lr-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="lr-lvl">678</span>
+            <div class="lr-xp"><span class="lr-xp-val">+754.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:30%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">7</span>
+            <span class="lr-name">Murdrak</span>
+            <span class="lr-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="lr-lvl">654</span>
+            <div class="lr-xp"><span class="lr-xp-val">+698.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:28%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">8</span>
+            <span class="lr-name">Pani Kartofel</span>
+            <span class="lr-voc"><span class="voc voc-ed">ED</span></span>
+            <span class="lr-lvl">632</span>
+            <div class="lr-xp"><span class="lr-xp-val">+612.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:25%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">9</span>
+            <span class="lr-name">Wasted Thyme</span>
+            <span class="lr-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="lr-lvl">601</span>
+            <div class="lr-xp"><span class="lr-xp-val">+543.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:22%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">10</span>
+            <span class="lr-name">Murthar</span>
+            <span class="lr-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="lr-lvl">589</span>
+            <div class="lr-xp"><span class="lr-xp-val">+498.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:20%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">11</span>
+            <span class="lr-name">Proxye</span>
+            <span class="lr-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="lr-lvl">567</span>
+            <div class="lr-xp"><span class="lr-xp-val">+432.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:17%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">12</span>
+            <span class="lr-name">Edu Fredericci</span>
+            <span class="lr-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="lr-lvl">545</span>
+            <div class="lr-xp"><span class="lr-xp-val">+387.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:16%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">13</span>
+            <span class="lr-name">Luskzin</span>
+            <span class="lr-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="lr-lvl">523</span>
+            <div class="lr-xp"><span class="lr-xp-val">+345.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:14%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">14</span>
+            <span class="lr-name">Deep Slot</span>
+            <span class="lr-voc"><span class="voc voc-ed">ED</span></span>
+            <span class="lr-lvl">498</span>
+            <div class="lr-xp"><span class="lr-xp-val">+298.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:12%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">15</span>
+            <span class="lr-name">Val Teles</span>
+            <span class="lr-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="lr-lvl">476</span>
+            <div class="lr-xp"><span class="lr-xp-val">+256.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:10%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">16</span>
+            <span class="lr-name">Thionk</span>
+            <span class="lr-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="lr-lvl">454</span>
+            <div class="lr-xp"><span class="lr-xp-val">+213.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:9%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">17</span>
+            <span class="lr-name">Renanzhyn</span>
+            <span class="lr-voc"><span class="voc voc-ms">MS</span></span>
+            <span class="lr-lvl">432</span>
+            <div class="lr-xp"><span class="lr-xp-val">+187.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:8%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">18</span>
+            <span class="lr-name">Niko Fredericci</span>
+            <span class="lr-voc"><span class="voc voc-ed">ED</span></span>
+            <span class="lr-lvl">410</span>
+            <div class="lr-xp"><span class="lr-xp-val">+154.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:6%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">19</span>
+            <span class="lr-name">Wings Hope</span>
+            <span class="lr-voc"><span class="voc voc-rp">RP</span></span>
+            <span class="lr-lvl">398</span>
+            <div class="lr-xp"><span class="lr-xp-val">+132.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:5%"></div></div></div>
+        </div>
+
+        <div class="list-row">
+            <span class="lr-num">20</span>
+            <span class="lr-name">Van Teles</span>
+            <span class="lr-voc"><span class="voc voc-ek">EK</span></span>
+            <span class="lr-lvl">376</span>
+            <div class="lr-xp"><span class="lr-xp-val">+98.000</span><div class="lr-bar"><div class="lr-bar-fill" style="width:4%"></div></div></div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>guildstats.eu/guild=Diehard</span>
+        <span>Luminera · diehard-xp</span>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Diehard XP — Papel v2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #cdc6b9;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 48px;
+            font-family: 'Kalam', cursive;
+        }
+
+        /* ══ PAPEL ══ */
+        .paper {
+            width: 1200px;
+            background: #fdf9f0;
+            padding: 52px 60px 44px;
+            position: relative;
+            /* linhas de caderno */
+            background-image: repeating-linear-gradient(
+                transparent,
+                transparent 39px,
+                rgba(80,100,200,0.055) 39px,
+                rgba(80,100,200,0.055) 40px
+            );
+            background-size: 100% 40px;
+        }
+
+        /* margem vermelha */
+        .paper::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 72px;
+            width: 1.5px;
+            background: rgba(200,60,60,0.22);
+        }
+
+        /* ══ CABEÇALHO ══ */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 2.5px solid #1a1510;
+        }
+
+        .guild-name {
+            font-family: 'Caveat', cursive;
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #1a1510;
+            line-height: 1;
+        }
+
+        .guild-sub {
+            font-family: 'Caveat', cursive;
+            font-size: 1.05rem;
+            color: #b0a090;
+            margin-top: 5px;
+        }
+
+        .header-right { text-align: right; }
+
+        .period {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1510;
+        }
+
+        .period-date {
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            color: #c0b0a0;
+            margin-top: 2px;
+        }
+
+        /* ══ LINHA BASE ══ */
+        .player-row {
+            display: grid;
+            /* num | nome+meta | xp | anotação */
+            grid-template-columns: 40px 1fr 145px 350px;
+            align-items: start;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            gap: 8px;
+        }
+
+        .player-row:last-child { border-bottom: none; }
+
+        .player-row.top {
+            padding: 10px 0;
+        }
+
+        /* ══ NÚMERO ══ */
+        .num {
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #c0b0a0;
+            padding-top: 2px;
+            text-align: right;
+            padding-right: 4px;
+        }
+
+        .top .num {
+            font-size: 1.3rem;
+            color: #1a1510;
+        }
+
+        /* ══ BLOCO JOGADOR ══ */
+        .player-block { min-width: 0; }
+
+        .player-name {
+            font-family: 'Caveat', cursive;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1a1510;
+        }
+
+        .top .player-name { font-size: 1.4rem; }
+
+        /* marcações top 3 */
+        .circled {
+            border: 2.5px solid #b82020;
+            border-radius: 42% 58% 52% 48% / 48% 52% 60% 40%;
+            padding: 1px 10px 1px 8px;
+            transform: rotate(-0.8deg);
+            display: inline-block;
+        }
+
+        .underlined {
+            border-bottom: 2.5px solid #1a2870;
+            padding-bottom: 2px;
+        }
+
+        .player-meta {
+            font-family: 'Caveat', cursive;
+            font-size: 0.9rem;
+            color: #c0b090;
+            margin-top: 1px;
+        }
+
+        .voc-ek { color: #a06010; }
+        .voc-rp { color: #1a6828; }
+        .voc-ed { color: #1a3080; }
+        .voc-ms { color: #700c80; }
+
+        /* ══ XP ══ */
+        .xp {
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a2870;
+            text-align: right;
+            padding-top: 2px;
+        }
+
+        .top .xp { font-size: 1.3rem; }
+
+        /* ══ ANOTAÇÃO ══ */
+        .annotation {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            padding-top: 2px;
+        }
+
+        .arrow {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: #1a2870;
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+
+        /* ──── FRASES TOP 3: grandes e contrastantes ──── */
+        .note-big {
+            font-family: 'Caveat', cursive;
+            font-size: 1.18rem;
+            font-weight: 600;
+            line-height: 1.3;
+            display: inline-block;
+        }
+
+        .note-big.red   { color: #a81818; transform: rotate(-1deg); }
+        .note-big.blue  { color: #142060; transform: rotate(-0.8deg); }
+        .note-big.green { color: #145a20; transform: rotate(-1.2deg); }
+
+        /* ──── FRASES lista (4–20): menores, mais cinzas ──── */
+        .note-sm {
+            font-family: 'Caveat', cursive;
+            font-size: 0.98rem;
+            color: #706050;
+            line-height: 1.3;
+            display: inline-block;
+            transform: rotate(-0.5deg);
+        }
+
+        /* ══ SEPARADOR ══ */
+        .sep {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 14px 0 8px;
+        }
+
+        .sep-line { flex: 1; height: 1px; background: rgba(0,0,0,0.1); }
+
+        .sep-label {
+            font-family: 'Caveat', cursive;
+            font-size: 0.88rem;
+            color: #c0b090;
+        }
+
+        /* ══ FOOTER ══ */
+        .footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-text {
+            font-family: 'Caveat', cursive;
+            font-size: 0.85rem;
+            color: #d0c0b0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="paper">
+
+    <!-- CABEÇALHO -->
+    <div class="header">
+        <div>
+            <div class="guild-name">Diehard Guild ⚔️</div>
+            <div class="guild-sub">Luminera · Optional PvP</div>
+        </div>
+        <div class="header-right">
+            <div class="period">Ranking de XP — Ontem</div>
+            <div class="period-date">25/02/2026 · gerado às 07:30</div>
+        </div>
+    </div>
+
+    <!-- ─── TOP 3 ─── -->
+
+    <div class="player-row top">
+        <span class="num">1.</span>
+        <div class="player-block">
+            <span class="player-name circled">Monk Frodo</span>
+            <div class="player-meta"><span class="voc-ek">EK</span> · Lv 842</div>
+        </div>
+        <span class="xp">+2.483.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-big red">largou a família e ficou huntando até o SS 🔥</span>
+        </div>
+    </div>
+
+    <div class="player-row top">
+        <span class="num">2.</span>
+        <div class="player-block">
+            <span class="player-name underlined">Spirit Elite</span>
+            <div class="player-meta"><span class="voc-rp">RP</span> · Lv 798</div>
+        </div>
+        <span class="xp">+1.847.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-big blue">a mulher chamou justamente no boss. foi difícil 😭</span>
+        </div>
+    </div>
+
+    <div class="player-row top">
+        <span class="num">3.</span>
+        <div class="player-block">
+            <span class="player-name">Gelloo ✱</span>
+            <div class="player-meta"><span class="voc-ed">ED</span> · Lv 756</div>
+        </div>
+        <span class="xp">+1.234.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-big green">negociou 2h com a esposa. usou todas as duas. 🤷</span>
+        </div>
+    </div>
+
+    <!-- ─── SEPARADOR ─── -->
+    <div class="sep">
+        <div class="sep-line"></div>
+        <span class="sep-label">os demais mortais</span>
+        <div class="sep-line"></div>
+    </div>
+
+    <!-- ─── LISTA 4–20 ─── -->
+
+    <div class="player-row">
+        <span class="num">4.</span>
+        <div class="player-block">
+            <span class="player-name">Farofa of Bacon</span>
+            <div class="player-meta"><span class="voc-ek">EK</span> · Lv 721</div>
+        </div>
+        <span class="xp">+987.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">desligou câmera na reunião e abriu o Tibia</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">5.</span>
+        <div class="player-block">
+            <span class="player-name">Hali Man</span>
+            <div class="player-meta"><span class="voc-ms">MS</span> · Lv 695</div>
+        </div>
+        <span class="xp">+876.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">disse pra esposa que era "trabalho". ela não acreditou.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">6.</span>
+        <div class="player-block">
+            <span class="player-name">Royal Knight</span>
+            <div class="player-meta"><span class="voc-ek">EK</span> · Lv 678</div>
+        </div>
+        <span class="xp">+754.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">prometeu "só mais um respawn" às 23h. eram 2h.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">7.</span>
+        <div class="player-block">
+            <span class="player-name">Murdrak</span>
+            <div class="player-meta"><span class="voc-rp">RP</span> · Lv 654</div>
+        </div>
+        <span class="xp">+698.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">filho perguntou por que o pai grita sozinho à noite</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">8.</span>
+        <div class="player-block">
+            <span class="player-name">Pani Kartofel</span>
+            <div class="player-meta"><span class="voc-ed">ED</span> · Lv 632</div>
+        </div>
+        <span class="xp">+612.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">huntou no banheiro do trabalho. por 40 minutos.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">9.</span>
+        <div class="player-block">
+            <span class="player-name">Wasted Thyme</span>
+            <div class="player-meta"><span class="voc-ms">MS</span> · Lv 601</div>
+        </div>
+        <span class="xp">+543.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">trocou academia pelo hunt. outra vez. toda semana.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">10.</span>
+        <div class="player-block">
+            <span class="player-name">Murthar</span>
+            <div class="player-meta"><span class="voc-ek">EK</span> · Lv 589</div>
+        </div>
+        <span class="xp">+498.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">esqueceu que tinha filho por 45 minutos. depois lembrou.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">11.</span>
+        <div class="player-block">
+            <span class="player-name">Proxye</span>
+            <div class="player-meta"><span class="voc-rp">RP</span> · Lv 567</div>
+        </div>
+        <span class="xp">+432.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">abriu o notebook "pra trabalhar". família acreditou.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">12.</span>
+        <div class="player-block">
+            <span class="player-name">Edu Fredericci</span>
+            <div class="player-meta"><span class="voc-ek">EK</span> · Lv 545</div>
+        </div>
+        <span class="xp">+387.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">chefe ligou no meio do boss. caixa postal salvou.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">13.</span>
+        <div class="player-block">
+            <span class="player-name">Luskzin</span>
+            <div class="player-meta"><span class="voc-ms">MS</span> · Lv 523</div>
+        </div>
+        <span class="xp">+345.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">sumiu do zap da família por 4h. ninguém perguntou.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">14.</span>
+        <div class="player-block">
+            <span class="player-name">Deep Slot</span>
+            <div class="player-meta"><span class="voc-ed">ED</span> · Lv 498</div>
+        </div>
+        <span class="xp">+298.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">boss matou, culpou a net. ping era 12ms.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">15.</span>
+        <div class="player-block">
+            <span class="player-name">Val Teles</span>
+            <div class="player-meta"><span class="voc-rp">RP</span> · Lv 476</div>
+        </div>
+        <span class="xp">+256.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">comprou headset "pra trabalhar". só usa pro Tibia.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">16.</span>
+        <div class="player-block">
+            <span class="player-name">Thionk</span>
+            <div class="player-meta"><span class="voc-ek">EK</span> · Lv 454</div>
+        </div>
+        <span class="xp">+213.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">fez reunião com câmera ligada e o Tibia aberto atrás</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">17.</span>
+        <div class="player-block">
+            <span class="player-name">Renanzhyn</span>
+            <div class="player-meta"><span class="voc-ms">MS</span> · Lv 432</div>
+        </div>
+        <span class="xp">+187.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">filho chamou de healer. tecnicamente não estava errado.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">18.</span>
+        <div class="player-block">
+            <span class="player-name">Niko Fredericci</span>
+            <div class="player-meta"><span class="voc-ed">ED</span> · Lv 410</div>
+        </div>
+        <span class="xp">+154.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">dormiu 4h, trabalhou 8h, huntou 6h. conta fecha.</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">19.</span>
+        <div class="player-block">
+            <span class="player-name">Wings Hope</span>
+            <div class="player-meta"><span class="voc-rp">RP</span> · Lv 398</div>
+        </div>
+        <span class="xp">+132.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">tomou claim de um PT aleatório e ficou horas reclamando</span>
+        </div>
+    </div>
+
+    <div class="player-row">
+        <span class="num">20.</span>
+        <div class="player-block">
+            <span class="player-name">Van Teles</span>
+            <div class="player-meta"><span class="voc-ek">EK</span> · Lv 376</div>
+        </div>
+        <span class="xp">+98.000</span>
+        <div class="annotation">
+            <span class="arrow">←</span>
+            <span class="note-sm">entrou "só pra ver". ficou. fez quase nada. foi dormir. 💤</span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span class="footer-text">guildstats.eu/guild=Diehard</span>
+        <span class="footer-text">diehard-xp · Luminera</span>
+    </div>
+
+</div>
+
+</body>
+</html>

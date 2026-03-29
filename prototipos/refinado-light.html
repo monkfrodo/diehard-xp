@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo — Refinado Light</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #d4cec4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        /* Simula o screenshot-container real: 1200px, bg bege, padding 40px */
+        .screenshot-container {
+            width: 1200px;
+            background: #f5f0e8;
+            padding: 40px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* === HEADER — mesma estrutura, refinado === */
+        .screenshot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0dbd3;
+        }
+
+        .screenshot-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .screenshot-logo {
+            width: 56px;
+            height: 56px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .screenshot-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .screenshot-info p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .screenshot-period {
+            text-align: right;
+        }
+
+        .screenshot-period h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .screenshot-period p {
+            font-size: 0.8125rem;
+            color: #999;
+        }
+
+        /* === TABLE — mesma estrutura, melhor hierarquia visual === */
+        .screenshot-table {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e0dbd3;
+            overflow: hidden;
+        }
+
+        .screenshot-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .screenshot-table th {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            padding: 16px 20px;
+            text-align: left;
+            background: #ebe5db;
+            border-bottom: 1px solid #e0dbd3;
+        }
+
+        .screenshot-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #f0ebe3;
+            font-size: 0.9375rem;
+            color: #1a1a1a;
+        }
+
+        .screenshot-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Top 3 highlight — fundo sutil */
+        .screenshot-table tr.rank-1 td {
+            background: rgba(255, 215, 0, 0.06);
+        }
+        .screenshot-table tr.rank-2 td {
+            background: rgba(192, 192, 192, 0.08);
+        }
+        .screenshot-table tr.rank-3 td {
+            background: rgba(205, 127, 50, 0.06);
+        }
+
+        /* Rank badges */
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .rank-badge.gold { background: #ffd700; color: #1a1a1a; }
+        .rank-badge.silver { background: #c0c0c0; color: #1a1a1a; }
+        .rank-badge.bronze { background: #cd7f32; color: #fff; }
+
+        .rank-num {
+            color: #999;
+            font-weight: 600;
+        }
+
+        /* Player name + phrase */
+        .player-cell {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .player-name {
+            font-weight: 500;
+        }
+
+        .player-phrase {
+            font-size: 0.75rem;
+            color: #b0a090;
+            font-style: italic;
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        /* Vocation badges */
+        .voc-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #ebe5db;
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+
+        .voc-ek { color: #b8860b; }
+        .voc-rp { color: #228b22; }
+        .voc-ed { color: #4169e1; }
+        .voc-ms { color: #8b008b; }
+        .voc-gk { color: #d2691e; }
+
+        .col-rank { text-align: center; width: 60px; }
+        .col-voc { text-align: center; width: 80px; }
+        .col-level { text-align: center; width: 80px; color: #666; }
+        .col-exp { text-align: right; width: 150px; font-weight: 600; color: #16a34a; font-variant-numeric: tabular-nums; }
+
+        /* === FOOTER === */
+        .screenshot-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="screenshot-container">
+    <!-- HEADER — idêntico à estrutura atual -->
+    <div class="screenshot-header">
+        <div class="screenshot-title">
+            <div class="screenshot-logo">⚔️</div>
+            <div class="screenshot-info">
+                <h2>Diehard Guild</h2>
+                <p>Luminera · Optional PvP</p>
+            </div>
+        </div>
+        <div class="screenshot-period">
+            <h3>Ranking de Ontem</h3>
+            <p>25/02/2026 às 07:30</p>
+        </div>
+    </div>
+
+    <!-- TABLE — mesma estrutura, frases no top 3 -->
+    <div class="screenshot-table">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-rank">#</th>
+                    <th>Jogador</th>
+                    <th class="col-voc">Voc</th>
+                    <th class="col-level">Level</th>
+                    <th class="col-exp">Exp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="rank-1">
+                    <td class="col-rank"><span class="rank-badge gold">1</span></td>
+                    <td><div class="player-cell"><span class="player-name">Monk Frodo</span><span class="player-phrase">"Huntou até o server save e voltou pra huntar mais" 🔥</span></div></td>
+                    <td class="col-voc"><span class="voc-badge voc-ek">EK</span></td>
+                    <td class="col-level">842</td>
+                    <td class="col-exp">+2.483.000</td>
+                </tr>
+                <tr class="rank-2">
+                    <td class="col-rank"><span class="rank-badge silver">2</span></td>
+                    <td><div class="player-cell"><span class="player-name">Spirit Elite</span><span class="player-phrase">"Só faltou um pouco de boost... e umas 3 horas" 😅</span></div></td>
+                    <td class="col-voc"><span class="voc-badge voc-rp">RP</span></td>
+                    <td class="col-level">798</td>
+                    <td class="col-exp">+1.847.000</td>
+                </tr>
+                <tr class="rank-3">
+                    <td class="col-rank"><span class="rank-badge bronze">3</span></td>
+                    <td><div class="player-cell"><span class="player-name">Gelloo</span><span class="player-phrase">"Pelo menos tá no pódio, né?" 🤷</span></div></td>
+                    <td class="col-voc"><span class="voc-badge voc-ed">ED</span></td>
+                    <td class="col-level">756</td>
+                    <td class="col-exp">+1.234.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">4</span></td>
+                    <td><span class="player-name">Farofa of Bacon</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ek">EK</span></td>
+                    <td class="col-level">721</td>
+                    <td class="col-exp">+987.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">5</span></td>
+                    <td><span class="player-name">Hali Man</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ms">MS</span></td>
+                    <td class="col-level">695</td>
+                    <td class="col-exp">+876.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">6</span></td>
+                    <td><span class="player-name">Royal Knight</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ek">EK</span></td>
+                    <td class="col-level">678</td>
+                    <td class="col-exp">+754.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">7</span></td>
+                    <td><span class="player-name">Murdrak</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-rp">RP</span></td>
+                    <td class="col-level">654</td>
+                    <td class="col-exp">+698.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">8</span></td>
+                    <td><span class="player-name">Pani Kartofel</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ed">ED</span></td>
+                    <td class="col-level">632</td>
+                    <td class="col-exp">+612.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">9</span></td>
+                    <td><span class="player-name">Wasted Thyme</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ms">MS</span></td>
+                    <td class="col-level">601</td>
+                    <td class="col-exp">+543.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">10</span></td>
+                    <td><span class="player-name">Murthar</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ek">EK</span></td>
+                    <td class="col-level">589</td>
+                    <td class="col-exp">+498.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">11</span></td>
+                    <td><span class="player-name">Proxye</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-rp">RP</span></td>
+                    <td class="col-level">567</td>
+                    <td class="col-exp">+432.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">12</span></td>
+                    <td><span class="player-name">Edu Fredericci</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ek">EK</span></td>
+                    <td class="col-level">545</td>
+                    <td class="col-exp">+387.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">13</span></td>
+                    <td><span class="player-name">Luskzin</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ms">MS</span></td>
+                    <td class="col-level">523</td>
+                    <td class="col-exp">+345.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">14</span></td>
+                    <td><span class="player-name">Deep Slot</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ed">ED</span></td>
+                    <td class="col-level">498</td>
+                    <td class="col-exp">+298.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">15</span></td>
+                    <td><span class="player-name">Val Teles</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-rp">RP</span></td>
+                    <td class="col-level">476</td>
+                    <td class="col-exp">+256.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">16</span></td>
+                    <td><span class="player-name">Thionk</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ek">EK</span></td>
+                    <td class="col-level">454</td>
+                    <td class="col-exp">+213.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">17</span></td>
+                    <td><span class="player-name">Renanzhyn</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ms">MS</span></td>
+                    <td class="col-level">432</td>
+                    <td class="col-exp">+187.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">18</span></td>
+                    <td><span class="player-name">Niko Fredericci</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ed">ED</span></td>
+                    <td class="col-level">410</td>
+                    <td class="col-exp">+154.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">19</span></td>
+                    <td><span class="player-name">Wings Hope</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-rp">RP</span></td>
+                    <td class="col-level">398</td>
+                    <td class="col-exp">+132.000</td>
+                </tr>
+                <tr>
+                    <td class="col-rank"><span class="rank-num">20</span></td>
+                    <td><span class="player-name">Van Teles</span></td>
+                    <td class="col-voc"><span class="voc-badge voc-ek">EK</span></td>
+                    <td class="col-level">376</td>
+                    <td class="col-exp">+98.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="screenshot-footer">
+        guildstats.eu/guild=Diehard
+    </div>
+</div>
+
+</body>
+</html>
