@@ -10,36 +10,36 @@ def fetch(url, timeout=30) -> str:
     3. Playwright
     """
     
-    # 1. cloudscraper (Tenta resolver Cloudflare v1/v2)
+    # 1. curl_cffi (Impersonate browser TLS fingerprint)
+    try:
+        from curl_cffi import requests as curl_requests
+        # print(f"  [http_client] Tentando curl_cffi (chrome) para {url}...")
+        resp = curl_requests.get(url, impersonate="chrome", timeout=timeout)
+        if resp.status_code == 200 and "Just a moment..." not in resp.text:
+            print(f"  [http_client] ✅ Sucesso com curl_cffi ({url[:50]}...)")
+            return resp.text
+        if resp.status_code == 403 or "Just a moment..." in resp.text:
+            print(f"  [http_client] ⚠️ curl_cffi falhou (403 ou block)")
+    except ImportError:
+        pass
+    except Exception as e:
+        print(f"  [http_client] ❌ Erro no curl_cffi: {e}")
+
+    # 2. cloudscraper (Tenta resolver Cloudflare v1/v2)
     try:
         import cloudscraper
         # print(f"  [http_client] Tentando cloudscraper para {url}...")
         scraper = cloudscraper.create_scraper()
         resp = scraper.get(url, timeout=timeout)
-        if resp.status_code == 200:
+        if resp.status_code == 200 and "Just a moment..." not in resp.text:
             print(f"  [http_client] ✅ Sucesso com cloudscraper ({url[:50]}...)")
             return resp.text
-        if resp.status_code == 403:
-            print(f"  [http_client] ⚠️ cloudscraper retornou 403")
+        if resp.status_code == 403 or "Just a moment..." in resp.text:
+            print(f"  [http_client] ⚠️ cloudscraper falhou (403 ou block)")
     except ImportError:
         pass
     except Exception as e:
         print(f"  [http_client] ❌ Erro no cloudscraper: {e}")
-
-    # 2. curl_cffi (Impersonate browser TLS fingerprint)
-    try:
-        from curl_cffi import requests as curl_requests
-        # print(f"  [http_client] Tentando curl_cffi (chrome) para {url}...")
-        resp = curl_requests.get(url, impersonate="chrome", timeout=timeout)
-        if resp.status_code == 200:
-            print(f"  [http_client] ✅ Sucesso com curl_cffi ({url[:50]}...)")
-            return resp.text
-        if resp.status_code == 403:
-            print(f"  [http_client] ⚠️ curl_cffi retornou 403")
-    except ImportError:
-        pass
-    except Exception as e:
-        print(f"  [http_client] ❌ Erro no curl_cffi: {e}")
 
     # 3. Playwright (Último recurso, renderiza JS completo)
     try:

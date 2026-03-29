@@ -18,7 +18,7 @@ from http_client import fetch
 GUILD_NAME = "Diehard"
 WORLD = "Luminera"
 TIMEZONE = ZoneInfo('America/Sao_Paulo')
-GUILDSTATS_URL = f"https://guildstats.eu/guild?guild={GUILD_NAME}&op=3"
+GUILDSTATS_URL = f"https://guildstats.eu/include/guild/tab.php?guild={GUILD_NAME}&tab=timeonline"
 
 # Caminhos de saída
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -99,7 +99,7 @@ def buscar_xp_guildstats():
             char_link = None
             for col in cols:
                 link = col.find('a')
-                if link and 'character?nick=' in str(link.get('href', '')):
+                if link and 'character/' in str(link.get('href', '')):
                     char_link = link
                     break
             
@@ -200,7 +200,7 @@ def buscar_dados_guildstats_individual(nome):
     try:
         import urllib.parse
         import re
-        url = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}"
+        url = f"https://guildstats.eu/character/{urllib.parse.quote(nome)}"
         html = fetch(url, timeout=20)
 
         if "does not exsists" in html or "don't have in our datebase" in html:
@@ -212,24 +212,21 @@ def buscar_dados_guildstats_individual(nome):
         vocation = ''
         level = 0
 
-        # Procura na tabela de informações do personagem
-        for table in soup.find_all('table'):
-            for row in table.find_all('tr'):
-                cells = row.find_all('td')
-                if len(cells) >= 2:
-                    label = cells[0].text.strip().lower()
-                    value = cells[1].text.strip()
-                    if 'vocation' in label and label.endswith(':'):
-                        vocation = value
-                    elif 'level' in label and label.endswith(':'):
-                        # Level pode ter formato "347 \n49.6%\n (687,383,020 exp)"
-                        # Extrai apenas o primeiro número
-                        match = re.search(r'^(\d+)', value.replace(',', '').replace('.', ''))
-                        if match:
-                            level = int(match.group(1))
+        # Procura nas divs de informações do personagem
+        for div in soup.find_all('div'):
+            spans = div.find_all('span')
+            if len(spans) >= 2:
+                label = spans[0].text.strip().lower()
+                if label == 'vocation:':
+                    vocation = spans[1].text.strip()
+                elif label == 'level':
+                    try:
+                        level = int(spans[1].text.strip().replace(',', '').replace('.', ''))
+                    except ValueError:
+                        pass
 
         # Agora busca XP na aba de experiência
-        url_xp = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}&tab=9"
+        url_xp = f"https://guildstats.eu/include/character/tab.php?nick={urllib.parse.quote(nome)}&tab=experience"
         html_xp = fetch(url_xp, timeout=20)
 
         exp_values = []
@@ -238,7 +235,7 @@ def buscar_dados_guildstats_individual(nome):
                 for row in table.find_all('tr'):
                     cells = row.find_all('td')
                     if len(cells) >= 2:
-                        date_cell = cells[0].text.strip()
+                        date_cell = cells[0].text.strip()[:10]
                         if len(date_cell) == 10 and date_cell[4] == '-':
                             exp_values.append(parse_exp_value(cells[1].text.strip()))
 
@@ -257,7 +254,7 @@ def buscar_exp_individual(nome):
     """Busca XP de um jogador na página individual do GuildStats."""
     try:
         import urllib.parse
-        url = f"https://guildstats.eu/character?nick={urllib.parse.quote(nome)}&tab=9"
+        url = f"https://guildstats.eu/include/character/tab.php?nick={urllib.parse.quote(nome)}&tab=experience"
         html = fetch(url, timeout=15)
 
         if "does not exsists" in html or "don't have in our datebase" in html:
@@ -270,7 +267,7 @@ def buscar_exp_individual(nome):
             for row in table.find_all('tr'):
                 cells = row.find_all('td')
                 if len(cells) >= 2:
-                    date_cell = cells[0].text.strip()
+                    date_cell = cells[0].text.strip()[:10]
                     if len(date_cell) == 10 and date_cell[4] == '-':
                         exp_values.append(parse_exp_value(cells[1].text.strip()))
 
