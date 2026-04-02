@@ -1,109 +1,89 @@
 {
   "guild": "Diehard",
   "world": "Luminera",
-  "last_update": "2026-04-01 08:07:47",
-  "last_update_display": "01/04/2026 às 08:07",
+  "last_update": "2026-04-02 08:01:55",
+  "last_update_display": "02/04/2026 às 08:01",
   "total_members": 161,
   "rankings": {
     "yesterday": [
       {
-        "name": "Hangg Loose",
-        "vocation": "Royal Paladin",
-        "level": 243,
+        "name": "Sir Jhunioor",
+        "vocation": "Elite Knight",
+        "level": 503,
         "is_extra": false,
-        "death_count": 2,
+        "death_count": 3,
         "deaths": [
           {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:43:11Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T23:48:05Z",
+            "level": 504,
+            "reason": "Died at Level 504 by usurper knight.",
             "is_pk": false
           },
           {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:11:20Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T18:43:44Z",
+            "level": 505,
+            "reason": "Died at Level 505 by Scarlett Etzel.",
+            "is_pk": false
+          },
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T16:50:39Z",
+            "level": 505,
+            "reason": "Died at Level 505 by cobra vizier.",
             "is_pk": false
           }
         ],
         "rank": 1
       },
       {
-        "name": "Lord Froilan",
+        "name": "Spirit Matt",
         "vocation": "Elder Druid",
-        "level": 722,
-        "is_extra": false,
-        "death_count": 1,
+        "level": 229,
+        "is_extra": true,
+        "death_count": 2,
         "deaths": [
           {
-            "character": "Lord Froilan",
-            "time": "2026-03-31T23:17:04Z",
-            "level": 722,
-            "reason": "Died at Level 722 by varg.",
+            "character": "Spirit Matt",
+            "time": "2026-04-01T17:17:25Z",
+            "level": 229,
+            "reason": "Died at Level 229 by vulcongra.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-01T09:06:15Z",
+            "level": 229,
+            "reason": "Died at Level 229 by nymph.",
             "is_pk": false
           }
         ],
         "rank": 2
       },
       {
-        "name": "Pani Kartofel",
-        "vocation": "Elite Knight",
-        "level": 689,
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 945,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Pani Kartofel",
-            "time": "2026-03-31T21:45:09Z",
-            "level": 689,
-            "reason": "Died at Level 689 by orclops bloodbreaker.",
+            "character": "Val Teles",
+            "time": "2026-04-01T08:41:30Z",
+            "level": 945,
+            "reason": "Died at Level 945 by fear.",
             "is_pk": false
           }
         ],
         "rank": 3
-      },
-      {
-        "name": "Tadalai Lama",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          }
-        ],
-        "rank": 4
-      },
-      {
-        "name": "Top Vikingo",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          }
-        ],
-        "rank": 5
       }
     ],
     "7days": [
       {
         "name": "Theophile Monk",
         "vocation": "Exalted Monk",
-        "level": 423,
+        "level": 424,
         "is_extra": true,
         "death_count": 4,
         "deaths": [
@@ -141,10 +121,17 @@
       {
         "name": "Val Teles",
         "vocation": "Elder Druid",
-        "level": 944,
+        "level": 945,
         "is_extra": true,
-        "death_count": 3,
+        "death_count": 4,
         "deaths": [
+          {
+            "character": "Val Teles",
+            "time": "2026-04-02T09:37:26Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sulphur spouter.",
+            "is_pk": false
+          },
           {
             "character": "Val Teles",
             "time": "2026-04-01T08:41:30Z",
@@ -170,33 +157,102 @@
         "rank": 2
       },
       {
-        "name": "Lord Froilan",
-        "vocation": "Elder Druid",
-        "level": 722,
+        "name": "Hangg Loose",
+        "vocation": "Royal Paladin",
+        "level": 244,
         "is_extra": false,
-        "death_count": 2,
+        "death_count": 3,
         "deaths": [
           {
-            "character": "Lord Froilan",
-            "time": "2026-03-31T23:17:04Z",
-            "level": 722,
-            "reason": "Died at Level 722 by varg.",
+            "character": "Hangg Loose",
+            "time": "2026-04-02T01:44:25Z",
+            "level": 244,
+            "reason": "Died at Level 244 by barkless devotee.",
             "is_pk": false
           },
           {
-            "character": "Lord Froilan",
-            "time": "2026-03-25T20:35:40Z",
-            "level": 719,
-            "reason": "Died at Level 719 by falcon paladin.",
+            "character": "Hangg Loose",
+            "time": "2026-03-31T13:43:11Z",
+            "level": 243,
+            "reason": "Died at Level 243 by serpent spawn.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-03-31T13:11:20Z",
+            "level": 243,
+            "reason": "Died at Level 243 by serpent spawn.",
             "is_pk": false
           }
         ],
         "rank": 3
       },
       {
+        "name": "Sir Jhunioor",
+        "vocation": "Elite Knight",
+        "level": 503,
+        "is_extra": false,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T23:48:05Z",
+            "level": 504,
+            "reason": "Died at Level 504 by usurper knight.",
+            "is_pk": false
+          },
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T18:43:44Z",
+            "level": 505,
+            "reason": "Died at Level 505 by Scarlett Etzel.",
+            "is_pk": false
+          },
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T16:50:39Z",
+            "level": 505,
+            "reason": "Died at Level 505 by cobra vizier.",
+            "is_pk": false
+          }
+        ],
+        "rank": 4
+      },
+      {
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 229,
+        "is_extra": true,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-01T17:17:25Z",
+            "level": 229,
+            "reason": "Died at Level 229 by vulcongra.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-01T09:06:15Z",
+            "level": 229,
+            "reason": "Died at Level 229 by nymph.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-03-27T05:06:19Z",
+            "level": 221,
+            "reason": "Died at Level 221 by dragon lord.",
+            "is_pk": false
+          }
+        ],
+        "rank": 5
+      },
+      {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 485,
+        "level": 486,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -215,7 +271,7 @@
             "is_pk": false
           }
         ],
-        "rank": 4
+        "rank": 6
       },
       {
         "name": "Fathima Teles",
@@ -239,36 +295,12 @@
             "is_pk": false
           }
         ],
-        "rank": 5
-      },
-      {
-        "name": "Hangg Loose",
-        "vocation": "Royal Paladin",
-        "level": 243,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:43:11Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
-            "is_pk": false
-          },
-          {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:11:20Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
-            "is_pk": false
-          }
-        ],
-        "rank": 6
+        "rank": 7
       },
       {
         "name": "Frodo Leads",
         "vocation": "Exalted Monk",
-        "level": 470,
+        "level": 472,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -287,31 +319,55 @@
             "is_pk": false
           }
         ],
-        "rank": 7
+        "rank": 8
       },
       {
-        "name": "Spirit Matt",
-        "vocation": "Elder Druid",
-        "level": 229,
+        "name": "Tadalai Lama",
+        "vocation": "Exalted Monk",
+        "level": 551,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
           {
-            "character": "Spirit Matt",
-            "time": "2026-04-01T09:06:15Z",
-            "level": 229,
-            "reason": "Died at Level 229 by nymph.",
+            "character": "Tadalai Lama",
+            "time": "2026-04-02T07:39:22Z",
+            "level": 551,
+            "reason": "Died at Level 551 by mean lost soul.",
             "is_pk": false
           },
           {
-            "character": "Spirit Matt",
-            "time": "2026-03-27T05:06:19Z",
-            "level": 221,
-            "reason": "Died at Level 221 by dragon lord.",
+            "character": "Tadalai Lama",
+            "time": "2026-03-31T09:19:42Z",
+            "level": 551,
+            "reason": "Died at Level 551 by broodrider inferniarch.",
             "is_pk": false
           }
         ],
-        "rank": 8
+        "rank": 9
+      },
+      {
+        "name": "Top Vikingo",
+        "vocation": "Exalted Monk",
+        "level": 551,
+        "is_extra": true,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Top Vikingo",
+            "time": "2026-04-02T07:39:22Z",
+            "level": 551,
+            "reason": "Died at Level 551 by mean lost soul.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-31T09:19:42Z",
+            "level": 551,
+            "reason": "Died at Level 551 by broodrider inferniarch.",
+            "is_pk": false
+          }
+        ],
+        "rank": 10
       },
       {
         "name": "Ted Neon",
@@ -328,7 +384,7 @@
             "is_pk": false
           }
         ],
-        "rank": 9
+        "rank": 11
       },
       {
         "name": "Davi Off Dragon",
@@ -345,7 +401,24 @@
             "is_pk": false
           }
         ],
-        "rank": 10
+        "rank": 12
+      },
+      {
+        "name": "Lord Froilan",
+        "vocation": "Elder Druid",
+        "level": 722,
+        "is_extra": false,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Lord Froilan",
+            "time": "2026-03-31T23:17:04Z",
+            "level": 722,
+            "reason": "Died at Level 722 by varg.",
+            "is_pk": false
+          }
+        ],
+        "rank": 13
       },
       {
         "name": "Falaac Venon",
@@ -362,7 +435,7 @@
             "is_pk": false
           }
         ],
-        "rank": 11
+        "rank": 14
       },
       {
         "name": "Junior Teles",
@@ -379,12 +452,12 @@
             "is_pk": false
           }
         ],
-        "rank": 12
+        "rank": 15
       },
       {
         "name": "Khytez",
         "vocation": "Elite Knight",
-        "level": 77,
+        "level": 80,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -396,12 +469,12 @@
             "is_pk": false
           }
         ],
-        "rank": 13
+        "rank": 16
       },
       {
         "name": "Legolas Drachenreiter",
         "vocation": "Royal Paladin",
-        "level": 334,
+        "level": 335,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -413,7 +486,7 @@
             "is_pk": false
           }
         ],
-        "rank": 14
+        "rank": 17
       },
       {
         "name": "Ruckert",
@@ -430,7 +503,7 @@
             "is_pk": false
           }
         ],
-        "rank": 15
+        "rank": 18
       },
       {
         "name": "Maltz",
@@ -447,7 +520,7 @@
             "is_pk": false
           }
         ],
-        "rank": 16
+        "rank": 19
       },
       {
         "name": "Myss Fortunie",
@@ -464,12 +537,12 @@
             "is_pk": false
           }
         ],
-        "rank": 17
+        "rank": 20
       },
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 689,
+        "level": 690,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -481,12 +554,12 @@
             "is_pk": false
           }
         ],
-        "rank": 18
+        "rank": 21
       },
       {
         "name": "Proxye",
         "vocation": "Elite Knight",
-        "level": 680,
+        "level": 681,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -498,41 +571,7 @@
             "is_pk": false
           }
         ],
-        "rank": 19
-      },
-      {
-        "name": "Tadalai Lama",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          }
-        ],
-        "rank": 20
-      },
-      {
-        "name": "Top Vikingo",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          }
-        ],
-        "rank": 21
+        "rank": 22
       }
     ],
     "30days": [
@@ -541,8 +580,15 @@
         "vocation": "Elder Druid",
         "level": 229,
         "is_extra": true,
-        "death_count": 10,
+        "death_count": 11,
         "deaths": [
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-01T17:17:25Z",
+            "level": 229,
+            "reason": "Died at Level 229 by vulcongra.",
+            "is_pk": false
+          },
           {
             "character": "Spirit Matt",
             "time": "2026-04-01T09:06:15Z",
@@ -617,65 +663,6 @@
         "rank": 1
       },
       {
-        "name": "Theophile Monk",
-        "vocation": "Exalted Monk",
-        "level": 423,
-        "is_extra": true,
-        "death_count": 7,
-        "deaths": [
-          {
-            "character": "Theophile Monk",
-            "time": "2026-03-29T04:05:08Z",
-            "level": 418,
-            "reason": "Died at Level 418 by Fugue.",
-            "is_pk": false
-          },
-          {
-            "character": "Theophile Monk",
-            "time": "2026-03-27T03:14:06Z",
-            "level": 417,
-            "reason": "Died at Level 417 by cobra vizier.",
-            "is_pk": false
-          },
-          {
-            "character": "Theophile Monk",
-            "time": "2026-03-27T02:38:23Z",
-            "level": 418,
-            "reason": "Died at Level 418 by cobra assassin.",
-            "is_pk": false
-          },
-          {
-            "character": "Theophile Monk",
-            "time": "2026-03-27T01:15:01Z",
-            "level": 418,
-            "reason": "Died at Level 418 by falcon knight.",
-            "is_pk": false
-          },
-          {
-            "character": "Theophile Monk",
-            "time": "2026-03-14T23:02:37Z",
-            "level": 412,
-            "reason": "Died at Level 412 by burning gladiator.",
-            "is_pk": false
-          },
-          {
-            "character": "Theophile Monk",
-            "time": "2026-03-06T13:45:24Z",
-            "level": 401,
-            "reason": "Killed at Level 401 by Theophile Monk and mitmah seer.",
-            "is_pk": false
-          },
-          {
-            "character": "Theophile Monk",
-            "time": "2026-03-02T19:59:22Z",
-            "level": 398,
-            "reason": "Died at Level 398 by thanatursus.",
-            "is_pk": false
-          }
-        ],
-        "rank": 2
-      },
-      {
         "name": "Lord Froilan",
         "vocation": "Elder Druid",
         "level": 722,
@@ -725,15 +712,74 @@
             "is_pk": false
           }
         ],
+        "rank": 2
+      },
+      {
+        "name": "Theophile Monk",
+        "vocation": "Exalted Monk",
+        "level": 424,
+        "is_extra": true,
+        "death_count": 6,
+        "deaths": [
+          {
+            "character": "Theophile Monk",
+            "time": "2026-03-29T04:05:08Z",
+            "level": 418,
+            "reason": "Died at Level 418 by Fugue.",
+            "is_pk": false
+          },
+          {
+            "character": "Theophile Monk",
+            "time": "2026-03-27T03:14:06Z",
+            "level": 417,
+            "reason": "Died at Level 417 by cobra vizier.",
+            "is_pk": false
+          },
+          {
+            "character": "Theophile Monk",
+            "time": "2026-03-27T02:38:23Z",
+            "level": 418,
+            "reason": "Died at Level 418 by cobra assassin.",
+            "is_pk": false
+          },
+          {
+            "character": "Theophile Monk",
+            "time": "2026-03-27T01:15:01Z",
+            "level": 418,
+            "reason": "Died at Level 418 by falcon knight.",
+            "is_pk": false
+          },
+          {
+            "character": "Theophile Monk",
+            "time": "2026-03-14T23:02:37Z",
+            "level": 412,
+            "reason": "Died at Level 412 by burning gladiator.",
+            "is_pk": false
+          },
+          {
+            "character": "Theophile Monk",
+            "time": "2026-03-06T13:45:24Z",
+            "level": 401,
+            "reason": "Killed at Level 401 by Theophile Monk and mitmah seer.",
+            "is_pk": false
+          }
+        ],
         "rank": 3
       },
       {
         "name": "Val Teles",
         "vocation": "Elder Druid",
-        "level": 944,
+        "level": 945,
         "is_extra": true,
         "death_count": 6,
         "deaths": [
+          {
+            "character": "Val Teles",
+            "time": "2026-04-02T09:37:26Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sulphur spouter.",
+            "is_pk": false
+          },
           {
             "character": "Val Teles",
             "time": "2026-04-01T08:41:30Z",
@@ -768,54 +814,99 @@
             "level": 945,
             "reason": "Died at Level 945 by sineater inferniarch.",
             "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-02T08:50:20Z",
-            "level": 926,
-            "reason": "Died at Level 926 by rage squid.",
-            "is_pk": false
           }
         ],
         "rank": 4
       },
       {
-        "name": "Mega Runa Cinco",
-        "vocation": "Elder Druid",
-        "level": 485,
-        "is_extra": false,
-        "death_count": 4,
+        "name": "Tadalai Lama",
+        "vocation": "Exalted Monk",
+        "level": 551,
+        "is_extra": true,
+        "death_count": 5,
         "deaths": [
           {
-            "character": "Mega Runa Cinco",
-            "time": "2026-03-30T09:01:32Z",
-            "level": 483,
-            "reason": "Died at Level 483 by broodrider inferniarch.",
+            "character": "Tadalai Lama",
+            "time": "2026-04-02T07:39:22Z",
+            "level": 551,
+            "reason": "Died at Level 551 by mean lost soul.",
             "is_pk": false
           },
           {
-            "character": "Mega Runa Cinco",
-            "time": "2026-03-29T09:35:02Z",
-            "level": 483,
-            "reason": "Killed at Level 483 by Mega Runa Cinco and cobra vizier.",
+            "character": "Tadalai Lama",
+            "time": "2026-03-31T09:19:42Z",
+            "level": 551,
+            "reason": "Died at Level 551 by broodrider inferniarch.",
             "is_pk": false
           },
           {
-            "character": "Mega Runa Cinco",
-            "time": "2026-03-23T09:56:52Z",
-            "level": 476,
-            "reason": "Died at Level 476 by cobra vizier.",
+            "character": "Tadalai Lama",
+            "time": "2026-03-13T18:37:10Z",
+            "level": 533,
+            "reason": "Died at Level 533 by crazed summer rearguard.",
             "is_pk": false
           },
           {
-            "character": "Mega Runa Cinco",
-            "time": "2026-03-02T09:47:01Z",
-            "level": 448,
-            "reason": "Died at Level 448 by cobra vizier.",
+            "character": "Tadalai Lama",
+            "time": "2026-03-13T18:12:33Z",
+            "level": 534,
+            "reason": "Died at Level 534 by crazed summer rearguard.",
+            "is_pk": false
+          },
+          {
+            "character": "Tadalai Lama",
+            "time": "2026-03-10T08:58:43Z",
+            "level": 531,
+            "reason": "Died at Level 531 by Scarlett Etzel.",
             "is_pk": false
           }
         ],
         "rank": 5
+      },
+      {
+        "name": "Top Vikingo",
+        "vocation": "Exalted Monk",
+        "level": 551,
+        "is_extra": true,
+        "death_count": 5,
+        "deaths": [
+          {
+            "character": "Top Vikingo",
+            "time": "2026-04-02T07:39:22Z",
+            "level": 551,
+            "reason": "Died at Level 551 by mean lost soul.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-31T09:19:42Z",
+            "level": 551,
+            "reason": "Died at Level 551 by broodrider inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-13T18:37:10Z",
+            "level": 533,
+            "reason": "Died at Level 533 by crazed summer rearguard.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-13T18:12:33Z",
+            "level": 534,
+            "reason": "Died at Level 534 by crazed summer rearguard.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-10T08:58:43Z",
+            "level": 531,
+            "reason": "Died at Level 531 by Scarlett Etzel.",
+            "is_pk": false
+          }
+        ],
+        "rank": 6
       },
       {
         "name": "Fathima Teles",
@@ -853,7 +944,45 @@
             "is_pk": false
           }
         ],
-        "rank": 6
+        "rank": 7
+      },
+      {
+        "name": "Hangg Loose",
+        "vocation": "Royal Paladin",
+        "level": 244,
+        "is_extra": false,
+        "death_count": 4,
+        "deaths": [
+          {
+            "character": "Hangg Loose",
+            "time": "2026-04-02T01:44:25Z",
+            "level": 244,
+            "reason": "Died at Level 244 by barkless devotee.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-03-31T13:43:11Z",
+            "level": 243,
+            "reason": "Died at Level 243 by serpent spawn.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-03-31T13:11:20Z",
+            "level": 243,
+            "reason": "Died at Level 243 by serpent spawn.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-03-17T23:03:52Z",
+            "level": 228,
+            "reason": "Died at Level 228 by gazer spectre.",
+            "is_pk": false
+          }
+        ],
+        "rank": 8
       },
       {
         "name": "Vitorelli",
@@ -891,82 +1020,6 @@
             "is_pk": false
           }
         ],
-        "rank": 7
-      },
-      {
-        "name": "Tadalai Lama",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-13T18:37:10Z",
-            "level": 533,
-            "reason": "Died at Level 533 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-13T18:12:33Z",
-            "level": 534,
-            "reason": "Died at Level 534 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-10T08:58:43Z",
-            "level": 531,
-            "reason": "Died at Level 531 by Scarlett Etzel.",
-            "is_pk": false
-          }
-        ],
-        "rank": 8
-      },
-      {
-        "name": "Top Vikingo",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-13T18:37:10Z",
-            "level": 533,
-            "reason": "Died at Level 533 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-13T18:12:33Z",
-            "level": 534,
-            "reason": "Died at Level 534 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-10T08:58:43Z",
-            "level": 531,
-            "reason": "Died at Level 531 by Scarlett Etzel.",
-            "is_pk": false
-          }
-        ],
         "rank": 9
       },
       {
@@ -1001,31 +1054,31 @@
         "rank": 10
       },
       {
-        "name": "Hangg Loose",
-        "vocation": "Royal Paladin",
-        "level": 243,
+        "name": "Mega Runa Cinco",
+        "vocation": "Elder Druid",
+        "level": 486,
         "is_extra": false,
         "death_count": 3,
         "deaths": [
           {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:43:11Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
+            "character": "Mega Runa Cinco",
+            "time": "2026-03-30T09:01:32Z",
+            "level": 483,
+            "reason": "Died at Level 483 by broodrider inferniarch.",
             "is_pk": false
           },
           {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:11:20Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
+            "character": "Mega Runa Cinco",
+            "time": "2026-03-29T09:35:02Z",
+            "level": 483,
+            "reason": "Killed at Level 483 by Mega Runa Cinco and cobra vizier.",
             "is_pk": false
           },
           {
-            "character": "Hangg Loose",
-            "time": "2026-03-17T23:03:52Z",
-            "level": 228,
-            "reason": "Died at Level 228 by gazer spectre.",
+            "character": "Mega Runa Cinco",
+            "time": "2026-03-23T09:56:52Z",
+            "level": 476,
+            "reason": "Died at Level 476 by cobra vizier.",
             "is_pk": false
           }
         ],
@@ -1094,9 +1147,40 @@
         "rank": 13
       },
       {
+        "name": "Sir Jhunioor",
+        "vocation": "Elite Knight",
+        "level": 503,
+        "is_extra": false,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T23:48:05Z",
+            "level": 504,
+            "reason": "Died at Level 504 by usurper knight.",
+            "is_pk": false
+          },
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T18:43:44Z",
+            "level": 505,
+            "reason": "Died at Level 505 by Scarlett Etzel.",
+            "is_pk": false
+          },
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T16:50:39Z",
+            "level": 505,
+            "reason": "Died at Level 505 by cobra vizier.",
+            "is_pk": false
+          }
+        ],
+        "rank": 14
+      },
+      {
         "name": "Frodo Leads",
         "vocation": "Exalted Monk",
-        "level": 470,
+        "level": 472,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -1122,7 +1206,7 @@
             "is_pk": false
           }
         ],
-        "rank": 14
+        "rank": 15
       },
       {
         "name": "Maltudro moruran",
@@ -1153,7 +1237,7 @@
             "is_pk": false
           }
         ],
-        "rank": 15
+        "rank": 16
       },
       {
         "name": "Myss Fortunie",
@@ -1184,12 +1268,12 @@
             "is_pk": false
           }
         ],
-        "rank": 16
+        "rank": 17
       },
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 689,
+        "level": 690,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -1215,7 +1299,7 @@
             "is_pk": false
           }
         ],
-        "rank": 17
+        "rank": 18
       },
       {
         "name": "Pray for sio",
@@ -1246,7 +1330,7 @@
             "is_pk": false
           }
         ],
-        "rank": 18
+        "rank": 19
       },
       {
         "name": "Falaac Venon",
@@ -1270,12 +1354,12 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
       },
       {
         "name": "Khytez",
         "vocation": "Elite Knight",
-        "level": 77,
+        "level": 80,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -1294,7 +1378,7 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Farofa of Bacon",
@@ -1318,7 +1402,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Maltz",
@@ -1342,12 +1426,12 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 23
       },
       {
         "name": "Proxye",
         "vocation": "Elite Knight",
-        "level": 680,
+        "level": 681,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1366,7 +1450,7 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 24
       },
       {
         "name": "Utribull",
@@ -1390,12 +1474,12 @@
             "is_pk": false
           }
         ],
-        "rank": 24
+        "rank": 25
       },
       {
         "name": "Homem Barbaro",
         "vocation": "Elite Knight",
-        "level": 1041,
+        "level": 1042,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1407,7 +1491,7 @@
             "is_pk": false
           }
         ],
-        "rank": 25
+        "rank": 26
       },
       {
         "name": "Ted Neon",
@@ -1424,7 +1508,7 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 27
       },
       {
         "name": "Davi Off Dragon",
@@ -1441,12 +1525,12 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 28
       },
       {
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 647,
+        "level": 648,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1458,7 +1542,7 @@
             "is_pk": false
           }
         ],
-        "rank": 28
+        "rank": 29
       },
       {
         "name": "Junior Teles",
@@ -1475,12 +1559,12 @@
             "is_pk": false
           }
         ],
-        "rank": 29
+        "rank": 30
       },
       {
         "name": "Legolas Drachenreiter",
         "vocation": "Royal Paladin",
-        "level": 334,
+        "level": 335,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1492,7 +1576,7 @@
             "is_pk": false
           }
         ],
-        "rank": 30
+        "rank": 31
       },
       {
         "name": "Rode Nill",
@@ -1509,7 +1593,7 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 32
       },
       {
         "name": "Ruckert",
@@ -1526,12 +1610,12 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 33
       },
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 453,
+        "level": 454,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1543,12 +1627,12 @@
             "is_pk": false
           }
         ],
-        "rank": 33
+        "rank": 34
       },
       {
         "name": "Nery Blackgold",
         "vocation": "Elite Knight",
-        "level": 708,
+        "level": 709,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1560,7 +1644,7 @@
             "is_pk": false
           }
         ],
-        "rank": 34
+        "rank": 35
       },
       {
         "name": "Spirit Tomatt",
@@ -1577,7 +1661,7 @@
             "is_pk": false
           }
         ],
-        "rank": 35
+        "rank": 36
       }
     ],
     "alltime": [
@@ -1586,8 +1670,15 @@
         "vocation": "Elder Druid",
         "level": 229,
         "is_extra": true,
-        "death_count": 15,
+        "death_count": 16,
         "deaths": [
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-01T17:17:25Z",
+            "level": 229,
+            "reason": "Died at Level 229 by vulcongra.",
+            "is_pk": false
+          },
           {
             "character": "Spirit Matt",
             "time": "2026-04-01T09:06:15Z",
@@ -1699,7 +1790,7 @@
       {
         "name": "Theophile Monk",
         "vocation": "Exalted Monk",
-        "level": 423,
+        "level": 424,
         "is_extra": true,
         "death_count": 10,
         "deaths": [
@@ -1777,6 +1868,86 @@
         "rank": 2
       },
       {
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 945,
+        "is_extra": true,
+        "death_count": 10,
+        "deaths": [
+          {
+            "character": "Val Teles",
+            "time": "2026-04-02T09:37:26Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sulphur spouter.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-04-01T08:41:30Z",
+            "level": 945,
+            "reason": "Died at Level 945 by fear.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T09:34:15Z",
+            "level": 944,
+            "reason": "Died at Level 944 by undertaker.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-26T08:30:42Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sulphider.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T11:39:53Z",
+            "level": 944,
+            "reason": "Died at Level 944 by gorger inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-22T09:24:07Z",
+            "level": 945,
+            "reason": "Died at Level 945 by sineater inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-03-02T08:50:20Z",
+            "level": 926,
+            "reason": "Died at Level 926 by rage squid.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-02-25T08:15:51Z",
+            "level": 922,
+            "reason": "Died at Level 922 by ink blob.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-02-20T08:18:07Z",
+            "level": 921,
+            "reason": "Died at Level 921 by rage squid.",
+            "is_pk": false
+          },
+          {
+            "character": "Val Teles",
+            "time": "2026-02-15T11:37:04Z",
+            "level": 920,
+            "reason": "Died at Level 920 by lava creature.",
+            "is_pk": false
+          }
+        ],
+        "rank": 3
+      },
+      {
         "name": "Lord Froilan",
         "vocation": "Elder Druid",
         "level": 722,
@@ -1844,79 +2015,6 @@
             "time": "2026-02-14T03:24:53Z",
             "level": 696,
             "reason": "Died at Level 696 by falcon paladin.",
-            "is_pk": false
-          }
-        ],
-        "rank": 3
-      },
-      {
-        "name": "Val Teles",
-        "vocation": "Elder Druid",
-        "level": 944,
-        "is_extra": true,
-        "death_count": 9,
-        "deaths": [
-          {
-            "character": "Val Teles",
-            "time": "2026-04-01T08:41:30Z",
-            "level": 945,
-            "reason": "Died at Level 945 by fear.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-26T09:34:15Z",
-            "level": 944,
-            "reason": "Died at Level 944 by undertaker.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-26T08:30:42Z",
-            "level": 945,
-            "reason": "Died at Level 945 by sulphider.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T11:39:53Z",
-            "level": 944,
-            "reason": "Died at Level 944 by gorger inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-22T09:24:07Z",
-            "level": 945,
-            "reason": "Died at Level 945 by sineater inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-03-02T08:50:20Z",
-            "level": 926,
-            "reason": "Died at Level 926 by rage squid.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-02-25T08:15:51Z",
-            "level": 922,
-            "reason": "Died at Level 922 by ink blob.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-02-20T08:18:07Z",
-            "level": 921,
-            "reason": "Died at Level 921 by rage squid.",
-            "is_pk": false
-          },
-          {
-            "character": "Val Teles",
-            "time": "2026-02-15T11:37:04Z",
-            "level": 920,
-            "reason": "Died at Level 920 by lava creature.",
             "is_pk": false
           }
         ],
@@ -2036,7 +2134,7 @@
       {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 485,
+        "level": 486,
         "is_extra": false,
         "death_count": 5,
         "deaths": [
@@ -2077,6 +2175,51 @@
           }
         ],
         "rank": 7
+      },
+      {
+        "name": "Hangg Loose",
+        "vocation": "Royal Paladin",
+        "level": 244,
+        "is_extra": false,
+        "death_count": 5,
+        "deaths": [
+          {
+            "character": "Hangg Loose",
+            "time": "2026-04-02T01:44:25Z",
+            "level": 244,
+            "reason": "Died at Level 244 by barkless devotee.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-03-31T13:43:11Z",
+            "level": 243,
+            "reason": "Died at Level 243 by serpent spawn.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-03-31T13:11:20Z",
+            "level": 243,
+            "reason": "Died at Level 243 by serpent spawn.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-03-17T23:03:52Z",
+            "level": 228,
+            "reason": "Died at Level 228 by gazer spectre.",
+            "is_pk": false
+          },
+          {
+            "character": "Hangg Loose",
+            "time": "2026-02-27T04:20:07Z",
+            "level": 203,
+            "reason": "Died at Level 203 by demon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 8
       },
       {
         "name": "Scarlett Stinson",
@@ -2121,12 +2264,12 @@
             "is_pk": false
           }
         ],
-        "rank": 8
+        "rank": 9
       },
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 689,
+        "level": 690,
         "is_extra": true,
         "death_count": 5,
         "deaths": [
@@ -2166,7 +2309,97 @@
             "is_pk": false
           }
         ],
-        "rank": 9
+        "rank": 10
+      },
+      {
+        "name": "Tadalai Lama",
+        "vocation": "Exalted Monk",
+        "level": 551,
+        "is_extra": true,
+        "death_count": 5,
+        "deaths": [
+          {
+            "character": "Tadalai Lama",
+            "time": "2026-04-02T07:39:22Z",
+            "level": 551,
+            "reason": "Died at Level 551 by mean lost soul.",
+            "is_pk": false
+          },
+          {
+            "character": "Tadalai Lama",
+            "time": "2026-03-31T09:19:42Z",
+            "level": 551,
+            "reason": "Died at Level 551 by broodrider inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Tadalai Lama",
+            "time": "2026-03-13T18:37:10Z",
+            "level": 533,
+            "reason": "Died at Level 533 by crazed summer rearguard.",
+            "is_pk": false
+          },
+          {
+            "character": "Tadalai Lama",
+            "time": "2026-03-13T18:12:33Z",
+            "level": 534,
+            "reason": "Died at Level 534 by crazed summer rearguard.",
+            "is_pk": false
+          },
+          {
+            "character": "Tadalai Lama",
+            "time": "2026-03-10T08:58:43Z",
+            "level": 531,
+            "reason": "Died at Level 531 by Scarlett Etzel.",
+            "is_pk": false
+          }
+        ],
+        "rank": 11
+      },
+      {
+        "name": "Top Vikingo",
+        "vocation": "Exalted Monk",
+        "level": 551,
+        "is_extra": true,
+        "death_count": 5,
+        "deaths": [
+          {
+            "character": "Top Vikingo",
+            "time": "2026-04-02T07:39:22Z",
+            "level": 551,
+            "reason": "Died at Level 551 by mean lost soul.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-31T09:19:42Z",
+            "level": 551,
+            "reason": "Died at Level 551 by broodrider inferniarch.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-13T18:37:10Z",
+            "level": 533,
+            "reason": "Died at Level 533 by crazed summer rearguard.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-13T18:12:33Z",
+            "level": 534,
+            "reason": "Died at Level 534 by crazed summer rearguard.",
+            "is_pk": false
+          },
+          {
+            "character": "Top Vikingo",
+            "time": "2026-03-10T08:58:43Z",
+            "level": 531,
+            "reason": "Died at Level 531 by Scarlett Etzel.",
+            "is_pk": false
+          }
+        ],
+        "rank": 12
       },
       {
         "name": "Firo Kavo",
@@ -2204,7 +2437,7 @@
             "is_pk": false
           }
         ],
-        "rank": 10
+        "rank": 13
       },
       {
         "name": "Fathima Teles",
@@ -2242,45 +2475,7 @@
             "is_pk": false
           }
         ],
-        "rank": 11
-      },
-      {
-        "name": "Hangg Loose",
-        "vocation": "Royal Paladin",
-        "level": 243,
-        "is_extra": false,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:43:11Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
-            "is_pk": false
-          },
-          {
-            "character": "Hangg Loose",
-            "time": "2026-03-31T13:11:20Z",
-            "level": 243,
-            "reason": "Died at Level 243 by serpent spawn.",
-            "is_pk": false
-          },
-          {
-            "character": "Hangg Loose",
-            "time": "2026-03-17T23:03:52Z",
-            "level": 228,
-            "reason": "Died at Level 228 by gazer spectre.",
-            "is_pk": false
-          },
-          {
-            "character": "Hangg Loose",
-            "time": "2026-02-27T04:20:07Z",
-            "level": 203,
-            "reason": "Died at Level 203 by demon.",
-            "is_pk": false
-          }
-        ],
-        "rank": 12
+        "rank": 14
       },
       {
         "name": "Vitorelli",
@@ -2318,82 +2513,6 @@
             "is_pk": false
           }
         ],
-        "rank": 13
-      },
-      {
-        "name": "Tadalai Lama",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-13T18:37:10Z",
-            "level": 533,
-            "reason": "Died at Level 533 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-13T18:12:33Z",
-            "level": 534,
-            "reason": "Died at Level 534 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Tadalai Lama",
-            "time": "2026-03-10T08:58:43Z",
-            "level": 531,
-            "reason": "Died at Level 531 by Scarlett Etzel.",
-            "is_pk": false
-          }
-        ],
-        "rank": 14
-      },
-      {
-        "name": "Top Vikingo",
-        "vocation": "Exalted Monk",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-31T09:19:42Z",
-            "level": 551,
-            "reason": "Died at Level 551 by broodrider inferniarch.",
-            "is_pk": false
-          },
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-13T18:37:10Z",
-            "level": 533,
-            "reason": "Died at Level 533 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-13T18:12:33Z",
-            "level": 534,
-            "reason": "Died at Level 534 by crazed summer rearguard.",
-            "is_pk": false
-          },
-          {
-            "character": "Top Vikingo",
-            "time": "2026-03-10T08:58:43Z",
-            "level": 531,
-            "reason": "Died at Level 531 by Scarlett Etzel.",
-            "is_pk": false
-          }
-        ],
         "rank": 15
       },
       {
@@ -2428,6 +2547,37 @@
         "rank": 16
       },
       {
+        "name": "Sir Jhunioor",
+        "vocation": "Elite Knight",
+        "level": 503,
+        "is_extra": false,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T23:48:05Z",
+            "level": 504,
+            "reason": "Died at Level 504 by usurper knight.",
+            "is_pk": false
+          },
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T18:43:44Z",
+            "level": 505,
+            "reason": "Died at Level 505 by Scarlett Etzel.",
+            "is_pk": false
+          },
+          {
+            "character": "Sir Jhunioor",
+            "time": "2026-04-01T16:50:39Z",
+            "level": 505,
+            "reason": "Died at Level 505 by cobra vizier.",
+            "is_pk": false
+          }
+        ],
+        "rank": 17
+      },
+      {
         "name": "Farofa of Bacon",
         "vocation": "Royal Paladin",
         "level": 1039,
@@ -2456,12 +2606,12 @@
             "is_pk": false
           }
         ],
-        "rank": 17
+        "rank": 18
       },
       {
         "name": "Frodo Leads",
         "vocation": "Exalted Monk",
-        "level": 470,
+        "level": 472,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -2487,7 +2637,7 @@
             "is_pk": false
           }
         ],
-        "rank": 18
+        "rank": 19
       },
       {
         "name": "Maltz",
@@ -2518,7 +2668,7 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
       },
       {
         "name": "Pray for sio",
@@ -2549,7 +2699,7 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Ted Neon",
@@ -2573,7 +2723,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Falaac Venon",
@@ -2597,12 +2747,12 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 23
       },
       {
         "name": "Khytez",
         "vocation": "Elite Knight",
-        "level": 77,
+        "level": 80,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -2621,7 +2771,7 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 24
       },
       {
         "name": "Ruckert",
@@ -2645,12 +2795,12 @@
             "is_pk": false
           }
         ],
-        "rank": 24
+        "rank": 25
       },
       {
         "name": "Proxye",
         "vocation": "Elite Knight",
-        "level": 680,
+        "level": 681,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -2669,7 +2819,7 @@
             "is_pk": false
           }
         ],
-        "rank": 25
+        "rank": 26
       },
       {
         "name": "Utribull",
@@ -2693,12 +2843,12 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 27
       },
       {
         "name": "Homem Barbaro",
         "vocation": "Elite Knight",
-        "level": 1041,
+        "level": 1042,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2710,7 +2860,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 28
       },
       {
         "name": "Davi Off Dragon",
@@ -2727,7 +2877,7 @@
             "is_pk": false
           }
         ],
-        "rank": 28
+        "rank": 29
       },
       {
         "name": "Harvok Chen",
@@ -2744,7 +2894,7 @@
             "is_pk": false
           }
         ],
-        "rank": 29
+        "rank": 30
       },
       {
         "name": "Homem Barbaridade",
@@ -2761,7 +2911,7 @@
             "is_pk": false
           }
         ],
-        "rank": 30
+        "rank": 31
       },
       {
         "name": "Axl Wood",
@@ -2778,12 +2928,12 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 32
       },
       {
         "name": "Bentcho",
         "vocation": "Royal Paladin",
-        "level": 421,
+        "level": 423,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2795,7 +2945,7 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 33
       },
       {
         "name": "Domto",
@@ -2812,12 +2962,12 @@
             "is_pk": false
           }
         ],
-        "rank": 33
+        "rank": 34
       },
       {
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 647,
+        "level": 648,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2829,7 +2979,7 @@
             "is_pk": false
           }
         ],
-        "rank": 34
+        "rank": 35
       },
       {
         "name": "Finn Gael",
@@ -2846,7 +2996,7 @@
             "is_pk": false
           }
         ],
-        "rank": 35
+        "rank": 36
       },
       {
         "name": "Jake Gael",
@@ -2863,7 +3013,7 @@
             "is_pk": false
           }
         ],
-        "rank": 36
+        "rank": 37
       },
       {
         "name": "Junior Teles",
@@ -2880,12 +3030,12 @@
             "is_pk": false
           }
         ],
-        "rank": 37
+        "rank": 38
       },
       {
         "name": "Khurlan",
         "vocation": "Royal Paladin",
-        "level": 222,
+        "level": 223,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2897,12 +3047,12 @@
             "is_pk": false
           }
         ],
-        "rank": 38
+        "rank": 39
       },
       {
         "name": "Legolas Drachenreiter",
         "vocation": "Royal Paladin",
-        "level": 334,
+        "level": 335,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2914,7 +3064,7 @@
             "is_pk": false
           }
         ],
-        "rank": 39
+        "rank": 40
       },
       {
         "name": "Med Prudente",
@@ -2931,7 +3081,7 @@
             "is_pk": false
           }
         ],
-        "rank": 40
+        "rank": 41
       },
       {
         "name": "Rode Nill",
@@ -2948,12 +3098,12 @@
             "is_pk": false
           }
         ],
-        "rank": 41
+        "rank": 42
       },
       {
         "name": "Vaughn Benjamin",
         "vocation": "Elite Knight",
-        "level": 820,
+        "level": 821,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -2965,7 +3115,7 @@
             "is_pk": false
           }
         ],
-        "rank": 42
+        "rank": 43
       },
       {
         "name": "Edu Fredericci",
@@ -2982,12 +3132,12 @@
             "is_pk": false
           }
         ],
-        "rank": 43
+        "rank": 44
       },
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 453,
+        "level": 454,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -2999,7 +3149,7 @@
             "is_pk": false
           }
         ],
-        "rank": 44
+        "rank": 45
       },
       {
         "name": "Luskzin",
@@ -3016,12 +3166,12 @@
             "is_pk": false
           }
         ],
-        "rank": 45
+        "rank": 46
       },
       {
         "name": "Nery Blackgold",
         "vocation": "Elite Knight",
-        "level": 708,
+        "level": 709,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -3033,7 +3183,7 @@
             "is_pk": false
           }
         ],
-        "rank": 46
+        "rank": 47
       },
       {
         "name": "Niko Fredericci",
@@ -3050,7 +3200,7 @@
             "is_pk": false
           }
         ],
-        "rank": 47
+        "rank": 48
       },
       {
         "name": "Sir'Desttroyer",
@@ -3067,7 +3217,7 @@
             "is_pk": false
           }
         ],
-        "rank": 48
+        "rank": 49
       },
       {
         "name": "Spirit Tomatt",
@@ -3084,7 +3234,7 @@
             "is_pk": false
           }
         ],
-        "rank": 49
+        "rank": 50
       }
     ]
   }
