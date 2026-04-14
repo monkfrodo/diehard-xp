@@ -110,11 +110,18 @@ def buscar_xp_guildstats():
             nome = char_link.text.strip()
             nome_lower = nome.lower()
             
+            def get_col_xp(col):
+                sv = col.get('data-sort-value')
+                if sv is not None:
+                    try: return int(sv)
+                    except: pass
+                return parse_exp_value(col.text.strip().split('\n')[0].strip())
+
             jogadores[nome_lower] = {
                 'name': nome,
-                'exp_yesterday': parse_exp_value(cols[-4].text.strip()),
-                'exp_7days': parse_exp_value(cols[-3].text.strip()),
-                'exp_30days': parse_exp_value(cols[-2].text.strip())
+                'exp_yesterday': get_col_xp(cols[-4]),
+                'exp_7days': get_col_xp(cols[-3]),
+                'exp_30days': get_col_xp(cols[-2])
             }
         
         # Conta quantos têm XP ontem (para validação)
@@ -381,7 +388,7 @@ def main():
             'is_extra': False
         })
         processados.add(nome_lower)
-        if exp_y == 0 and exp_7 == 0 and exp_30 == 0:
+        if exp_y == 0:  # busca individual para corrigir yesterday mesmo se 7d/30d ok
             sem_xp.append(nome_lower)
 
     log(f"Membros da guild: {len(jogadores)} ({len(sem_xp)} sem XP no tab.php — buscando individualmente...)", "✅")
@@ -392,12 +399,15 @@ def main():
         membro = membros_guild[nome_lower]
         time.sleep(1)
         xp = buscar_exp_individual(membro['name'])
-        if xp and (xp.get('exp_yesterday', 0) > 0 or xp.get('exp_7days', 0) > 0 or xp.get('exp_30days', 0) > 0):
+        if xp and xp.get('exp_yesterday', 0) > 0:
             for j in jogadores:
                 if j['name'] == membro['name']:
-                    j['exp_yesterday'] = xp.get('exp_yesterday', 0)
-                    j['exp_7days'] = xp.get('exp_7days', 0)
-                    j['exp_30days'] = xp.get('exp_30days', 0)
+                    j['exp_yesterday'] = xp['exp_yesterday']
+                    # 7d/30d: usa individual só se guild tab tiver 0
+                    if j['exp_7days'] == 0:
+                        j['exp_7days'] = xp.get('exp_7days', 0)
+                    if j['exp_30days'] == 0:
+                        j['exp_30days'] = xp.get('exp_30days', 0)
                     break
             atualizados += 1
         if (i + 1) % 20 == 0:
