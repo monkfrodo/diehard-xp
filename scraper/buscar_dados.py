@@ -238,7 +238,15 @@ def buscar_dados_guildstats_individual(nome):
                     if len(cells) >= 2:
                         date_cell = cells[0].text.strip()[:10]
                         if len(date_cell) == 10 and date_cell[4] == '-':
-                            exp_values.append(parse_exp_value(cells[1].text.strip()))
+                            sort_val = cells[1].get('data-sort-value')
+                            if sort_val is not None:
+                                try:
+                                    exp_values.append(int(sort_val))
+                                except:
+                                    exp_values.append(0)
+                            else:
+                                raw = cells[1].text.strip().split('\n')[0].strip()
+                                exp_values.append(parse_exp_value(raw))
 
         return {
             'vocation': vocation,
@@ -270,7 +278,17 @@ def buscar_exp_individual(nome):
                 if len(cells) >= 2:
                     date_cell = cells[0].text.strip()[:10]
                     if len(date_cell) == 10 and date_cell[4] == '-':
-                        exp_values.append(parse_exp_value(cells[1].text.strip()))
+                        # data-sort-value é mais confiável que .text (que pode ter texto extra após newlines)
+                        sort_val = cells[1].get('data-sort-value')
+                        if sort_val is not None:
+                            try:
+                                exp_values.append(int(sort_val))
+                            except:
+                                exp_values.append(0)
+                        else:
+                            # fallback: pega só a primeira linha do texto
+                            raw = cells[1].text.strip().split('\n')[0].strip()
+                            exp_values.append(parse_exp_value(raw))
 
         if not exp_values:
             return None
@@ -347,20 +365,45 @@ def main():
     processados = set()
     
     # Primeiro: todos os membros da guild atual (com vocação garantida)
+    sem_xp = []  # membros sem XP em nenhum período no tab.php
     for nome_lower, membro in membros_guild.items():
         xp = xp_data.get(nome_lower, {})
+        exp_y = xp.get('exp_yesterday', 0)
+        exp_7 = xp.get('exp_7days', 0)
+        exp_30 = xp.get('exp_30days', 0)
         jogadores.append({
             'name': membro['name'],
             'level': membro['level'],
             'vocation': membro['vocation'],
-            'exp_yesterday': xp.get('exp_yesterday', 0),
-            'exp_7days': xp.get('exp_7days', 0),
-            'exp_30days': xp.get('exp_30days', 0),
+            'exp_yesterday': exp_y,
+            'exp_7days': exp_7,
+            'exp_30days': exp_30,
             'is_extra': False
         })
         processados.add(nome_lower)
-    
-    log(f"Membros da guild processados: {len(jogadores)}", "✅")
+        if exp_y == 0 and exp_7 == 0 and exp_30 == 0:
+            sem_xp.append(nome_lower)
+
+    log(f"Membros da guild: {len(jogadores)} ({len(sem_xp)} sem XP no tab.php — buscando individualmente...)", "✅")
+
+    # Busca individual para membros sem XP no tab.php
+    atualizados = 0
+    for i, nome_lower in enumerate(sem_xp):
+        membro = membros_guild[nome_lower]
+        time.sleep(1)
+        xp = buscar_exp_individual(membro['name'])
+        if xp and (xp.get('exp_yesterday', 0) > 0 or xp.get('exp_7days', 0) > 0 or xp.get('exp_30days', 0) > 0):
+            for j in jogadores:
+                if j['name'] == membro['name']:
+                    j['exp_yesterday'] = xp.get('exp_yesterday', 0)
+                    j['exp_7days'] = xp.get('exp_7days', 0)
+                    j['exp_30days'] = xp.get('exp_30days', 0)
+                    break
+            atualizados += 1
+        if (i + 1) % 20 == 0:
+            log(f"  Busca individual: {i+1}/{len(sem_xp)}, {atualizados} com XP", "🔄")
+
+    log(f"Busca individual concluída: {atualizados}/{len(sem_xp)} membros com XP encontrado", "✅")
     
     # 4. Processa extras (jogadores fora da guild que queremos trackear)
     extras = carregar_extras()
