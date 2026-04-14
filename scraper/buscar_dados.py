@@ -18,7 +18,7 @@ from http_client import fetch
 GUILD_NAME = "Diehard"
 WORLD = "Luminera"
 TIMEZONE = ZoneInfo('America/Sao_Paulo')
-GUILDSTATS_URL = f"https://guildstats.eu/include/guild/tab.php?guild={GUILD_NAME}&tab=timeonline"
+GUILDSTATS_URL = f"https://guildstats.eu/guild?guild={GUILD_NAME}"
 
 # Caminhos de saída
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -99,7 +99,8 @@ def buscar_xp_guildstats():
             char_link = None
             for col in cols:
                 link = col.find('a')
-                if link and 'character/' in str(link.get('href', '')):
+                href = link.get('href', '') if link else ''
+                if link and ('character/' in href or 'character?nick=' in href):
                     char_link = link
                     break
             
