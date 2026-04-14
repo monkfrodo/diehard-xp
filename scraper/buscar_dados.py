@@ -18,7 +18,7 @@ from http_client import fetch
 GUILD_NAME = "Diehard"
 WORLD = "Luminera"
 TIMEZONE = ZoneInfo('America/Sao_Paulo')
-GUILDSTATS_URL = f"https://guildstats.eu/guild?guild={GUILD_NAME}"
+GUILDSTATS_URL = f"https://guildstats.eu/include/guild/tab.php?guild={GUILD_NAME}&tab=timeonline"
 
 # Caminhos de saída
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -324,11 +324,11 @@ def main():
         try:
             xp_data, com_xp_ontem = buscar_xp_guildstats()
             
-            if com_xp_ontem > 0:
+            if com_xp_ontem >= 10:
                 log(f"GuildStats atualizado! {com_xp_ontem} membros com XP ontem", "✅")
                 break
             else:
-                log(f"GuildStats ainda não atualizou (0 jogadores com XP)", "⚠️")
+                log(f"GuildStats ainda não atualizou ({com_xp_ontem} jogadores com XP ontem, aguardando 10+)", "⚠️")
         except Exception as e:
             if "403" in str(e):
                 log(f"ERRO: Bloqueio anti-bot detectado (403).", "🚫")
