@@ -1,102 +1,85 @@
 {
   "guild": "Diehard",
   "world": "Luminera",
-  "last_update": "2026-04-14 08:13:25",
-  "last_update_display": "14/04/2026 às 08:13",
+  "last_update": "2026-04-15 08:13:13",
+  "last_update_display": "15/04/2026 às 08:13",
   "total_members": 160,
   "rankings": {
     "yesterday": [
       {
-        "name": "Lord Froilan",
+        "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 729,
+        "level": 494,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Lord Froilan",
-            "time": "2026-04-13T00:06:28Z",
-            "level": 727,
-            "reason": "Died at Level 727 by Greed.",
+            "character": "Mega Runa Cinco",
+            "time": "2026-04-14T09:12:47Z",
+            "level": 493,
+            "reason": "Died at Level 493 by sineater inferniarch.",
             "is_pk": false
           }
         ],
         "rank": 1
       },
       {
-        "name": "Axl Wood",
-        "vocation": "Royal Paladin",
-        "level": 352,
+        "name": "Dona Emilia Flaubertina",
+        "vocation": "Elite Knight",
+        "level": 51,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Axl Wood",
-            "time": "2026-04-13T02:04:40Z",
-            "level": 353,
-            "reason": "Died at Level 353 by grim reaper.",
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-14T18:10:47Z",
+            "level": 52,
+            "reason": "Died at Level 52 by dragon lord.",
             "is_pk": false
           }
         ],
         "rank": 2
       },
       {
-        "name": "Bentcho",
-        "vocation": "Royal Paladin",
-        "level": 424,
-        "is_extra": false,
+        "name": "Pani Kartofel",
+        "vocation": "Elite Knight",
+        "level": 700,
+        "is_extra": true,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Bentcho",
-            "time": "2026-04-13T00:23:30Z",
-            "level": 425,
-            "reason": "Died at Level 425 by falcon paladin.",
+            "character": "Pani Kartofel",
+            "time": "2026-04-14T09:26:02Z",
+            "level": 701,
+            "reason": "Died at Level 701 by dread intruder.",
             "is_pk": false
           }
         ],
         "rank": 3
       },
       {
-        "name": "Dona Emilia Flaubertina",
-        "vocation": "Elite Knight",
-        "level": 52,
-        "is_extra": false,
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 248,
+        "is_extra": true,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Dona Emilia Flaubertina",
-            "time": "2026-04-13T02:29:01Z",
-            "level": 51,
-            "reason": "Died at Level 51 by dragon lord.",
+            "character": "Spirit Matt",
+            "time": "2026-04-14T15:33:27Z",
+            "level": 245,
+            "reason": "Died at Level 245 by vile grandmaster.",
             "is_pk": false
           }
         ],
         "rank": 4
-      },
-      {
-        "name": "Legolas Drachenreiter",
-        "vocation": "Royal Paladin",
-        "level": 340,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Legolas Drachenreiter",
-            "time": "2026-04-13T15:04:20Z",
-            "level": 341,
-            "reason": "Died at Level 341 by stabilizing reality reaver.",
-            "is_pk": false
-          }
-        ],
-        "rank": 5
       }
     ],
     "7days": [
       {
         "name": "Lord Froilan",
         "vocation": "Elder Druid",
-        "level": 729,
+        "level": 730,
         "is_extra": false,
         "death_count": 3,
         "deaths": [
@@ -125,6 +108,68 @@
         "rank": 1
       },
       {
+        "name": "Dona Emilia Flaubertina",
+        "vocation": "Elite Knight",
+        "level": 51,
+        "is_extra": false,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-14T18:10:47Z",
+            "level": 52,
+            "reason": "Died at Level 52 by dragon lord.",
+            "is_pk": false
+          },
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-13T02:29:01Z",
+            "level": 51,
+            "reason": "Died at Level 51 by dragon lord.",
+            "is_pk": false
+          },
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-12T17:43:03Z",
+            "level": 52,
+            "reason": "Died at Level 52 by dragon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 2
+      },
+      {
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 248,
+        "is_extra": true,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-14T15:33:27Z",
+            "level": 245,
+            "reason": "Died at Level 245 by vile grandmaster.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-09T16:13:30Z",
+            "level": 238,
+            "reason": "Died at Level 238 by gazer spectre.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-08T01:23:55Z",
+            "level": 235,
+            "reason": "Died at Level 235 by frost dragon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 3
+      },
+      {
         "name": "Axl Wood",
         "vocation": "Royal Paladin",
         "level": 352,
@@ -146,55 +191,31 @@
             "is_pk": false
           }
         ],
-        "rank": 2
-      },
-      {
-        "name": "Dona Emilia Flaubertina",
-        "vocation": "Elite Knight",
-        "level": 52,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Dona Emilia Flaubertina",
-            "time": "2026-04-13T02:29:01Z",
-            "level": 51,
-            "reason": "Died at Level 51 by dragon lord.",
-            "is_pk": false
-          },
-          {
-            "character": "Dona Emilia Flaubertina",
-            "time": "2026-04-12T17:43:03Z",
-            "level": 52,
-            "reason": "Died at Level 52 by dragon.",
-            "is_pk": false
-          }
-        ],
-        "rank": 3
-      },
-      {
-        "name": "Legolas Drachenreiter",
-        "vocation": "Royal Paladin",
-        "level": 340,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Legolas Drachenreiter",
-            "time": "2026-04-13T15:04:20Z",
-            "level": 341,
-            "reason": "Died at Level 341 by stabilizing reality reaver.",
-            "is_pk": false
-          },
-          {
-            "character": "Legolas Drachenreiter",
-            "time": "2026-04-07T16:54:13Z",
-            "level": 337,
-            "reason": "Died at Level 337 by draken warmaster.",
-            "is_pk": false
-          }
-        ],
         "rank": 4
+      },
+      {
+        "name": "Jeta Larus",
+        "vocation": "Knight",
+        "level": 37,
+        "is_extra": false,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Jeta Larus",
+            "time": "2026-04-15T00:27:09Z",
+            "level": 37,
+            "reason": "Died at Level 37 by dragon.",
+            "is_pk": false
+          },
+          {
+            "character": "Jeta Larus",
+            "time": "2026-04-15T00:21:12Z",
+            "level": 38,
+            "reason": "Died at Level 38 by dragon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 5
       },
       {
         "name": "Frodo Leads",
@@ -218,7 +239,7 @@
             "is_pk": false
           }
         ],
-        "rank": 5
+        "rank": 6
       },
       {
         "name": "Pray for sio",
@@ -242,36 +263,12 @@
             "is_pk": false
           }
         ],
-        "rank": 6
-      },
-      {
-        "name": "Spirit Matt",
-        "vocation": "Elder Druid",
-        "level": 245,
-        "is_extra": true,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Spirit Matt",
-            "time": "2026-04-09T16:13:30Z",
-            "level": 238,
-            "reason": "Died at Level 238 by gazer spectre.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-04-08T01:23:55Z",
-            "level": 235,
-            "reason": "Died at Level 235 by frost dragon.",
-            "is_pk": false
-          }
-        ],
         "rank": 7
       },
       {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
-        "level": 670,
+        "level": 671,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -288,7 +285,7 @@
       {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 493,
+        "level": 494,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -322,7 +319,7 @@
       {
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 656,
+        "level": 657,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -337,9 +334,26 @@
         "rank": 11
       },
       {
+        "name": "Legolas Drachenreiter",
+        "vocation": "Royal Paladin",
+        "level": 341,
+        "is_extra": false,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Legolas Drachenreiter",
+            "time": "2026-04-13T15:04:20Z",
+            "level": 341,
+            "reason": "Died at Level 341 by stabilizing reality reaver.",
+            "is_pk": false
+          }
+        ],
+        "rank": 12
+      },
+      {
         "name": "Med Prudente",
         "vocation": "Royal Paladin",
-        "level": 212,
+        "level": 213,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -351,7 +365,24 @@
             "is_pk": false
           }
         ],
-        "rank": 12
+        "rank": 13
+      },
+      {
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1154,
+        "is_extra": true,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Maltz",
+            "time": "2026-04-15T08:50:08Z",
+            "level": 1155,
+            "reason": "Died at Level 1155 by nighthunter.",
+            "is_pk": false
+          }
+        ],
+        "rank": 14
       },
       {
         "name": "Pani Kartofel",
@@ -368,7 +399,7 @@
             "is_pk": false
           }
         ],
-        "rank": 13
+        "rank": 15
       },
       {
         "name": "Spirit Tomatt",
@@ -385,12 +416,12 @@
             "is_pk": false
           }
         ],
-        "rank": 14
+        "rank": 16
       },
       {
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 559,
+        "level": 560,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -402,12 +433,12 @@
             "is_pk": false
           }
         ],
-        "rank": 15
+        "rank": 17
       },
       {
         "name": "Top Vikingo",
         "vocation": "Exalted Monk",
-        "level": 559,
+        "level": 560,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -419,12 +450,12 @@
             "is_pk": false
           }
         ],
-        "rank": 16
+        "rank": 18
       },
       {
         "name": "Val Teles",
         "vocation": "Elder Druid",
-        "level": 943,
+        "level": 944,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -436,12 +467,12 @@
             "is_pk": false
           }
         ],
-        "rank": 17
+        "rank": 19
       },
       {
         "name": "Wasted Thyme",
         "vocation": "Royal Paladin",
-        "level": 695,
+        "level": 697,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -453,14 +484,14 @@
             "is_pk": false
           }
         ],
-        "rank": 18
+        "rank": 20
       }
     ],
     "30days": [
       {
         "name": "Lord Froilan",
         "vocation": "Elder Druid",
-        "level": 729,
+        "level": 730,
         "is_extra": false,
         "death_count": 11,
         "deaths": [
@@ -545,9 +576,89 @@
         "rank": 1
       },
       {
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 248,
+        "is_extra": true,
+        "death_count": 10,
+        "deaths": [
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-14T15:33:27Z",
+            "level": 245,
+            "reason": "Died at Level 245 by vile grandmaster.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-09T16:13:30Z",
+            "level": 238,
+            "reason": "Died at Level 238 by gazer spectre.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-08T01:23:55Z",
+            "level": 235,
+            "reason": "Died at Level 235 by frost dragon.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-01T17:17:25Z",
+            "level": 229,
+            "reason": "Died at Level 229 by vulcongra.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-01T09:06:15Z",
+            "level": 229,
+            "reason": "Died at Level 229 by nymph.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-03-27T05:06:19Z",
+            "level": 221,
+            "reason": "Died at Level 221 by dragon lord.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-03-21T18:54:21Z",
+            "level": 215,
+            "reason": "Died at Level 215 by vulcongra.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-03-19T18:31:58Z",
+            "level": 215,
+            "reason": "Died at Level 215 by iks churrascan.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-03-19T16:20:06Z",
+            "level": 215,
+            "reason": "Died at Level 215 by werebadger.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-03-18T20:26:19Z",
+            "level": 212,
+            "reason": "Died at Level 212 by crystalcrusher.",
+            "is_pk": false
+          }
+        ],
+        "rank": 2
+      },
+      {
         "name": "Val Teles",
         "vocation": "Elder Druid",
-        "level": 943,
+        "level": 944,
         "is_extra": true,
         "death_count": 10,
         "deaths": [
@@ -622,85 +733,12 @@
             "is_pk": false
           }
         ],
-        "rank": 2
-      },
-      {
-        "name": "Spirit Matt",
-        "vocation": "Elder Druid",
-        "level": 245,
-        "is_extra": true,
-        "death_count": 9,
-        "deaths": [
-          {
-            "character": "Spirit Matt",
-            "time": "2026-04-09T16:13:30Z",
-            "level": 238,
-            "reason": "Died at Level 238 by gazer spectre.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-04-08T01:23:55Z",
-            "level": 235,
-            "reason": "Died at Level 235 by frost dragon.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-04-01T17:17:25Z",
-            "level": 229,
-            "reason": "Died at Level 229 by vulcongra.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-04-01T09:06:15Z",
-            "level": 229,
-            "reason": "Died at Level 229 by nymph.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-03-27T05:06:19Z",
-            "level": 221,
-            "reason": "Died at Level 221 by dragon lord.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-03-21T18:54:21Z",
-            "level": 215,
-            "reason": "Died at Level 215 by vulcongra.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-03-19T18:31:58Z",
-            "level": 215,
-            "reason": "Died at Level 215 by iks churrascan.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-03-19T16:20:06Z",
-            "level": 215,
-            "reason": "Died at Level 215 by werebadger.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-03-18T20:26:19Z",
-            "level": 212,
-            "reason": "Died at Level 212 by crystalcrusher.",
-            "is_pk": false
-          }
-        ],
         "rank": 3
       },
       {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 493,
+        "level": 494,
         "is_extra": false,
         "death_count": 6,
         "deaths": [
@@ -752,7 +790,7 @@
       {
         "name": "Hangg Loose",
         "vocation": "Royal Paladin",
-        "level": 250,
+        "level": 251,
         "is_extra": false,
         "death_count": 5,
         "deaths": [
@@ -842,7 +880,7 @@
       {
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 656,
+        "level": 657,
         "is_extra": false,
         "death_count": 4,
         "deaths": [
@@ -954,9 +992,40 @@
         "rank": 9
       },
       {
+        "name": "Dona Emilia Flaubertina",
+        "vocation": "Elite Knight",
+        "level": 51,
+        "is_extra": false,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-14T18:10:47Z",
+            "level": 52,
+            "reason": "Died at Level 52 by dragon lord.",
+            "is_pk": false
+          },
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-13T02:29:01Z",
+            "level": 51,
+            "reason": "Died at Level 51 by dragon lord.",
+            "is_pk": false
+          },
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-12T17:43:03Z",
+            "level": 52,
+            "reason": "Died at Level 52 by dragon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 10
+      },
+      {
         "name": "Legolas Drachenreiter",
         "vocation": "Royal Paladin",
-        "level": 340,
+        "level": 341,
         "is_extra": false,
         "death_count": 3,
         "deaths": [
@@ -982,7 +1051,7 @@
             "is_pk": false
           }
         ],
-        "rank": 10
+        "rank": 11
       },
       {
         "name": "Sir Jhunioor",
@@ -1010,37 +1079,6 @@
             "time": "2026-04-01T16:50:39Z",
             "level": 505,
             "reason": "Died at Level 505 by cobra vizier.",
-            "is_pk": false
-          }
-        ],
-        "rank": 11
-      },
-      {
-        "name": "Vitorelli",
-        "vocation": "Master Sorcerer",
-        "level": 456,
-        "is_extra": false,
-        "death_count": 3,
-        "deaths": [
-          {
-            "character": "Vitorelli",
-            "time": "2026-04-04T21:06:09Z",
-            "level": 455,
-            "reason": "Died at Level 455 by grim reaper.",
-            "is_pk": false
-          },
-          {
-            "character": "Vitorelli",
-            "time": "2026-03-16T18:52:15Z",
-            "level": 447,
-            "reason": "Died at Level 447 by soul-broken harbinger.",
-            "is_pk": false
-          },
-          {
-            "character": "Vitorelli",
-            "time": "2026-03-15T12:41:48Z",
-            "level": 446,
-            "reason": "Died at Level 446 by vexclaw.",
             "is_pk": false
           }
         ],
@@ -1080,7 +1118,7 @@
       {
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 559,
+        "level": 560,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -1111,7 +1149,7 @@
       {
         "name": "Top Vikingo",
         "vocation": "Exalted Monk",
-        "level": 559,
+        "level": 560,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -1142,7 +1180,7 @@
       {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
-        "level": 670,
+        "level": 671,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -1188,30 +1226,6 @@
         "rank": 17
       },
       {
-        "name": "Dona Emilia Flaubertina",
-        "vocation": "Elite Knight",
-        "level": 52,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Dona Emilia Flaubertina",
-            "time": "2026-04-13T02:29:01Z",
-            "level": 51,
-            "reason": "Died at Level 51 by dragon lord.",
-            "is_pk": false
-          },
-          {
-            "character": "Dona Emilia Flaubertina",
-            "time": "2026-04-12T17:43:03Z",
-            "level": 52,
-            "reason": "Died at Level 52 by dragon.",
-            "is_pk": false
-          }
-        ],
-        "rank": 18
-      },
-      {
         "name": "Fathima Teles",
         "vocation": "Elite Knight",
         "level": 549,
@@ -1230,6 +1244,30 @@
             "time": "2026-03-29T21:38:02Z",
             "level": 545,
             "reason": "Died at Level 545 by ripper spectre.",
+            "is_pk": false
+          }
+        ],
+        "rank": 18
+      },
+      {
+        "name": "Jeta Larus",
+        "vocation": "Knight",
+        "level": 37,
+        "is_extra": false,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Jeta Larus",
+            "time": "2026-04-15T00:27:09Z",
+            "level": 37,
+            "reason": "Died at Level 37 by dragon.",
+            "is_pk": false
+          },
+          {
+            "character": "Jeta Larus",
+            "time": "2026-04-15T00:21:12Z",
+            "level": 38,
+            "reason": "Died at Level 38 by dragon.",
             "is_pk": false
           }
         ],
@@ -1262,7 +1300,7 @@
       {
         "name": "Med Prudente",
         "vocation": "Royal Paladin",
-        "level": 212,
+        "level": 213,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -1308,6 +1346,30 @@
         "rank": 22
       },
       {
+        "name": "Vitorelli",
+        "vocation": "Master Sorcerer",
+        "level": 456,
+        "is_extra": false,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Vitorelli",
+            "time": "2026-04-04T21:06:09Z",
+            "level": 455,
+            "reason": "Died at Level 455 by grim reaper.",
+            "is_pk": false
+          },
+          {
+            "character": "Vitorelli",
+            "time": "2026-03-16T18:52:15Z",
+            "level": 447,
+            "reason": "Died at Level 447 by soul-broken harbinger.",
+            "is_pk": false
+          }
+        ],
+        "rank": 23
+      },
+      {
         "name": "Farofa of Bacon",
         "vocation": "Royal Paladin",
         "level": 1042,
@@ -1329,12 +1391,36 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 24
+      },
+      {
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1154,
+        "is_extra": true,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Maltz",
+            "time": "2026-04-15T08:50:08Z",
+            "level": 1155,
+            "reason": "Died at Level 1155 by nighthunter.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-03-30T19:49:22Z",
+            "level": 1153,
+            "reason": "Died at Level 1153 by flimsy lost soul.",
+            "is_pk": false
+          }
+        ],
+        "rank": 25
       },
       {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 496,
+        "level": 497,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1353,7 +1439,7 @@
             "is_pk": false
           }
         ],
-        "rank": 24
+        "rank": 26
       },
       {
         "name": "Pani Kartofel",
@@ -1377,7 +1463,7 @@
             "is_pk": false
           }
         ],
-        "rank": 25
+        "rank": 27
       },
       {
         "name": "Homem Barbaro",
@@ -1394,12 +1480,12 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 28
       },
       {
         "name": "Ted Neon",
         "vocation": "Elite Knight",
-        "level": 514,
+        "level": 515,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1411,7 +1497,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 29
       },
       {
         "name": "Davi Off Dragon",
@@ -1428,7 +1514,7 @@
             "is_pk": false
           }
         ],
-        "rank": 28
+        "rank": 30
       },
       {
         "name": "Harvok Chen",
@@ -1445,7 +1531,7 @@
             "is_pk": false
           }
         ],
-        "rank": 29
+        "rank": 31
       },
       {
         "name": "Bentcho",
@@ -1462,12 +1548,12 @@
             "is_pk": false
           }
         ],
-        "rank": 30
+        "rank": 32
       },
       {
         "name": "Falaac Venon",
         "vocation": "Royal Paladin",
-        "level": 376,
+        "level": 377,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1479,7 +1565,7 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 33
       },
       {
         "name": "Junior Teles",
@@ -1496,7 +1582,7 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 34
       },
       {
         "name": "Parde Ases",
@@ -1513,7 +1599,7 @@
             "is_pk": false
           }
         ],
-        "rank": 33
+        "rank": 35
       },
       {
         "name": "Rode Nill",
@@ -1530,12 +1616,12 @@
             "is_pk": false
           }
         ],
-        "rank": 34
+        "rank": 36
       },
       {
         "name": "Ruckert",
         "vocation": "Royal Paladin",
-        "level": 262,
+        "level": 263,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1547,7 +1633,7 @@
             "is_pk": false
           }
         ],
-        "rank": 35
+        "rank": 37
       },
       {
         "name": "Emperium Paladyn",
@@ -1564,12 +1650,12 @@
             "is_pk": false
           }
         ],
-        "rank": 36
+        "rank": 38
       },
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 462,
+        "level": 463,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1581,7 +1667,7 @@
             "is_pk": false
           }
         ],
-        "rank": 37
+        "rank": 39
       },
       {
         "name": "Luskzin",
@@ -1598,24 +1684,7 @@
             "is_pk": false
           }
         ],
-        "rank": 38
-      },
-      {
-        "name": "Maltz",
-        "vocation": "Master Sorcerer",
-        "level": 1155,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Maltz",
-            "time": "2026-03-30T19:49:22Z",
-            "level": 1153,
-            "reason": "Died at Level 1153 by flimsy lost soul.",
-            "is_pk": false
-          }
-        ],
-        "rank": 39
+        "rank": 40
       },
       {
         "name": "Nery Blackgold",
@@ -1632,12 +1701,12 @@
             "is_pk": false
           }
         ],
-        "rank": 40
+        "rank": 41
       },
       {
         "name": "Proxye",
         "vocation": "Elite Knight",
-        "level": 690,
+        "level": 691,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1649,7 +1718,7 @@
             "is_pk": false
           }
         ],
-        "rank": 41
+        "rank": 42
       },
       {
         "name": "Spirit Tomatt",
@@ -1666,12 +1735,12 @@
             "is_pk": false
           }
         ],
-        "rank": 42
+        "rank": 43
       },
       {
         "name": "Utribull",
         "vocation": "Elite Knight",
-        "level": 1079,
+        "level": 1080,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1683,12 +1752,12 @@
             "is_pk": false
           }
         ],
-        "rank": 43
+        "rank": 44
       },
       {
         "name": "Wasted Thyme",
         "vocation": "Royal Paladin",
-        "level": 695,
+        "level": 697,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1700,17 +1769,24 @@
             "is_pk": false
           }
         ],
-        "rank": 44
+        "rank": 45
       }
     ],
     "alltime": [
       {
         "name": "Spirit Matt",
         "vocation": "Elder Druid",
-        "level": 245,
+        "level": 248,
         "is_extra": true,
-        "death_count": 18,
+        "death_count": 19,
         "deaths": [
+          {
+            "character": "Spirit Matt",
+            "time": "2026-04-14T15:33:27Z",
+            "level": 245,
+            "reason": "Died at Level 245 by vile grandmaster.",
+            "is_pk": false
+          },
           {
             "character": "Spirit Matt",
             "time": "2026-04-09T16:13:30Z",
@@ -1843,7 +1919,7 @@
       {
         "name": "Lord Froilan",
         "vocation": "Elder Druid",
-        "level": 729,
+        "level": 730,
         "is_extra": false,
         "death_count": 15,
         "deaths": [
@@ -1958,7 +2034,7 @@
       {
         "name": "Val Teles",
         "vocation": "Elder Druid",
-        "level": 943,
+        "level": 944,
         "is_extra": true,
         "death_count": 14,
         "deaths": [
@@ -2146,7 +2222,7 @@
       {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 493,
+        "level": 494,
         "is_extra": false,
         "death_count": 8,
         "deaths": [
@@ -2271,7 +2347,7 @@
       {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 496,
+        "level": 497,
         "is_extra": true,
         "death_count": 7,
         "deaths": [
@@ -2330,7 +2406,7 @@
       {
         "name": "Hangg Loose",
         "vocation": "Royal Paladin",
-        "level": 250,
+        "level": 251,
         "is_extra": false,
         "death_count": 6,
         "deaths": [
@@ -2486,7 +2562,7 @@
       {
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 559,
+        "level": 560,
         "is_extra": true,
         "death_count": 6,
         "deaths": [
@@ -2538,7 +2614,7 @@
       {
         "name": "Top Vikingo",
         "vocation": "Exalted Monk",
-        "level": 559,
+        "level": 560,
         "is_extra": true,
         "death_count": 6,
         "deaths": [
@@ -2590,7 +2666,7 @@
       {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
-        "level": 670,
+        "level": 671,
         "is_extra": false,
         "death_count": 5,
         "deaths": [
@@ -2808,7 +2884,7 @@
       {
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 656,
+        "level": 657,
         "is_extra": false,
         "death_count": 4,
         "deaths": [
@@ -2844,6 +2920,44 @@
         "rank": 18
       },
       {
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1154,
+        "is_extra": true,
+        "death_count": 4,
+        "deaths": [
+          {
+            "character": "Maltz",
+            "time": "2026-04-15T08:50:08Z",
+            "level": 1155,
+            "reason": "Died at Level 1155 by nighthunter.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-03-30T19:49:22Z",
+            "level": 1153,
+            "reason": "Died at Level 1153 by flimsy lost soul.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-03-04T10:50:09Z",
+            "level": 1139,
+            "reason": "Died at Level 1139 by mean lost soul.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-02-13T09:46:06Z",
+            "level": 1128,
+            "reason": "Died at Level 1128 by ink blob.",
+            "is_pk": false
+          }
+        ],
+        "rank": 19
+      },
+      {
         "name": "Axl Wood",
         "vocation": "Royal Paladin",
         "level": 352,
@@ -2872,7 +2986,38 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
+      },
+      {
+        "name": "Dona Emilia Flaubertina",
+        "vocation": "Elite Knight",
+        "level": 51,
+        "is_extra": false,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-14T18:10:47Z",
+            "level": 52,
+            "reason": "Died at Level 52 by dragon lord.",
+            "is_pk": false
+          },
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-13T02:29:01Z",
+            "level": 51,
+            "reason": "Died at Level 51 by dragon lord.",
+            "is_pk": false
+          },
+          {
+            "character": "Dona Emilia Flaubertina",
+            "time": "2026-04-12T17:43:03Z",
+            "level": 52,
+            "reason": "Died at Level 52 by dragon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 21
       },
       {
         "name": "Kosmmic",
@@ -2903,12 +3048,12 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 22
       },
       {
         "name": "Legolas Drachenreiter",
         "vocation": "Royal Paladin",
-        "level": 340,
+        "level": 341,
         "is_extra": false,
         "death_count": 3,
         "deaths": [
@@ -2934,12 +3079,12 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 23
       },
       {
         "name": "Med Prudente",
         "vocation": "Royal Paladin",
-        "level": 212,
+        "level": 213,
         "is_extra": false,
         "death_count": 3,
         "deaths": [
@@ -2965,7 +3110,7 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 24
       },
       {
         "name": "Sir Jhunioor",
@@ -2996,7 +3141,7 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 25
       },
       {
         "name": "Farofa of Bacon",
@@ -3027,43 +3172,12 @@
             "is_pk": false
           }
         ],
-        "rank": 24
-      },
-      {
-        "name": "Maltz",
-        "vocation": "Master Sorcerer",
-        "level": 1155,
-        "is_extra": true,
-        "death_count": 3,
-        "deaths": [
-          {
-            "character": "Maltz",
-            "time": "2026-03-30T19:49:22Z",
-            "level": 1153,
-            "reason": "Died at Level 1153 by flimsy lost soul.",
-            "is_pk": false
-          },
-          {
-            "character": "Maltz",
-            "time": "2026-03-04T10:50:09Z",
-            "level": 1139,
-            "reason": "Died at Level 1139 by mean lost soul.",
-            "is_pk": false
-          },
-          {
-            "character": "Maltz",
-            "time": "2026-02-13T09:46:06Z",
-            "level": 1128,
-            "reason": "Died at Level 1128 by ink blob.",
-            "is_pk": false
-          }
-        ],
-        "rank": 25
+        "rank": 26
       },
       {
         "name": "Ted Neon",
         "vocation": "Elite Knight",
-        "level": 514,
+        "level": 515,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3082,7 +3196,7 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 27
       },
       {
         "name": "Harvok Chen",
@@ -3106,7 +3220,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 28
       },
       {
         "name": "Bentcho",
@@ -3130,36 +3244,12 @@
             "is_pk": false
           }
         ],
-        "rank": 28
-      },
-      {
-        "name": "Dona Emilia Flaubertina",
-        "vocation": "Elite Knight",
-        "level": 52,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Dona Emilia Flaubertina",
-            "time": "2026-04-13T02:29:01Z",
-            "level": 51,
-            "reason": "Died at Level 51 by dragon lord.",
-            "is_pk": false
-          },
-          {
-            "character": "Dona Emilia Flaubertina",
-            "time": "2026-04-12T17:43:03Z",
-            "level": 52,
-            "reason": "Died at Level 52 by dragon.",
-            "is_pk": false
-          }
-        ],
         "rank": 29
       },
       {
         "name": "Falaac Venon",
         "vocation": "Royal Paladin",
-        "level": 376,
+        "level": 377,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3179,6 +3269,30 @@
           }
         ],
         "rank": 30
+      },
+      {
+        "name": "Jeta Larus",
+        "vocation": "Knight",
+        "level": 37,
+        "is_extra": false,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Jeta Larus",
+            "time": "2026-04-15T00:27:09Z",
+            "level": 37,
+            "reason": "Died at Level 37 by dragon.",
+            "is_pk": false
+          },
+          {
+            "character": "Jeta Larus",
+            "time": "2026-04-15T00:21:12Z",
+            "level": 38,
+            "reason": "Died at Level 38 by dragon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 31
       },
       {
         "name": "Khytez",
@@ -3202,12 +3316,12 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 32
       },
       {
         "name": "Ruckert",
         "vocation": "Royal Paladin",
-        "level": 262,
+        "level": 263,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3226,7 +3340,7 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 33
       },
       {
         "name": "Luskzin",
@@ -3250,12 +3364,12 @@
             "is_pk": false
           }
         ],
-        "rank": 33
+        "rank": 34
       },
       {
         "name": "Proxye",
         "vocation": "Elite Knight",
-        "level": 690,
+        "level": 691,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -3274,7 +3388,7 @@
             "is_pk": false
           }
         ],
-        "rank": 34
+        "rank": 35
       },
       {
         "name": "Spirit Tomatt",
@@ -3298,12 +3412,12 @@
             "is_pk": false
           }
         ],
-        "rank": 35
+        "rank": 36
       },
       {
         "name": "Utribull",
         "vocation": "Elite Knight",
-        "level": 1079,
+        "level": 1080,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -3322,7 +3436,7 @@
             "is_pk": false
           }
         ],
-        "rank": 36
+        "rank": 37
       },
       {
         "name": "Homem Barbaro",
@@ -3339,7 +3453,7 @@
             "is_pk": false
           }
         ],
-        "rank": 37
+        "rank": 38
       },
       {
         "name": "Davi Off Dragon",
@@ -3356,7 +3470,7 @@
             "is_pk": false
           }
         ],
-        "rank": 38
+        "rank": 39
       },
       {
         "name": "Homem Barbaridade",
@@ -3373,7 +3487,7 @@
             "is_pk": false
           }
         ],
-        "rank": 39
+        "rank": 40
       },
       {
         "name": "Domto",
@@ -3390,7 +3504,7 @@
             "is_pk": false
           }
         ],
-        "rank": 40
+        "rank": 41
       },
       {
         "name": "Finn Gael",
@@ -3407,7 +3521,7 @@
             "is_pk": false
           }
         ],
-        "rank": 41
+        "rank": 42
       },
       {
         "name": "Jake Gael",
@@ -3424,7 +3538,7 @@
             "is_pk": false
           }
         ],
-        "rank": 42
+        "rank": 43
       },
       {
         "name": "Junior Teles",
@@ -3441,7 +3555,7 @@
             "is_pk": false
           }
         ],
-        "rank": 43
+        "rank": 44
       },
       {
         "name": "Khurlan",
@@ -3458,7 +3572,7 @@
             "is_pk": false
           }
         ],
-        "rank": 44
+        "rank": 45
       },
       {
         "name": "Parde Ases",
@@ -3475,7 +3589,7 @@
             "is_pk": false
           }
         ],
-        "rank": 45
+        "rank": 46
       },
       {
         "name": "Rode Nill",
@@ -3492,7 +3606,7 @@
             "is_pk": false
           }
         ],
-        "rank": 46
+        "rank": 47
       },
       {
         "name": "Vaughn Benjamin",
@@ -3509,7 +3623,7 @@
             "is_pk": false
           }
         ],
-        "rank": 47
+        "rank": 48
       },
       {
         "name": "Edu Fredericci",
@@ -3526,7 +3640,7 @@
             "is_pk": false
           }
         ],
-        "rank": 48
+        "rank": 49
       },
       {
         "name": "Emperium Paladyn",
@@ -3543,12 +3657,12 @@
             "is_pk": false
           }
         ],
-        "rank": 49
+        "rank": 50
       },
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 462,
+        "level": 463,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -3560,7 +3674,7 @@
             "is_pk": false
           }
         ],
-        "rank": 50
+        "rank": 51
       },
       {
         "name": "Nery Blackgold",
@@ -3577,7 +3691,7 @@
             "is_pk": false
           }
         ],
-        "rank": 51
+        "rank": 52
       },
       {
         "name": "Niko Fredericci",
@@ -3594,12 +3708,12 @@
             "is_pk": false
           }
         ],
-        "rank": 52
+        "rank": 53
       },
       {
         "name": "Sir'Desttroyer",
         "vocation": "Royal Paladin",
-        "level": 691,
+        "level": 692,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -3611,12 +3725,12 @@
             "is_pk": false
           }
         ],
-        "rank": 53
+        "rank": 54
       },
       {
         "name": "Wasted Thyme",
         "vocation": "Royal Paladin",
-        "level": 695,
+        "level": 697,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -3628,7 +3742,7 @@
             "is_pk": false
           }
         ],
-        "rank": 54
+        "rank": 55
       }
     ]
   }
