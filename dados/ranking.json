@@ -1,125 +1,735 @@
 {
   "guild": "Diehard",
   "world": "Luminera",
-  "last_update": "2026-04-20 08:25:49",
-  "last_update_display": "20/04/2026 às 08:25",
-  "total_members": 159,
+  "last_update": "2026-04-21 08:15:54",
+  "last_update_display": "21/04/2026 às 08:15",
+  "total_members": 163,
   "rankings": {
     "yesterday": [
       {
         "rank": 1,
-        "name": "Maltz",
-        "vocation": "Master Sorcerer",
-        "level": 1155,
-        "points": 46942873,
+        "name": "Utribull",
+        "vocation": "Elite Knight",
+        "level": 1083,
+        "points": 78508706,
         "is_extra": true
       },
       {
         "rank": 2,
-        "name": "Pani Kartofel",
-        "vocation": "Elite Knight",
-        "level": 704,
-        "points": 38504774,
-        "is_extra": true
-      },
-      {
-        "rank": 3,
         "name": "Lord Froilan",
         "vocation": "Elder Druid",
-        "level": 734,
-        "points": 35276400,
+        "level": 736,
+        "points": 50964297,
         "is_extra": false
       },
       {
+        "rank": 3,
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1155,
+        "points": 39534141,
+        "is_extra": true
+      },
+      {
         "rank": 4,
-        "name": "Luskzin",
-        "vocation": "Elite Knight",
-        "level": 1122,
-        "points": 34839087,
+        "name": "Farofa of Bacon",
+        "vocation": "Royal Paladin",
+        "level": 1044,
+        "points": 39227904,
         "is_extra": true
       },
       {
         "rank": 5,
-        "name": "Van Teles",
-        "vocation": "Elite Knight",
-        "level": 760,
-        "points": 34285691,
+        "name": "Wings Hope",
+        "vocation": "Royal Paladin",
+        "level": 761,
+        "points": 36098604,
         "is_extra": true
       },
       {
         "rank": 6,
-        "name": "Homem Barbaro",
+        "name": "Van Teles",
         "vocation": "Elite Knight",
-        "level": 1052,
-        "points": 31152896,
-        "is_extra": false
+        "level": 762,
+        "points": 35530607,
+        "is_extra": true
       },
       {
         "rank": 7,
+        "name": "Homem Barbaro",
+        "vocation": "Elite Knight",
+        "level": 1053,
+        "points": 34467828,
+        "is_extra": false
+      },
+      {
+        "rank": 8,
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 661,
-        "points": 29277949,
+        "level": 662,
+        "points": 33718659,
         "is_extra": false
+      },
+      {
+        "rank": 9,
+        "name": "Wasted Thyme",
+        "vocation": "Royal Paladin",
+        "level": 700,
+        "points": 32909329,
+        "is_extra": true
+      },
+      {
+        "rank": 10,
+        "name": "Hali Man",
+        "vocation": "Elite Knight",
+        "level": 988,
+        "points": 31323049,
+        "is_extra": true
+      },
+      {
+        "rank": 11,
+        "name": "Luskzin",
+        "vocation": "Elite Knight",
+        "level": 1123,
+        "points": 31270063,
+        "is_extra": true
+      },
+      {
+        "rank": 12,
+        "name": "Renanzhyn",
+        "vocation": "Elite Knight",
+        "level": 1026,
+        "points": 30616304,
+        "is_extra": true
+      },
+      {
+        "rank": 13,
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 946,
+        "points": 27961484,
+        "is_extra": true
+      },
+      {
+        "rank": 14,
+        "name": "Tadalai Lama",
+        "vocation": "Exalted Monk",
+        "level": 564,
+        "points": 26407116,
+        "is_extra": true
+      },
+      {
+        "rank": 15,
+        "name": "Firo Kavo",
+        "vocation": "Elite Knight",
+        "level": 674,
+        "points": 26012042,
+        "is_extra": false
+      },
+      {
+        "rank": 16,
+        "name": "Mega Runa Cinco",
+        "vocation": "Elder Druid",
+        "level": 500,
+        "points": 25236222,
+        "is_extra": false
+      },
+      {
+        "rank": 17,
+        "name": "Thador Rizzak",
+        "vocation": "Elite Knight",
+        "level": 579,
+        "points": 22483732,
+        "is_extra": false
+      },
+      {
+        "rank": 18,
+        "name": "Pani Kartofel",
+        "vocation": "Elite Knight",
+        "level": 704,
+        "points": 20243551,
+        "is_extra": true
+      },
+      {
+        "rank": 19,
+        "name": "Myss Fortunie",
+        "vocation": "Elite Knight",
+        "level": 505,
+        "points": 19872122,
+        "is_extra": true
+      },
+      {
+        "rank": 20,
+        "name": "Thikamaru",
+        "vocation": "Royal Paladin",
+        "level": 695,
+        "points": 18622084,
+        "is_extra": true
+      },
+      {
+        "rank": 21,
+        "name": "Niko Fredericci",
+        "vocation": "Elite Knight",
+        "level": 851,
+        "points": 16191419,
+        "is_extra": true
+      },
+      {
+        "rank": 22,
+        "name": "Vaughn Benjamin",
+        "vocation": "Elite Knight",
+        "level": 827,
+        "points": 15527276,
+        "is_extra": false
+      },
+      {
+        "rank": 23,
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 256,
+        "points": 15314018,
+        "is_extra": true
+      },
+      {
+        "rank": 24,
+        "name": "Frozudo",
+        "vocation": "Elite Knight",
+        "level": 467,
+        "points": 13715110,
+        "is_extra": true
+      },
+      {
+        "rank": 25,
+        "name": "Frodo Leads",
+        "vocation": "Exalted Monk",
+        "level": 490,
+        "points": 12998253,
+        "is_extra": true
+      },
+      {
+        "rank": 26,
+        "name": "Falaac Venon",
+        "vocation": "Royal Paladin",
+        "level": 379,
+        "points": 10793342,
+        "is_extra": false
+      },
+      {
+        "rank": 27,
+        "name": "Roger Bass",
+        "vocation": "Elite Knight",
+        "level": 602,
+        "points": 10736568,
+        "is_extra": false
+      },
+      {
+        "rank": 28,
+        "name": "Pamilinha Hidex",
+        "vocation": "Royal Paladin",
+        "level": 570,
+        "points": 7410914,
+        "is_extra": false
+      },
+      {
+        "rank": 29,
+        "name": "Dundie Award",
+        "vocation": "Elite Knight",
+        "level": 348,
+        "points": 7293880,
+        "is_extra": false
+      },
+      {
+        "rank": 30,
+        "name": "Domto",
+        "vocation": "Royal Paladin",
+        "level": 473,
+        "points": 7178598,
+        "is_extra": false
+      },
+      {
+        "rank": 31,
+        "name": "Maltudro moruran",
+        "vocation": "Master Sorcerer",
+        "level": 756,
+        "points": 6029880,
+        "is_extra": true
+      },
+      {
+        "rank": 32,
+        "name": "Edu Fredericci",
+        "vocation": "Elite Knight",
+        "level": 477,
+        "points": 5599959,
+        "is_extra": true
+      },
+      {
+        "rank": 33,
+        "name": "Thikadai",
+        "vocation": "Elder Druid",
+        "level": 672,
+        "points": 5355904,
+        "is_extra": true
+      },
+      {
+        "rank": 34,
+        "name": "Vitorelli",
+        "vocation": "Master Sorcerer",
+        "level": 462,
+        "points": 4955316,
+        "is_extra": false
+      },
+      {
+        "rank": 35,
+        "name": "Thi",
+        "vocation": "Master Sorcerer",
+        "level": 596,
+        "points": 4753716,
+        "is_extra": true
+      },
+      {
+        "rank": 36,
+        "name": "Thionk",
+        "vocation": "Exalted Monk",
+        "level": 476,
+        "points": 4737764,
+        "is_extra": true
+      },
+      {
+        "rank": 37,
+        "name": "Koznight",
+        "vocation": "Elite Knight",
+        "level": 590,
+        "points": 4703866,
+        "is_extra": false
+      },
+      {
+        "rank": 38,
+        "name": "Thigor",
+        "vocation": "Elite Knight",
+        "level": 588,
+        "points": 4689908,
+        "is_extra": true
+      },
+      {
+        "rank": 39,
+        "name": "Fathima Teles",
+        "vocation": "Elite Knight",
+        "level": 552,
+        "points": 4096645,
+        "is_extra": false
+      },
+      {
+        "rank": 40,
+        "name": "Davi Off Dragon",
+        "vocation": "Master Sorcerer",
+        "level": 572,
+        "points": 4042001,
+        "is_extra": false
+      },
+      {
+        "rank": 41,
+        "name": "Brock Rez Demon",
+        "vocation": "Elite Knight",
+        "level": 521,
+        "points": 3915881,
+        "is_extra": false
+      },
+      {
+        "rank": 42,
+        "name": "Homem Barbaridade",
+        "vocation": "Royal Paladin",
+        "level": 349,
+        "points": 3477551,
+        "is_extra": false
+      },
+      {
+        "rank": 43,
+        "name": "Legolas Drachenreiter",
+        "vocation": "Royal Paladin",
+        "level": 345,
+        "points": 3434712,
+        "is_extra": false
+      },
+      {
+        "rank": 44,
+        "name": "Sir Vasto Lord",
+        "vocation": "Royal Paladin",
+        "level": 323,
+        "points": 2875611,
+        "is_extra": false
+      },
+      {
+        "rank": 45,
+        "name": "Spirit Elite",
+        "vocation": "Knight",
+        "level": 431,
+        "points": 2572269,
+        "is_extra": true
+      },
+      {
+        "rank": 46,
+        "name": "Emperium Paladyn",
+        "vocation": "Royal Paladin",
+        "level": 417,
+        "points": 2361270,
+        "is_extra": true
+      },
+      {
+        "rank": 47,
+        "name": "Royal Knight",
+        "vocation": "Elite Knight",
+        "level": 347,
+        "points": 1383842,
+        "is_extra": true
+      },
+      {
+        "rank": 48,
+        "name": "Ardercimex Dariciann",
+        "vocation": "Elite Knight",
+        "level": 793,
+        "points": 473909,
+        "is_extra": false
+      },
+      {
+        "rank": 49,
+        "name": "Pray for sio",
+        "vocation": "Elder Druid",
+        "level": 625,
+        "points": 310876,
+        "is_extra": true
+      }
+    ],
+    "7days": [
+      {
+        "rank": 1,
+        "name": "Utribull",
+        "vocation": "Elite Knight",
+        "level": 1083,
+        "points": 262345690,
+        "is_extra": true
+      },
+      {
+        "rank": 2,
+        "name": "Hali Man",
+        "vocation": "Elite Knight",
+        "level": 988,
+        "points": 207866349,
+        "is_extra": true
+      },
+      {
+        "rank": 3,
+        "name": "Homem Barbaro",
+        "vocation": "Elite Knight",
+        "level": 1053,
+        "points": 205391473,
+        "is_extra": false
+      },
+      {
+        "rank": 4,
+        "name": "Van Teles",
+        "vocation": "Elite Knight",
+        "level": 762,
+        "points": 201053524,
+        "is_extra": true
+      },
+      {
+        "rank": 5,
+        "name": "Lord Froilan",
+        "vocation": "Elder Druid",
+        "level": 736,
+        "points": 187046714,
+        "is_extra": false
+      },
+      {
+        "rank": 6,
+        "name": "Luskzin",
+        "vocation": "Elite Knight",
+        "level": 1123,
+        "points": 179877228,
+        "is_extra": true
+      },
+      {
+        "rank": 7,
+        "name": "Farofa of Bacon",
+        "vocation": "Royal Paladin",
+        "level": 1044,
+        "points": 161250855,
+        "is_extra": true
       },
       {
         "rank": 8,
         "name": "Wings Hope",
         "vocation": "Royal Paladin",
-        "level": 760,
-        "points": 26400132,
+        "level": 761,
+        "points": 136744278,
         "is_extra": true
       },
       {
         "rank": 9,
-        "name": "Myss Fortunie",
-        "vocation": "Elite Knight",
-        "level": 503,
-        "points": 25283810,
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 946,
+        "points": 136460856,
         "is_extra": true
       },
       {
         "rank": 10,
-        "name": "Wasted Thyme",
-        "vocation": "Royal Paladin",
-        "level": 698,
-        "points": 20233614,
-        "is_extra": true
-      },
-      {
-        "rank": 11,
-        "name": "Vitorelli",
-        "vocation": "Master Sorcerer",
-        "level": 460,
-        "points": 18988925,
+        "name": "Fex Dord",
+        "vocation": "Elite Knight",
+        "level": 662,
+        "points": 128880616,
         "is_extra": false
       },
       {
+        "rank": 11,
+        "name": "Wasted Thyme",
+        "vocation": "Royal Paladin",
+        "level": 700,
+        "points": 118596928,
+        "is_extra": true
+      },
+      {
         "rank": 12,
-        "name": "Tio Deti Toxico",
+        "name": "Thador Rizzak",
         "vocation": "Elite Knight",
-        "level": 686,
-        "points": 15534675,
+        "level": 579,
+        "points": 107654692,
         "is_extra": false
       },
       {
         "rank": 13,
-        "name": "Hali Man",
+        "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 988,
-        "points": 14952160,
+        "level": 505,
+        "points": 96067595,
         "is_extra": true
       },
       {
         "rank": 14,
-        "name": "Farofa of Bacon",
-        "vocation": "Royal Paladin",
-        "level": 1044,
-        "points": 12983000,
+        "name": "Pani Kartofel",
+        "vocation": "Elite Knight",
+        "level": 704,
+        "points": 91682382,
         "is_extra": true
       },
       {
         "rank": 15,
+        "name": "Ardercimex Dariciann",
+        "vocation": "Elite Knight",
+        "level": 793,
+        "points": 91574987,
+        "is_extra": false
+      },
+      {
+        "rank": 16,
+        "name": "Firo Kavo",
+        "vocation": "Elite Knight",
+        "level": 674,
+        "points": 85449942,
+        "is_extra": false
+      },
+      {
+        "rank": 17,
+        "name": "Tadalai Lama",
+        "vocation": "Exalted Monk",
+        "level": 564,
+        "points": 78531245,
+        "is_extra": true
+      },
+      {
+        "rank": 18,
+        "name": "Mega Runa Cinco",
+        "vocation": "Elder Druid",
+        "level": 500,
+        "points": 77931903,
+        "is_extra": false
+      },
+      {
+        "rank": 19,
+        "name": "Frodo Leads",
+        "vocation": "Exalted Monk",
+        "level": 490,
+        "points": 73570504,
+        "is_extra": true
+      },
+      {
+        "rank": 20,
+        "name": "Frozudo",
+        "vocation": "Elite Knight",
+        "level": 467,
+        "points": 54107665,
+        "is_extra": true
+      },
+      {
+        "rank": 21,
+        "name": "Vitorelli",
+        "vocation": "Master Sorcerer",
+        "level": 462,
+        "points": 46986346,
+        "is_extra": false
+      },
+      {
+        "rank": 22,
+        "name": "Fathima Teles",
+        "vocation": "Elite Knight",
+        "level": 552,
+        "points": 45279914,
+        "is_extra": false
+      },
+      {
+        "rank": 23,
+        "name": "Theophile Monk",
+        "vocation": "Exalted Monk",
+        "level": 439,
+        "points": 39916867,
+        "is_extra": true
+      },
+      {
+        "rank": 24,
+        "name": "Niko Fredericci",
+        "vocation": "Elite Knight",
+        "level": 851,
+        "points": 39597778,
+        "is_extra": true
+      },
+      {
+        "rank": 25,
+        "name": "Renanzhyn",
+        "vocation": "Elite Knight",
+        "level": 1026,
+        "points": 36901628,
+        "is_extra": true
+      },
+      {
+        "rank": 26,
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 256,
+        "points": 34564634,
+        "is_extra": true
+      },
+      {
+        "rank": 27,
+        "name": "Vaughn Benjamin",
+        "vocation": "Elite Knight",
+        "level": 827,
+        "points": 33747829,
+        "is_extra": false
+      },
+      {
+        "rank": 28,
+        "name": "Thionk",
+        "vocation": "Exalted Monk",
+        "level": 476,
+        "points": 31629406,
+        "is_extra": true
+      },
+      {
+        "rank": 29,
+        "name": "Roger Bass",
+        "vocation": "Elite Knight",
+        "level": 602,
+        "points": 31300647,
+        "is_extra": false
+      },
+      {
+        "rank": 30,
+        "name": "Legolas Drachenreiter",
+        "vocation": "Royal Paladin",
+        "level": 345,
+        "points": 29701146,
+        "is_extra": false
+      },
+      {
+        "rank": 31,
+        "name": "Pamilinha Hidex",
+        "vocation": "Royal Paladin",
+        "level": 570,
+        "points": 28306002,
+        "is_extra": false
+      },
+      {
+        "rank": 32,
+        "name": "Thikamaru",
+        "vocation": "Royal Paladin",
+        "level": 695,
+        "points": 25390466,
+        "is_extra": true
+      },
+      {
+        "rank": 33,
+        "name": "Sir Jhunioor",
+        "vocation": "Elite Knight",
+        "level": 513,
+        "points": 22700965,
+        "is_extra": false
+      },
+      {
+        "rank": 34,
+        "name": "Tio Deti Toxico",
+        "vocation": "Elite Knight",
+        "level": 686,
+        "points": 22205700,
+        "is_extra": false
+      },
+      {
+        "rank": 35,
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1155,
+        "points": 19502441,
+        "is_extra": true
+      },
+      {
+        "rank": 36,
+        "name": "Falaac Venon",
+        "vocation": "Royal Paladin",
+        "level": 379,
+        "points": 19130603,
+        "is_extra": false
+      },
+      {
+        "rank": 37,
+        "name": "Emperium Paladyn",
+        "vocation": "Royal Paladin",
+        "level": 417,
+        "points": 19064657,
+        "is_extra": true
+      },
+      {
+        "rank": 38,
+        "name": "Davi Off Dragon",
+        "vocation": "Master Sorcerer",
+        "level": 572,
+        "points": 16930410,
+        "is_extra": false
+      },
+      {
+        "rank": 39,
+        "name": "Thikadai",
+        "vocation": "Elder Druid",
+        "level": 672,
+        "points": 16566948,
+        "is_extra": true
+      },
+      {
+        "rank": 40,
+        "name": "Brock Rez Demon",
+        "vocation": "Elite Knight",
+        "level": 521,
+        "points": 15332958,
+        "is_extra": false
+      },
+      {
+        "rank": 41,
+        "name": "Sir Vasto Lord",
+        "vocation": "Royal Paladin",
+        "level": 323,
+        "points": 13300168,
+        "is_extra": false
+      },
+      {
+        "rank": 42,
         "name": "Axl Wood",
         "vocation": "Royal Paladin",
         "level": 354,
@@ -127,481 +737,55 @@
         "is_extra": false
       },
       {
-        "rank": 16,
-        "name": "Val Teles",
-        "vocation": "Elder Druid",
-        "level": 946,
-        "points": 12470084,
-        "is_extra": true
-      },
-      {
-        "rank": 17,
-        "name": "Thador Rizzak",
-        "vocation": "Elite Knight",
-        "level": 578,
-        "points": 12047520,
-        "is_extra": false
-      },
-      {
-        "rank": 18,
-        "name": "Tadalai Lama",
-        "vocation": "Exalted Monk",
-        "level": 563,
-        "points": 8973016,
-        "is_extra": true
-      },
-      {
-        "rank": 19,
-        "name": "Frodo Leads",
-        "vocation": "Exalted Monk",
-        "level": 489,
-        "points": 8724196,
-        "is_extra": true
-      },
-      {
-        "rank": 20,
-        "name": "Legolas Drachenreiter",
-        "vocation": "Royal Paladin",
-        "level": 345,
-        "points": 8617485,
-        "is_extra": false
-      },
-      {
-        "rank": 21,
-        "name": "Mega Runa Cinco",
-        "vocation": "Elder Druid",
-        "level": 499,
-        "points": 8061207,
-        "is_extra": false
-      },
-      {
-        "rank": 22,
-        "name": "Vaughn Benjamin",
-        "vocation": "Elite Knight",
-        "level": 826,
-        "points": 7990670,
-        "is_extra": false
-      },
-      {
-        "rank": 23,
-        "name": "Ardercimex Dariciann",
-        "vocation": "Elite Knight",
-        "level": 793,
-        "points": 6250837,
-        "is_extra": false
-      },
-      {
-        "rank": 24,
-        "name": "Pamilinha Hidex",
-        "vocation": "Royal Paladin",
-        "level": 570,
-        "points": 5096872,
-        "is_extra": false
-      },
-      {
-        "rank": 25,
-        "name": "Davi Off Dragon",
-        "vocation": "Master Sorcerer",
-        "level": 572,
-        "points": 3317366,
-        "is_extra": false
-      },
-      {
-        "rank": 26,
-        "name": "Ted Neon",
-        "vocation": "Elite Knight",
-        "level": 515,
-        "points": 3177011,
-        "is_extra": false
-      },
-      {
-        "rank": 27,
-        "name": "Sir Jhunioor",
-        "vocation": "Elite Knight",
-        "level": 513,
-        "points": 2968583,
-        "is_extra": false
-      },
-      {
-        "rank": 28,
-        "name": "Fathima Teles",
-        "vocation": "Elite Knight",
-        "level": 551,
-        "points": 2812124,
-        "is_extra": false
-      },
-      {
-        "rank": 29,
-        "name": "Emperium Paladyn",
-        "vocation": "Royal Paladin",
-        "level": 417,
-        "points": 2471863,
-        "is_extra": true
-      },
-      {
-        "rank": 30,
-        "name": "Niko Fredericci",
-        "vocation": "Elite Knight",
-        "level": 851,
-        "points": 2169401,
-        "is_extra": true
-      },
-      {
-        "rank": 31,
-        "name": "Utribull",
-        "vocation": "Elite Knight",
-        "level": 1082,
-        "points": 1633326,
-        "is_extra": true
-      },
-      {
-        "rank": 32,
-        "name": "Brock Rez Demon",
-        "vocation": "Elite Knight",
-        "level": 520,
-        "points": 1283939,
-        "is_extra": false
-      },
-      {
-        "rank": 33,
-        "name": "Cona Larrsonti",
-        "vocation": "Elite Knight",
-        "level": 713,
-        "points": 1110127,
-        "is_extra": false
-      },
-      {
-        "rank": 34,
-        "name": "Thi",
-        "vocation": "Master Sorcerer",
-        "level": 596,
-        "points": 965522,
-        "is_extra": true
-      },
-      {
-        "rank": 35,
-        "name": "Thionk",
-        "vocation": "Exalted Monk",
-        "level": 475,
-        "points": 923419,
-        "is_extra": true
-      },
-      {
-        "rank": 36,
-        "name": "Royal Knight",
-        "vocation": "Elite Knight",
-        "level": 347,
-        "points": 692853,
-        "is_extra": true
-      },
-      {
-        "rank": 37,
-        "name": "Pray for sio",
-        "vocation": "Elder Druid",
-        "level": 625,
-        "points": 536223,
-        "is_extra": true
-      },
-      {
-        "rank": 38,
+        "rank": 43,
         "name": "Homem Barbaridade",
         "vocation": "Royal Paladin",
         "level": 349,
-        "points": 423750,
+        "points": 10967968,
         "is_extra": false
       },
       {
-        "rank": 39,
+        "rank": 44,
+        "name": "Dundie Award",
+        "vocation": "Elite Knight",
+        "level": 348,
+        "points": 10770046,
+        "is_extra": false
+      },
+      {
+        "rank": 45,
+        "name": "Edu Fredericci",
+        "vocation": "Elite Knight",
+        "level": 477,
+        "points": 10150993,
+        "is_extra": true
+      },
+      {
+        "rank": 46,
+        "name": "Thi",
+        "vocation": "Master Sorcerer",
+        "level": 596,
+        "points": 9282531,
+        "is_extra": true
+      },
+      {
+        "rank": 47,
         "name": "Domto",
         "vocation": "Royal Paladin",
         "level": 473,
-        "points": 333573,
+        "points": 8737157,
         "is_extra": false
       },
       {
-        "rank": 40,
-        "name": "Edu Fredericci",
-        "vocation": "Elite Knight",
-        "level": 476,
-        "points": 11970,
-        "is_extra": true
-      },
-      {
-        "rank": 41,
-        "name": "Thikamaru",
-        "vocation": "Royal Paladin",
-        "level": 694,
-        "points": 1350,
-        "is_extra": true
-      },
-      {
-        "rank": 42,
-        "name": "Roger Bass",
-        "vocation": "Elite Knight",
-        "level": 601,
-        "points": 671,
-        "is_extra": false
-      },
-      {
-        "rank": 43,
-        "name": "Frozudo",
-        "vocation": "Elite Knight",
-        "level": 465,
-        "points": 60,
-        "is_extra": true
-      }
-    ],
-    "7days": [
-      {
-        "rank": 1,
-        "name": "Hali Man",
-        "vocation": "Elite Knight",
-        "level": 988,
-        "points": 304857332,
-        "is_extra": true
-      },
-      {
-        "rank": 2,
-        "name": "Utribull",
-        "vocation": "Elite Knight",
-        "level": 1082,
-        "points": 265122501,
-        "is_extra": true
-      },
-      {
-        "rank": 3,
-        "name": "Luskzin",
-        "vocation": "Elite Knight",
-        "level": 1122,
-        "points": 254320878,
-        "is_extra": true
-      },
-      {
-        "rank": 4,
-        "name": "Van Teles",
-        "vocation": "Elite Knight",
-        "level": 760,
-        "points": 198152118,
-        "is_extra": true
-      },
-      {
-        "rank": 5,
-        "name": "Val Teles",
-        "vocation": "Elder Druid",
-        "level": 946,
-        "points": 165915324,
-        "is_extra": true
-      },
-      {
-        "rank": 6,
-        "name": "Farofa of Bacon",
-        "vocation": "Royal Paladin",
-        "level": 1044,
-        "points": 155156292,
-        "is_extra": true
-      },
-      {
-        "rank": 7,
-        "name": "Wasted Thyme",
-        "vocation": "Royal Paladin",
-        "level": 698,
-        "points": 151223885,
-        "is_extra": true
-      },
-      {
-        "rank": 8,
-        "name": "Fex Dord",
-        "vocation": "Elite Knight",
-        "level": 661,
-        "points": 131713149,
-        "is_extra": false
-      },
-      {
-        "rank": 9,
-        "name": "Wings Hope",
-        "vocation": "Royal Paladin",
-        "level": 760,
-        "points": 111544333,
-        "is_extra": true
-      },
-      {
-        "rank": 10,
-        "name": "Pani Kartofel",
-        "vocation": "Elite Knight",
-        "level": 704,
-        "points": 104386482,
-        "is_extra": true
-      },
-      {
-        "rank": 11,
-        "name": "Ardercimex Dariciann",
-        "vocation": "Elite Knight",
-        "level": 793,
-        "points": 100524518,
-        "is_extra": false
-      },
-      {
-        "rank": 12,
-        "name": "Myss Fortunie",
-        "vocation": "Elite Knight",
-        "level": 503,
-        "points": 97829111,
-        "is_extra": true
-      },
-      {
-        "rank": 13,
-        "name": "Maltz",
-        "vocation": "Master Sorcerer",
-        "level": 1155,
-        "points": 94544486,
-        "is_extra": true
-      },
-      {
-        "rank": 14,
-        "name": "Frodo Leads",
-        "vocation": "Exalted Monk",
-        "level": 489,
-        "points": 82007942,
-        "is_extra": true
-      },
-      {
-        "rank": 15,
-        "name": "Tadalai Lama",
-        "vocation": "Exalted Monk",
-        "level": 563,
-        "points": 77371703,
-        "is_extra": true
-      },
-      {
-        "rank": 16,
-        "name": "Firo Kavo",
-        "vocation": "Elite Knight",
-        "level": 673,
-        "points": 74805402,
-        "is_extra": false
-      },
-      {
-        "rank": 17,
-        "name": "Frozudo",
-        "vocation": "Elite Knight",
-        "level": 465,
-        "points": 73797476,
-        "is_extra": true
-      },
-      {
-        "rank": 18,
-        "name": "Theophile Monk",
-        "vocation": "Exalted Monk",
-        "level": 439,
-        "points": 53375462,
-        "is_extra": true
-      },
-      {
-        "rank": 19,
-        "name": "Vaughn Benjamin",
-        "vocation": "Elite Knight",
-        "level": 826,
-        "points": 46020074,
-        "is_extra": false
-      },
-      {
-        "rank": 20,
-        "name": "Niko Fredericci",
-        "vocation": "Elite Knight",
-        "level": 851,
-        "points": 42081205,
-        "is_extra": true
-      },
-      {
-        "rank": 21,
-        "name": "Sir Jhunioor",
-        "vocation": "Elite Knight",
-        "level": 513,
-        "points": 36366060,
-        "is_extra": false
-      },
-      {
-        "rank": 22,
-        "name": "Spirit Matt",
-        "vocation": "Elder Druid",
-        "level": 251,
-        "points": 27970826,
-        "is_extra": true
-      },
-      {
-        "rank": 23,
-        "name": "Thionk",
-        "vocation": "Exalted Monk",
-        "level": 475,
-        "points": 26891642,
-        "is_extra": true
-      },
-      {
-        "rank": 24,
-        "name": "Tio Deti Toxico",
-        "vocation": "Elite Knight",
-        "level": 686,
-        "points": 25950434,
-        "is_extra": false
-      },
-      {
-        "rank": 25,
-        "name": "Emperium Paladyn",
-        "vocation": "Royal Paladin",
-        "level": 417,
-        "points": 25644602,
-        "is_extra": true
-      },
-      {
-        "rank": 26,
-        "name": "Brock Rez Demon",
-        "vocation": "Elite Knight",
-        "level": 520,
-        "points": 17651824,
-        "is_extra": false
-      },
-      {
-        "rank": 27,
-        "name": "Edu Fredericci",
-        "vocation": "Elite Knight",
-        "level": 476,
-        "points": 11853625,
-        "is_extra": true
-      },
-      {
-        "rank": 28,
-        "name": "Thikadai",
-        "vocation": "Elder Druid",
-        "level": 671,
-        "points": 11211044,
-        "is_extra": true
-      },
-      {
-        "rank": 29,
-        "name": "Harvok Chen",
-        "vocation": "Elite Knight",
-        "level": 648,
-        "points": 9044819,
-        "is_extra": false
-      },
-      {
-        "rank": 30,
-        "name": "Murthar",
-        "vocation": "Elder Druid",
-        "level": 510,
-        "points": 8609011,
-        "is_extra": true
-      },
-      {
-        "rank": 31,
+        "rank": 48,
         "name": "Gelloo",
         "vocation": "Elder Druid",
         "level": 870,
-        "points": 7818735,
+        "points": 7670622,
         "is_extra": true
       },
       {
-        "rank": 32,
+        "rank": 49,
         "name": "Ted Neon",
         "vocation": "Elite Knight",
         "level": 515,
@@ -609,83 +793,91 @@
         "is_extra": false
       },
       {
-        "rank": 33,
-        "name": "Thikamaru",
+        "rank": 50,
+        "name": "Hangg Loose",
         "vocation": "Royal Paladin",
-        "level": 694,
-        "points": 6768382,
-        "is_extra": true
-      },
-      {
-        "rank": 34,
-        "name": "Renanzhyn",
-        "vocation": "Elite Knight",
-        "level": 1025,
-        "points": 6285324,
-        "is_extra": true
-      },
-      {
-        "rank": 35,
-        "name": "Cona Larrsonti",
-        "vocation": "Elite Knight",
-        "level": 713,
-        "points": 4673487,
+        "level": 252,
+        "points": 7138762,
         "is_extra": false
       },
       {
-        "rank": 36,
-        "name": "Thi",
-        "vocation": "Master Sorcerer",
-        "level": 596,
-        "points": 4528815,
+        "rank": 51,
+        "name": "Thigor",
+        "vocation": "Elite Knight",
+        "level": 588,
+        "points": 7034862,
         "is_extra": true
       },
       {
-        "rank": 37,
+        "rank": 52,
+        "name": "Shaman snake",
+        "vocation": "Elder Druid",
+        "level": 549,
+        "points": 7022458,
+        "is_extra": false
+      },
+      {
+        "rank": 53,
+        "name": "Koznight",
+        "vocation": "Elite Knight",
+        "level": 590,
+        "points": 5878337,
+        "is_extra": false
+      },
+      {
+        "rank": 54,
+        "name": "Cona Larrsonti",
+        "vocation": "Elite Knight",
+        "level": 713,
+        "points": 4434807,
+        "is_extra": false
+      },
+      {
+        "rank": 55,
         "name": "Royal Knight",
         "vocation": "Elite Knight",
         "level": 347,
-        "points": 3557943,
+        "points": 4137740,
         "is_extra": true
       },
       {
-        "rank": 38,
-        "name": "Deep Slot",
-        "vocation": "Elite Knight",
-        "level": 350,
-        "points": 2783636,
+        "rank": 56,
+        "name": "Pray for sio",
+        "vocation": "Elder Druid",
+        "level": 625,
+        "points": 3477151,
         "is_extra": true
       },
       {
-        "rank": 39,
+        "rank": 57,
         "name": "Spirit Elite",
         "vocation": "Knight",
-        "level": 430,
+        "level": 431,
         "points": 2572269,
         "is_extra": true
       },
       {
-        "rank": 40,
-        "name": "Thigor",
-        "vocation": "Elite Knight",
-        "level": 588,
-        "points": 2344954,
-        "is_extra": true
+        "rank": 58,
+        "name": "Ruckert",
+        "vocation": "Royal Paladin",
+        "level": 263,
+        "points": 2337516,
+        "is_extra": false
       },
       {
-        "rank": 41,
-        "name": "Nery Blackgold",
-        "vocation": "Elite Knight",
-        "level": 711,
-        "points": 876,
-        "is_extra": true
+        "rank": 59,
+        "name": "Kinkor",
+        "vocation": "Royal Paladin",
+        "level": 321,
+        "points": 1991395,
+        "is_extra": false
       },
       {
-        "rank": 42,
-        "name": "Dempis Cyron",
-        "vocation": "Elite Knight",
-        "level": 519,
-        "points": 112,
+        "rank": 60,
+        "name": "Bentcho",
+        "vocation": "Royal Paladin",
+        "level": 424,
+        "points": 1831091,
         "is_extra": false
       }
     ],
@@ -694,8 +886,8 @@
         "rank": 1,
         "name": "Homem Barbaro",
         "vocation": "Elite Knight",
-        "level": 1052,
-        "points": 915235351,
+        "level": 1053,
+        "points": 922012714,
         "is_extra": false
       },
       {
@@ -703,79 +895,79 @@
         "name": "Hali Man",
         "vocation": "Elite Knight",
         "level": 988,
-        "points": 896658090,
+        "points": 882119146,
         "is_extra": true
       },
       {
         "rank": 3,
         "name": "Luskzin",
         "vocation": "Elite Knight",
-        "level": 1122,
-        "points": 841555887,
+        "level": 1123,
+        "points": 801080855,
         "is_extra": true
       },
       {
         "rank": 4,
         "name": "Utribull",
         "vocation": "Elite Knight",
-        "level": 1082,
-        "points": 743941175,
+        "level": 1083,
+        "points": 783466344,
         "is_extra": true
       },
       {
         "rank": 5,
         "name": "Van Teles",
         "vocation": "Elite Knight",
-        "level": 760,
-        "points": 706826999,
+        "level": 762,
+        "points": 722779382,
         "is_extra": true
       },
       {
         "rank": 6,
-        "name": "Pani Kartofel",
-        "vocation": "Elite Knight",
-        "level": 704,
-        "points": 571699114,
+        "name": "Wasted Thyme",
+        "vocation": "Royal Paladin",
+        "level": 700,
+        "points": 592445572,
         "is_extra": true
       },
       {
         "rank": 7,
-        "name": "Wasted Thyme",
-        "vocation": "Royal Paladin",
-        "level": 698,
-        "points": 559536243,
+        "name": "Pani Kartofel",
+        "vocation": "Elite Knight",
+        "level": 704,
+        "points": 582021853,
         "is_extra": true
       },
       {
         "rank": 8,
-        "name": "Farofa of Bacon",
-        "vocation": "Royal Paladin",
-        "level": 1044,
-        "points": 498436181,
-        "is_extra": true
+        "name": "Lord Froilan",
+        "vocation": "Elder Druid",
+        "level": 736,
+        "points": 497981505,
+        "is_extra": false
       },
       {
         "rank": 9,
-        "name": "Ardercimex Dariciann",
-        "vocation": "Elite Knight",
-        "level": 793,
-        "points": 480041421,
-        "is_extra": false
+        "name": "Farofa of Bacon",
+        "vocation": "Royal Paladin",
+        "level": 1044,
+        "points": 477138867,
+        "is_extra": true
       },
       {
         "rank": 10,
         "name": "Thador Rizzak",
         "vocation": "Elite Knight",
-        "level": 578,
-        "points": 459534545,
+        "level": 579,
+        "points": 464045245,
         "is_extra": false
       },
       {
         "rank": 11,
-        "name": "Lord Froilan",
-        "vocation": "Elder Druid",
-        "level": 734,
-        "points": 431013298,
+        "name": "Ardercimex Dariciann",
+        "vocation": "Elite Knight",
+        "level": 793,
+        "points": 454805459,
         "is_extra": false
       },
       {
@@ -783,71 +975,71 @@
         "name": "Maltz",
         "vocation": "Master Sorcerer",
         "level": 1155,
-        "points": 404506447,
+        "points": 444040588,
         "is_extra": true
       },
       {
         "rank": 13,
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 661,
-        "points": 381808569,
+        "level": 662,
+        "points": 409567427,
         "is_extra": false
       },
       {
         "rank": 14,
         "name": "Wings Hope",
         "vocation": "Royal Paladin",
-        "level": 760,
-        "points": 365365470,
+        "level": 761,
+        "points": 382890217,
         "is_extra": true
       },
       {
         "rank": 15,
         "name": "Vaughn Benjamin",
         "vocation": "Elite Knight",
-        "level": 826,
-        "points": 341207468,
+        "level": 827,
+        "points": 356734744,
         "is_extra": false
       },
       {
         "rank": 16,
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 563,
-        "points": 323264190,
+        "level": 564,
+        "points": 348669509,
         "is_extra": true
       },
       {
         "rank": 17,
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 503,
-        "points": 291971911,
+        "level": 505,
+        "points": 311788887,
         "is_extra": true
       },
       {
         "rank": 18,
-        "name": "Mega Runa Cinco",
-        "vocation": "Elder Druid",
-        "level": 499,
-        "points": 281572165,
+        "name": "Firo Kavo",
+        "vocation": "Elite Knight",
+        "level": 674,
+        "points": 305296351,
         "is_extra": false
       },
       {
         "rank": 19,
-        "name": "Firo Kavo",
-        "vocation": "Elite Knight",
-        "level": 673,
-        "points": 268682962,
+        "name": "Mega Runa Cinco",
+        "vocation": "Elder Druid",
+        "level": 500,
+        "points": 293439109,
         "is_extra": false
       },
       {
         "rank": 20,
         "name": "Frodo Leads",
         "vocation": "Exalted Monk",
-        "level": 489,
-        "points": 261525137,
+        "level": 490,
+        "points": 273833278,
         "is_extra": true
       },
       {
@@ -855,39 +1047,39 @@
         "name": "Nery Blackgold",
         "vocation": "Elite Knight",
         "level": 711,
-        "points": 213373396,
+        "points": 225698297,
         "is_extra": true
       },
       {
         "rank": 22,
-        "name": "Theophile Monk",
-        "vocation": "Exalted Monk",
-        "level": 439,
-        "points": 212971694,
+        "name": "Frozudo",
+        "vocation": "Elite Knight",
+        "level": 467,
+        "points": 215603469,
         "is_extra": true
       },
       {
         "rank": 23,
-        "name": "Frozudo",
-        "vocation": "Elite Knight",
-        "level": 465,
-        "points": 204415289,
+        "name": "Theophile Monk",
+        "vocation": "Exalted Monk",
+        "level": 439,
+        "points": 204913656,
         "is_extra": true
       },
       {
         "rank": 24,
         "name": "Thikamaru",
         "vocation": "Royal Paladin",
-        "level": 694,
-        "points": 165787205,
+        "level": 695,
+        "points": 184002969,
         "is_extra": true
       },
       {
         "rank": 25,
         "name": "Roger Bass",
         "vocation": "Elite Knight",
-        "level": 601,
-        "points": 144525897,
+        "level": 602,
+        "points": 155262465,
         "is_extra": false
       },
       {
@@ -895,7 +1087,7 @@
         "name": "Pamilinha Hidex",
         "vocation": "Royal Paladin",
         "level": 570,
-        "points": 131343764,
+        "points": 135592865,
         "is_extra": false
       },
       {
@@ -908,6 +1100,14 @@
       },
       {
         "rank": 28,
+        "name": "Niko Fredericci",
+        "vocation": "Elite Knight",
+        "level": 851,
+        "points": 121490900,
+        "is_extra": true
+      },
+      {
+        "rank": 29,
         "name": "Pakons",
         "vocation": "Elite Knight",
         "level": 646,
@@ -915,51 +1115,43 @@
         "is_extra": true
       },
       {
-        "rank": 29,
-        "name": "Harvok Chen",
-        "vocation": "Elite Knight",
-        "level": 648,
-        "points": 109667257,
-        "is_extra": false
-      },
-      {
         "rank": 30,
-        "name": "Fathima Teles",
-        "vocation": "Elite Knight",
-        "level": 551,
-        "points": 107987031,
-        "is_extra": false
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 256,
+        "points": 112178390,
+        "is_extra": true
       },
       {
         "rank": 31,
-        "name": "Vitorelli",
-        "vocation": "Master Sorcerer",
-        "level": 460,
-        "points": 107043805,
+        "name": "Fathima Teles",
+        "vocation": "Elite Knight",
+        "level": 552,
+        "points": 110086803,
         "is_extra": false
       },
       {
         "rank": 32,
-        "name": "Niko Fredericci",
-        "vocation": "Elite Knight",
-        "level": 851,
-        "points": 105299481,
+        "name": "Thionk",
+        "vocation": "Exalted Monk",
+        "level": 476,
+        "points": 102874982,
         "is_extra": true
       },
       {
         "rank": 33,
-        "name": "Val Teles",
-        "vocation": "Elder Druid",
-        "level": 946,
-        "points": 104060482,
-        "is_extra": true
+        "name": "Vitorelli",
+        "vocation": "Master Sorcerer",
+        "level": 462,
+        "points": 102542801,
+        "is_extra": false
       },
       {
         "rank": 34,
-        "name": "Thionk",
-        "vocation": "Exalted Monk",
-        "level": 475,
-        "points": 99170597,
+        "name": "Maltudro moruran",
+        "vocation": "Master Sorcerer",
+        "level": 756,
+        "points": 102189381,
         "is_extra": true
       },
       {
@@ -972,38 +1164,54 @@
       },
       {
         "rank": 36,
-        "name": "Spirit Matt",
-        "vocation": "Elder Druid",
-        "level": 251,
-        "points": 96633619,
-        "is_extra": true
-      },
-      {
-        "rank": 37,
         "name": "Legolas Drachenreiter",
         "vocation": "Royal Paladin",
         "level": 345,
-        "points": 94797899,
+        "points": 97226283,
+        "is_extra": false
+      },
+      {
+        "rank": 37,
+        "name": "Harvok Chen",
+        "vocation": "Elite Knight",
+        "level": 647,
+        "points": 94147466,
         "is_extra": false
       },
       {
         "rank": 38,
-        "name": "Emperium Paladyn",
-        "vocation": "Royal Paladin",
-        "level": 417,
-        "points": 83579789,
+        "name": "Thi",
+        "vocation": "Master Sorcerer",
+        "level": 596,
+        "points": 87253622,
         "is_extra": true
       },
       {
         "rank": 39,
-        "name": "Thi",
-        "vocation": "Master Sorcerer",
-        "level": 596,
-        "points": 82499906,
+        "name": "Emperium Paladyn",
+        "vocation": "Royal Paladin",
+        "level": 417,
+        "points": 84361924,
         "is_extra": true
       },
       {
         "rank": 40,
+        "name": "Val Teles",
+        "vocation": "Elder Druid",
+        "level": 946,
+        "points": 78298915,
+        "is_extra": true
+      },
+      {
+        "rank": 41,
+        "name": "Falaac Venon",
+        "vocation": "Royal Paladin",
+        "level": 379,
+        "points": 75143405,
+        "is_extra": false
+      },
+      {
+        "rank": 42,
         "name": "Bentcho",
         "vocation": "Royal Paladin",
         "level": 424,
@@ -1011,15 +1219,23 @@
         "is_extra": false
       },
       {
-        "rank": 41,
+        "rank": 43,
         "name": "Brock Rez Demon",
         "vocation": "Elite Knight",
-        "level": 520,
-        "points": 70351108,
+        "level": 521,
+        "points": 72142907,
         "is_extra": false
       },
       {
-        "rank": 42,
+        "rank": 44,
+        "name": "Thikadai",
+        "vocation": "Elder Druid",
+        "level": 672,
+        "points": 71539212,
+        "is_extra": true
+      },
+      {
+        "rank": 45,
         "name": "Ted Neon",
         "vocation": "Elite Knight",
         "level": 515,
@@ -1027,51 +1243,27 @@
         "is_extra": false
       },
       {
-        "rank": 43,
-        "name": "Thikadai",
-        "vocation": "Elder Druid",
-        "level": 671,
-        "points": 66183308,
-        "is_extra": true
-      },
-      {
-        "rank": 44,
-        "name": "Falaac Venon",
-        "vocation": "Royal Paladin",
-        "level": 378,
-        "points": 65744233,
-        "is_extra": false
-      },
-      {
-        "rank": 45,
-        "name": "Maltudro moruran",
-        "vocation": "Master Sorcerer",
-        "level": 756,
-        "points": 65149052,
-        "is_extra": true
-      },
-      {
         "rank": 46,
-        "name": "Koznight",
-        "vocation": "Elite Knight",
-        "level": 589,
-        "points": 62192442,
+        "name": "Sir Vasto Lord",
+        "vocation": "Royal Paladin",
+        "level": 323,
+        "points": 64408311,
         "is_extra": false
       },
       {
         "rank": 47,
-        "name": "Elf Legolas",
-        "vocation": "Royal Paladin",
-        "level": 637,
-        "points": 56460865,
-        "is_extra": true
+        "name": "Koznight",
+        "vocation": "Elite Knight",
+        "level": 590,
+        "points": 60591116,
+        "is_extra": false
       },
       {
         "rank": 48,
         "name": "Edu Fredericci",
         "vocation": "Elite Knight",
-        "level": 476,
-        "points": 49389893,
+        "level": 477,
+        "points": 54989852,
         "is_extra": true
       },
       {
@@ -1079,7 +1271,7 @@
         "name": "Homem Barbaridade",
         "vocation": "Royal Paladin",
         "level": 349,
-        "points": 47758095,
+        "points": 48321081,
         "is_extra": false
       },
       {
@@ -1087,43 +1279,51 @@
         "name": "Royal Knight",
         "vocation": "Elite Knight",
         "level": 347,
-        "points": 40663735,
+        "points": 42047577,
         "is_extra": true
       },
       {
         "rank": 51,
-        "name": "Dempis Cyron",
-        "vocation": "Elite Knight",
-        "level": 519,
-        "points": 38643301,
+        "name": "Domto",
+        "vocation": "Royal Paladin",
+        "level": 473,
+        "points": 40241615,
         "is_extra": false
       },
       {
         "rank": 52,
-        "name": "Axl Wood",
-        "vocation": "Royal Paladin",
-        "level": 354,
-        "points": 38112803,
-        "is_extra": false
+        "name": "Renanzhyn",
+        "vocation": "Elite Knight",
+        "level": 1026,
+        "points": 36901628,
+        "is_extra": true
       },
       {
         "rank": 53,
-        "name": "Ruckert",
+        "name": "Axl Wood",
         "vocation": "Royal Paladin",
-        "level": 263,
-        "points": 35713648,
+        "level": 354,
+        "points": 36787598,
         "is_extra": false
       },
       {
         "rank": 54,
-        "name": "Domto",
+        "name": "Elf Legolas",
         "vocation": "Royal Paladin",
-        "level": 473,
-        "points": 33063017,
-        "is_extra": false
+        "level": 637,
+        "points": 36295480,
+        "is_extra": true
       },
       {
         "rank": 55,
+        "name": "Ruckert",
+        "vocation": "Royal Paladin",
+        "level": 263,
+        "points": 33029341,
+        "is_extra": false
+      },
+      {
+        "rank": 56,
         "name": "Murdrak",
         "vocation": "Elite Knight",
         "level": 409,
@@ -1131,7 +1331,15 @@
         "is_extra": true
       },
       {
-        "rank": 56,
+        "rank": 57,
+        "name": "Dempis Cyron",
+        "vocation": "Elite Knight",
+        "level": 519,
+        "points": 29070363,
+        "is_extra": false
+      },
+      {
+        "rank": 58,
         "name": "Gelloo",
         "vocation": "Elder Druid",
         "level": 870,
@@ -1139,7 +1347,23 @@
         "is_extra": true
       },
       {
-        "rank": 57,
+        "rank": 59,
+        "name": "Thigor",
+        "vocation": "Elite Knight",
+        "level": 588,
+        "points": 23155424,
+        "is_extra": true
+      },
+      {
+        "rank": 60,
+        "name": "Davi Off Dragon",
+        "vocation": "Master Sorcerer",
+        "level": 572,
+        "points": 21928349,
+        "is_extra": false
+      },
+      {
+        "rank": 61,
         "name": "Shaman snake",
         "vocation": "Elder Druid",
         "level": 549,
@@ -1147,23 +1371,7 @@
         "is_extra": false
       },
       {
-        "rank": 58,
-        "name": "Thigor",
-        "vocation": "Elite Knight",
-        "level": 588,
-        "points": 18465516,
-        "is_extra": true
-      },
-      {
-        "rank": 59,
-        "name": "Davi Off Dragon",
-        "vocation": "Master Sorcerer",
-        "level": 572,
-        "points": 17886348,
-        "is_extra": false
-      },
-      {
-        "rank": 60,
+        "rank": 62,
         "name": "Cona Larrsonti",
         "vocation": "Elite Knight",
         "level": 713,
@@ -1171,7 +1379,15 @@
         "is_extra": false
       },
       {
-        "rank": 61,
+        "rank": 63,
+        "name": "Dundie Award",
+        "vocation": "Elite Knight",
+        "level": 348,
+        "points": 10770046,
+        "is_extra": false
+      },
+      {
+        "rank": 64,
         "name": "Viollent monsterstar",
         "vocation": "Royal Paladin",
         "level": 512,
@@ -1179,7 +1395,7 @@
         "is_extra": false
       },
       {
-        "rank": 62,
+        "rank": 65,
         "name": "Alice Thir",
         "vocation": "Elite Knight",
         "level": 350,
@@ -1187,7 +1403,15 @@
         "is_extra": false
       },
       {
-        "rank": 63,
+        "rank": 66,
+        "name": "Spirit Elite",
+        "vocation": "Knight",
+        "level": 431,
+        "points": 8620730,
+        "is_extra": true
+      },
+      {
+        "rank": 67,
         "name": "Murthar",
         "vocation": "Elder Druid",
         "level": 510,
@@ -1195,7 +1419,7 @@
         "is_extra": true
       },
       {
-        "rank": 64,
+        "rank": 68,
         "name": "Deep Slot",
         "vocation": "Elite Knight",
         "level": 350,
@@ -1203,23 +1427,7 @@
         "is_extra": true
       },
       {
-        "rank": 65,
-        "name": "Renanzhyn",
-        "vocation": "Elite Knight",
-        "level": 1025,
-        "points": 6285324,
-        "is_extra": true
-      },
-      {
-        "rank": 66,
-        "name": "Spirit Elite",
-        "vocation": "Knight",
-        "level": 430,
-        "points": 6048461,
-        "is_extra": true
-      },
-      {
-        "rank": 67,
+        "rank": 69,
         "name": "Doctor Mounjaro",
         "vocation": "Paladin",
         "level": 392,
@@ -1227,7 +1435,7 @@
         "is_extra": false
       },
       {
-        "rank": 68,
+        "rank": 70,
         "name": "Bourkey",
         "vocation": "Elite Knight",
         "level": 380,
@@ -1235,15 +1443,7 @@
         "is_extra": false
       },
       {
-        "rank": 69,
-        "name": "Dundie Award",
-        "vocation": "Elite Knight",
-        "level": 347,
-        "points": 3476166,
-        "is_extra": false
-      },
-      {
-        "rank": 70,
+        "rank": 71,
         "name": "Kinkor",
         "vocation": "Royal Paladin",
         "level": 321,
@@ -1251,7 +1451,7 @@
         "is_extra": false
       },
       {
-        "rank": 71,
+        "rank": 72,
         "name": "Crossbander",
         "vocation": "Elite Knight",
         "level": 377,
@@ -1259,7 +1459,7 @@
         "is_extra": false
       },
       {
-        "rank": 72,
+        "rank": 73,
         "name": "Miro on Scorpion",
         "vocation": "Druid",
         "level": 336,
@@ -1267,7 +1467,7 @@
         "is_extra": false
       },
       {
-        "rank": 73,
+        "rank": 74,
         "name": "Comando Druid",
         "vocation": "Elder Druid",
         "level": 474,
