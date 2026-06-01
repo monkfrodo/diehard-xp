@@ -19,6 +19,13 @@ GUILD_NAME = "Diehard"
 WORLD = "Luminera"
 TIMEZONE = ZoneInfo('America/Sao_Paulo')
 GUILDSTATS_URL = f"https://guildstats.eu/include/guild/tab.php?guild={GUILD_NAME}&tab=timeonline"
+GUILDSTATS_REFERER = f"https://guildstats.eu/guild?guild={GUILD_NAME}&world={WORLD}&op=3"
+GUILDSTATS_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Referer': GUILDSTATS_REFERER
+}
 
 # Caminhos de saída
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -58,6 +65,21 @@ def format_xp(valor):
 # ============================================================
 # FUNÇÕES DE BUSCA DE DADOS
 # ============================================================
+def buscar_html_guildstats():
+    """Busca a tabela AJAX diretamente e usa o bypass anti-bot como fallback."""
+    try:
+        resp = requests.get(GUILDSTATS_URL, headers=GUILDSTATS_HEADERS, timeout=30)
+        resp.raise_for_status()
+        html = resp.text
+        if '<td' in html and ('character/' in html or 'character?nick=' in html):
+            log("Tabela AJAX do GuildStats carregada diretamente", "✅")
+            return html
+        log("GuildStats retornou HTML sem dados da tabela; tentando fallback", "⚠️")
+    except Exception as e:
+        log(f"Falha na chamada direta ao GuildStats ({e}); tentando fallback", "⚠️")
+
+    return fetch(GUILDSTATS_URL)
+
 def buscar_membros_guild():
     """Busca lista de membros da guild via TibiaData API."""
     log("Buscando membros da guild via TibiaData API...")
@@ -85,14 +107,28 @@ def buscar_xp_guildstats():
     """Busca XP de todos os jogadores no GuildStats."""
     log("Buscando XP do GuildStats...")
     try:
-        html = fetch(GUILDSTATS_URL)
+        html = buscar_html_guildstats()
         
         soup = BeautifulSoup(html, 'html.parser')
         jogadores = {}
+        xp_columns = {}
+
+        for table in soup.find_all('table'):
+            headers = [th.get_text(' ', strip=True).lower() for th in table.find_all('th')]
+            if 'exp yesterday' in headers and 'exp 7 days' in headers and 'exp 30 days' in headers:
+                xp_columns = {
+                    'exp_yesterday': headers.index('exp yesterday'),
+                    'exp_7days': headers.index('exp 7 days'),
+                    'exp_30days': headers.index('exp 30 days')
+                }
+                break
+
+        if not xp_columns:
+            raise ValueError("Colunas de XP não encontradas na tabela do GuildStats")
         
         for row in soup.find_all('tr'):
             cols = row.find_all('td')
-            if len(cols) < 15:
+            if len(cols) <= max(xp_columns.values()):
                 continue
             
             # Encontra link do personagem
@@ -119,9 +155,9 @@ def buscar_xp_guildstats():
 
             jogadores[nome_lower] = {
                 'name': nome,
-                'exp_yesterday': get_col_xp(cols[-4]),
-                'exp_7days': get_col_xp(cols[-3]),
-                'exp_30days': get_col_xp(cols[-2])
+                'exp_yesterday': get_col_xp(cols[xp_columns['exp_yesterday']]),
+                'exp_7days': get_col_xp(cols[xp_columns['exp_7days']]),
+                'exp_30days': get_col_xp(cols[xp_columns['exp_30days']])
             }
         
         # Conta quantos têm XP ontem (para validação)
@@ -203,6 +239,45 @@ def _salvar_cache_tibiadata(nome, deaths, vocation, level):
     with open(CACHE_PATH, 'w', encoding='utf-8') as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
+def extrair_exp_individual(html):
+    """Extrai XP diário da aba individual, ordenando do registro mais recente."""
+    registros = []
+    soup = BeautifulSoup(html, 'html.parser')
+
+    for table in soup.find_all('table'):
+        for row in table.find_all('tr'):
+            cells = row.find_all('td')
+            if len(cells) < 2:
+                continue
+
+            data = cells[0].text.strip()[:10]
+            if len(data) != 10 or data[4] != '-' or data[7] != '-':
+                continue
+
+            sort_val = cells[1].get('data-sort-value')
+            if sort_val is not None:
+                try:
+                    valor = int(sort_val)
+                except ValueError:
+                    valor = 0
+            else:
+                raw = cells[1].text.strip().split('\n')[0].strip()
+                valor = parse_exp_value(raw)
+
+            registros.append((data, valor))
+
+    registros.sort(key=lambda registro: registro[0], reverse=True)
+    exp_values = [valor for _, valor in registros]
+
+    if not exp_values:
+        return None
+
+    return {
+        'exp_yesterday': exp_values[0],
+        'exp_7days': sum(exp_values[:7]),
+        'exp_30days': sum(exp_values[:30])
+    }
+
 def buscar_dados_guildstats_individual(nome):
     """Busca dados completos de um jogador na página individual do GuildStats (vocação, level e XP)."""
     try:
@@ -237,30 +312,16 @@ def buscar_dados_guildstats_individual(nome):
         url_xp = f"https://guildstats.eu/include/character/tab.php?nick={urllib.parse.quote(nome)}&tab=experience"
         html_xp = fetch(url_xp, timeout=20)
 
-        exp_values = []
-        soup_xp = BeautifulSoup(html_xp, 'html.parser')
-        for table in soup_xp.find_all('table'):
-                for row in table.find_all('tr'):
-                    cells = row.find_all('td')
-                    if len(cells) >= 2:
-                        date_cell = cells[0].text.strip()[:10]
-                        if len(date_cell) == 10 and date_cell[4] == '-':
-                            sort_val = cells[1].get('data-sort-value')
-                            if sort_val is not None:
-                                try:
-                                    exp_values.append(int(sort_val))
-                                except:
-                                    exp_values.append(0)
-                            else:
-                                raw = cells[1].text.strip().split('\n')[0].strip()
-                                exp_values.append(parse_exp_value(raw))
+        xp = extrair_exp_individual(html_xp) or {
+            'exp_yesterday': 0,
+            'exp_7days': 0,
+            'exp_30days': 0
+        }
 
         return {
             'vocation': vocation,
             'level': level,
-            'exp_yesterday': exp_values[-1] if len(exp_values) >= 1 else 0,
-            'exp_7days': sum(exp_values[-7:]) if exp_values else 0,
-            'exp_30days': sum(exp_values[-30:]) if exp_values else 0
+            **xp
         }
     except Exception as e:
         log(f"Erro ao buscar dados do GuildStats para {nome}: {e}", "⚠️")
@@ -276,35 +337,7 @@ def buscar_exp_individual(nome):
         if "does not exsists" in html or "don't have in our datebase" in html:
             return None
 
-        soup = BeautifulSoup(html, 'html.parser')
-        exp_values = []
-
-        for table in soup.find_all('table'):
-            for row in table.find_all('tr'):
-                cells = row.find_all('td')
-                if len(cells) >= 2:
-                    date_cell = cells[0].text.strip()[:10]
-                    if len(date_cell) == 10 and date_cell[4] == '-':
-                        # data-sort-value é mais confiável que .text (que pode ter texto extra após newlines)
-                        sort_val = cells[1].get('data-sort-value')
-                        if sort_val is not None:
-                            try:
-                                exp_values.append(int(sort_val))
-                            except:
-                                exp_values.append(0)
-                        else:
-                            # fallback: pega só a primeira linha do texto
-                            raw = cells[1].text.strip().split('\n')[0].strip()
-                            exp_values.append(parse_exp_value(raw))
-
-        if not exp_values:
-            return None
-
-        return {
-            'exp_yesterday': exp_values[-1] if len(exp_values) >= 1 else 0,
-            'exp_7days': sum(exp_values[-7:]),
-            'exp_30days': sum(exp_values[-30:])
-        }
+        return extrair_exp_individual(html)
     except:
         return None
 
