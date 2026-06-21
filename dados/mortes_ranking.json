@@ -1,8 +1,8 @@
 {
   "guild": "Diehard",
   "world": "Luminera",
-  "last_update": "2026-06-21 09:23:59",
-  "last_update_display": "21/06/2026 às 09:23",
+  "last_update": "2026-06-21 15:24:49",
+  "last_update_display": "21/06/2026 às 15:24",
   "total_members": 162,
   "rankings": {
     "yesterday": [
@@ -118,6 +118,23 @@
         "rank": 4
       },
       {
+        "name": "Dieu Apollon",
+        "vocation": "Royal Paladin",
+        "level": 109,
+        "is_extra": false,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Dieu Apollon",
+            "time": "2026-06-21T16:27:37Z",
+            "level": 108,
+            "reason": "Died at Level 108 by orc cult minion.",
+            "is_pk": false
+          }
+        ],
+        "rank": 5
+      },
+      {
         "name": "Falaac Venon",
         "vocation": "Royal Paladin",
         "level": 399,
@@ -132,7 +149,7 @@
             "is_pk": false
           }
         ],
-        "rank": 5
+        "rank": 6
       },
       {
         "name": "Legolas Drachenreiter",
@@ -149,7 +166,7 @@
             "is_pk": false
           }
         ],
-        "rank": 6
+        "rank": 7
       },
       {
         "name": "Pinsher",
@@ -166,7 +183,24 @@
             "is_pk": false
           }
         ],
-        "rank": 7
+        "rank": 8
+      },
+      {
+        "name": "Deep Slot",
+        "vocation": "Elite Knight",
+        "level": 353,
+        "is_extra": true,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Deep Slot",
+            "time": "2026-06-21T14:00:57Z",
+            "level": 353,
+            "reason": "Died at Level 353 by werelioness.",
+            "is_pk": false
+          }
+        ],
+        "rank": 9
       },
       {
         "name": "Frozudo",
@@ -183,7 +217,24 @@
             "is_pk": false
           }
         ],
-        "rank": 8
+        "rank": 10
+      },
+      {
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1180,
+        "is_extra": true,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Maltz",
+            "time": "2026-06-21T12:21:30Z",
+            "level": 1182,
+            "reason": "Died at Level 1182 by hellflayer.",
+            "is_pk": false
+          }
+        ],
+        "rank": 11
       },
       {
         "name": "Pani Kartofel",
@@ -200,7 +251,7 @@
             "is_pk": false
           }
         ],
-        "rank": 9
+        "rank": 12
       },
       {
         "name": "Renanzhyn",
@@ -217,7 +268,7 @@
             "is_pk": false
           }
         ],
-        "rank": 10
+        "rank": 13
       },
       {
         "name": "Spirit Elite",
@@ -234,7 +285,7 @@
             "is_pk": false
           }
         ],
-        "rank": 11
+        "rank": 14
       },
       {
         "name": "Theophile Monk",
@@ -251,7 +302,7 @@
             "is_pk": false
           }
         ],
-        "rank": 12
+        "rank": 15
       }
     ],
     "30days": [
@@ -633,7 +684,7 @@
       {
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 619,
+        "level": 620,
         "is_extra": true,
         "death_count": 5,
         "deaths": [
@@ -678,7 +729,7 @@
       {
         "name": "Top Vikingo",
         "vocation": "Exalted Monk",
-        "level": 619,
+        "level": 620,
         "is_extra": true,
         "death_count": 5,
         "deaths": [
@@ -752,6 +803,37 @@
         "rank": 9
       },
       {
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1180,
+        "is_extra": true,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Maltz",
+            "time": "2026-06-21T12:21:30Z",
+            "level": 1182,
+            "reason": "Died at Level 1182 by hellflayer.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-06-01T00:12:24Z",
+            "level": 1177,
+            "reason": "Died at Level 1177 by broken shaper.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-05-24T14:06:48Z",
+            "level": 1176,
+            "reason": "Died at Level 1176 by mean lost soul.",
+            "is_pk": false
+          }
+        ],
+        "rank": 10
+      },
+      {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
         "level": 565,
@@ -780,7 +862,7 @@
             "is_pk": false
           }
         ],
-        "rank": 10
+        "rank": 11
       },
       {
         "name": "Davi Off Dragon",
@@ -804,7 +886,7 @@
             "is_pk": false
           }
         ],
-        "rank": 11
+        "rank": 12
       },
       {
         "name": "Bentcho",
@@ -828,7 +910,7 @@
             "is_pk": false
           }
         ],
-        "rank": 12
+        "rank": 13
       },
       {
         "name": "Dundie Award",
@@ -852,7 +934,7 @@
             "is_pk": false
           }
         ],
-        "rank": 13
+        "rank": 14
       },
       {
         "name": "Thador Rizzak",
@@ -876,7 +958,31 @@
             "is_pk": false
           }
         ],
-        "rank": 14
+        "rank": 15
+      },
+      {
+        "name": "Deep Slot",
+        "vocation": "Elite Knight",
+        "level": 353,
+        "is_extra": true,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Deep Slot",
+            "time": "2026-06-21T14:00:57Z",
+            "level": 353,
+            "reason": "Died at Level 353 by werelioness.",
+            "is_pk": false
+          },
+          {
+            "character": "Deep Slot",
+            "time": "2026-06-07T00:09:38Z",
+            "level": 351,
+            "reason": "Died at Level 351 by lumbering carnivor.",
+            "is_pk": false
+          }
+        ],
+        "rank": 16
       },
       {
         "name": "Fex Dord",
@@ -900,31 +1006,7 @@
             "is_pk": false
           }
         ],
-        "rank": 15
-      },
-      {
-        "name": "Maltz",
-        "vocation": "Master Sorcerer",
-        "level": 1182,
-        "is_extra": true,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Maltz",
-            "time": "2026-06-01T00:12:24Z",
-            "level": 1177,
-            "reason": "Died at Level 1177 by broken shaper.",
-            "is_pk": false
-          },
-          {
-            "character": "Maltz",
-            "time": "2026-05-24T14:06:48Z",
-            "level": 1176,
-            "reason": "Died at Level 1176 by mean lost soul.",
-            "is_pk": false
-          }
-        ],
-        "rank": 16
+        "rank": 17
       },
       {
         "name": "Pani Kartofel",
@@ -948,7 +1030,7 @@
             "is_pk": false
           }
         ],
-        "rank": 17
+        "rank": 18
       },
       {
         "name": "Ardercimex Dariciann",
@@ -965,7 +1047,7 @@
             "is_pk": false
           }
         ],
-        "rank": 18
+        "rank": 19
       },
       {
         "name": "Shaman snake",
@@ -982,7 +1064,7 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
       },
       {
         "name": "Pamilinha Hidex",
@@ -999,7 +1081,7 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Harvok Chen",
@@ -1016,7 +1098,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Arlok Kyva",
@@ -1033,7 +1115,24 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 23
+      },
+      {
+        "name": "Dieu Apollon",
+        "vocation": "Royal Paladin",
+        "level": 109,
+        "is_extra": false,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Dieu Apollon",
+            "time": "2026-06-21T16:27:37Z",
+            "level": 108,
+            "reason": "Died at Level 108 by orc cult minion.",
+            "is_pk": false
+          }
+        ],
+        "rank": 24
       },
       {
         "name": "Med Prudente",
@@ -1050,7 +1149,7 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 25
       },
       {
         "name": "Pohlzera",
@@ -1067,7 +1166,7 @@
             "is_pk": false
           }
         ],
-        "rank": 24
+        "rank": 26
       },
       {
         "name": "Tio Deti Toxico",
@@ -1084,7 +1183,7 @@
             "is_pk": false
           }
         ],
-        "rank": 25
+        "rank": 27
       },
       {
         "name": "Vaughn Benjamin",
@@ -1101,7 +1200,7 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 28
       },
       {
         "name": "Wehr",
@@ -1118,24 +1217,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
-      },
-      {
-        "name": "Deep Slot",
-        "vocation": "Elite Knight",
-        "level": 353,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Deep Slot",
-            "time": "2026-06-07T00:09:38Z",
-            "level": 351,
-            "reason": "Died at Level 351 by lumbering carnivor.",
-            "is_pk": false
-          }
-        ],
-        "rank": 28
+        "rank": 29
       },
       {
         "name": "Frozudo",
@@ -1152,7 +1234,7 @@
             "is_pk": false
           }
         ],
-        "rank": 29
+        "rank": 30
       },
       {
         "name": "Hali Man",
@@ -1169,7 +1251,7 @@
             "is_pk": false
           }
         ],
-        "rank": 30
+        "rank": 31
       },
       {
         "name": "Pray for sio",
@@ -1186,7 +1268,7 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 32
       },
       {
         "name": "Renanzhyn",
@@ -1203,7 +1285,7 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 33
       },
       {
         "name": "Spirit Elite",
@@ -1220,7 +1302,7 @@
             "is_pk": false
           }
         ],
-        "rank": 33
+        "rank": 34
       },
       {
         "name": "Val Teles",
@@ -1237,7 +1319,7 @@
             "is_pk": false
           }
         ],
-        "rank": 34
+        "rank": 35
       },
       {
         "name": "Wasted Thyme",
@@ -1254,7 +1336,7 @@
             "is_pk": false
           }
         ],
-        "rank": 35
+        "rank": 36
       }
     ],
     "alltime": [
@@ -1697,7 +1779,7 @@
       {
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 619,
+        "level": 620,
         "is_extra": true,
         "death_count": 14,
         "deaths": [
@@ -1913,7 +1995,7 @@
       {
         "name": "Top Vikingo",
         "vocation": "Exalted Monk",
-        "level": 619,
+        "level": 620,
         "is_extra": true,
         "death_count": 14,
         "deaths": [
@@ -2783,6 +2865,51 @@
         "rank": 18
       },
       {
+        "name": "Maltz",
+        "vocation": "Master Sorcerer",
+        "level": 1180,
+        "is_extra": true,
+        "death_count": 5,
+        "deaths": [
+          {
+            "character": "Maltz",
+            "time": "2026-06-21T12:21:30Z",
+            "level": 1182,
+            "reason": "Died at Level 1182 by hellflayer.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-06-01T00:12:24Z",
+            "level": 1177,
+            "reason": "Died at Level 1177 by broken shaper.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-05-24T14:06:48Z",
+            "level": 1176,
+            "reason": "Died at Level 1176 by mean lost soul.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-04-15T08:50:08Z",
+            "level": 1155,
+            "reason": "Died at Level 1155 by nighthunter.",
+            "is_pk": false
+          },
+          {
+            "character": "Maltz",
+            "time": "2026-03-30T19:49:22Z",
+            "level": 1153,
+            "reason": "Died at Level 1153 by flimsy lost soul.",
+            "is_pk": false
+          }
+        ],
+        "rank": 19
+      },
+      {
         "name": "Davi Off Dragon",
         "vocation": "Master Sorcerer",
         "level": 578,
@@ -2818,7 +2945,7 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
       },
       {
         "name": "Harvok Chen",
@@ -2856,7 +2983,7 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Khurlan",
@@ -2894,7 +3021,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Pinsher",
@@ -2929,44 +3056,6 @@
             "time": "2026-05-08T16:26:31Z",
             "level": 81,
             "reason": "Died at Level 81 by nightmare scion.",
-            "is_pk": false
-          }
-        ],
-        "rank": 22
-      },
-      {
-        "name": "Maltz",
-        "vocation": "Master Sorcerer",
-        "level": 1182,
-        "is_extra": true,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Maltz",
-            "time": "2026-06-01T00:12:24Z",
-            "level": 1177,
-            "reason": "Died at Level 1177 by broken shaper.",
-            "is_pk": false
-          },
-          {
-            "character": "Maltz",
-            "time": "2026-05-24T14:06:48Z",
-            "level": 1176,
-            "reason": "Died at Level 1176 by mean lost soul.",
-            "is_pk": false
-          },
-          {
-            "character": "Maltz",
-            "time": "2026-04-15T08:50:08Z",
-            "level": 1155,
-            "reason": "Died at Level 1155 by nighthunter.",
-            "is_pk": false
-          },
-          {
-            "character": "Maltz",
-            "time": "2026-03-30T19:49:22Z",
-            "level": 1153,
-            "reason": "Died at Level 1153 by flimsy lost soul.",
             "is_pk": false
           }
         ],
@@ -3098,8 +3187,8 @@
       },
       {
         "name": "Sir Jhunioor",
-        "vocation": "Knight",
-        "level": 514,
+        "vocation": "Elite Knight",
+        "level": 515,
         "is_extra": false,
         "death_count": 3,
         "deaths": [
@@ -3334,6 +3423,30 @@
         "rank": 36
       },
       {
+        "name": "Deep Slot",
+        "vocation": "Elite Knight",
+        "level": 353,
+        "is_extra": true,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Deep Slot",
+            "time": "2026-06-21T14:00:57Z",
+            "level": 353,
+            "reason": "Died at Level 353 by werelioness.",
+            "is_pk": false
+          },
+          {
+            "character": "Deep Slot",
+            "time": "2026-06-07T00:09:38Z",
+            "level": 351,
+            "reason": "Died at Level 351 by lumbering carnivor.",
+            "is_pk": false
+          }
+        ],
+        "rank": 37
+      },
+      {
         "name": "Luskzin",
         "vocation": "Elite Knight",
         "level": 1152,
@@ -3355,7 +3468,7 @@
             "is_pk": false
           }
         ],
-        "rank": 37
+        "rank": 38
       },
       {
         "name": "Niko Fredericci",
@@ -3379,7 +3492,7 @@
             "is_pk": false
           }
         ],
-        "rank": 38
+        "rank": 39
       },
       {
         "name": "Spirit Tomatt",
@@ -3403,7 +3516,7 @@
             "is_pk": false
           }
         ],
-        "rank": 39
+        "rank": 40
       },
       {
         "name": "Thionk",
@@ -3427,7 +3540,7 @@
             "is_pk": false
           }
         ],
-        "rank": 40
+        "rank": 41
       },
       {
         "name": "Vitorelli",
@@ -3451,7 +3564,7 @@
             "is_pk": false
           }
         ],
-        "rank": 41
+        "rank": 42
       },
       {
         "name": "Ted Neon",
@@ -3468,7 +3581,7 @@
             "is_pk": false
           }
         ],
-        "rank": 42
+        "rank": 43
       },
       {
         "name": "Pamilinha Hidex",
@@ -3485,7 +3598,7 @@
             "is_pk": false
           }
         ],
-        "rank": 43
+        "rank": 44
       },
       {
         "name": "Roger Bass",
@@ -3502,7 +3615,7 @@
             "is_pk": false
           }
         ],
-        "rank": 44
+        "rank": 45
       },
       {
         "name": "Arlok Kyva",
@@ -3519,7 +3632,7 @@
             "is_pk": false
           }
         ],
-        "rank": 45
+        "rank": 46
       },
       {
         "name": "Comando Druid",
@@ -3536,7 +3649,7 @@
             "is_pk": false
           }
         ],
-        "rank": 46
+        "rank": 47
       },
       {
         "name": "Dhonatha guerreiro Fe",
@@ -3553,7 +3666,24 @@
             "is_pk": false
           }
         ],
-        "rank": 47
+        "rank": 48
+      },
+      {
+        "name": "Dieu Apollon",
+        "vocation": "Royal Paladin",
+        "level": 109,
+        "is_extra": false,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Dieu Apollon",
+            "time": "2026-06-21T16:27:37Z",
+            "level": 108,
+            "reason": "Died at Level 108 by orc cult minion.",
+            "is_pk": false
+          }
+        ],
+        "rank": 49
       },
       {
         "name": "Junior Teles",
@@ -3570,7 +3700,7 @@
             "is_pk": false
           }
         ],
-        "rank": 48
+        "rank": 50
       },
       {
         "name": "Katniss svitkona",
@@ -3587,7 +3717,7 @@
             "is_pk": false
           }
         ],
-        "rank": 49
+        "rank": 51
       },
       {
         "name": "Khytez",
@@ -3604,7 +3734,7 @@
             "is_pk": false
           }
         ],
-        "rank": 50
+        "rank": 52
       },
       {
         "name": "Parde Ases",
@@ -3621,7 +3751,7 @@
             "is_pk": false
           }
         ],
-        "rank": 51
+        "rank": 53
       },
       {
         "name": "Ruckert",
@@ -3638,7 +3768,7 @@
             "is_pk": false
           }
         ],
-        "rank": 52
+        "rank": 54
       },
       {
         "name": "Scarlett Stinson",
@@ -3655,7 +3785,7 @@
             "is_pk": false
           }
         ],
-        "rank": 53
+        "rank": 55
       },
       {
         "name": "Tio Deti Toxico",
@@ -3672,7 +3802,7 @@
             "is_pk": false
           }
         ],
-        "rank": 54
+        "rank": 56
       },
       {
         "name": "Wehr",
@@ -3689,24 +3819,7 @@
             "is_pk": false
           }
         ],
-        "rank": 55
-      },
-      {
-        "name": "Deep Slot",
-        "vocation": "Elite Knight",
-        "level": 353,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Deep Slot",
-            "time": "2026-06-07T00:09:38Z",
-            "level": 351,
-            "reason": "Died at Level 351 by lumbering carnivor.",
-            "is_pk": false
-          }
-        ],
-        "rank": 56
+        "rank": 57
       },
       {
         "name": "Farofa of Bacon",
@@ -3723,7 +3836,7 @@
             "is_pk": false
           }
         ],
-        "rank": 57
+        "rank": 58
       },
       {
         "name": "Frozudo",
@@ -3740,7 +3853,7 @@
             "is_pk": false
           }
         ],
-        "rank": 58
+        "rank": 59
       },
       {
         "name": "Hali Man",
@@ -3757,7 +3870,7 @@
             "is_pk": false
           }
         ],
-        "rank": 59
+        "rank": 60
       },
       {
         "name": "Jabs Nery",
@@ -3774,7 +3887,7 @@
             "is_pk": false
           }
         ],
-        "rank": 60
+        "rank": 61
       },
       {
         "name": "Proxye",
@@ -3791,7 +3904,7 @@
             "is_pk": false
           }
         ],
-        "rank": 61
+        "rank": 62
       },
       {
         "name": "Renanzhyn",
@@ -3808,7 +3921,7 @@
             "is_pk": false
           }
         ],
-        "rank": 62
+        "rank": 63
       },
       {
         "name": "Spirit Elite",
@@ -3825,7 +3938,7 @@
             "is_pk": false
           }
         ],
-        "rank": 63
+        "rank": 64
       },
       {
         "name": "Thi",
@@ -3842,7 +3955,7 @@
             "is_pk": false
           }
         ],
-        "rank": 64
+        "rank": 65
       },
       {
         "name": "Utribull",
@@ -3859,7 +3972,7 @@
             "is_pk": false
           }
         ],
-        "rank": 65
+        "rank": 66
       }
     ]
   }
