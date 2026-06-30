@@ -6,6 +6,9 @@ Gera ranking.json e status.json para o site
 import requests
 from bs4 import BeautifulSoup
 import json
+import html as html_module
+import re
+import urllib.parse
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import os
@@ -61,6 +64,16 @@ def parse_exp_value(exp_str):
 def format_xp(valor):
     """Formata XP com pontos de milhar (padrão BR)."""
     return f"{valor:,}".replace(',', '.')
+
+def encode_guildstats_nick(nome):
+    """Codifica o nick no formato que o JS do GuildStats usa nas abas AJAX."""
+    escaped = html_module.escape(nome, quote=True).replace('&#x27;', '&apos;')
+    return urllib.parse.quote(escaped, safe='')
+
+def extrair_char_nick_param(html):
+    """Extrai o charNickParam renderizado na página completa do personagem."""
+    match = re.search(r"charNickParam\s*=\s*'([^']*)'", html)
+    return match.group(1) if match else None
 
 # ============================================================
 # FUNÇÕES DE BUSCA DE DADOS
@@ -202,8 +215,10 @@ def buscar_vocacao_individual(nome, tentativas=3):
                     _salvar_cache_tibiadata(nome, deaths, char.get('vocation', ''), char.get('level', 0))
 
                     return {
+                        'name': char.get('name', nome),
                         'vocation': char.get('vocation', ''),
-                        'level': char.get('level', 0)
+                        'level': char.get('level', 0),
+                        'world': char.get('world', '')
                     }
             # Se resposta vazia ou erro, espera e tenta de novo
             if tentativa < tentativas - 1:
@@ -238,6 +253,39 @@ def _salvar_cache_tibiadata(nome, deaths, vocation, level):
     }
     with open(CACHE_PATH, 'w', encoding='utf-8') as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
+
+def buscar_html_exp_individual(nome, timeout=15, page_html=None):
+    """Busca a aba de XP individual tentando os formatos de nick do GuildStats."""
+    nick_params = []
+    page_param = extrair_char_nick_param(page_html or '')
+    if page_param:
+        nick_params.append(page_param)
+
+    for param in (
+        urllib.parse.quote(nome, safe=''),
+        encode_guildstats_nick(nome)
+    ):
+        if param not in nick_params:
+            nick_params.append(param)
+
+    ultimo_erro = None
+    for nick_param in nick_params:
+        url = f"https://guildstats.eu/include/character/tab.php?nick={nick_param}&tab=experience"
+        try:
+            html = fetch(url, timeout=timeout)
+        except Exception as e:
+            ultimo_erro = e
+            continue
+
+        if "does not exsists" in html or "don't have in our datebase" in html:
+            continue
+
+        if extrair_exp_individual(html):
+            return html
+
+    if ultimo_erro:
+        raise ultimo_erro
+    return None
 
 def extrair_exp_individual(html):
     """Extrai XP diário da aba individual, ordenando do registro mais recente."""
@@ -281,8 +329,6 @@ def extrair_exp_individual(html):
 def buscar_dados_guildstats_individual(nome):
     """Busca dados completos de um jogador na página individual do GuildStats (vocação, level e XP)."""
     try:
-        import urllib.parse
-        import re
         url = f"https://guildstats.eu/character/{urllib.parse.quote(nome)}"
         html = fetch(url, timeout=20)
 
@@ -309,10 +355,9 @@ def buscar_dados_guildstats_individual(nome):
                         pass
 
         # Agora busca XP na aba de experiência
-        url_xp = f"https://guildstats.eu/include/character/tab.php?nick={urllib.parse.quote(nome)}&tab=experience"
-        html_xp = fetch(url_xp, timeout=20)
+        html_xp = buscar_html_exp_individual(nome, timeout=20, page_html=html)
 
-        xp = extrair_exp_individual(html_xp) or {
+        xp = extrair_exp_individual(html_xp or '') or {
             'exp_yesterday': 0,
             'exp_7days': 0,
             'exp_30days': 0
@@ -330,11 +375,8 @@ def buscar_dados_guildstats_individual(nome):
 def buscar_exp_individual(nome):
     """Busca XP de um jogador na página individual do GuildStats."""
     try:
-        import urllib.parse
-        url = f"https://guildstats.eu/include/character/tab.php?nick={urllib.parse.quote(nome)}&tab=experience"
-        html = fetch(url, timeout=15)
-
-        if "does not exsists" in html or "don't have in our datebase" in html:
+        html = buscar_html_exp_individual(nome, timeout=15)
+        if not html:
             return None
 
         return extrair_exp_individual(html)
@@ -468,14 +510,29 @@ def main():
             dados = buscar_vocacao_individual(nome)
 
             if dados:
+                nome_atual = dados.get('name') or nome
+                nome_atual_lower = nome_atual.lower()
+                mundo_atual = dados.get('world', '')
+
+                if mundo_atual and mundo_atual != WORLD:
+                    log(f"  {nome}: personagem atual é {nome_atual} em {mundo_atual}, pulando (esperado: {WORLD})", "⚠️")
+                    continue
+
+                if nome_atual_lower in processados:
+                    log(f"  {nome}: já processado como {nome_atual}, pulando", "ℹ️")
+                    continue
+
+                if nome_atual != nome:
+                    log(f"  {nome}: nome atual detectado pela TibiaData é {nome_atual}", "ℹ️")
+
                 # TibiaData funcionou - busca XP separadamente
-                xp = xp_data.get(nome_lower)
+                xp = xp_data.get(nome_atual_lower)
                 if not xp:
                     time.sleep(2)
-                    xp = buscar_exp_individual(nome)
+                    xp = buscar_exp_individual(nome_atual)
 
                 jogadores.append({
-                    'name': nome,
+                    'name': nome_atual,
                     'level': dados['level'],
                     'vocation': dados['vocation'],
                     'exp_yesterday': xp.get('exp_yesterday', 0) if xp else 0,
@@ -483,8 +540,9 @@ def main():
                     'exp_30days': xp.get('exp_30days', 0) if xp else 0,
                     'is_extra': True
                 })
+                processados.add(nome_atual_lower)
                 total_extras += 1
-                log(f"  {nome}: Level {dados['level']} {dados['vocation']} (TibiaData)", "✅")
+                log(f"  {nome_atual}: Level {dados['level']} {dados['vocation']} (TibiaData)", "✅")
             else:
                 # TibiaData falhou - usa GuildStats como fonte completa (fallback)
                 log(f"  {nome}: TibiaData timeout, tentando GuildStats...", "⚠️")
@@ -501,6 +559,7 @@ def main():
                         'exp_30days': dados_gs['exp_30days'],
                         'is_extra': True
                     })
+                    processados.add(nome_lower)
                     total_extras += 1
                     log(f"  {nome}: Level {dados_gs['level']} {dados_gs['vocation']} (GuildStats)", "✅")
                 else:
