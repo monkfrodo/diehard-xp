@@ -1,61 +1,27 @@
 {
   "guild": "Diehard",
   "world": "Luminera",
-  "last_update": "2026-07-26 08:33:44",
-  "last_update_display": "26/07/2026 às 08:33",
+  "last_update": "2026-07-27 10:08:08",
+  "last_update_display": "27/07/2026 às 10:08",
   "total_members": 151,
   "rankings": {
     "yesterday": [
       {
-        "name": "Tio Deti Toxico",
-        "vocation": "Elite Knight",
-        "level": 720,
-        "is_extra": false,
+        "name": "Elf Legolas",
+        "vocation": "Royal Paladin",
+        "level": 673,
+        "is_extra": true,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Tio Deti Toxico",
-            "time": "2026-07-25T02:33:53Z",
-            "level": 721,
-            "reason": "Died at Level 721 by ripper spectre.",
+            "character": "Elf Legolas",
+            "time": "2026-07-26T21:46:58Z",
+            "level": 674,
+            "reason": "Died at Level 674 by crypt warrior.",
             "is_pk": false
           }
         ],
         "rank": 1
-      },
-      {
-        "name": "Mega Runa Cinco",
-        "vocation": "Elder Druid",
-        "level": 614,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Mega Runa Cinco",
-            "time": "2026-07-25T09:39:08Z",
-            "level": 615,
-            "reason": "Died at Level 615 by mega dragon.",
-            "is_pk": false
-          }
-        ],
-        "rank": 2
-      },
-      {
-        "name": "Wings Hope",
-        "vocation": "Royal Paladin",
-        "level": 808,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Wings Hope",
-            "time": "2026-07-25T13:22:12Z",
-            "level": 809,
-            "reason": "Died at Level 809 by mean lost soul.",
-            "is_pk": false
-          }
-        ],
-        "rank": 3
       }
     ],
     "7days": [
@@ -64,7 +30,7 @@
         "vocation": "Exalted Monk",
         "level": 557,
         "is_extra": true,
-        "death_count": 4,
+        "death_count": 3,
         "deaths": [
           {
             "character": "Frodo Leads",
@@ -86,13 +52,6 @@
             "level": 557,
             "reason": "Died at Level 557 by night harpy.",
             "is_pk": false
-          },
-          {
-            "character": "Frodo Leads",
-            "time": "2026-07-19T00:35:41Z",
-            "level": 552,
-            "reason": "Died at Level 552 by brachiodemon.",
-            "is_pk": false
           }
         ],
         "rank": 1
@@ -100,9 +59,9 @@
       {
         "name": "Kiziomiizio",
         "vocation": "Master Sorcerer",
-        "level": 790,
+        "level": 791,
         "is_extra": true,
-        "death_count": 4,
+        "death_count": 3,
         "deaths": [
           {
             "character": "Kiziomiizio",
@@ -123,13 +82,6 @@
             "time": "2026-07-22T23:35:23Z",
             "level": 791,
             "reason": "Died at Level 791 by grimeleech.",
-            "is_pk": false
-          },
-          {
-            "character": "Kiziomiizio",
-            "time": "2026-07-19T09:40:32Z",
-            "level": 787,
-            "reason": "Died at Level 787 by cloak of terror.",
             "is_pk": false
           }
         ],
@@ -167,9 +119,57 @@
         "rank": 3
       },
       {
+        "name": "Arlok Kyva",
+        "vocation": "Elite Knight",
+        "level": 92,
+        "is_extra": false,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-27T12:28:33Z",
+            "level": 92,
+            "reason": "Died at Level 92 by yielothax.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-21T15:34:44Z",
+            "level": 87,
+            "reason": "Died at Level 87 by orc leader.",
+            "is_pk": false
+          }
+        ],
+        "rank": 4
+      },
+      {
+        "name": "Wehr",
+        "vocation": "Elite Knight",
+        "level": 349,
+        "is_extra": false,
+        "death_count": 2,
+        "deaths": [
+          {
+            "character": "Wehr",
+            "time": "2026-07-27T04:48:46Z",
+            "level": 350,
+            "reason": "Died at Level 350 by crusader.",
+            "is_pk": false
+          },
+          {
+            "character": "Wehr",
+            "time": "2026-07-22T22:56:16Z",
+            "level": 349,
+            "reason": "Died at Level 349 by usurper warlock.",
+            "is_pk": false
+          }
+        ],
+        "rank": 5
+      },
+      {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 614,
+        "level": 615,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -188,12 +188,12 @@
             "is_pk": false
           }
         ],
-        "rank": 4
+        "rank": 6
       },
       {
         "name": "Niko Fredericci",
         "vocation": "Elite Knight",
-        "level": 872,
+        "level": 873,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -212,12 +212,12 @@
             "is_pk": false
           }
         ],
-        "rank": 5
+        "rank": 7
       },
       {
         "name": "Pray for sio",
         "vocation": "Elder Druid",
-        "level": 620,
+        "level": 621,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -236,7 +236,7 @@
             "is_pk": false
           }
         ],
-        "rank": 6
+        "rank": 8
       },
       {
         "name": "Spirit Matt",
@@ -260,12 +260,12 @@
             "is_pk": false
           }
         ],
-        "rank": 7
+        "rank": 9
       },
       {
         "name": "Shaman snake",
         "vocation": "Elder Druid",
-        "level": 566,
+        "level": 567,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -274,40 +274,6 @@
             "time": "2026-07-21T13:05:26Z",
             "level": 565,
             "reason": "Died at Level 565 by diremaw.",
-            "is_pk": false
-          }
-        ],
-        "rank": 8
-      },
-      {
-        "name": "Laine Ski",
-        "vocation": "Elite Knight",
-        "level": 197,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Laine Ski",
-            "time": "2026-07-19T10:08:43Z",
-            "level": 196,
-            "reason": "Died at Level 196 by wereboar.",
-            "is_pk": false
-          }
-        ],
-        "rank": 9
-      },
-      {
-        "name": "Arlok Kyva",
-        "vocation": "Elite Knight",
-        "level": 92,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-07-21T15:34:44Z",
-            "level": 87,
-            "reason": "Died at Level 87 by orc leader.",
             "is_pk": false
           }
         ],
@@ -350,7 +316,7 @@
       {
         "name": "Tio Deti Toxico",
         "vocation": "Elite Knight",
-        "level": 720,
+        "level": 721,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -365,43 +331,26 @@
         "rank": 13
       },
       {
-        "name": "Wehr",
-        "vocation": "Elite Knight",
-        "level": 350,
-        "is_extra": false,
+        "name": "Elf Legolas",
+        "vocation": "Royal Paladin",
+        "level": 673,
+        "is_extra": true,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Wehr",
-            "time": "2026-07-22T22:56:16Z",
-            "level": 349,
-            "reason": "Died at Level 349 by usurper warlock.",
+            "character": "Elf Legolas",
+            "time": "2026-07-26T21:46:58Z",
+            "level": 674,
+            "reason": "Died at Level 674 by crypt warrior.",
             "is_pk": false
           }
         ],
         "rank": 14
       },
       {
-        "name": "Farofa of Bacon",
-        "vocation": "Royal Paladin",
-        "level": 1087,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Farofa of Bacon",
-            "time": "2026-07-19T09:19:32Z",
-            "level": 1086,
-            "reason": "Died at Level 1086 by cloak of terror.",
-            "is_pk": false
-          }
-        ],
-        "rank": 15
-      },
-      {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 605,
+        "level": 606,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -413,7 +362,7 @@
             "is_pk": false
           }
         ],
-        "rank": 16
+        "rank": 15
       },
       {
         "name": "Renanzhyn",
@@ -430,12 +379,12 @@
             "is_pk": false
           }
         ],
-        "rank": 17
+        "rank": 16
       },
       {
         "name": "Wings Hope",
         "vocation": "Royal Paladin",
-        "level": 808,
+        "level": 810,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -447,7 +396,7 @@
             "is_pk": false
           }
         ],
-        "rank": 18
+        "rank": 17
       }
     ],
     "30days": [
@@ -576,7 +525,7 @@
       {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 605,
+        "level": 606,
         "is_extra": true,
         "death_count": 12,
         "deaths": [
@@ -670,7 +619,7 @@
       {
         "name": "Kiziomiizio",
         "vocation": "Master Sorcerer",
-        "level": 790,
+        "level": 791,
         "is_extra": true,
         "death_count": 8,
         "deaths": [
@@ -742,6 +691,13 @@
         "deaths": [
           {
             "character": "Arlok Kyva",
+            "time": "2026-07-27T12:28:33Z",
+            "level": 92,
+            "reason": "Died at Level 92 by yielothax.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
             "time": "2026-07-21T15:34:44Z",
             "level": 87,
             "reason": "Died at Level 87 by orc leader.",
@@ -781,13 +737,6 @@
             "level": 70,
             "reason": "Died at Level 70 by serpent spawn.",
             "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-06-26T19:08:24Z",
-            "level": 54,
-            "reason": "Died at Level 54 by behemoth.",
-            "is_pk": false
           }
         ],
         "rank": 4
@@ -795,7 +744,7 @@
       {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 614,
+        "level": 615,
         "is_extra": true,
         "death_count": 7,
         "deaths": [
@@ -854,9 +803,9 @@
       {
         "name": "Pray for sio",
         "vocation": "Elder Druid",
-        "level": 620,
+        "level": 621,
         "is_extra": true,
-        "death_count": 6,
+        "death_count": 5,
         "deaths": [
           {
             "character": "Pray for sio",
@@ -891,13 +840,6 @@
             "time": "2026-07-15T09:54:17Z",
             "level": 625,
             "reason": "Died at Level 625 by Moonspawn Juggernaut.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-06-26T09:34:57Z",
-            "level": 624,
-            "reason": "Died at Level 624 by mega dragon.",
             "is_pk": false
           }
         ],
@@ -1018,37 +960,6 @@
         "rank": 9
       },
       {
-        "name": "Dundie Award",
-        "vocation": "Elite Knight",
-        "level": 436,
-        "is_extra": false,
-        "death_count": 3,
-        "deaths": [
-          {
-            "character": "Dundie Award",
-            "time": "2026-07-08T00:58:36Z",
-            "level": 422,
-            "reason": "Died at Level 422 by arachnophobica.",
-            "is_pk": false
-          },
-          {
-            "character": "Dundie Award",
-            "time": "2026-07-02T21:07:41Z",
-            "level": 409,
-            "reason": "Died at Level 409 by arachnophobica.",
-            "is_pk": false
-          },
-          {
-            "character": "Dundie Award",
-            "time": "2026-06-26T23:02:49Z",
-            "level": 401,
-            "reason": "Died at Level 401 by armadile.",
-            "is_pk": false
-          }
-        ],
-        "rank": 10
-      },
-      {
         "name": "Pinsher",
         "vocation": "Elite Knight",
         "level": 159,
@@ -1077,12 +988,43 @@
             "is_pk": false
           }
         ],
+        "rank": 10
+      },
+      {
+        "name": "Elf Legolas",
+        "vocation": "Royal Paladin",
+        "level": 673,
+        "is_extra": true,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Elf Legolas",
+            "time": "2026-07-26T21:46:58Z",
+            "level": 674,
+            "reason": "Died at Level 674 by crypt warrior.",
+            "is_pk": false
+          },
+          {
+            "character": "Elf Legolas",
+            "time": "2026-07-14T13:41:51Z",
+            "level": 671,
+            "reason": "Died at Level 671 by jungle moa.",
+            "is_pk": false
+          },
+          {
+            "character": "Elf Legolas",
+            "time": "2026-07-13T17:23:42Z",
+            "level": 672,
+            "reason": "Died at Level 672 by naga warrior.",
+            "is_pk": false
+          }
+        ],
         "rank": 11
       },
       {
         "name": "Maltz",
         "vocation": "Master Sorcerer",
-        "level": 1203,
+        "level": 1204,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -1144,7 +1086,7 @@
       {
         "name": "Theophile Monk",
         "vocation": "Exalted Monk",
-        "level": 528,
+        "level": 529,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -1175,7 +1117,7 @@
       {
         "name": "Shaman snake",
         "vocation": "Elder Druid",
-        "level": 566,
+        "level": 567,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -1245,24 +1187,24 @@
         "rank": 17
       },
       {
-        "name": "Legolas Drachenreiter",
-        "vocation": "Royal Paladin",
-        "level": 397,
+        "name": "Dundie Award",
+        "vocation": "Elite Knight",
+        "level": 437,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
           {
-            "character": "Legolas Drachenreiter",
-            "time": "2026-07-01T20:57:42Z",
-            "level": 390,
-            "reason": "Died at Level 390 by a trap.",
+            "character": "Dundie Award",
+            "time": "2026-07-08T00:58:36Z",
+            "level": 422,
+            "reason": "Died at Level 422 by arachnophobica.",
             "is_pk": false
           },
           {
-            "character": "Legolas Drachenreiter",
-            "time": "2026-06-26T19:02:06Z",
-            "level": 387,
-            "reason": "Died at Level 387 by werelioness.",
+            "character": "Dundie Award",
+            "time": "2026-07-02T21:07:41Z",
+            "level": 409,
+            "reason": "Died at Level 409 by arachnophobica.",
             "is_pk": false
           }
         ],
@@ -1295,7 +1237,7 @@
       {
         "name": "Palimmyr",
         "vocation": "Royal Paladin",
-        "level": 458,
+        "level": 460,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -1319,7 +1261,7 @@
       {
         "name": "Thador Rizzak",
         "vocation": "Elite Knight",
-        "level": 680,
+        "level": 681,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -1341,24 +1283,24 @@
         "rank": 21
       },
       {
-        "name": "Elf Legolas",
-        "vocation": "Royal Paladin",
-        "level": 674,
-        "is_extra": true,
+        "name": "Wehr",
+        "vocation": "Elite Knight",
+        "level": 349,
+        "is_extra": false,
         "death_count": 2,
         "deaths": [
           {
-            "character": "Elf Legolas",
-            "time": "2026-07-14T13:41:51Z",
-            "level": 671,
-            "reason": "Died at Level 671 by jungle moa.",
+            "character": "Wehr",
+            "time": "2026-07-27T04:48:46Z",
+            "level": 350,
+            "reason": "Died at Level 350 by crusader.",
             "is_pk": false
           },
           {
-            "character": "Elf Legolas",
-            "time": "2026-07-13T17:23:42Z",
-            "level": 672,
-            "reason": "Died at Level 672 by naga warrior.",
+            "character": "Wehr",
+            "time": "2026-07-22T22:56:16Z",
+            "level": 349,
+            "reason": "Died at Level 349 by usurper warlock.",
             "is_pk": false
           }
         ],
@@ -1367,7 +1309,7 @@
       {
         "name": "Niko Fredericci",
         "vocation": "Elite Knight",
-        "level": 872,
+        "level": 873,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1391,7 +1333,7 @@
       {
         "name": "Spirit Elite",
         "vocation": "Knight",
-        "level": 454,
+        "level": 455,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1439,7 +1381,7 @@
       {
         "name": "Wings Hope",
         "vocation": "Royal Paladin",
-        "level": 808,
+        "level": 810,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1463,7 +1405,7 @@
       {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
-        "level": 707,
+        "level": 708,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1548,7 +1490,7 @@
       {
         "name": "Bentcho",
         "vocation": "Royal Paladin",
-        "level": 468,
+        "level": 469,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1565,7 +1507,7 @@
       {
         "name": "Bourkey",
         "vocation": "Elite Knight",
-        "level": 404,
+        "level": 405,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1614,6 +1556,23 @@
         "rank": 35
       },
       {
+        "name": "Legolas Drachenreiter",
+        "vocation": "Royal Paladin",
+        "level": 397,
+        "is_extra": false,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Legolas Drachenreiter",
+            "time": "2026-07-01T20:57:42Z",
+            "level": 390,
+            "reason": "Died at Level 390 by a trap.",
+            "is_pk": false
+          }
+        ],
+        "rank": 36
+      },
+      {
         "name": "Mister wigglles",
         "vocation": "Elite Knight",
         "level": 420,
@@ -1628,7 +1587,7 @@
             "is_pk": false
           }
         ],
-        "rank": 36
+        "rank": 37
       },
       {
         "name": "Raptor Ongi",
@@ -1645,7 +1604,7 @@
             "is_pk": false
           }
         ],
-        "rank": 37
+        "rank": 38
       },
       {
         "name": "Ruckert",
@@ -1662,12 +1621,12 @@
             "is_pk": false
           }
         ],
-        "rank": 38
+        "rank": 39
       },
       {
         "name": "Tio Deti Toxico",
         "vocation": "Elite Knight",
-        "level": 720,
+        "level": 721,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1676,23 +1635,6 @@
             "time": "2026-07-25T02:33:53Z",
             "level": 721,
             "reason": "Died at Level 721 by ripper spectre.",
-            "is_pk": false
-          }
-        ],
-        "rank": 39
-      },
-      {
-        "name": "Wehr",
-        "vocation": "Elite Knight",
-        "level": 350,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Wehr",
-            "time": "2026-07-22T22:56:16Z",
-            "level": 349,
-            "reason": "Died at Level 349 by usurper warlock.",
             "is_pk": false
           }
         ],
@@ -1718,7 +1660,7 @@
       {
         "name": "Farofa of Bacon",
         "vocation": "Royal Paladin",
-        "level": 1087,
+        "level": 1088,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1735,7 +1677,7 @@
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 540,
+        "level": 541,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1803,7 +1745,7 @@
       {
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 642,
+        "level": 643,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1820,7 +1762,7 @@
       {
         "name": "Top Vikingo",
         "vocation": "Exalted Monk",
-        "level": 642,
+        "level": 643,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1837,7 +1779,7 @@
       {
         "name": "Val Teles",
         "vocation": "Elder Druid",
-        "level": 973,
+        "level": 974,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -2173,7 +2115,7 @@
       {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
-        "level": 605,
+        "level": 606,
         "is_extra": true,
         "death_count": 17,
         "deaths": [
@@ -2389,7 +2331,7 @@
       {
         "name": "Theophile Monk",
         "vocation": "Exalted Monk",
-        "level": 528,
+        "level": 529,
         "is_extra": true,
         "death_count": 11,
         "deaths": [
@@ -2476,7 +2418,7 @@
       {
         "name": "Pray for sio",
         "vocation": "Elder Druid",
-        "level": 620,
+        "level": 621,
         "is_extra": true,
         "death_count": 10,
         "deaths": [
@@ -2556,7 +2498,7 @@
       {
         "name": "Tadalai Lama",
         "vocation": "Exalted Monk",
-        "level": 642,
+        "level": 643,
         "is_extra": true,
         "death_count": 10,
         "deaths": [
@@ -2636,7 +2578,7 @@
       {
         "name": "Top Vikingo",
         "vocation": "Exalted Monk",
-        "level": 642,
+        "level": 643,
         "is_extra": true,
         "death_count": 10,
         "deaths": [
@@ -2714,9 +2656,82 @@
         "rank": 8
       },
       {
+        "name": "Arlok Kyva",
+        "vocation": "Elite Knight",
+        "level": 92,
+        "is_extra": false,
+        "death_count": 9,
+        "deaths": [
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-27T12:28:33Z",
+            "level": 92,
+            "reason": "Died at Level 92 by yielothax.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-21T15:34:44Z",
+            "level": 87,
+            "reason": "Died at Level 87 by orc leader.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-16T12:10:04Z",
+            "level": 80,
+            "reason": "Died at Level 80 by noble lion.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-15T12:23:06Z",
+            "level": 78,
+            "reason": "Died at Level 78 by ancient scarab.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-10T15:06:32Z",
+            "level": 73,
+            "reason": "Died at Level 73 by vampire.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-10T11:51:34Z",
+            "level": 72,
+            "reason": "Died at Level 72 by vampire.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-07-08T15:09:51Z",
+            "level": 70,
+            "reason": "Died at Level 70 by serpent spawn.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-06-26T19:08:24Z",
+            "level": 54,
+            "reason": "Died at Level 54 by behemoth.",
+            "is_pk": false
+          },
+          {
+            "character": "Arlok Kyva",
+            "time": "2026-06-12T16:26:17Z",
+            "level": 31,
+            "reason": "Died at Level 31 by dragon.",
+            "is_pk": false
+          }
+        ],
+        "rank": 9
+      },
+      {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 614,
+        "level": 615,
         "is_extra": true,
         "death_count": 9,
         "deaths": [
@@ -2781,72 +2796,6 @@
             "time": "2026-05-04T07:43:12Z",
             "level": 520,
             "reason": "Killed at Level 520 by Mega Runa Cinco and cobra assassin.",
-            "is_pk": false
-          }
-        ],
-        "rank": 9
-      },
-      {
-        "name": "Arlok Kyva",
-        "vocation": "Elite Knight",
-        "level": 92,
-        "is_extra": false,
-        "death_count": 8,
-        "deaths": [
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-07-21T15:34:44Z",
-            "level": 87,
-            "reason": "Died at Level 87 by orc leader.",
-            "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-07-16T12:10:04Z",
-            "level": 80,
-            "reason": "Died at Level 80 by noble lion.",
-            "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-07-15T12:23:06Z",
-            "level": 78,
-            "reason": "Died at Level 78 by ancient scarab.",
-            "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-07-10T15:06:32Z",
-            "level": 73,
-            "reason": "Died at Level 73 by vampire.",
-            "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-07-10T11:51:34Z",
-            "level": 72,
-            "reason": "Died at Level 72 by vampire.",
-            "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-07-08T15:09:51Z",
-            "level": 70,
-            "reason": "Died at Level 70 by serpent spawn.",
-            "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-06-26T19:08:24Z",
-            "level": 54,
-            "reason": "Died at Level 54 by behemoth.",
-            "is_pk": false
-          },
-          {
-            "character": "Arlok Kyva",
-            "time": "2026-06-12T16:26:17Z",
-            "level": 31,
-            "reason": "Died at Level 31 by dragon.",
             "is_pk": false
           }
         ],
@@ -2921,7 +2870,7 @@
       {
         "name": "Kiziomiizio",
         "vocation": "Master Sorcerer",
-        "level": 790,
+        "level": 791,
         "is_extra": true,
         "death_count": 8,
         "deaths": [
@@ -3098,7 +3047,7 @@
       {
         "name": "Fex Dord",
         "vocation": "Elite Knight",
-        "level": 707,
+        "level": 708,
         "is_extra": true,
         "death_count": 6,
         "deaths": [
@@ -3150,7 +3099,7 @@
       {
         "name": "Maltz",
         "vocation": "Master Sorcerer",
-        "level": 1203,
+        "level": 1204,
         "is_extra": true,
         "death_count": 6,
         "deaths": [
@@ -3247,7 +3196,7 @@
       {
         "name": "Dundie Award",
         "vocation": "Elite Knight",
-        "level": 436,
+        "level": 437,
         "is_extra": false,
         "death_count": 5,
         "deaths": [
@@ -3427,7 +3376,7 @@
       {
         "name": "Shaman snake",
         "vocation": "Elder Druid",
-        "level": 566,
+        "level": 567,
         "is_extra": false,
         "death_count": 4,
         "deaths": [
@@ -3465,7 +3414,7 @@
       {
         "name": "Palimmyr",
         "vocation": "Royal Paladin",
-        "level": 458,
+        "level": 460,
         "is_extra": false,
         "death_count": 4,
         "deaths": [
@@ -3541,7 +3490,7 @@
       {
         "name": "Thador Rizzak",
         "vocation": "Elite Knight",
-        "level": 680,
+        "level": 681,
         "is_extra": false,
         "death_count": 4,
         "deaths": [
@@ -3575,6 +3524,44 @@
           }
         ],
         "rank": 25
+      },
+      {
+        "name": "Elf Legolas",
+        "vocation": "Royal Paladin",
+        "level": 673,
+        "is_extra": true,
+        "death_count": 4,
+        "deaths": [
+          {
+            "character": "Elf Legolas",
+            "time": "2026-07-26T21:46:58Z",
+            "level": 674,
+            "reason": "Died at Level 674 by crypt warrior.",
+            "is_pk": false
+          },
+          {
+            "character": "Elf Legolas",
+            "time": "2026-07-14T13:41:51Z",
+            "level": 671,
+            "reason": "Died at Level 671 by jungle moa.",
+            "is_pk": false
+          },
+          {
+            "character": "Elf Legolas",
+            "time": "2026-07-13T17:23:42Z",
+            "level": 672,
+            "reason": "Died at Level 672 by naga warrior.",
+            "is_pk": false
+          },
+          {
+            "character": "Elf Legolas",
+            "time": "2026-06-22T21:30:08Z",
+            "level": 648,
+            "reason": "Died at Level 648 by Blight Mariner.",
+            "is_pk": false
+          }
+        ],
+        "rank": 26
       },
       {
         "name": "Renanzhyn",
@@ -3612,12 +3599,12 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 27
       },
       {
         "name": "Bentcho",
         "vocation": "Royal Paladin",
-        "level": 468,
+        "level": 469,
         "is_extra": false,
         "death_count": 3,
         "deaths": [
@@ -3643,7 +3630,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 28
       },
       {
         "name": "Khurlan",
@@ -3674,43 +3661,43 @@
             "is_pk": false
           }
         ],
-        "rank": 28
+        "rank": 29
       },
       {
-        "name": "Elf Legolas",
-        "vocation": "Royal Paladin",
-        "level": 674,
-        "is_extra": true,
+        "name": "Wehr",
+        "vocation": "Elite Knight",
+        "level": 349,
+        "is_extra": false,
         "death_count": 3,
         "deaths": [
           {
-            "character": "Elf Legolas",
-            "time": "2026-07-14T13:41:51Z",
-            "level": 671,
-            "reason": "Died at Level 671 by jungle moa.",
+            "character": "Wehr",
+            "time": "2026-07-27T04:48:46Z",
+            "level": 350,
+            "reason": "Died at Level 350 by crusader.",
             "is_pk": false
           },
           {
-            "character": "Elf Legolas",
-            "time": "2026-07-13T17:23:42Z",
-            "level": 672,
-            "reason": "Died at Level 672 by naga warrior.",
+            "character": "Wehr",
+            "time": "2026-07-22T22:56:16Z",
+            "level": 349,
+            "reason": "Died at Level 349 by usurper warlock.",
             "is_pk": false
           },
           {
-            "character": "Elf Legolas",
-            "time": "2026-06-22T21:30:08Z",
-            "level": 648,
-            "reason": "Died at Level 648 by Blight Mariner.",
+            "character": "Wehr",
+            "time": "2026-06-02T20:13:35Z",
+            "level": 330,
+            "reason": "Died at Level 330 by medusa.",
             "is_pk": false
           }
         ],
-        "rank": 29
+        "rank": 30
       },
       {
         "name": "Niko Fredericci",
         "vocation": "Elite Knight",
-        "level": 872,
+        "level": 873,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -3736,12 +3723,12 @@
             "is_pk": false
           }
         ],
-        "rank": 30
+        "rank": 31
       },
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 803,
+        "level": 804,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -3767,12 +3754,12 @@
             "is_pk": false
           }
         ],
-        "rank": 31
+        "rank": 32
       },
       {
         "name": "Spirit Elite",
         "vocation": "Knight",
-        "level": 454,
+        "level": 455,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -3798,7 +3785,7 @@
             "is_pk": false
           }
         ],
-        "rank": 32
+        "rank": 33
       },
       {
         "name": "Thionk",
@@ -3829,12 +3816,12 @@
             "is_pk": false
           }
         ],
-        "rank": 33
+        "rank": 34
       },
       {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
-        "level": 707,
+        "level": 708,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3853,7 +3840,7 @@
             "is_pk": false
           }
         ],
-        "rank": 34
+        "rank": 35
       },
       {
         "name": "Viollent monsterstar",
@@ -3877,7 +3864,7 @@
             "is_pk": false
           }
         ],
-        "rank": 35
+        "rank": 36
       },
       {
         "name": "Princess Larah",
@@ -3901,7 +3888,7 @@
             "is_pk": false
           }
         ],
-        "rank": 36
+        "rank": 37
       },
       {
         "name": "Raptor Ongi",
@@ -3925,12 +3912,12 @@
             "is_pk": false
           }
         ],
-        "rank": 37
+        "rank": 38
       },
       {
         "name": "Tio Deti Toxico",
         "vocation": "Elite Knight",
-        "level": 720,
+        "level": 721,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3946,30 +3933,6 @@
             "time": "2026-06-10T22:25:19Z",
             "level": 705,
             "reason": "Died at Level 705 by lava lurker.",
-            "is_pk": false
-          }
-        ],
-        "rank": 38
-      },
-      {
-        "name": "Wehr",
-        "vocation": "Elite Knight",
-        "level": 350,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Wehr",
-            "time": "2026-07-22T22:56:16Z",
-            "level": 349,
-            "reason": "Died at Level 349 by usurper warlock.",
-            "is_pk": false
-          },
-          {
-            "character": "Wehr",
-            "time": "2026-06-02T20:13:35Z",
-            "level": 330,
-            "reason": "Died at Level 330 by medusa.",
             "is_pk": false
           }
         ],
@@ -4002,7 +3965,7 @@
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 540,
+        "level": 541,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -4050,7 +4013,7 @@
       {
         "name": "Val Teles",
         "vocation": "Elder Druid",
-        "level": 973,
+        "level": 974,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -4074,7 +4037,7 @@
       {
         "name": "Wings Hope",
         "vocation": "Royal Paladin",
-        "level": 808,
+        "level": 810,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -4098,7 +4061,7 @@
       {
         "name": "Ardercimex Dariciann",
         "vocation": "Elite Knight",
-        "level": 853,
+        "level": 854,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -4217,7 +4180,7 @@
       {
         "name": "Bourkey",
         "vocation": "Elite Knight",
-        "level": 404,
+        "level": 405,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -4387,7 +4350,7 @@
       {
         "name": "Farofa of Bacon",
         "vocation": "Royal Paladin",
-        "level": 1087,
+        "level": 1088,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
