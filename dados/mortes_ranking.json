@@ -1,61 +1,27 @@
 {
   "guild": "Diehard",
   "world": "Luminera",
-  "last_update": "2026-08-05 09:13:52",
-  "last_update_display": "05/08/2026 às 09:13",
-  "total_members": 149,
+  "last_update": "2026-08-06 09:16:01",
+  "last_update_display": "06/08/2026 às 09:16",
+  "total_members": 148,
   "rankings": {
     "yesterday": [
       {
-        "name": "Jake Gael",
+        "name": "Royal Knight",
         "vocation": "Elite Knight",
-        "level": 145,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Jake Gael",
-            "time": "2026-08-04T07:52:26Z",
-            "level": 145,
-            "reason": "Died at Level 145 by wereboar.",
-            "is_pk": false
-          }
-        ],
-        "rank": 1
-      },
-      {
-        "name": "Ruckert",
-        "vocation": "Royal Paladin",
-        "level": 322,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Ruckert",
-            "time": "2026-08-04T22:06:52Z",
-            "level": 322,
-            "reason": "Died at Level 322 by white lion.",
-            "is_pk": false
-          }
-        ],
-        "rank": 2
-      },
-      {
-        "name": "Myss Fortunie",
-        "vocation": "Elite Knight",
-        "level": 611,
+        "level": 365,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Myss Fortunie",
-            "time": "2026-08-04T09:00:15Z",
-            "level": 611,
-            "reason": "Died at Level 611 by Moonspawn Juggernaut.",
+            "character": "Royal Knight",
+            "time": "2026-08-05T18:27:31Z",
+            "level": 366,
+            "reason": "Died at Level 366 by mean lost soul.",
             "is_pk": false
           }
         ],
-        "rank": 3
+        "rank": 1
       }
     ],
     "7days": [
@@ -98,17 +64,24 @@
         "rank": 1
       },
       {
-        "name": "Viollent monsterstar",
-        "vocation": "Royal Paladin",
-        "level": 525,
-        "is_extra": false,
-        "death_count": 1,
+        "name": "Vaughn Benjamin",
+        "vocation": "Elite Knight",
+        "level": 872,
+        "is_extra": true,
+        "death_count": 2,
         "deaths": [
           {
-            "character": "Viollent monsterstar",
-            "time": "2026-07-29T18:23:29Z",
-            "level": 525,
-            "reason": "Died at Level 525 by shock head.",
+            "character": "Vaughn Benjamin",
+            "time": "2026-08-06T00:27:19Z",
+            "level": 873,
+            "reason": "Died at Level 873 by varg.",
+            "is_pk": false
+          },
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-08-02T11:17:26Z",
+            "level": 872,
+            "reason": "Died at Level 872 by norcferatu heartless.",
             "is_pk": false
           }
         ],
@@ -117,7 +90,7 @@
       {
         "name": "Bourkey",
         "vocation": "Elite Knight",
-        "level": 408,
+        "level": 409,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -217,23 +190,6 @@
         "rank": 8
       },
       {
-        "name": "Frozudo",
-        "vocation": "Elite Knight",
-        "level": 551,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Frozudo",
-            "time": "2026-07-29T00:14:05Z",
-            "level": 543,
-            "reason": "Killed at Level 543 by Frozudo and broodrider inferniarch.",
-            "is_pk": false
-          }
-        ],
-        "rank": 9
-      },
-      {
         "name": "Kiziomiizio",
         "vocation": "Master Sorcerer",
         "level": 799,
@@ -248,12 +204,12 @@
             "is_pk": false
           }
         ],
-        "rank": 10
+        "rank": 9
       },
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 812,
+        "level": 814,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -265,41 +221,24 @@
             "is_pk": false
           }
         ],
-        "rank": 11
+        "rank": 10
       },
       {
-        "name": "Vaughn Benjamin",
+        "name": "Royal Knight",
         "vocation": "Elite Knight",
-        "level": 873,
+        "level": 365,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
           {
-            "character": "Vaughn Benjamin",
-            "time": "2026-08-02T11:17:26Z",
-            "level": 872,
-            "reason": "Died at Level 872 by norcferatu heartless.",
+            "character": "Royal Knight",
+            "time": "2026-08-05T18:27:31Z",
+            "level": 366,
+            "reason": "Died at Level 366 by mean lost soul.",
             "is_pk": false
           }
         ],
-        "rank": 12
-      },
-      {
-        "name": "Wings Hope",
-        "vocation": "Royal Paladin",
-        "level": 821,
-        "is_extra": true,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Wings Hope",
-            "time": "2026-07-29T16:40:13Z",
-            "level": 814,
-            "reason": "Died at Level 814 by mean lost soul.",
-            "is_pk": false
-          }
-        ],
-        "rank": 13
+        "rank": 11
       }
     ],
     "30days": [
@@ -664,7 +603,7 @@
       {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 625,
+        "level": 626,
         "is_extra": true,
         "death_count": 4,
         "deaths": [
@@ -831,9 +770,40 @@
         "rank": 10
       },
       {
+        "name": "Vaughn Benjamin",
+        "vocation": "Elite Knight",
+        "level": 872,
+        "is_extra": true,
+        "death_count": 3,
+        "deaths": [
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-08-06T00:27:19Z",
+            "level": 873,
+            "reason": "Died at Level 873 by varg.",
+            "is_pk": false
+          },
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-08-02T11:17:26Z",
+            "level": 872,
+            "reason": "Died at Level 872 by norcferatu heartless.",
+            "is_pk": false
+          },
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-07-17T20:27:58Z",
+            "level": 863,
+            "reason": "Died at Level 863 by cobra vizier.",
+            "is_pk": false
+          }
+        ],
+        "rank": 11
+      },
+      {
         "name": "Wings Hope",
         "vocation": "Royal Paladin",
-        "level": 821,
+        "level": 823,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -859,12 +829,12 @@
             "is_pk": false
           }
         ],
-        "rank": 11
+        "rank": 12
       },
       {
         "name": "Shaman snake",
         "vocation": "Elder Druid",
-        "level": 570,
+        "level": 572,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -883,7 +853,7 @@
             "is_pk": false
           }
         ],
-        "rank": 12
+        "rank": 13
       },
       {
         "name": "Viollent monsterstar",
@@ -907,7 +877,7 @@
             "is_pk": false
           }
         ],
-        "rank": 13
+        "rank": 14
       },
       {
         "name": "Bentcho",
@@ -931,7 +901,7 @@
             "is_pk": false
           }
         ],
-        "rank": 14
+        "rank": 15
       },
       {
         "name": "Med Prudente",
@@ -955,7 +925,7 @@
             "is_pk": false
           }
         ],
-        "rank": 15
+        "rank": 16
       },
       {
         "name": "Pinsher",
@@ -979,7 +949,7 @@
             "is_pk": false
           }
         ],
-        "rank": 16
+        "rank": 17
       },
       {
         "name": "Ruckert",
@@ -1003,7 +973,7 @@
             "is_pk": false
           }
         ],
-        "rank": 17
+        "rank": 18
       },
       {
         "name": "Wehr",
@@ -1027,7 +997,7 @@
             "is_pk": false
           }
         ],
-        "rank": 18
+        "rank": 19
       },
       {
         "name": "Xilotef",
@@ -1051,12 +1021,12 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
       },
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 551,
+        "level": 552,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1075,7 +1045,7 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Renanzhyn",
@@ -1099,7 +1069,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Spirit Elite",
@@ -1123,12 +1093,12 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 23
       },
       {
         "name": "Spirit Matt",
         "vocation": "Elder Druid",
-        "level": 393,
+        "level": 395,
         "is_extra": true,
         "death_count": 2,
         "deaths": [
@@ -1147,7 +1117,7 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 24
       },
       {
         "name": "Thionk",
@@ -1171,36 +1141,12 @@
             "is_pk": false
           }
         ],
-        "rank": 24
-      },
-      {
-        "name": "Vaughn Benjamin",
-        "vocation": "Elite Knight",
-        "level": 873,
-        "is_extra": true,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Vaughn Benjamin",
-            "time": "2026-08-02T11:17:26Z",
-            "level": 872,
-            "reason": "Died at Level 872 by norcferatu heartless.",
-            "is_pk": false
-          },
-          {
-            "character": "Vaughn Benjamin",
-            "time": "2026-07-17T20:27:58Z",
-            "level": 863,
-            "reason": "Died at Level 863 by cobra vizier.",
-            "is_pk": false
-          }
-        ],
         "rank": 25
       },
       {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
-        "level": 712,
+        "level": 713,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1234,7 +1180,7 @@
       {
         "name": "Roger Bass",
         "vocation": "Elite Knight",
-        "level": 640,
+        "level": 641,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1285,7 +1231,7 @@
       {
         "name": "Bourkey",
         "vocation": "Elite Knight",
-        "level": 408,
+        "level": 409,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1336,7 +1282,7 @@
       {
         "name": "Holy Arcane",
         "vocation": "Elite Knight",
-        "level": 218,
+        "level": 219,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1370,7 +1316,7 @@
       {
         "name": "Neiikz",
         "vocation": "Elite Knight",
-        "level": 521,
+        "level": 522,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1404,7 +1350,7 @@
       {
         "name": "Raptor Ongi",
         "vocation": "Elite Knight",
-        "level": 176,
+        "level": 177,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1438,7 +1384,7 @@
       {
         "name": "Thador Rizzak",
         "vocation": "Elite Knight",
-        "level": 689,
+        "level": 690,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -1455,7 +1401,7 @@
       {
         "name": "Farofa of Bacon",
         "vocation": "Royal Paladin",
-        "level": 1092,
+        "level": 1093,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1472,7 +1418,7 @@
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 812,
+        "level": 814,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1489,7 +1435,7 @@
       {
         "name": "Pour Cyra",
         "vocation": "Elder Druid",
-        "level": 1176,
+        "level": 1177,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -1502,6 +1448,23 @@
           }
         ],
         "rank": 43
+      },
+      {
+        "name": "Royal Knight",
+        "vocation": "Elite Knight",
+        "level": 365,
+        "is_extra": true,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Royal Knight",
+            "time": "2026-08-05T18:27:31Z",
+            "level": 366,
+            "reason": "Died at Level 366 by mean lost soul.",
+            "is_pk": false
+          }
+        ],
+        "rank": 44
       },
       {
         "name": "Sir'Desttroyer",
@@ -1518,7 +1481,7 @@
             "is_pk": false
           }
         ],
-        "rank": 44
+        "rank": 45
       },
       {
         "name": "Tadalai Lama",
@@ -1535,7 +1498,7 @@
             "is_pk": false
           }
         ],
-        "rank": 45
+        "rank": 46
       },
       {
         "name": "Top Vikingo",
@@ -1552,7 +1515,7 @@
             "is_pk": false
           }
         ],
-        "rank": 46
+        "rank": 47
       }
     ],
     "alltime": [
@@ -1707,156 +1670,6 @@
         "rank": 1
       },
       {
-        "name": "Spirit Matt",
-        "vocation": "Elder Druid",
-        "level": 393,
-        "is_extra": true,
-        "death_count": 21,
-        "deaths": [
-          {
-            "character": "Spirit Matt",
-            "time": "2026-07-24T02:57:33Z",
-            "level": 391,
-            "reason": "Died at Level 391 by naga archer.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-07-23T06:30:30Z",
-            "level": 391,
-            "reason": "Died at Level 391 by medusa.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-07-05T09:20:39Z",
-            "level": 365,
-            "reason": "Died at Level 365 by werepanther.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-07-03T00:33:09Z",
-            "level": 347,
-            "reason": "Died at Level 347 by Shielded Astral Glyph.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-25T22:52:36Z",
-            "level": 318,
-            "reason": "Died at Level 318 by werelioness.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-25T17:13:56Z",
-            "level": 318,
-            "reason": "Died at Level 318 by werelion.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-16T03:19:06Z",
-            "level": 307,
-            "reason": "Died at Level 307 by bramble wyrmling.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-15T15:28:44Z",
-            "level": 306,
-            "reason": "Died at Level 306 by crusader.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-13T17:07:00Z",
-            "level": 304,
-            "reason": "Died at Level 304 by goggle cake.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-08T00:59:43Z",
-            "level": 301,
-            "reason": "Died at Level 301 by pirate ghost.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-07T02:18:01Z",
-            "level": 301,
-            "reason": "Died at Level 301 by misguided bully.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-06-04T22:29:27Z",
-            "level": 299,
-            "reason": "Died at Level 299 by ogre ruffian.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-31T12:53:33Z",
-            "level": 298,
-            "reason": "Died at Level 298 by seacrest serpent.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-26T21:55:07Z",
-            "level": 296,
-            "reason": "Died at Level 296 by orc cultist.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-26T09:45:51Z",
-            "level": 295,
-            "reason": "Died at Level 295 by brimstone bug.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-24T01:25:17Z",
-            "level": 292,
-            "reason": "Died at Level 292 by ogre brute.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-13T22:32:52Z",
-            "level": 279,
-            "reason": "Died at Level 279 by lost thrower.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-13T20:24:45Z",
-            "level": 279,
-            "reason": "Died at Level 279 by devourer.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-08T19:05:17Z",
-            "level": 275,
-            "reason": "Died at Level 275 by cursed ape.",
-            "is_pk": false
-          },
-          {
-            "character": "Spirit Matt",
-            "time": "2026-05-08T15:47:56Z",
-            "level": 275,
-            "reason": "Died at Level 275 by glooth golem.",
-            "is_pk": false
-          }
-        ],
-        "rank": 2
-      },
-      {
         "name": "Myss Fortunie",
         "vocation": "Elite Knight",
         "level": 611,
@@ -2004,12 +1817,162 @@
             "is_pk": false
           }
         ],
+        "rank": 2
+      },
+      {
+        "name": "Spirit Matt",
+        "vocation": "Elder Druid",
+        "level": 395,
+        "is_extra": true,
+        "death_count": 20,
+        "deaths": [
+          {
+            "character": "Spirit Matt",
+            "time": "2026-07-24T02:57:33Z",
+            "level": 391,
+            "reason": "Died at Level 391 by naga archer.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-07-23T06:30:30Z",
+            "level": 391,
+            "reason": "Died at Level 391 by medusa.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-07-05T09:20:39Z",
+            "level": 365,
+            "reason": "Died at Level 365 by werepanther.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-07-03T00:33:09Z",
+            "level": 347,
+            "reason": "Died at Level 347 by Shielded Astral Glyph.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-25T22:52:36Z",
+            "level": 318,
+            "reason": "Died at Level 318 by werelioness.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-25T17:13:56Z",
+            "level": 318,
+            "reason": "Died at Level 318 by werelion.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-16T03:19:06Z",
+            "level": 307,
+            "reason": "Died at Level 307 by bramble wyrmling.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-15T15:28:44Z",
+            "level": 306,
+            "reason": "Died at Level 306 by crusader.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-13T17:07:00Z",
+            "level": 304,
+            "reason": "Died at Level 304 by goggle cake.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-08T00:59:43Z",
+            "level": 301,
+            "reason": "Died at Level 301 by pirate ghost.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-07T02:18:01Z",
+            "level": 301,
+            "reason": "Died at Level 301 by misguided bully.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-06-04T22:29:27Z",
+            "level": 299,
+            "reason": "Died at Level 299 by ogre ruffian.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-31T12:53:33Z",
+            "level": 298,
+            "reason": "Died at Level 298 by seacrest serpent.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-26T21:55:07Z",
+            "level": 296,
+            "reason": "Died at Level 296 by orc cultist.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-26T09:45:51Z",
+            "level": 295,
+            "reason": "Died at Level 295 by brimstone bug.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-24T01:25:17Z",
+            "level": 292,
+            "reason": "Died at Level 292 by ogre brute.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-13T22:32:52Z",
+            "level": 279,
+            "reason": "Died at Level 279 by lost thrower.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-13T20:24:45Z",
+            "level": 279,
+            "reason": "Died at Level 279 by devourer.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-08T19:05:17Z",
+            "level": 275,
+            "reason": "Died at Level 275 by cursed ape.",
+            "is_pk": false
+          },
+          {
+            "character": "Spirit Matt",
+            "time": "2026-05-08T15:47:56Z",
+            "level": 275,
+            "reason": "Died at Level 275 by glooth golem.",
+            "is_pk": false
+          }
+        ],
         "rank": 3
       },
       {
         "name": "Theophile Monk",
         "vocation": "Exalted Monk",
-        "level": 535,
+        "level": 536,
         "is_extra": true,
         "death_count": 11,
         "deaths": [
@@ -2174,86 +2137,6 @@
         "rank": 5
       },
       {
-        "name": "Pray for sio",
-        "vocation": "Elder Druid",
-        "level": 622,
-        "is_extra": true,
-        "death_count": 10,
-        "deaths": [
-          {
-            "character": "Pray for sio",
-            "time": "2026-07-24T17:09:07Z",
-            "level": 621,
-            "reason": "Killed at Level 621 by Pray For Sio and cave chimera.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-07-21T16:44:32Z",
-            "level": 622,
-            "reason": "Died at Level 622 by crape man.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-07-16T11:59:16Z",
-            "level": 623,
-            "reason": "Died at Level 623 by emerald tortoise.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-07-15T12:03:14Z",
-            "level": 624,
-            "reason": "Died at Level 624 by oozing carcass.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-07-15T09:54:17Z",
-            "level": 625,
-            "reason": "Died at Level 625 by Moonspawn Juggernaut.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-06-26T09:34:57Z",
-            "level": 624,
-            "reason": "Died at Level 624 by mega dragon.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-06-13T05:58:39Z",
-            "level": 623,
-            "reason": "Died at Level 623 by tremendous tyrant.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-05-17T15:59:07Z",
-            "level": 624,
-            "reason": "Died at Level 624 by falcon knight.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-05-15T14:17:52Z",
-            "level": 625,
-            "reason": "Died at Level 625 by hulking prehemoth.",
-            "is_pk": false
-          },
-          {
-            "character": "Pray for sio",
-            "time": "2026-05-07T16:20:49Z",
-            "level": 626,
-            "reason": "Died at Level 626 by crypt warrior.",
-            "is_pk": false
-          }
-        ],
-        "rank": 6
-      },
-      {
         "name": "Kiziomiizio",
         "vocation": "Master Sorcerer",
         "level": 799,
@@ -2321,6 +2204,79 @@
             "time": "2026-06-28T09:33:13Z",
             "level": 765,
             "reason": "Died at Level 765 by bulltaur forgepriest.",
+            "is_pk": false
+          }
+        ],
+        "rank": 6
+      },
+      {
+        "name": "Pray for sio",
+        "vocation": "Elder Druid",
+        "level": 622,
+        "is_extra": true,
+        "death_count": 9,
+        "deaths": [
+          {
+            "character": "Pray for sio",
+            "time": "2026-07-24T17:09:07Z",
+            "level": 621,
+            "reason": "Killed at Level 621 by Pray For Sio and cave chimera.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-07-21T16:44:32Z",
+            "level": 622,
+            "reason": "Died at Level 622 by crape man.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-07-16T11:59:16Z",
+            "level": 623,
+            "reason": "Died at Level 623 by emerald tortoise.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-07-15T12:03:14Z",
+            "level": 624,
+            "reason": "Died at Level 624 by oozing carcass.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-07-15T09:54:17Z",
+            "level": 625,
+            "reason": "Died at Level 625 by Moonspawn Juggernaut.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-06-26T09:34:57Z",
+            "level": 624,
+            "reason": "Died at Level 624 by mega dragon.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-06-13T05:58:39Z",
+            "level": 623,
+            "reason": "Died at Level 623 by tremendous tyrant.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-05-17T15:59:07Z",
+            "level": 624,
+            "reason": "Died at Level 624 by falcon knight.",
+            "is_pk": false
+          },
+          {
+            "character": "Pray for sio",
+            "time": "2026-05-15T14:17:52Z",
+            "level": 625,
+            "reason": "Died at Level 625 by hulking prehemoth.",
             "is_pk": false
           }
         ],
@@ -2395,7 +2351,7 @@
       {
         "name": "Maltudro moruran",
         "vocation": "Master Sorcerer",
-        "level": 783,
+        "level": 784,
         "is_extra": true,
         "death_count": 8,
         "deaths": [
@@ -2461,7 +2417,7 @@
       {
         "name": "Mega Runa Cinco",
         "vocation": "Elder Druid",
-        "level": 625,
+        "level": 626,
         "is_extra": true,
         "death_count": 8,
         "deaths": [
@@ -2955,6 +2911,51 @@
         "rank": 18
       },
       {
+        "name": "Vaughn Benjamin",
+        "vocation": "Elite Knight",
+        "level": 872,
+        "is_extra": true,
+        "death_count": 5,
+        "deaths": [
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-08-06T00:27:19Z",
+            "level": 873,
+            "reason": "Died at Level 873 by varg.",
+            "is_pk": false
+          },
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-08-02T11:17:26Z",
+            "level": 872,
+            "reason": "Died at Level 872 by norcferatu heartless.",
+            "is_pk": false
+          },
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-07-17T20:27:58Z",
+            "level": 863,
+            "reason": "Died at Level 863 by cobra vizier.",
+            "is_pk": false
+          },
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-05-25T18:43:07Z",
+            "level": 838,
+            "reason": "Died at Level 838 by sphinx.",
+            "is_pk": false
+          },
+          {
+            "character": "Vaughn Benjamin",
+            "time": "2026-05-12T13:44:48Z",
+            "level": 832,
+            "reason": "Died at Level 832 by varg.",
+            "is_pk": false
+          }
+        ],
+        "rank": 19
+      },
+      {
         "name": "Vitorelli",
         "vocation": "Master Sorcerer",
         "level": 515,
@@ -2997,12 +2998,12 @@
             "is_pk": false
           }
         ],
-        "rank": 19
+        "rank": 20
       },
       {
         "name": "Shaman snake",
         "vocation": "Elder Druid",
-        "level": 570,
+        "level": 572,
         "is_extra": false,
         "death_count": 4,
         "deaths": [
@@ -3035,7 +3036,7 @@
             "is_pk": false
           }
         ],
-        "rank": 20
+        "rank": 21
       },
       {
         "name": "Bentcho",
@@ -3073,7 +3074,7 @@
             "is_pk": false
           }
         ],
-        "rank": 21
+        "rank": 22
       },
       {
         "name": "Palimmyr",
@@ -3111,7 +3112,7 @@
             "is_pk": false
           }
         ],
-        "rank": 22
+        "rank": 23
       },
       {
         "name": "Sir Jhunioor",
@@ -3149,12 +3150,12 @@
             "is_pk": false
           }
         ],
-        "rank": 23
+        "rank": 24
       },
       {
         "name": "Thador Rizzak",
         "vocation": "Elite Knight",
-        "level": 689,
+        "level": 690,
         "is_extra": false,
         "death_count": 4,
         "deaths": [
@@ -3187,7 +3188,7 @@
             "is_pk": false
           }
         ],
-        "rank": 24
+        "rank": 25
       },
       {
         "name": "Elf Legolas",
@@ -3225,7 +3226,7 @@
             "is_pk": false
           }
         ],
-        "rank": 25
+        "rank": 26
       },
       {
         "name": "Fex Dord",
@@ -3263,7 +3264,7 @@
             "is_pk": false
           }
         ],
-        "rank": 26
+        "rank": 27
       },
       {
         "name": "Niko Fredericci",
@@ -3301,7 +3302,7 @@
             "is_pk": false
           }
         ],
-        "rank": 27
+        "rank": 28
       },
       {
         "name": "Renanzhyn",
@@ -3336,44 +3337,6 @@
             "time": "2026-06-19T03:22:06Z",
             "level": 1047,
             "reason": "Died at Level 1047 by branchy crawler.",
-            "is_pk": false
-          }
-        ],
-        "rank": 28
-      },
-      {
-        "name": "Vaughn Benjamin",
-        "vocation": "Elite Knight",
-        "level": 873,
-        "is_extra": true,
-        "death_count": 4,
-        "deaths": [
-          {
-            "character": "Vaughn Benjamin",
-            "time": "2026-08-02T11:17:26Z",
-            "level": 872,
-            "reason": "Died at Level 872 by norcferatu heartless.",
-            "is_pk": false
-          },
-          {
-            "character": "Vaughn Benjamin",
-            "time": "2026-07-17T20:27:58Z",
-            "level": 863,
-            "reason": "Died at Level 863 by cobra vizier.",
-            "is_pk": false
-          },
-          {
-            "character": "Vaughn Benjamin",
-            "time": "2026-05-25T18:43:07Z",
-            "level": 838,
-            "reason": "Died at Level 838 by sphinx.",
-            "is_pk": false
-          },
-          {
-            "character": "Vaughn Benjamin",
-            "time": "2026-05-12T13:44:48Z",
-            "level": 832,
-            "reason": "Died at Level 832 by varg.",
             "is_pk": false
           }
         ],
@@ -3444,7 +3407,7 @@
       {
         "name": "Frozudo",
         "vocation": "Elite Knight",
-        "level": 551,
+        "level": 552,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -3475,7 +3438,7 @@
       {
         "name": "Pani Kartofel",
         "vocation": "Elite Knight",
-        "level": 812,
+        "level": 814,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -3537,7 +3500,7 @@
       {
         "name": "Wings Hope",
         "vocation": "Royal Paladin",
-        "level": 821,
+        "level": 823,
         "is_extra": true,
         "death_count": 3,
         "deaths": [
@@ -3568,7 +3531,7 @@
       {
         "name": "Firo Kavo",
         "vocation": "Elite Knight",
-        "level": 712,
+        "level": 713,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3592,7 +3555,7 @@
       {
         "name": "Bourkey",
         "vocation": "Elite Knight",
-        "level": 408,
+        "level": 409,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3616,7 +3579,7 @@
       {
         "name": "Holy Arcane",
         "vocation": "Elite Knight",
-        "level": 218,
+        "level": 219,
         "is_extra": false,
         "death_count": 2,
         "deaths": [
@@ -3636,30 +3599,6 @@
           }
         ],
         "rank": 38
-      },
-      {
-        "name": "Khurlan",
-        "vocation": "Royal Paladin",
-        "level": 284,
-        "is_extra": false,
-        "death_count": 2,
-        "deaths": [
-          {
-            "character": "Khurlan",
-            "time": "2026-05-16T12:11:43Z",
-            "level": 252,
-            "reason": "Died at Level 252 by werehyaena.",
-            "is_pk": false
-          },
-          {
-            "character": "Khurlan",
-            "time": "2026-05-07T11:35:30Z",
-            "level": 247,
-            "reason": "Died at Level 247 by hawk hopper.",
-            "is_pk": false
-          }
-        ],
-        "rank": 39
       },
       {
         "name": "Princess Larah",
@@ -3683,7 +3622,7 @@
             "is_pk": false
           }
         ],
-        "rank": 40
+        "rank": 39
       },
       {
         "name": "Ruckert",
@@ -3707,7 +3646,7 @@
             "is_pk": false
           }
         ],
-        "rank": 41
+        "rank": 40
       },
       {
         "name": "Xilotef",
@@ -3731,7 +3670,7 @@
             "is_pk": false
           }
         ],
-        "rank": 42
+        "rank": 41
       },
       {
         "name": "Deep Slot",
@@ -3755,7 +3694,7 @@
             "is_pk": false
           }
         ],
-        "rank": 43
+        "rank": 42
       },
       {
         "name": "Thionk",
@@ -3779,7 +3718,7 @@
             "is_pk": false
           }
         ],
-        "rank": 44
+        "rank": 43
       },
       {
         "name": "Val Teles",
@@ -3803,7 +3742,7 @@
             "is_pk": false
           }
         ],
-        "rank": 45
+        "rank": 44
       },
       {
         "name": "Ardercimex Dariciann",
@@ -3820,7 +3759,7 @@
             "is_pk": false
           }
         ],
-        "rank": 46
+        "rank": 45
       },
       {
         "name": "Homem Barbaro",
@@ -3837,29 +3776,12 @@
             "is_pk": false
           }
         ],
-        "rank": 47
-      },
-      {
-        "name": "Pamilinha Hidex",
-        "vocation": "Royal Paladin",
-        "level": 613,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Pamilinha Hidex",
-            "time": "2026-06-04T13:17:04Z",
-            "level": 585,
-            "reason": "Died at Level 585 by rustheap golem.",
-            "is_pk": false
-          }
-        ],
-        "rank": 48
+        "rank": 46
       },
       {
         "name": "Roger Bass",
         "vocation": "Elite Knight",
-        "level": 640,
+        "level": 641,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -3871,7 +3793,7 @@
             "is_pk": false
           }
         ],
-        "rank": 49
+        "rank": 47
       },
       {
         "name": "Laine Ski",
@@ -3888,7 +3810,7 @@
             "is_pk": false
           }
         ],
-        "rank": 50
+        "rank": 48
       },
       {
         "name": "Soma Huntress",
@@ -3905,24 +3827,7 @@
             "is_pk": false
           }
         ],
-        "rank": 51
-      },
-      {
-        "name": "Dhonatha guerreiro Fe",
-        "vocation": "Paladin",
-        "level": 297,
-        "is_extra": false,
-        "death_count": 1,
-        "deaths": [
-          {
-            "character": "Dhonatha guerreiro Fe",
-            "time": "2026-05-07T23:51:53Z",
-            "level": 288,
-            "reason": "Died at Level 288 by mutated bat.",
-            "is_pk": false
-          }
-        ],
-        "rank": 52
+        "rank": 49
       },
       {
         "name": "Dieu Apollon",
@@ -3939,7 +3844,7 @@
             "is_pk": false
           }
         ],
-        "rank": 53
+        "rank": 50
       },
       {
         "name": "Jake Gael",
@@ -3956,7 +3861,7 @@
             "is_pk": false
           }
         ],
-        "rank": 54
+        "rank": 51
       },
       {
         "name": "Katniss svitkona",
@@ -3973,12 +3878,29 @@
             "is_pk": false
           }
         ],
-        "rank": 55
+        "rank": 52
+      },
+      {
+        "name": "Khurlan",
+        "vocation": "Royal Paladin",
+        "level": 284,
+        "is_extra": false,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Khurlan",
+            "time": "2026-05-16T12:11:43Z",
+            "level": 252,
+            "reason": "Died at Level 252 by werehyaena.",
+            "is_pk": false
+          }
+        ],
+        "rank": 53
       },
       {
         "name": "Neiikz",
         "vocation": "Elite Knight",
-        "level": 521,
+        "level": 522,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -3990,7 +3912,7 @@
             "is_pk": false
           }
         ],
-        "rank": 56
+        "rank": 54
       },
       {
         "name": "Parde Ases",
@@ -4007,12 +3929,12 @@
             "is_pk": false
           }
         ],
-        "rank": 57
+        "rank": 55
       },
       {
         "name": "Raptor Ongi",
         "vocation": "Elite Knight",
-        "level": 176,
+        "level": 177,
         "is_extra": false,
         "death_count": 1,
         "deaths": [
@@ -4024,12 +3946,12 @@
             "is_pk": false
           }
         ],
-        "rank": 58
+        "rank": 56
       },
       {
         "name": "Farofa of Bacon",
         "vocation": "Royal Paladin",
-        "level": 1092,
+        "level": 1093,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -4041,12 +3963,12 @@
             "is_pk": false
           }
         ],
-        "rank": 59
+        "rank": 57
       },
       {
         "name": "Hali Man",
         "vocation": "Elite Knight",
-        "level": 1048,
+        "level": 1049,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -4058,7 +3980,7 @@
             "is_pk": false
           }
         ],
-        "rank": 60
+        "rank": 58
       },
       {
         "name": "Jabs Nery",
@@ -4075,12 +3997,12 @@
             "is_pk": false
           }
         ],
-        "rank": 61
+        "rank": 59
       },
       {
         "name": "Pour Cyra",
         "vocation": "Elder Druid",
-        "level": 1176,
+        "level": 1177,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -4092,7 +4014,24 @@
             "is_pk": false
           }
         ],
-        "rank": 62
+        "rank": 60
+      },
+      {
+        "name": "Royal Knight",
+        "vocation": "Elite Knight",
+        "level": 365,
+        "is_extra": true,
+        "death_count": 1,
+        "deaths": [
+          {
+            "character": "Royal Knight",
+            "time": "2026-08-05T18:27:31Z",
+            "level": 366,
+            "reason": "Died at Level 366 by mean lost soul.",
+            "is_pk": false
+          }
+        ],
+        "rank": 61
       },
       {
         "name": "Sir'Desttroyer",
@@ -4109,7 +4048,7 @@
             "is_pk": false
           }
         ],
-        "rank": 63
+        "rank": 62
       },
       {
         "name": "Thi",
@@ -4126,12 +4065,12 @@
             "is_pk": false
           }
         ],
-        "rank": 64
+        "rank": 63
       },
       {
         "name": "Wasted Thyme",
         "vocation": "Royal Paladin",
-        "level": 788,
+        "level": 789,
         "is_extra": true,
         "death_count": 1,
         "deaths": [
@@ -4143,7 +4082,7 @@
             "is_pk": false
           }
         ],
-        "rank": 65
+        "rank": 64
       }
     ]
   }
