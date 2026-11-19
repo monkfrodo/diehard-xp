@@ -1,18 +1,44 @@
 {
-  "ultima_execucao": "18/11/2026 às 19:02:39",
-  "sucesso": false,
-  "aguardando_atualizacao": true,
-  "data_xp": "17/11",
+  "ultima_execucao": "19/11/2026 às 16:44:45",
+  "sucesso": true,
+  "aguardando_atualizacao": false,
+  "data_xp": "18/11",
   "fonte_membros": "TibiaData API",
   "fonte_xp": "GuildStats.eu",
   "total_membros_guild": 143,
   "total_extras": 39,
-  "jogadores_com_xp_ontem": 0,
-  "jogadores_com_xp_7dias": 0,
-  "jogadores_com_xp_30dias": 0,
-  "top5_ontem": [],
+  "jogadores_com_xp_ontem": 12,
+  "jogadores_com_xp_7dias": 28,
+  "jogadores_com_xp_30dias": 35,
+  "top5_ontem": [
+    {
+      "pos": 1,
+      "nome": "Homem Barbaro",
+      "xp": "29.088.224"
+    },
+    {
+      "pos": 2,
+      "nome": "Thador Rizzak",
+      "xp": "28.182.029"
+    },
+    {
+      "pos": 3,
+      "nome": "Spirit Jigsaw",
+      "xp": "7.455.567"
+    },
+    {
+      "pos": 4,
+      "nome": "Argonix Ragnar",
+      "xp": "7.152.299"
+    },
+    {
+      "pos": 5,
+      "nome": "Roger Bass",
+      "xp": "3.031.706"
+    }
+  ],
   "validacao": {
-    "tem_dados": false,
-    "msg": "⏳ Aguardando atualização do GuildStats"
+    "tem_dados": true,
+    "msg": "✅ XP do dia 18/11 — atualizado às 16:44"
   }
 }
